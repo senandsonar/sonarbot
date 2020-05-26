@@ -11,7 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
     
     if(!args.length) {
-      return message.channel.send("Please give the name of country")
+      return message.channel.send("Please give the name of a country")
     }
     
     if(args.join(" ") === "all") {
@@ -20,7 +20,7 @@ module.exports = {
       let embed = new discord.MessageEmbed()
       .setTitle("Global Cases")
       .setColor("#ff2050")
-      .setDescription("Sometimes cases number may differ from small amount.")
+      .setDescription("Sometimes the number of cases may differ by a small amount.")
       .addField("Total Cases", corona.cases, true)
       .addField("Total Deaths", corona.deaths, true)
       .addField("Total Recovered", corona.recovered, true)
@@ -38,7 +38,7 @@ module.exports = {
       let embed = new discord.MessageEmbed()
       .setTitle(`${corona.country}`)
       .setColor("#ff2050")
-      .setDescription("Sometimes cases number may differ from small amount.")
+      .setDescription("Sometimes the number of cases may differ by a small amount.")
       .addField("Total Cases", corona.cases, true)
       .addField("Total Deaths", corona.deaths, true)
       .addField("Total Recovered", corona.recovered, true)
