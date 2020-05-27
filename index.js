@@ -64,7 +64,19 @@ client.on('message', message => {
             break;
         case `poll`:
             client.commands.get('poll').run(client, message, args);
-            break
+            break;
+        case `purge`:
+            client.commands.get('purge').run(client, message, args);
+            break;
+        case `status`:
+            client.commands.get('status').run(client, message, args);
+            break;
+        case `roleinfo`:
+            client.commands.get('roleinfo').run(client, message, args);
+            break;
+        case `weather`:
+            client.commands.get('weather').run(client, message, args);
+            break;
         default:
             break;
     }
