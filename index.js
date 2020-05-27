@@ -62,8 +62,8 @@ client.on('message', message => {
         case `emo`:
             client.commands.get('emo').execute(message, args);
             break;
-        case `slowmode`:
-            client.commands.get('slowmode').run(client, message, args);
+        case `poll`:
+            client.commands.get('poll').run(client, message, args);
             break
         default:
             break;
