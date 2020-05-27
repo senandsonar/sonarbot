@@ -59,6 +59,12 @@ client.on('message', message => {
         case `unmute`:
             client.commands.get('unmute').run(client, message, args);
             break;
+        case `emo`:
+            client.commands.get('emo').execute(message, args);
+            break;
+        case `slowmode`:
+            client.commands.get('slowmode').run(client, message, args);
+            break
         default:
             break;
     }
