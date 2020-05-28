@@ -1,7 +1,24 @@
+// at the top of your file
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'help',
 	description: 'help!',
 	execute(message, args) {
-        message.channel.send('Hi! Im Sonar! Im a bot that has many commands with the end goal of being extremely simple to use. Here`s a list of my commands! 8ball | corona | kick | number | userinfo | av | mute | unmute | poll | status | weather | roleinfo | purge | .These are all my commands and my prefix is ",". I was made by Sen#1143 and I do hope I am of use in your server!');
-	},
-};
+		
+
+// inside a command, event listener, etc.
+const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#f83333')
+	.setTitle('**Do ",setup" to use Sonar to her max potential!**')
+	.setAuthor('**Sonar:**')
+	.setDescription('Prefix: ,')
+	.addFields(
+		{ name: '**Moderation**', value: 'ban | unban | mute | unmute | purge | jail | unjail ' },
+		{ name: '**Miscellaneous**', value: 'status | weather | corona | roleinfo | poll | 8ball | av | ping | help | setup', inline: true },
+		{ name: '\u200B', value: '\u200B' },
+	)
+	.setTimestamp()
+
+	message.channel.send(exampleEmbed)
+}}

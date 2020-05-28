@@ -17,7 +17,7 @@ client.once('ready', () => {
 });
 
 client.on('ready', () => {
-    client.user.setActivity('Made by Sen#1143! Sonar is a multi-purpose bot for       miscellaneous commands.', { type: 'PLAYING' });
+    client.user.setActivity('Made by Sen#1143! Sonar is a multi-purpose bot for miscellaneous commands.', { type: 'PLAYING' });
     
 });
 
@@ -30,7 +30,7 @@ client.on('message', message => {
     
     switch (command) {
         case `ping`:
-            client.commands.get('ping').execute(message, args);
+            client.commands.get('ping').run(client, message, args);
             break;
         case `beep`:
             message.channel.send('Boop.');
@@ -77,6 +77,21 @@ client.on('message', message => {
         case `weather`:
             client.commands.get('weather').run(client, message, args);
             break;
+        case `unban`:
+            client.commands.get('unban').execute(client, message, args)
+            break;
+        case `ban`:
+            client.commands.get('ban').execute(client, message, args)
+            break;
+        case `jail`:
+            client.commands.get('jail').run(client, message, args)
+            break;
+        case `unjail`:
+            client.commands.get('unjail').run(client, message, args)
+            break;
+        case `setup`:
+            client.commands.get('setup').execute(message, args);
+             break;
         default:
             break;
     }
@@ -106,7 +121,6 @@ client.on("message", async message => {
         }
     }
 })
-
 
 
 client.login(token);
