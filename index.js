@@ -92,6 +92,9 @@ client.on('message', message => {
         case `setup`:
             client.commands.get('setup').execute(message, args);
              break;
+        case `invite`:
+            client.commands.get('invite').execute(message, args);
+            break;
         default:
             break;
     }
