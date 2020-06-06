@@ -17,7 +17,7 @@ client.once('ready', () => {
 });
 
 client.on('ready', () => {
-    client.user.setActivity('Made by Sen#1143! Sonar is a multi-purpose bot for miscellaneous commands.', { type: 'PLAYING' });
+    client.user.setActivity('Use ",help".', { type: 'PLAYING' });
     
 });
 
@@ -94,6 +94,12 @@ client.on('message', message => {
              break;
         case `invite`:
             client.commands.get('invite').execute(message, args);
+            break;
+        case `slowmode`:
+            client.commands.get('slowmode').run(client, message, args);
+            break;
+        case `spotify`:
+            client.commands.get('spotify').run(client, message, args);
             break;
         default:
             break;
