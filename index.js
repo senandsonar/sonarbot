@@ -101,6 +101,12 @@ client.on('message', message => {
         case `spotify`:
             client.commands.get('spotify').run(client, message, args);
             break;
+        case `emoji`:
+            client.commands.get('emoji').run(client, message, args);
+            break;
+        case `report`:
+            client.commands.get('report').run(client, message, args);
+            break;
         default:
             break;
     }
