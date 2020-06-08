@@ -32,8 +32,8 @@ module.exports={
             let response = responses[Math.floor(Math.random()*(responses.length)-1)]
             let Embed = new MessageEmbed()
             .setTitle(`8Ball!`)
-            .setDescription(`Your question: ${question}\nMy reply: ${response}`)
-            .setColor(`RANDOM`)
+            .setDescription(`Question: ${question}\nMy response: ${response}`)
+            .setColor(`#ff2050`)
             message.channel.send(Embed)
         }
     }

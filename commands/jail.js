@@ -34,8 +34,6 @@ module.exports = {
       return message.channel.send("Please Give the reason to jail the member")
     }
     
-  //TIME TO LET MUTED ROLE
-    
     let muterole = message.guild.roles.cache.find(x => x.name === "Jailed")
     
     
@@ -55,10 +53,7 @@ module.exports = {
     
 await message.channel.send(`You jailed **${message.mentions.users.first().username}** For \`${reason}\``)
     
-    user.send(`You are jailed in **${message.guild.name}** For \`${reason}\``)
-    
-    
-//WE ARE DONE HERE 
+    user.send(`You are jailed in **${message.guild.name}** For \`${reason}\``) 
     
   }
 };

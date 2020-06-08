@@ -7,12 +7,12 @@ module.exports={
         accessableby: "Administrator",
     
         run: async(bot,message,args)=>{
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You Don't Have Sufficient Permissions!- [MANAGE_MESSAGES]")
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have sufficient permissions!- [MANAGE_MESSAGES]")
         if (isNaN(args[0]))
             return message.channel.send('**Please Supply A Valid Amount To Delete Messages!**');
 
         if (args[0] > 100)
-            return message.channel.send("**Please Supply A Number Less Than 100!**");
+            return message.channel.send("**Please give a number less than 100!**");
 
         if (args[0] < 1)
             return message.channel.send("**Please Supply A Number More Than 1!**");

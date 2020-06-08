@@ -44,6 +44,9 @@ client.on('message', message => {
         case `corona`:
             client.commands.get('corona').run(client, message, args);
             break;
+        case `covid`:
+            client.commands.get('corona').run(client, message, args);
+            break;
         case `kick`:
             client.commands.get('kick').run(client, message, args);
             break;
@@ -125,12 +128,12 @@ client.on("message", async message => {
     user = message.mentions.users.first(); //mentioned user, if any
     if (!user) { //if no one is mentioned
             user = message.author;
-            embed.setColor("RANDOM"); //can specifiy color of embed here
+            embed.setColor("#ff2050"); //can specifiy color of embed here
             embed.setImage(user.displayAvatarURL());
             message.channel.send(embed);
     } else { //if a user id IS specified (need developer mode on on discord to get it)
             user = message.mentions.users.first();
-            embed.setColor("RANDOM"); //can specifiy color of embed here
+            embed.setColor("#ff2050"); //can specifiy color of embed here
             embed.setImage(user.displayAvatarURL());
             message.channel.send(embed);
         }

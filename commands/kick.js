@@ -17,7 +17,7 @@ module.exports={
         const Embed = new MessageEmbed()
         .setTitle(`You have kicked a member!`)
         .setDescription(`You have kicked the user ${bot.users.cache.get(User.id).username} from this server!`)
-        .setColor(`RANDOM`)
+        .setColor(`#ff2050`)
         message.channel.send(Embed)
     }
 }

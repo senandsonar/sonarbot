@@ -16,7 +16,7 @@ const exampleEmbed = new Discord.MessageEmbed()
 	.setDescription('Prefix: ,')
 	.addFields(
 		{ name: '**Moderation**', value: 'ban | unban | mute | unmute | purge | jail | unjail | slowmode' },
-		{ name: '**Miscellaneous**', value: 'status | weather | spotify | number | report | corona | roleinfo | poll | 8ball | av | ping | help | setup | invite | emoji', inline: true },
+		{ name: '**Miscellaneous**', value: 'status | weather | spotify | number | report | corona/covid | roleinfo | poll | 8ball | av | ping | help | setup | invite | emoji', inline: true },
 	)
 	.setTimestamp()
 
