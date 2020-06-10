@@ -16,10 +16,16 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('ready', () => {
-    client.user.setActivity('Use ",help".', { type: 'PLAYING' });
-    
-});
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "Use !help",  //The message shown
+            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+ });
 
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
