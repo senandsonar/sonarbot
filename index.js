@@ -110,6 +110,9 @@ client.on('message', message => {
         case `report`:
             client.commands.get('report').run(client, message, args);
             break;
+        case `giveaway`:
+            client.commands.get('giveaway').run(client, message, args);
+            break;
         default:
             break;
     }
