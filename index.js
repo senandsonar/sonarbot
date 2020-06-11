@@ -119,6 +119,12 @@ client.on('message', message => {
         case `giveaway`:
             client.commands.get('giveaway').run(client, message, args);
             break;
+        case `background`:
+            client.commands.get('background').execute(message, args);
+            break;
+        case `quickhelp`:
+            client.commands.get('quickhelp').execute(message, args);
+             break;
         default:
             break;
     }
@@ -137,12 +143,12 @@ client.on("message", async message => {
     user = message.mentions.users.first(); //mentioned user, if any
     if (!user) { //if no one is mentioned
             user = message.author;
-            embed.setColor("#ff2050"); //can specifiy color of embed here
+            embed.setColor("BLACK"); //can specifiy color of embed here
             embed.setImage(user.displayAvatarURL());
             message.channel.send(embed);
     } else { //if a user id IS specified (need developer mode on on discord to get it)
             user = message.mentions.users.first();
-            embed.setColor("#ff2050"); //can specifiy color of embed here
+            embed.setColor("BLACK"); //can specifiy color of embed here
             embed.setImage(user.displayAvatarURL());
             message.channel.send(embed);
         }

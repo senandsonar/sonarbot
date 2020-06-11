@@ -8,9 +8,9 @@ module.exports = {
 
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('#f83333')
-	.setTitle('To use Sonar effectively, follow these instructions...')
-	.setAuthor('Sonar:')
+	.setColor('RANDOM')
+	.setTitle('To use Mirai effectively, follow these instructions...')
+	.setAuthor('Sen#1143', 'https://i.imgur.com/ilVV4ya.jpg')
 	.setDescription('You will need to create a few roles and a channel.')
 	.addFields(
 		{ name: '**Mute Role**', value: 'Create a role called "Muted" that has the permission to talk disabled in all channels.  ' },

@@ -27,7 +27,7 @@ module.exports = {
       .setDescription(
         `**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**Total amount of emoji's: [${OverallEmojis}]**`
       )
-      .setColor(`#ff2050`);
+      .setColor(`RANDOM`);
     message.channel.send(Embed);
   },
 };

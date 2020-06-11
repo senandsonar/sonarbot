@@ -11,11 +11,11 @@ module.exports = {
         }else{
             reason = arg.join(' ')
         }
-        if(!message.member.hasPermission("BAN_MEMBERS"))return message.channel.send("You dont have the right permission")
+        if(!message.member.hasPermission("BAN_MEMBERS"))return message.channel.send("You dont have the permission BAN_MEMBERS.")
         if(!message.guild.member(member).bannable)return message.channel.send("I cant ban that user")
    
         message.guild.member(member).ban().then(()=>{
-        message.channel.send(`${member.user.tag} has been banned :white_check_mark: `)
+        message.channel.send(`${member.user.tag} has been banned. Cya never, punk. :white_check_mark: `)
     })
     }
 }

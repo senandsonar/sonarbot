@@ -10,7 +10,8 @@ module.exports = {
         const _ = new Discord.MessageEmbed()
         .setTitle('Pong!')
         .setDescription(`🏓 Pong!\nLatency is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms\nAPI Latency is ${Math.round(bot.ws.ping)}ms`)
-        .setColor('BLUE')
+        .setColor('RANDOM')
+        .setAuthor('Sen#1143', 'https://i.imgur.com/ilVV4ya.jpg')
         msg.edit(_);
         msg.edit("\u200B")
     })

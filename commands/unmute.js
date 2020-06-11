@@ -4,7 +4,7 @@ module.exports = {
     run: async (client, message, args) => {
       if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send(
-          "Sorry but you do not have permission to unmute anyone"
+          "Sorry but you do not have permission to unmute anyone. You require the permission 'MANAGE_ROLES"
         );
       }
   

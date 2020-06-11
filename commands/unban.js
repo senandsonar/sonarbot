@@ -3,7 +3,7 @@ module.exports = {
     name : 'unban',
     execute(client, message, args){
 
-   if(!message.member.hasPermission("BAN_MEMBERS"))return message.channel.send("You do not have that permission!")
+   if(!message.member.hasPermission("BAN_MEMBERS"))return message.channel.send("You do not have the permission 'BAN_MEMBERS'")
 
    let member = client.users.cache.get(args[0]);
    if(!member)return message.channel.send("Input a valid id")
