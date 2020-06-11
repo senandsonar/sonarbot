@@ -27,6 +27,8 @@ client.on("ready", () =>{
     });
  });
 
+
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -116,8 +118,8 @@ client.on('message', message => {
         case `report`:
             client.commands.get('report').run(client, message, args);
             break;
-        case `giveaway`:
-            client.commands.get('giveaway').run(client, message, args);
+        case `define`:
+            client.commands.get('define').run(client, message, args);
             break;
         case `background`:
             client.commands.get('background').execute(message, args);

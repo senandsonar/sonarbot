@@ -10,12 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "common-tags": "^1.8.0",
+    "discord-giveaways": "^4.1.8",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "emojiparse.js": "0.0.5",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
     "novelcovid": "^1.2.7",
+    "relevant-urban": "^2.0.0",
     "weather-js": "^2.0.0"
   }
 }

@@ -9,7 +9,7 @@ module.exports = {
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-	.setTitle('To use Mirai effectively, follow these instructions...')
+	.setTitle('To use Sonar effectively, follow these instructions...')
 	.setAuthor('Sen#1143', 'https://i.imgur.com/ilVV4ya.jpg')
 	.setDescription('You will need to create a few roles and a channel.')
 	.addFields(
