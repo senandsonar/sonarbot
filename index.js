@@ -127,6 +127,9 @@ client.on('message', message => {
         case `quickhelp`:
             client.commands.get('quickhelp').execute(message, args);
              break;
+        case `reddit`:
+            client.commands.get('reddit').run(client, message, args);
+            break;
         default:
             break;
     }
