@@ -16,30 +16,30 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-//client.on("ready", () =>{
- //   console.log(`Logged in as ${client.user.tag}!`);
- //   client.user.setPresence({
- //       status: "online",  //You can show online, idle....
- //       game: {
-  //          name: "Use !help",  //The message shown
- //           type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
- //       }
- //   });
- //});
+client.on("ready", () =>{
+   console.log(`Logged in as ${client.user.tag}!`);
+   client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "Use !help",  //The message shown
+            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+ });
 
- const activities_list = [
-    "with the help command", 
-    "with Visual Studio",
-    "with ,help", 
-    "with Covid-19"
-    ]; // creates an arraylist containing phrases you want your bot to switch through.
+// const activities_list = [
+ //   "with the help command", 
+ //   "with Visual Studio",
+ //   "with ,help", 
+ //   "with Covid-19"
+ //   ]; // creates an arraylist containing phrases you want your bot to switch through.
 
-client.on('ready', () => {
-    setInterval(() => {
-        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
-        client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
-    }, 3500); 
-});
+//client.on('ready', () => {
+ //   setInterval(() => {
+ //       const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
+  //      client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
+ //   }, 3500); 
+//});
 
 
 
