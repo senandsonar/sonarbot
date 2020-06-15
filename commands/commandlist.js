@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'quickhelp',
+	name: 'commandlist',
 	description: 'help!',
 	execute(message, args) {
 		

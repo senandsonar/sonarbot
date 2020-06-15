@@ -7,7 +7,7 @@ module.exports={
     run: async(bot,message,args)=>{
         if(!args[0])return message.channel.send(`Please specify who you wish to kick! (Please give the user id or username)`)
         let User = message.guild.members.cache.get(args[0])
-        if(!User)return message.channel.send(`That is not a user in the server! Try again!`)
+        if(!User)return message.channel.send(`That is not a valid USER ID.`)
         let Reason = message.content.split(`!kick ${User.id} `)
         if(!args[1])return message.channel.send(`Please specify a reason! You can't kick someone with out a reason, can you?`)
         if(!Reason) return message.channel.send(`Please specify a reason! You can't kick someone with out a reason, can you?`)

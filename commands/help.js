@@ -15,8 +15,8 @@ const exampleEmbed = new Discord.MessageEmbed()
 	.setThumbnail (`https://i.imgur.com/h1ekMX8.png`)
 	.setDescription('Prefix: ,')
 	.addFields(
-		{ name: '**Moderation**', value: 'ban | unban | mute | unmute | purge | jail | unjail | slowmode' },
-		{ name: '**Miscellaneous**', value: 'status | weather | spotify | number | report | corona/covid | roleinfo | poll | 8ball | av | ping | help | setup | invite | emoji | define | background | quickhelp', inline: true },
+		{ name: '**Moderation**', value: 'ban | unban | mute | unmute | purge | jail | unjail | slowmode | dm' },
+		{ name: '**Miscellaneous**', value: 'status | weather | spotify | number | report | corona/covid | roleinfo | poll | 8ball | av | ping | help | setup | invite | emoji | define | background | commandlist | reddit | changelog | supportserver', inline: true },
 		{ name: '**Extras**', value: '***Sonar was made by Sen#1143. Additional commands will be added to this bot over time and the help command will be updated to include anything new.***'},
 	)
 	.setTimestamp()

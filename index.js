@@ -16,16 +16,30 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on("ready", () =>{
-    console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-            name: "Use !help",  //The message shown
-            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
- });
+//client.on("ready", () =>{
+ //   console.log(`Logged in as ${client.user.tag}!`);
+ //   client.user.setPresence({
+ //       status: "online",  //You can show online, idle....
+ //       game: {
+  //          name: "Use !help",  //The message shown
+ //           type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+ //       }
+ //   });
+ //});
+
+ const activities_list = [
+    "with the help command", 
+    "with Visual Studio",
+    "with ,help", 
+    "with Covid-19"
+    ]; // creates an arraylist containing phrases you want your bot to switch through.
+
+client.on('ready', () => {
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
+        client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
+    }, 3500); 
+});
 
 
 
@@ -63,6 +77,9 @@ client.on('message', message => {
             break;
          case `help`:
             client.commands.get('help').execute(message, args);
+            break;
+         case `changelog`:
+            client.commands.get('changelog').execute(message, args);
             break;
          case `mute`:
             client.commands.get('mute').run(client, message, args);
@@ -124,12 +141,21 @@ client.on('message', message => {
         case `background`:
             client.commands.get('background').execute(message, args);
             break;
-        case `quickhelp`:
-            client.commands.get('quickhelp').execute(message, args);
+        case `commandlist`:
+            client.commands.get('commandlist').execute(message, args);
              break;
         case `reddit`:
             client.commands.get('reddit').run(client, message, args);
             break;
+        case `dm`:
+            client.commands.get('dm').run(client, message, args);
+            break;
+        case `supportserver`:
+            client.commands.get('supportserver').execute(message, args);
+             break;
+        case `officialserver`:
+            client.commands.get('officialserver').execute(message, args);
+             break;
         default:
             break;
     }
@@ -158,66 +184,7 @@ client.on("message", async message => {
             message.channel.send(embed);
         }
     }
-})
-
-var commando = require('discord.js-commando');
-var discord = require('discord.js');
-
-class aboutuser extends commando.Command 
-{
-    constructor(client) {
-        super(client, {
-            name: 'aboutuser',
-            group: 'help',
-            memberName: 'aboutuser',
-            description: 'Lists information about a specific user.',
-            aliases: ['au', 'aboutu', 'auser', 'user'],
-        })
-    }
-async run(message, args){
-    const userMention = message.mentions.users.first() || msg.author;
-    const memberMention = message.mentions.members.first() || msg.member;
-
-    let userinfo = {};
-    userinfo.bot = userMention.bot;
-    userinfo.createdat = userMention.createdAt;
-    userinfo.discrim = userMention.discriminator;
-    userinfo.id = userMention.id;
-    userinfo.mfa = userMention.mfaEnabled;
-    userinfo.pre = userMention.premium;
-    userinfo.presen = userMention.presence;
-    userinfo.tag = userMention.tag;
-    userinfo.uname = userMention.username;
-    userinfo.verified = userMention.verified;
-
-    userinfo.avatar = userMention.avatarURL;
-
-    const rolesOfTheMember = memberMention.roles.filter(r => r.name !== '@everyone').map(role => role.name).join(', ')
-
-    var myInfo = new discord.RichEmbed()
-        .setAuthor(userinfo.uname, userinfo.avatar)
-        .addField("Bot?",userinfo.bot, true)
-        .addField("Created At",userinfo.createdat, true)
-        .addField("Discriminator",userinfo.discrim, true)
-        .addField("Client ID",userinfo.id, true)
-        .addField("2FA/MFA Enabled?",userinfo.mfa, true)
-        .addField("Paid Account?",userinfo.pre, true)
-        .addField("Presence",userinfo.presen, true)
-        .addField("Client Tag",userinfo.tag, true)
-        .addField("Username",userinfo.uname, true)
-        .addField("Verified?",userinfo.verified, true)
-        .setColor(0xf0e5da)
-        .setFooter('s!aboutserver')
-        .setTitle("About this user...")
-        .setThumbnail(userinfo.avatar)
-
-
-        message.channel.sendEmbed(myInfo);
-
-}
-
-}
-module.exports = aboutuser;
+}) 
 
 
 client.login(token);
