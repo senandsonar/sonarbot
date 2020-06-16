@@ -6,12 +6,13 @@ module.exports = {
 	description: 'help!',
 	execute(message, args) {
 		
-
+		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
+		
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
+	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-	.setAuthor('Sen#1143', 'https://i.imgur.com/ilVV4ya.jpg')
 	.setThumbnail (`https://i.imgur.com/h1ekMX8.png`)
 	.setDescription('Prefix: ,')
 	.addFields(

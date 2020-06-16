@@ -156,6 +156,9 @@ client.on('message', message => {
         case `officialserver`:
             client.commands.get('officialserver').execute(message, args);
              break;
+        case `userinfo`:
+            client.commands.get('userinfo').execute(message, args);
+             break;
         default:
             break;
     }

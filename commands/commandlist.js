@@ -5,12 +5,13 @@ module.exports = {
 	description: 'help!',
 	execute(message, args) {
 		
+		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
 
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('**Here is a list of the commands and what they do and how to use them.**')
-    .setAuthor('Sen#1143', 'https://i.imgur.com/ilVV4ya.jpg')
+    .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setURL('https://docs.google.com/document/d/1pphwd2FcdDeyrwsYI0xzMF85tey23E0iSdOBOUezf2w/edit')
 	.setTimestamp()
 
