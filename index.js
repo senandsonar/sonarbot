@@ -159,35 +159,13 @@ client.on('message', message => {
         case `userinfo`:
             client.commands.get('userinfo').execute(message, args);
              break;
+        case `av`:
+            client.commands.get('av').execute(message, args);
+            break;
         default:
             break;
     }
 });
-
-client.on("message", async message => {
-    const args = message.content.slice(prefix.length).trim().split(/ +/g) //arguments
-    const command = args.shift().toLowerCase(); //command
-
-    if (message.content.indexOf(prefix) !== 0) return;
-    
-    if (command == "av") {
-
-    var user;
-    var embed = new Discord.MessageEmbed();
-    user = message.mentions.users.first(); //mentioned user, if any
-    if (!user) { //if no one is mentioned
-            user = message.author;
-            embed.setColor("BLACK"); //can specifiy color of embed here
-            embed.setImage(user.displayAvatarURL());
-            message.channel.send(embed);
-    } else { //if a user id IS specified (need developer mode on on discord to get it)
-            user = message.mentions.users.first();
-            embed.setColor("BLACK"); //can specifiy color of embed here
-            embed.setImage(user.displayAvatarURL());
-            message.channel.send(embed);
-        }
-    }
-}) 
 
 
 client.login(token);
