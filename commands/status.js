@@ -31,7 +31,6 @@ module.exports={
                     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
                     .setColor("RANDOM")
                     .addField("**Status**", `**Custom status** -\n${activity.emoji || "No Emoji"} | ${activity.state}`)
-                    .setThumbnail(user.user.displayAvatarURL())
                     .setFooter(message.guild.name, message.guild.iconURL())
                     .setTimestamp()
                 message.channel.send(embed)

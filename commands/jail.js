@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const invite = require("./invite");
 
 module.exports = {
   name: "jail",
@@ -38,7 +39,7 @@ module.exports = {
     
     
       if(!muterole) {
-      return message.channel.send("This server do not have role with name `Jailed`")
+      return message.channel.send("This server do not have role with name `Jailed`") 
     }
     
     

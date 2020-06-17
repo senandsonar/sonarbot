@@ -3,7 +3,7 @@ module.exports = {
     description: "DM a user in the guild",
     category: "fun",
     run: async (bot, message, args) => {
-      if (!message.member.permissions.has("MANAGE_MESSAGES"))
+      if (!message.member.permissions.has("ADMINISTRATOR"))
         return message.channel.send("You do not have enough permissions!");
       let user =
         message.mentions.members.first() ||

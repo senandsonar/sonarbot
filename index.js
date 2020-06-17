@@ -162,6 +162,18 @@ client.on('message', message => {
         case `av`:
             client.commands.get('av').execute(message, args);
             break;
+        case `coinflip`:
+            client.commands.get('coinflip').run(client, message, args);
+            break;
+        case `uptime`:
+            client.commands.get('uptime').run(client, message, args);
+            break;
+        case `whois`:
+            client.commands.get('whois').run(client, message, args);
+            break;
+        case `roles`:
+            client.commands.get('roles').run(client, message, args);
+            break;
         default:
             break;
     }

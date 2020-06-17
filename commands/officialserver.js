@@ -11,7 +11,7 @@ module.exports = {
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
     .setTitle('Click this link to join the official Sonar server!')
-    .setURL('https://discord.gg/DuMUcF')
+    .setURL('https://discord.gg/VbDchG')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	
 	.setTimestamp()
