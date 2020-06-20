@@ -120,8 +120,8 @@ client.on('message', message => {
         case `setup`:
             client.commands.get('setup').execute(message, args);
              break;
-        case `invite`:
-            client.commands.get('invite').execute(message, args);
+        case `inviteme`:
+            client.commands.get('inviteme').execute(message, args);
             break;
         case `slowmode`:
             client.commands.get('slowmode').run(client, message, args);
@@ -173,6 +173,24 @@ client.on('message', message => {
             break;
         case `roles`:
             client.commands.get('roles').run(client, message, args);
+            break;
+        case `mischelp`:
+            client.commands.get('mischelp').execute(message, args);
+            break;
+        //case `newhelp`:
+         //   client.commands.get('newhelp').execute(message, args);
+         //   break;
+        case `modhelp`:
+            client.commands.get('modhelp').execute(message, args);
+            break;
+        case `infohelp`:
+            client.commands.get('infohelp').execute(message, args);
+            break;
+        case `funhelp`:
+            client.commands.get('funhelp').execute(message, args);
+            break;
+        case `serverlist`:
+            client.commands.get('serverlist').run(client, message, args);
             break;
         default:
             break;

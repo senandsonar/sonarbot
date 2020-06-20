@@ -42,8 +42,6 @@ module.exports = {
       .addField("Total Cases", corona.cases, true)
       .addField("Total Deaths", corona.deaths, true)
       .addField("Total Recovered", corona.recovered, true)
-      .addField("Today's Cases", corona.todayCases, true)
-      .addField("Today's Deaths", corona.todayDeaths, true)
       .addField("Active Cases", corona.active, true);
       
       return message.channel.send(embed)

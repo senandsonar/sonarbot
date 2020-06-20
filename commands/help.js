@@ -12,19 +12,30 @@ module.exports = {
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-	.setTitle('**Do ",setup" to use Sonar to her max potential!**')
+	.setTitle('**Use ",setup".**')
 	.setThumbnail (`https://i.imgur.com/h1ekMX8.png`)
 	.setDescription('Prefix: ,')
 	.addFields(
-		{ name: '**Moderation**', value: '`ban`  `unban`  `mute`  `unmute`  `purge`  `jail`  `unjail`  `slowmode`  `dm`' },
-		{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
-		{ name: '**Miscellaneous**', value: ' `number`  `report`  `poll`  `8ball`  `invite`  `define`  `reddit`  `coinflip`  `uptime`', inline: true },
+                { name: '**Moderation Commands (,modhelp)**', value: 'All the moderation commands Sonar has to offer.' },
+       // { name: '\u200B', value: '\u200B' },
+                { name: '**Info Commands (,infohelp)**', value: 'APIs that Sonar has access to and other informative commands.', inline: false },
+       // { name: '\u200B', value: '\u200B' },
+				{ name: '**Fun Commands (,funhelp)**', value: 'Some fun commands that Sonar can do.', inline: false },
+				{ name: '**Miscellaneous Commands (,mischelp)**', value: 'Unique miscellaneous commands. ', inline: false },
+        
+        
 
 
 
-		{ name: '**Extras**', value: '***Sonar was made by Sen#4444. Additional commands will be added to this bot over time and the help command will be updated to include anything new.***'},
+		//{ name: '**Extras**', value: '***Sonar was made by Sen#4444. Additional commands will be added to this bot over time and the help command will be updated to include anything new.***'},
 	)
-	.setTimestamp()
+    .setTimestamp()
+    .setFooter('Run ,<category in brackets>. | Invite me: ,inviteme');
+
+
+
+
+
 
 	message.channel.send(exampleEmbed)
 }}

@@ -11,15 +11,13 @@ module.exports = {
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-    .setTitle('6/16/2020')
+    .setTitle('6/20/2020')
     .setDescription("Don't forget the check the Command List for info on new commands!")
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setThumbnail (`https://i.imgur.com/h1ekMX8.png`)
 	.addFields(
-		{ name: '**Updated a command.**', value: "Updated 'av' command. Added support for GIF's "},
-		{ name: '**Updated a command.**', value: "Overhauled the command."},
-		{ name: '**Added a command.**', value: "Added 'coinflip' command."},
-		{ name: '**Added a command.**', value: "Added 'uptime' command."}
+		{ name: '**Updated a command.**', value: "Changed the name of the command 'invite' to 'inviteme'. "},
+		{ name: '**Updated a command.**', value: "Reworked the 'help' command. Added several new commands to accompany it. "},
 	)
 	.setTimestamp()
 
