@@ -1,23 +1,55 @@
-const {MessageEmbed} = require('discord.js')
-module.exports={
-    name: "kick",
-    description: "Kick a specified user from the server",
-    category:"moderation",
-    usage: "<user id> <reason>",
-    run: async(bot,message,args)=>{
-        if(!args[0])return message.channel.send(`Please specify who you wish to kick! (Please give the user id or username)`)
-        let User = message.guild.members.cache.get(args[0])
-        if(!User)return message.channel.send(`That is not a valid USER ID.`)
-        let Reason = message.content.split(`!kick ${User.id} `)
-        if(!args[1])return message.channel.send(`Please specify a reason! You can't kick someone with out a reason, can you?`)
-        if(!Reason) return message.channel.send(`Please specify a reason! You can't kick someone with out a reason, can you?`)
-        if(!User.kickable)return message.channel.send(`You can not kick this user, they may have a role higher then me or the same role as me.`)
-        if(!message.member.permissions.has("KICK_MEMBERS"))return message.channel.send(`You do not have the KICK_MEMBERS permission!`)
-        User.kick(Reason)
-        const Embed = new MessageEmbed()
-        .setTitle(`You have kicked a member!`)
-        .setDescription(`You have kicked the user ${bot.users.cache.get(User.id).username} from this server!`)
-        .setColor(`#ff2050`)
-        message.channel.send(Embed)
+const { MessageEmbed } = require("discord.js");
+
+module.exports = {
+        name: "kick",
+        category: "moderation",
+        description: "Kicks the user",
+        accessableby: "Administrator",
+        usage: "[name | nickname | mention | ID] <reason> (optional)",
+        aliases: ["k"],
+
+    run: async (bot, message, args) => {
+        try {
+            if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
+            if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
+
+            if (!args[0]) return message.channel.send('**Enter A User To Kick!**')
+
+            var kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
+            if (!kickMember) return message.channel.send("**User Is Not In The Guild!**");
+
+            if (kickMember.id === message.member.id) return message.channel.send("**You Cannot Kick Yourself!**")
+
+            if (!kickMember.kickable) return message.channel.send("**Cannot Kick This User!**")
+            if (kickMember.user.bot) return message.channel.send("**Cannot Kick A Bot!**")
+
+            var reason = args.slice(1).join(" ");
+            try {
+                const sembed2 = new MessageEmbed()
+                    .setColor("RED")
+                    .setDescription(`**Hello, You Have Been Kicked From ${message.guild.name} for - ${reason || "No Reason!"}**`)
+                    .setFooter(message.guild.name, message.guild.iconURL())
+                kickMember.send(sembed2).then(() =>
+                    kickMember.kick()).catch(() => null)
+            } catch {
+                kickMember.kick()
+            }
+            if (reason) {
+            var sembed = new MessageEmbed()
+                .setColor("GREEN")
+                .setAuthor(message.guild.name, message.guild.iconURL())
+                .setDescription(`**${kickMember.user.username}** has been kicked for ${reason}`)
+            message.channel.send(sembed);
+            } else {
+                var sembed2 = new MessageEmbed()
+                .setColor("GREEN")
+                .setAuthor(message.guild.name, message.guild.iconURL())
+                .setDescription(`**${kickMember.user.username}** has been kicked. ✅ `)
+            message.channel.send(sembed2);
+            }
+           
+        } catch (e) {
+            return message.channel.send(`**${e.message}**`)
+        }
     }
 }

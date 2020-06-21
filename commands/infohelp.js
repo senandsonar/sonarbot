@@ -23,6 +23,8 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Covid- Shows the global or country statistics for COVID-19.**", value: 'Usage: ,covid {country name} OR ,covid all.', inline: false },
         { name: "**Roleinfo - Shows the info of a role.**", value: 'Usage: ,roleinfo {role name} ', inline: false },
         { name: "**Userinfo - Shows info about your account.**", value: 'Usage: ,userinfo ', inline: false },
+        { name: "**Channelinfo - Shows info about a server channel.**", value: 'Usage: ,channelinfo {channel name} ', inline: false },
+        { name: "**Rolememberinfo - Shows every member who has a certain role.**", value: 'Usage: ,rolememberinfo {role name} ', inline: false },
        // { name: "**av - Shows a user's avatar.**", value: 'Usage: ,av @{member} ', inline: false },
         { name: "**Ping - Shows the bot's latency.**", value: 'Usage: ,ping ', inline: false },
         { name: "**Help - Shows the bot's help panel.**", value: 'Usage: ,help ', inline: false },

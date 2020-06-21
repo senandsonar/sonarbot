@@ -21,7 +21,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Report - Sends a report of a user into a reports channel.**", value: 'Usage: ,report @{user} {reason} ', inline: false },
         { name: "**Inviteme - Creates an instant invite for the bot.**", value: 'Usage: ,inviteme ', inline: false },
         { name: "**Background - Shows the story behind Sonar.**", value: 'Usage: ,background ', inline: false },
-        { name: "**Changelog - Shows the bot's changelog..**", value: 'Usage: ,changelog ', inline: false },
+        { name: "**Changelog - Shows the bot's changelog.**", value: 'Usage: ,changelog ', inline: false },
         { name: "**Supportserver - Creates an instant invite for Sonar's support server.**", value: 'Usage: ,supportserver ', inline: false },	
 	)
     

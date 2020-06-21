@@ -106,10 +106,10 @@ client.on('message', message => {
             client.commands.get('weather').run(client, message, args);
             break;
         case `unban`:
-            client.commands.get('unban').execute(client, message, args)
+            client.commands.get('unban').run(client, message, args)
             break;
         case `ban`:
-            client.commands.get('ban').execute(client, message, args)
+            client.commands.get('ban').run(client, message, args)
             break;
         case `jail`:
             client.commands.get('jail').run(client, message, args)
@@ -160,7 +160,7 @@ client.on('message', message => {
             client.commands.get('userinfo').execute(message, args);
              break;
         case `av`:
-            client.commands.get('av').execute(message, args);
+            client.commands.get('av').run(client, message, args);
             break;
         case `coinflip`:
             client.commands.get('coinflip').run(client, message, args);
@@ -171,8 +171,8 @@ client.on('message', message => {
         case `whois`:
             client.commands.get('whois').run(client, message, args);
             break;
-        case `roles`:
-            client.commands.get('roles').run(client, message, args);
+        case `role`:
+            client.commands.get('role').run(client, message, args);
             break;
         case `mischelp`:
             client.commands.get('mischelp').execute(message, args);
@@ -191,6 +191,30 @@ client.on('message', message => {
             break;
         case `serverlist`:
             client.commands.get('serverlist').run(client, message, args);
+            break;
+        case `tweet`:
+            client.commands.get('tweet').run(client, message, args);
+            break;
+        case `clyde`:
+            client.commands.get('clyde').run(client, message, args);
+            break;
+        case `channelinfo`:
+            client.commands.get('channelinfo').run(client, message, args);
+            break;
+        case `rolememberinfo`:
+            client.commands.get('rolememberinfo').run(client, message, args);
+            break;
+        case `meme`:
+            client.commands.get('meme').run(client, message, args);
+            break;
+        case `setnick`:
+            client.commands.get('setnick').run(client, message, args);
+            break;
+        case `addrole`:
+            client.commands.get('addrole').run(client, message, args);
+            break;
+        case `removerole`:
+            client.commands.get('removerole').run(client, message, args);
             break;
         default:
             break;
