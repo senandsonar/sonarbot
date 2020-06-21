@@ -27,7 +27,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Ping - Shows the bot's latency.**", value: 'Usage: ,ping ', inline: false },
         { name: "**Help - Shows the bot's help panel.**", value: 'Usage: ,help ', inline: false },
         { name: "**Setup - Shows the bot's setup panel. (useful)**", value: 'Usage: ,setup ', inline: false },
-        { name: "**Commandlist - Shows the bot's help panel.**", value: 'Usage: ,help ', inline: false },
+        { name: "**Commandlist - Sends a form for the full list of commands.**", value: 'Usage: ,commandlist ', inline: false },
         { name: "**Uptime - Shows how long the bot has been online.**", value: 'Usage: ,uptime ', inline: false },
         
 		
