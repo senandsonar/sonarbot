@@ -216,6 +216,9 @@ client.on('message', message => {
         case `removerole`:
             client.commands.get('removerole').run(client, message, args);
             break;
+        case `invites`:
+            client.commands.get('invites').run(client, message, args);
+            break;
         default:
             break;
     }
