@@ -11,7 +11,7 @@ module.exports = {
 
   run: async (bot, message, args) => {
     if (message.author.id == ownerid) {
-      if (!message.guild.me.hasPermission("ADMINISTRATOR"))
+      if (!message.guild.me.hasPermission("MANAGE_SERVER"))
         return message.channel
           .send("I Dont Have Permissions")
           .then(msg => msg.delete({ timeout: 5000 }));
