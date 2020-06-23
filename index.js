@@ -219,6 +219,12 @@ client.on('message', message => {
         case `invites`:
             client.commands.get('invites').run(client, message, args);
             break;
+        case `serverinfo`:
+            client.commands.get('serverinfo').run(client, message, args);
+            break;
+        case `calculate`:
+            client.commands.get('calculate').run(client, message, args);
+            break;
         default:
             break;
     }
