@@ -225,6 +225,9 @@ client.on('message', message => {
         case `calculate`:
             client.commands.get('calculate').run(client, message, args);
             break;
+        case `createmuterole`:
+            client.commands.get('createmuterole').run(client, message, args);
+            break;
         default:
             break;
     }
