@@ -24,7 +24,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Changelog** - Shows the bot's changelog.", value: 'Usage: ,changelog ', inline: false },
         { name: "**Supportserver** - Creates an instant invite for Sonar's support server.", value: 'Usage: ,supportserver ', inline: false },	
         { name: "**Invites** - Shows user's who joined through a someones invites.", value: 'Usage: ,invites {user} ', inline: false },
-        { name: "**Calculate** - Calculates math equations. ", value: 'Usage: ,invites {equation} ', inline: false },
+        { name: "**Calculate** - Calculates math equations. ", value: 'Usage: ,calculate {equation} ', inline: false },
 	)
     
 message.author.send(exampleEmbed)

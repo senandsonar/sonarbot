@@ -234,6 +234,9 @@ client.on('message', message => {
         case `wikisearch`:
             client.commands.get('wikisearch').run(client, message, args);
             break;
+        case `join`:
+            client.commands.get('join').run(client, message, args);
+            break
         default:
             break;
     }
