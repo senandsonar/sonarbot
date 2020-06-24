@@ -9,7 +9,6 @@
   "author": "luke",
   "license": "ISC",
   "dependencies": {
-    "canvas": "^2.6.1",
     "canvasjs": "^1.8.3",
     "common-tags": "^1.8.0",
     "discord-giveaways": "^4.1.8",
