@@ -228,9 +228,6 @@ client.on('message', message => {
         case `createmuterole`:
             client.commands.get('createmuterole').run(client, message, args);
             break;
-        case `avatarfusion`:
-            client.commands.get('avatarfusion').run(client, message, args);
-            break;
         case `wikisearch`:
             client.commands.get('wikisearch').run(client, message, args);
             break;
