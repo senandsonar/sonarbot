@@ -7,6 +7,7 @@ module.exports = {
   category: "moderation",
   usage: "mute <@mention> <reason>",
   run: async (client, message, args) => {
+    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
     if (!message.member.hasPermission("MANAGE_ROLES")) {
       return message.channel.send(
         "Sorry but you do not have permission to jail anyone. You require the permission 'MANAGE_ROLES'"
@@ -17,13 +18,13 @@ module.exports = {
       return message.channel.send("I do not have permission to manage roles.");
     }
 
-    const user = message.mentions.members.first();
+    //const member = message.mentions.members.first();
     
-    if(!user) {
+    if(!member) {
       return message.channel.send("Please mention the member to who you want to jail")
     }
     
-    if(user.id === message.author.id) {
+    if(member.id === message.author.id) {
       return message.channel.send("I won't jail you -_-");
     }
     
@@ -35,7 +36,7 @@ module.exports = {
       return message.channel.send("Please Give the reason to jail the member")
     }
     
-    let muterole = message.guild.roles.cache.find(x => x.name === "Jailed")
+    let muterole = message.guild.roles.cache.find(r => r.name === "Jailed")
     
     
       if(!muterole) {
@@ -43,18 +44,18 @@ module.exports = {
     }
     
     
-   if(user.roles.cache.has(muterole)) {
+   if(member.roles.cache.has(muterole)) {
       return message.channel.send("Given User is already jailed.")
     }
     
   
     
     
-    user.roles.add(muterole)
+    member.roles.add(muterole)
     
-await message.channel.send(`You jailed **${message.mentions.users.first().username}** For \`${reason}\``)
+    await message.channel.send(`You jailed **${member.displayName}** For \`${reason}\``)
     
-    user.send(`You are jailed in **${message.guild.name}** For \`${reason}\``) 
+    member.send(`You are jailed in **${message.guild.name}** For \`${reason}\``)
     
   }
 };

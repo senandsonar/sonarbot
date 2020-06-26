@@ -2,6 +2,7 @@ module.exports = {
     name: "unjail",
     category: "moderation",
     run: async (client, message, args) => {
+      let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
       if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send(
           "Sorry but you do not have permission to unjail anyone. You require the permission 'MANAGE_ROLES"
@@ -12,27 +13,27 @@ module.exports = {
         return message.channel.send("I do not have permission to manage roles.");
       }
   
-      const user = message.mentions.members.first();
+      //const user = message.mentions.members.first();
   
-      if (!user) {
+      if (!member) {
         return message.channel.send(
           "Please mention the member to who you want to unjail"
         );
       }
       
-      let muterole = message.guild.roles.cache.find(x => x.name === "Jailed")
+      let muterole = message.guild.roles.cache.find(r => r.name === "Jailed")
       
       
-   if(user.roles.cache.has(muterole)) {
+   if(member.roles.cache.has(muterole)) {
         return message.channel.send("This member isn't Jailed!")
       }
       
       
-      user.roles.remove(muterole)
+      member.roles.remove(muterole)
       
-      await message.channel.send(`**${message.mentions.users.first().username}** is unjailed!`)
+      await message.channel.send(`**${member.displayName}** is unjailed.`)
       
-      user.send(`You are now unjailed from **${message.guild.name}**`)
+      member.send(`You are now unjailed from **${message.guild.name}**`)
   
     }
   };
