@@ -237,6 +237,9 @@ client.on('message', message => {
         case `catgirl`:
             client.commands.get('catgirl').run(client, message, args);
             break
+        case `arknights`:
+            client.commands.get('arknights').run(client, message, args);
+            break
         default:
             break;
     }
