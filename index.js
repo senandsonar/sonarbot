@@ -234,6 +234,9 @@ client.on('message', message => {
         case `join`:
             client.commands.get('join').run(client, message, args);
             break
+        case `catgirl`:
+            client.commands.get('catgirl').run(client, message, args);
+            break
         default:
             break;
     }

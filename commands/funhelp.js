@@ -30,6 +30,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Tweet** - Creates your own mock twitter post.", value: 'Usage: ,tweet {twitter nickname} {message in the tweet}', inline: false },
         { name: "**Clyde** - Discord's Clyde bot says whatever you want.", value: 'Usage: ,clyde {message}', inline: false },
         { name: "**Meme** - Sends a random meme from a random subreddit.", value: 'Usage: ,meme', inline: false },
+        { name: "**Catgirl** - Sends a random anime catgirl!", value: 'Usage: ,catgirl', inline: false },
 	)
     
 message.author.send(exampleEmbed)
