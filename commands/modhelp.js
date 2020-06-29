@@ -20,6 +20,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         //{ name: '**Moderation**', value: '`ban`  `unban`  `mute`  `unmute`  `purge`  `jail`  `unjail`  `slowmode`  `dm`'inline: false },
         { name: "**Ban** - Ban's and user from the server.", value: 'Usage: ,ban @{member} ', inline: false },
         { name: "**Unban** - Unban's a previous server member.", value: 'Usage: ,kick {user} {reason}', inline: false },
+        { name: "**Warn** - Warns a user.", value: 'Usage: ,warn {user} {reason}', inline: false },
         { name: "**Kick** - Kick's a user from the server.", value: 'Usage: ,unban {user ID} ', inline: false },
         { name: "**Mute** - Mute's a user.", value: 'Usage: ,mute @{member} {reason} ', inline: false },
         { name: "**Unmute** - Unmutes a muted user.", value: 'Usage: ,unmute @{member} ', inline: false },

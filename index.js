@@ -27,19 +27,7 @@ client.on("ready", () =>{
     });
  });
 
-// const activities_list = [
- //   "with the help command", 
- //   "with Visual Studio",
- //   "with ,help", 
- //   "with Covid-19"
- //   ]; // creates an arraylist containing phrases you want your bot to switch through.
-
-//client.on('ready', () => {
- //   setInterval(() => {
- //       const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
-  //      client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
- //   }, 3500); 
-//});
+ 
 
 
 
@@ -240,10 +228,21 @@ client.on('message', message => {
         case `arknights`:
             client.commands.get('arknights').run(client, message, args);
             break
+        case `starboard`:
+            client.commands.get('starboard').run(client, message, args);
+            break
+        case `createrole`:
+            client.commands.get('createrole').run(client, message, args);
+            break
+        case `warn`:
+            client.commands.get('warn').run(client, message, args);
+            break
         default:
             break;
     }
 });
+
+
 
 
 
