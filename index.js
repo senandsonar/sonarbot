@@ -16,6 +16,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+
 client.on("ready", () =>{
    console.log(`Logged in as ${client.user.tag}!`);
    client.user.setPresence({
@@ -44,9 +45,6 @@ client.on('message', message => {
             break;
         case `beep`:
             message.channel.send('Boop.');
-            break;
-        case `userinfo`:
-            message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
             break;
         case `number`:
             message.channel.send(randomnumber);
@@ -144,9 +142,6 @@ client.on('message', message => {
         case `officialserver`:
             client.commands.get('officialserver').execute(message, args);
              break;
-        case `userinfo`:
-            client.commands.get('userinfo').execute(message, args);
-             break;
         case `av`:
             client.commands.get('av').run(client, message, args);
             break;
@@ -236,6 +231,15 @@ client.on('message', message => {
             break
         case `warn`:
             client.commands.get('warn').run(client, message, args);
+            break
+        case `userinfo`:
+            client.commands.get('userinfo').run(client, message, args);
+            break
+        case `roast`:
+            client.commands.get('roast').run(client, message, args);
+            break
+        case `motivation`:
+            client.commands.get('motivation').run(client, message, args);
             break
         default:
             break;

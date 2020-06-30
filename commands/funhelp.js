@@ -32,6 +32,8 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Meme** - Sends a random meme from a random subreddit.", value: 'Usage: ,meme', inline: false },
         { name: "**Catgirl** - Sends a random anime catgirl!", value: 'Usage: ,catgirl', inline: false },
         { name: "**Arknights** - Sends a random image from the arknights subreddit!", value: 'Usage: ,arknights', inline: false },
+        { name: "**Roast** - Roasts a user.", value: 'Usage: ,roast {user}', inline: false },
+        { name: "**Motivation** - Sends a motivational quote.", value: 'Usage: ,motivation', inline: false },
 	)
     
 message.author.send(exampleEmbed)
