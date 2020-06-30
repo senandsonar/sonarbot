@@ -30,9 +30,9 @@ module.exports = {
             .addField("**ID**", `${member.user.id}`)
             .addField("**Username**",`${member.user.username}`)
             .addField("**Tag**", `${member.user.tag}`)
-            .addField("**Created at**", `${created}`)
-            .addField("**Joined at**", `${joined}`)
-            .addField("**Roles**", `${roles}`, true)
+            .addField("**Account Created**", `${created}`)
+            .addField("**Joined On**", `${joined}`)
+            .addField("**Role List**", `${roles}`, true)
             .setTimestamp()
 
             member.presence.activities.forEach((activity) => {
