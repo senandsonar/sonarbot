@@ -10,7 +10,7 @@ module.exports = {
         accessableby: "everyone",
     run: async (bot, message, args) => {
 
-        const subReddits = ["arknights"];
+        const subReddits = ["artknights"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
         const img = await randomPuppy(random);
