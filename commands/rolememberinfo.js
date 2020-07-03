@@ -26,7 +26,7 @@ module.exports = {
         if (membersWithRole > 2048) return message.channel.send('**List Is Too Long!**')
 
         let roleEmbed = new MessageEmbed()
-            .setColor("RANDOM")
+            .setColor("GREEN")
             .setThumbnail(message.guild.iconURL())
             .setTitle(`Users With The ${role.name} Role!`)
             .setDescription(membersWithRole.join("\n"));

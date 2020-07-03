@@ -14,7 +14,7 @@ module.exports = {
         await bot.users.fetch(message.guild.ownerID).then(o => owner.push(o.tag))
         try {
             let embed = new MessageEmbed()
-                .setColor('RANDOM')
+                .setColor('GREEN')
                 .setTitle("Server Info")
                 .setThumbnail(message.guild.iconURL())
                 .setAuthor(`${message.guild.name} Info`, message.guild.iconURL())

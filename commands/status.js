@@ -15,7 +15,7 @@ module.exports={
         if (!user.presence.activities.length) {
             const sembed = new MessageEmbed()
                 .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-                .setColor("RANDOM")
+                .setColor("GREEN")
                 .setThumbnail(user.user.displayAvatarURL())
                 .addField("**No Status**", 'This user does not have any custom status!')
                 .setFooter(message.guild.name, message.guild.iconURL())

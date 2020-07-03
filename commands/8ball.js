@@ -33,7 +33,7 @@ module.exports={
             let Embed = new MessageEmbed()
             .setTitle(`8Ball!`)
             .setDescription(`Question: ${question}\nMy response: ${response}`)
-            .setColor(`#ff2050`)
+            .setColor(`GREEN`)
             message.channel.send(Embed)
         }
     }

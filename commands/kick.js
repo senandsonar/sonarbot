@@ -36,7 +36,7 @@ module.exports = {
             }
             if (reason) {
             var sembed = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setAuthor(message.guild.name, message.guild.iconURL())
                // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
                .addFields(
@@ -45,7 +45,7 @@ module.exports = {
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .addFields(
                     { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },

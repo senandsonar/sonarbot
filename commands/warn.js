@@ -32,13 +32,13 @@ module.exports = {
       }
         if (reason) {
         const embed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setAuthor(`${message.guild.name}`, message.guild.iconURL())
             .setDescription(`**${target.displayName} Has Been Warned for ${reason}!**`)
         message.channel.send(embed)
         } else {
             const embed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setAuthor(`${message.guild.name}`, message.guild.iconURL())
             .setDescription(`**${target.displayName} Has Been Warned!**`)
         message.channel.send(embed)

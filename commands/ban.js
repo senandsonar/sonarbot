@@ -34,7 +34,7 @@ module.exports = {
             }
             if (reason) {
                 var sembed = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor("RED")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .addFields(
                         { name: `**${banMember.user.tag} has been banned for ${reason}**`, value: '> Successfully sent ban message. ✅' },
@@ -42,7 +42,7 @@ module.exports = {
                 message.channel.send(sembed)
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("RED")
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 //.setDescription(`**${banMember.user.username}** has been banned, cya never punk. ✅ `)
                 .addFields(

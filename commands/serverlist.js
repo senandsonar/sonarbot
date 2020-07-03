@@ -34,7 +34,7 @@ module.exports = {
           message.author.tag,
           message.author.displayAvatarURL({ dynamic: true })
         )
-        .setColor("GREEN")
+        .setColor("BLACK")
         .setFooter(bot.user.username)
         .setTitle(`Page - ${page}/${Math.ceil(bot.guilds.cache.size / 10)}`)
         .setDescription(description);

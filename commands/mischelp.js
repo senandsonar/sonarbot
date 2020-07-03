@@ -9,7 +9,7 @@ module.exports = {
 		
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('RANDOM')
+	.setColor('BLACK')
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Miscellaneous Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -20,9 +20,9 @@ const exampleEmbed = new Discord.MessageEmbed()
         //	{ name: '**Info**', value: '`background` `changelog`  `supportserver`', inline: true },
         { name: "**Report** - Sends a report of a user into a reports channel.", value: 'Usage: ,report @{user} {reason} ', inline: false },
         { name: "**Inviteme** - Creates an instant invite for the bot.", value: 'Usage: ,inviteme ', inline: false },
-        { name: "**Background** - Shows the story behind Sonar.", value: 'Usage: ,background ', inline: false },
+        { name: "**Background** - Shows the story behind Senbot.", value: 'Usage: ,background ', inline: false },
         { name: "**Changelog** - Shows the bot's changelog.", value: 'Usage: ,changelog ', inline: false },
-        { name: "**Supportserver** - Creates an instant invite for Sonar's support server.", value: 'Usage: ,supportserver ', inline: false },	
+        { name: "**Supportserver** - Creates an instant invite for Senbot's support server.", value: 'Usage: ,supportserver ', inline: false },	
         { name: "**Invites** - Shows user's who joined through a someones invites.", value: 'Usage: ,invites {user} ', inline: false },
         { name: "**Calculate** - Calculates math equations. ", value: 'Usage: ,calculate {equation} ', inline: false },
 	)

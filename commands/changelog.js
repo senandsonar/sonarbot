@@ -10,7 +10,7 @@ module.exports = {
 
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('RANDOM')
+	.setColor('GREEN')
     .setTitle('6/24/2020')
     .setDescription("Don't forget the check the Command List for info on new commands!")
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))

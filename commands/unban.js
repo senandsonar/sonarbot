@@ -37,14 +37,14 @@ module.exports = {
             if (reason) {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor("RED")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
                 message.channel.send(sembed)
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed2 = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor("RED")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. ✅ **`)
                 message.channel.send(sembed2)

@@ -16,7 +16,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle("Uptime")
-            .setColor("RANDOM")
+            .setColor("GREEN")
             .setDescription(`${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`)
             .setFooter(message.guild.name, message.guild.iconURL())
             .setAuthor(bot.user.username, bot.user.displayAvatarURL())  

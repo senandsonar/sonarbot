@@ -9,7 +9,7 @@ module.exports = {
 
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('RANDOM')
+	.setColor('GREEN')
     .setTitle('Click this link to join the Sonar support server!')
     .setURL('https://discord.gg/hmGv5U8')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
