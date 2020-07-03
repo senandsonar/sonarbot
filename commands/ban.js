@@ -21,26 +21,35 @@ module.exports = {
             var reason = args.slice(1).join(" ");
 
             if (!banMember.bannable) return message.channel.send("**Cant Kick That User**")
+
             try {
-            banMember.send(`**Hello, You Have Been Banned From ${message.guild.name} for - ${reason || "No Reason"}**`).then(() =>
-                message.guild.members.ban(banMember, { days: 7, reason: reason })).catch(() => null)
+                const sembed2 = new MessageEmbed()
+                    .setColor("RED")
+                    .setDescription(`**Hello, You Have Been Banned From ${message.guild.name} for: ${reason || "No Reason!"}**`)
+                    .setFooter(message.guild.name, message.guild.iconURL())
+                banMember.send(sembed2).then(() =>
+                    banMember.kick()).catch(() => null)
             } catch {
-                message.guild.members.ban(banMember, { days: 7, reason: reason })
+                banMember.kick()
             }
             if (reason) {
-            var sembed = new MessageEmbed()
-                .setColor("GREEN")
-                .setAuthor(message.guild.name, message.guild.iconURL())
-                .setDescription(`**${banMember.user.username}** has been banned for ${reason}.`)
-            message.channel.send(sembed)
+                var sembed = new MessageEmbed()
+                    .setColor("GREEN")
+                    .setAuthor(message.guild.name, message.guild.iconURL())
+                    .addFields(
+                        { name: `**${banMember.user.tag} has been banned for ${reason}**`, value: '> Successfully sent ban message. ✅' },
+                    )
+                message.channel.send(sembed)
             } else {
                 var sembed2 = new MessageEmbed()
                 .setColor("GREEN")
                 .setAuthor(message.guild.name, message.guild.iconURL())
-                .setDescription(`**${banMember.user.username}** has been banned, cya never punk. ✅ `)
-            message.channel.send(sembed2)
+                //.setDescription(`**${banMember.user.username}** has been banned, cya never punk. ✅ `)
+                .addFields(
+                    { name: `**${banMember.user.tag} has been banned.**`, value: '> Successfully sent ban message. ✅' },
+                )
+                message.channel.send(sembed2)
             }
-            
         } catch (e) {
             return message.channel.send(`**${e.message}**`)
         }

@@ -27,7 +27,7 @@ module.exports = {
             try {
                 const sembed2 = new MessageEmbed()
                     .setColor("RED")
-                    .setDescription(`**Hello, You Have Been Kicked From ${message.guild.name} for - ${reason || "No Reason!"}**`)
+                    .setDescription(`**Hello, You Have Been Kicked From ${message.guild.name} for: ${reason || "No Reason!"}**`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 kickMember.send(sembed2).then(() =>
                     kickMember.kick()).catch(() => null)
@@ -38,13 +38,18 @@ module.exports = {
             var sembed = new MessageEmbed()
                 .setColor("GREEN")
                 .setAuthor(message.guild.name, message.guild.iconURL())
-                .setDescription(`**${kickMember.user.username}** has been kicked for ${reason}`)
+               // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
+               .addFields(
+                { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Successfully sent kick message. ✅' },
+            )
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
                 .setColor("GREEN")
                 .setAuthor(message.guild.name, message.guild.iconURL())
-                .setDescription(`**${kickMember.user.username}** has been kicked. ✅ `)
+                .addFields(
+                    { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },
+                )
             message.channel.send(sembed2);
             }
            

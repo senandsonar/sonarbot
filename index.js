@@ -241,6 +241,9 @@ client.on('message', message => {
         case `motivation`:
             client.commands.get('motivation').run(client, message, args);
             break
+        case `news`:
+            client.commands.get('news').run(client, message, args);
+            break
         default:
             break;
     }
