@@ -12,6 +12,9 @@ module.exports = {
 
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Unban Someone! - [BAN_MEMBERS]**")
 
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
+
         
 
         if (!args[0]) return message.channel.send("**Please Enter A Name!**")
@@ -37,14 +40,14 @@ module.exports = {
             if (reason) {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed = new MessageEmbed()
-                    .setColor("RED")
+                    .setColor(color)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
                 message.channel.send(sembed)
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed2 = new MessageEmbed()
-                    .setColor("RED")
+                    .setColor(color)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. ✅ **`)
                 message.channel.send(sembed2)

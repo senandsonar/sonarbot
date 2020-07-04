@@ -12,10 +12,12 @@ module.exports = {
 
         const subReddits = ["artknights"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
 
         const img = await randomPuppy(random);
         const embed = new MessageEmbed()
-            .setColor("RANDOM")
+            .setColor(color)
             .setImage(img)
             .setTitle("Arknights!")
             .setURL(`https://reddit.com/r/${random}`);

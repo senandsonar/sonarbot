@@ -25,11 +25,12 @@ module.exports = {
 
         if (role.managed) return message.channel.send("**Cannot Add That Role To The User!**")
         if (message.guild.me.roles.highest.comparePositionTo(role) <= 0) return message.channel.send('**Role Is Currently Higher Than Me Therefore Cannot Add It To The User!**')
-
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         if (rMember.roles.cache.has(role.id)) return message.channel.send("**User Already Has The Role!**")
         if (!rMember.roles.cache.has(role.id)) await rMember.roles.add(role.id);
         var sembed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setAuthor(message.guild.name, message.guild.iconURL())
             .setDescription(`Role has been added to ${rMember.user.username}`)
         message.channel.send(sembed)

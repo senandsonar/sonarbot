@@ -10,6 +10,8 @@ module.exports = {
         usage: "[word]",
         accessableby: "everyone",
         run: async(bot,message,args)=>{
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         if(!args[0])
         return message.channel.send("Please Enter Something To Search");
 
@@ -20,7 +22,7 @@ module.exports = {
                 let { word, urbanURL, definition, example, thumbsUp, thumbsDown, author } = res;
 
                 let embed = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor(color)
                     .setAuthor(`Word - ${word}`)
                     .setThumbnail(image)
                     .setDescription(`**Defintion:**\n*${definition || "No definition"}*\n\n**Example:**\n*${example || "No Example"}*`)

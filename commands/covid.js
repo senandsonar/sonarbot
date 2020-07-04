@@ -21,12 +21,12 @@ module.exports = {
       .setTitle("Global Cases")
       .setColor("#ff2050")
       .setDescription("The number of cases may differ by a small amount.")
-      .addField("Total Cases", corona.cases, true)
-      .addField("Total Deaths", corona.deaths, true)
-      .addField("Total Recovered", corona.recovered, true)
-      .addField("Today's Cases", corona.todayCases, true)
-      .addField("Today's Deaths", corona.todayDeaths, true)
-      .addField("Active Cases", corona.active, true);
+      .addField("__Total Cases__", corona.cases, true)
+      .addField("__Total Deaths__", corona.deaths, true)
+      .addField("__Total Recovered__", corona.recovered, true)
+      .addField("__Today's Cases__", corona.todayCases, true)
+      .addField("__Today's Deaths__", corona.todayDeaths, true)
+      .addField("__Active Cases__", corona.active, true);
       
       return message.channel.send(embed)
       
@@ -39,10 +39,12 @@ module.exports = {
       .setTitle(`${corona.country}`)
       .setColor("#ff2050")
       .setDescription("The number of cases may differ by a small amount.")
-      .addField("Total Cases", corona.cases, true)
-      .addField("Total Deaths", corona.deaths, true)
-      .addField("Total Recovered", corona.recovered, true)
-      .addField("Active Cases", corona.active, true);
+      .addField("__Total Cases__", corona.cases, true)
+      .addField("__Total Deaths__", corona.deaths, true)
+      .addField("__Total Recovered__", corona.recovered, true)
+      .addField("__Today's Cases__", corona.todayCases, true)
+      .addField("__Today's Deaths__", corona.todayDeaths, true)
+      .addField("__Active Cases__", corona.active, true);
       
       return message.channel.send(embed)
       

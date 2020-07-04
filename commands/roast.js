@@ -11,6 +11,9 @@ module.exports = {
     
     run: async (bot, message, args) => {
 
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
+
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase());
 
         let roast = roasts.roast[Math.floor((Math.random() * roasts.roast.length))];
@@ -18,7 +21,7 @@ module.exports = {
         if(!args[0]) {
             const sembed = new MessageEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL())
-                .setColor("BLACK")
+                .setColor(color)
                 .setDescription("**Do You Really Want To Roast Yourself?**")
                 .setFooter(message.member.displayName, message.author.displayAvatarURL())
                 .setTimestamp()
@@ -28,7 +31,7 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .setTitle(`${message.author.username}-`)
-                .setColor("BLACK")
+                .setColor(color)
                 .setDescription(`${roast}`)
                 .setFooter(member.displayName, member.user.displayAvatarURL())
                 .setTimestamp()

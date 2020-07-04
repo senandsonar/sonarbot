@@ -12,6 +12,9 @@ module.exports = {
         
         if (args.includes("@here")) return;
 
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
+
         if (!args[0]) return message.channel.send("**Please Enter A Role!**")
 
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase());
@@ -26,7 +29,7 @@ module.exports = {
         if (membersWithRole > 2048) return message.channel.send('**List Is Too Long!**')
 
         let roleEmbed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setThumbnail(message.guild.iconURL())
             .setTitle(`Users With The ${role.name} Role!`)
             .setDescription(membersWithRole.join("\n"));

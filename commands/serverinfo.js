@@ -11,10 +11,12 @@ module.exports = {
     
     run: async (bot, message, args) => {
         let owner = [];
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         await bot.users.fetch(message.guild.ownerID).then(o => owner.push(o.tag))
         try {
             let embed = new MessageEmbed()
-                .setColor('GREEN')
+                .setColor(color)
                 .setTitle("Server Info")
                 .setThumbnail(message.guild.iconURL())
                 .setAuthor(`${message.guild.name} Info`, message.guild.iconURL())

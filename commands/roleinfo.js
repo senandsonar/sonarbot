@@ -9,6 +9,8 @@ module.exports={
         accessableby: 'everyone',
     
     run: async (bot, message, args) => {
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         if (!args[0]) return message.channel.send("**Please Enter A Role!**")
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase());
         if (!role) return message.channel.send("**Please Enter A Valid Role!**");
@@ -19,7 +21,7 @@ module.exports={
         }
 
         let roleembed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setAuthor("Role Info")
             .setThumbnail(message.guild.iconURL())
             .addField("**ID**", `\`${role.id}\``, true)

@@ -9,6 +9,8 @@ module.exports = {
         aliases: ["k"],
 
     run: async (bot, message, args) => {
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         try {
             if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
             if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
@@ -26,7 +28,7 @@ module.exports = {
             var reason = args.slice(1).join(" ");
             try {
                 const sembed2 = new MessageEmbed()
-                    .setColor("RED")
+                    .setColor(color)
                     .setDescription(`**Hello, You Have Been Kicked From ${message.guild.name} for: ${reason || "No Reason!"}**`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 kickMember.send(sembed2).then(() =>
@@ -36,7 +38,7 @@ module.exports = {
             }
             if (reason) {
             var sembed = new MessageEmbed()
-                .setColor("RED")
+                .setColor(color)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
                .addFields(
@@ -45,7 +47,7 @@ module.exports = {
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor("RED")
+                .setColor(color)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .addFields(
                     { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },

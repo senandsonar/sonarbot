@@ -11,15 +11,16 @@ module.exports = {
     
     run: async (bot, message, args) => {
         if (!message.member.hasPermission('SEND_MESSAGES')) return message.channel.send("**You Do Not Have Sufficient Permissions! - [SEND_MESSAGES]**");
-
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         if (!args[0])
             return message.channel.send("**Please Enter A Query!**");
 
         const embed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setTitle(`Poll For ${message.guild.name}.`)
             .setFooter(message.member.displayName, message.author.displayAvatarURL())
-            .setDescription(args.join(' '))
+            .setDescription(args.join('  '))
         var msg = await message.channel.send(embed);
 
         await msg.react('✅');

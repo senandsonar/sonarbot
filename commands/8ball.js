@@ -30,10 +30,13 @@ module.exports={
                     "Very doubtful."
             ]
             let response = responses[Math.floor(Math.random()*(responses.length)-1)]
+            let color = message.member.displayHexColor;
+            if (color == '#000000') color = message.member.hoistRole.hexColor;
             let Embed = new MessageEmbed()
+            
             .setTitle(`8Ball!`)
             .setDescription(`Question: ${question}\nMy response: ${response}`)
-            .setColor(`GREEN`)
+            .setColor(color)
             message.channel.send(Embed)
         }
     }

@@ -4,6 +4,8 @@ module.exports = {
   description: "View all emojis in the guild",
   category: "utility",
   run: async (bot, message, args) => {
+    let color = message.member.displayHexColor;
+    if (color == '#000000') color = message.member.hoistRole.hexColor;
     let Emojis = "";
     let EmojisAnimated = "";
     let EmojiCount = 0;
@@ -27,7 +29,7 @@ module.exports = {
       .setDescription(
         `**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**Total amount of emoji's: [${OverallEmojis}]**`
       )
-      .setColor(`BLACK`);
+      .setColor(color);
     message.channel.send(Embed);
   },
 };

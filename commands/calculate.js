@@ -11,6 +11,8 @@ module.exports = {
     run: async (bot, message, args) => {
 
         if (!args[0]) return message.channel.send("**Enter Something To Calculate**");
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
 
         let result;
         try {
@@ -20,7 +22,7 @@ module.exports = {
         }
 
         let embed = new Discord.MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setAuthor(`${bot.user.username} Calculator`, message.author.displayAvatarURL({ dynamic: true }))
             .addField("**Operation**", `\`\`\`Js\n${args.join("").replace(/[x]/gi, "*").replace(/[,]/g, ".").replace(/[÷]/gi, "/")}\`\`\``)
             .addField("**Result**", `\`\`\`Js\n${result}\`\`\``)

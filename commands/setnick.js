@@ -9,6 +9,9 @@ module.exports = {
         accessableby: "everyone",
 
     run: async (bot, message, args) => {
+
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have Permissions To Change Nickname! - [MANAGE_GUILD]**");
 
         if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send("**I Dont Have Permissions To Change Nickname! - [CHANGE_NICKNAME]**");
@@ -27,7 +30,7 @@ module.exports = {
         try {
         member.setNickname(nick)
         const embed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setDescription(`**Changed Nickname of ${member.displayName} to ${nick}**`)
             .setAuthor(message.guild.name, message.guild.iconURL())
         message.channel.send(embed)

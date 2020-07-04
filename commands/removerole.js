@@ -9,6 +9,8 @@ module.exports = {
         usage: "[name | nickname | mention | ID] <role>",
 
     run: async (bot, message, args) => {
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
 
         if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("**Your Dont Have The Permissions To Remove Role From Users! - [MANAGE_ROLES]**");
 
@@ -32,7 +34,7 @@ module.exports = {
         if (rMember.roles.cache.has(role.id)) await (rMember.roles.remove(role.id));
 
         const sembed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor(color)
             .setAuthor(message.guild.name, message.guild.iconURL())
             .setDescription(`Role has been removed from ${rMember.user.username}`)
         message.channel.send(sembed);

@@ -11,7 +11,8 @@ module.exports = {
     
     run: async (bot, message, args) => {
         let member = await message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
-      
+        let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
         if(!member)
         return message.channel.send("**Enter A Valid User!**");
       
@@ -25,12 +26,11 @@ module.exports = {
             .setTitle("User Info")
             .setFooter(message.guild.name, message.guild.iconURL())
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true}))
-            .setColor("GREEN")
+            .setColor(color)
             .addField("ID ","`" + ` ${member.user.id} `+"`")
             //.addField("**ID**", `${member.user.id}`)
             .addField("**Name**", `${member.user.tag}`, )
-            //.addField("**Account Created**", `${created}`)
-            .addField("**Created At**", `${message.user.createdAt}`)
+            .addField("**Account Created**", `${created}`)
             .addField("**Joined On**", `${joined}`)
             .addField("**Role List**", `${roles}`, true)
             .setTimestamp()
