@@ -244,6 +244,9 @@ client.on('message', message => {
         case `news`:
             client.commands.get('news').run(client, message, args);
             break
+        case `kyaru`:
+            client.commands.get('kyaru').run(client, message, args);
+            break
         default:
             break;
     }

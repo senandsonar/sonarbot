@@ -35,11 +35,7 @@ module.exports = {
             .addField("**Role List**", `${roles}`, true)
             .setTimestamp()
 
-            member.presence.activities.forEach((activity) => {
-        if (activity.type === 'PLAYING') {
-            embed.addField('Currently playing',`\n**${activity.name}**`)
-        }
-            })
+       
 
         message.channel.send(embed);
     }

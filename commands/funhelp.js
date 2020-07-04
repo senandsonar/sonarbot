@@ -32,6 +32,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Clyde** - Discord's Clyde bot says whatever you want.", value: 'Usage: ,clyde {message}', inline: false },
         { name: "**Meme** - Sends a random meme from a random subreddit.", value: 'Usage: ,meme', inline: false },
         { name: "**Catgirl** - Sends a random anime catgirl!", value: 'Usage: ,catgirl', inline: false },
+        { name: "**Kyaru** - Sends a random picture of kyaru.", value: 'Usage: ,kyaru', inline: false },
         { name: "**Arknights** - Sends a random image from the arknights subreddit!", value: 'Usage: ,arknights', inline: false },
         { name: "**Roast** - Roasts a user.", value: 'Usage: ,roast {user}', inline: false },
         { name: "**Motivation** - Sends a motivational quote.", value: 'Usage: ,motivation', inline: false },
