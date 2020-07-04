@@ -26,7 +26,7 @@ module.exports = {
       try {
         const sembed2 = new MessageEmbed()
             .setColor(color)
-            .setDescription(`**Hello, you have been warned in: ${message.guild.name} for - ${reason || "No Reason!"}**`)
+            .setDescription(`**Hello, you have been warned in **${message.guild.name}** for: ${reason || "No Reason!"}**`)
             .setFooter(message.guild.name, message.guild.iconURL())
         target.send(sembed2)
       } catch {
