@@ -37,5 +37,6 @@ const exampleEmbed = new Discord.MessageEmbed()
 	)
     
 message.author.send(exampleEmbed)
-message.channel.send('Help Sent. ✅  ')
-    }}
+if(message.content === ",modhelp"){
+    message.react('✅')
+    }}}

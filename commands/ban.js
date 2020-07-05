@@ -27,7 +27,7 @@ module.exports = {
             try {
                 const sembed2 = new MessageEmbed()
                     .setColor(color)
-                    .setDescription(`**Hello, You Have Been Banned From ${message.guild.name} for: ${reason || "No Reason!"}**`)
+                    .setDescription(`**Hello, You Have Been Banned From ${message.guild.name} for: ${reason || "*No Reason.*"}**`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 banMember.send(sembed2).then(() =>
                     banMember.kick()).catch(() => null)

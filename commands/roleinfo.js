@@ -24,7 +24,7 @@ module.exports={
             .setColor(color)
             .setAuthor("Role Info")
             .setThumbnail(message.guild.iconURL())
-            .addField("**ID**", `\`${role.id}\``, true)
+            .addField("**Role ID**", `\`${role.id}\``, true)
             .addField("**Name**", role.name, true)
             .addField("**Hex**", role.hexColor)
             .addField("**Members**", role.members.size)

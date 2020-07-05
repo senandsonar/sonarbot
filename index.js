@@ -17,16 +17,16 @@ client.once('ready', () => {
 });
 
 
-client.on("ready", () =>{
-   console.log(`Logged in as ${client.user.tag}!`);
-   client.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-            name: "Use !help",  //The message shown
-            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
- });
+//client.on("ready", () =>{
+  // console.log(`Logged in as ${client.user.tag}!`);
+  // client.user.setPresence({
+  //      status: "online",  //You can show online, idle....
+  //      game: {
+   //         name: "Use !help",  //The message shown
+   //         type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+   //     }
+ //   });
+ //});
 
  
 
@@ -160,9 +160,6 @@ client.on('message', message => {
         case `mischelp`:
             client.commands.get('mischelp').execute(message, args);
             break;
-        //case `newhelp`:
-         //   client.commands.get('newhelp').execute(message, args);
-         //   break;
         case `modhelp`:
             client.commands.get('modhelp').execute(message, args);
             break;
@@ -246,6 +243,9 @@ client.on('message', message => {
             break
         case `kyaru`:
             client.commands.get('kyaru').run(client, message, args);
+            break
+            case `post`:
+            client.commands.get('post').run(client, message, args);
             break
         default:
             break;

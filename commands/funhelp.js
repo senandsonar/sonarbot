@@ -24,6 +24,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Emoji** - Shows the server's emoji's.", value: 'Usage: ,emoji ', inline: false },
         { name: "**Coinflip** - Flips a coin.", value: 'Usage: ,coinflip ', inline: false },
         { name: "**Poll** - Start's a poll in a channel.", value: 'Usage: ,poll {poll question} ', inline: false },
+        { name: "**Post** - Makes a reddit-style post.", value: 'Usage: ,post {post content} ', inline: false },
         { name: "**Number** - Generates a random number from 1-100.", value: 'Usage: ,number ', inline: false },
         { name: "**8ball** - Plays 8ball.", value: 'Usage: ,8ball {question}', inline: false },
         { name: "**Define** - Shows the definition of a word from Urban Dictionary.", value: 'Usage: ,define {word}', inline: false },
@@ -39,5 +40,6 @@ const exampleEmbed = new Discord.MessageEmbed()
 	)
     
 message.author.send(exampleEmbed)
-message.channel.send('Help Sent. ✅  ')
-    }}
+if(message.content === ",funhelp"){
+    message.react('✅')
+    }}}

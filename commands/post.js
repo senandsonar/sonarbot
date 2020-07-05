@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     
-        name: "poll",
+        name: "post",
         description: "polling",
         category: "info",
         usage: "[question]",
@@ -19,12 +19,10 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor(color)
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
-            .addField(`Poll started in  ${message.channel.name} 📊 `,"*> " + (args.join('  ') + "* ")  )
+            .addField(`New Post in  ${message.channel.name} 📰 `,"*> " + (args.join('  ') + "* ")  )
         var msg = await message.channel.send(embed);
-
-        await msg.react('✅');
-        await msg.react('❌');
-
-        
-    }
+    await msg.react('⬆');
+    await msg.react('⬇');
+  },
 }
+
