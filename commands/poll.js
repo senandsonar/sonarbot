@@ -21,6 +21,7 @@ module.exports = {
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
             .addField(`Poll started in  ${message.channel.name} 📊 `,"*> " + (args.join('  ') + "* ")  )
         var msg = await message.channel.send(embed);
+        message.delete({ timeout: 3000 });
 
         await msg.react('✅');
         await msg.react('❌');

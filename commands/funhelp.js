@@ -37,6 +37,8 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Arknights** - Sends a random image from the arknights subreddit!", value: 'Usage: ,arknights', inline: false },
         { name: "**Roast** - Roasts a user.", value: 'Usage: ,roast {user}', inline: false },
         { name: "**Motivation** - Sends a motivational quote.", value: 'Usage: ,motivation', inline: false },
+        { name: "**Gif** - Sends a gif based on a word.", value: 'Usage: ,gif {word}', inline: false },
+        { name: "**Captcha** - Sends a captcha of a user's avatar.", value: 'Usage: ,captcha {user}', inline: false },
 	)
     
 message.author.send(exampleEmbed)

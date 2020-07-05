@@ -244,8 +244,17 @@ client.on('message', message => {
         case `kyaru`:
             client.commands.get('kyaru').run(client, message, args);
             break
-            case `post`:
+        case `post`:
             client.commands.get('post').run(client, message, args);
+            break
+        case `hackban`:
+            client.commands.get('hackban').run(client, message, args);
+            break
+        case `captcha`:
+            client.commands.get('captcha').run(client, message, args);
+            break
+        case `gif`:
+            client.commands.get('gif').run(client, message, args);
             break
         default:
             break;
