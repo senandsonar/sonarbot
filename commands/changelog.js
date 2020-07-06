@@ -12,12 +12,12 @@ module.exports = {
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor(color)
-    .setTitle('6/24/2020')
+    .setTitle('7/6/2020')
     .setDescription("Don't forget the check the Command List for info on new commands!")
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setThumbnail (`https://i.imgur.com/h1ekMX8.png`)
 	.addFields(
-		{ name: '**Added a command.**', value: "Added 'wikisearch' command "},
+		{ name: '**Added a command.**', value: "Added 'instasearch' command. "},
 		
 	)
 	.setTimestamp()

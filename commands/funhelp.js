@@ -39,6 +39,9 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Motivation** - Sends a motivational quote.", value: 'Usage: ,motivation', inline: false },
         { name: "**Gif** - Sends a gif based on a word.", value: 'Usage: ,gif {word}', inline: false },
         { name: "**Captcha** - Sends a captcha of a user's avatar.", value: 'Usage: ,captcha {user}', inline: false },
+        { name: "**Instastats** - Sends statistics of a Instagram account.", value: 'Usage: ,instastats {instagram name}', inline: false },
+        { name: "**Fire** - Sends a picture of a users pfp being set on fire.", value: 'Usage: ,fire {user}', inline: false },
+        { name: "**Love** - Sends a picture of a two users love.", value: 'Usage: ,love {user 1} {user 2}', inline: false },
 	)
     
 message.author.send(exampleEmbed)

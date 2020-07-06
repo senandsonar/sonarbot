@@ -256,6 +256,18 @@ client.on('message', message => {
         case `gif`:
             client.commands.get('gif').run(client, message, args);
             break
+        case `instastats`:
+            client.commands.get('instastats').run(client, message, args);
+            break
+        case `getinvite`:
+            client.commands.get('getinvite').run(client, message, args);
+            break
+        case `love`:
+            client.commands.get('love').run(client, message, args);
+            break
+        case `fire`:
+            client.commands.get('fire').run(client, message, args);
+            break
         default:
             break;
     }
