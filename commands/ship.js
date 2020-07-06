@@ -33,7 +33,7 @@ module.exports={
                     "85%",
                     "90%",
                     "95%",
-                    "100%"
+                    "100%",
             ]
             let response = responses[Math.floor(Math.random()*(responses.length)-1)]
             let color = message.member.displayHexColor;
