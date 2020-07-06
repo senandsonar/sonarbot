@@ -42,6 +42,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Instastats** - Sends statistics of a Instagram account.", value: 'Usage: ,instastats {instagram name}', inline: false },
         { name: "**Fire** - Sends a picture of a users pfp being set on fire.", value: 'Usage: ,fire {user}', inline: false },
         { name: "**Love** - Sends a picture of a two users love.", value: 'Usage: ,love {user 1} {user 2}', inline: false },
+        { name: "**LShip** - Ships two users.", value: 'Usage: ,ship {user 1} {user 2}', inline: false },
 	)
     
 message.author.send(exampleEmbed)

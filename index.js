@@ -268,6 +268,9 @@ client.on('message', message => {
         case `fire`:
             client.commands.get('fire').run(client, message, args);
             break
+        case `ship`:
+            client.commands.get('ship').run(client, message, args);
+            break
         default:
             break;
     }
