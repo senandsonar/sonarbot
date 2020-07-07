@@ -42,7 +42,8 @@ module.exports={
             let Embed = new MessageEmbed()
             
            // .addField(`Matching Users!`,"> " + `\n> ${user}  \n> ${user2} \n> \n> Users are a **${response}** match! `)  
-           .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
+           //.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
+           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
            .addFields(
             { name: `Matching Users :sparkling_heart: `, value: `> **${user}**  \n> **${user2}** \n> \n> Users are a **${response}** match!` },
            )
