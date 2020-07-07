@@ -67,12 +67,8 @@ module.exports = {
                         return message.channel.send('🆘 I could not obtain any search results.');
                     }
                 }
-                const sembed = new MessageEmbed()
-                            .setColor(color)
-                            .setFooter(message.member.displayName, message.author.avatarURL())
-                            .setImage(`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`)
-                            .setDescription(`https://www.youtube.com/watch?v=${video.id}`)
-                            message.channel.send(sembed)
+                
+                            message.channel.send(`https://www.youtube.com/watch?v=${video.id}`)
                 };
     
             }
