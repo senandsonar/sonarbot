@@ -55,9 +55,9 @@ module.exports = {
     
     member.roles.add(muterole)
     
-await message.channel.send(`You muted **${member.displayName}** For \`${reason}\``)
+await message.channel.send(`You muted **${member.displayName}** for \`${reason}\``)
     
-    member.send(`You are muted in **${message.guild.name}** For \`${reason}\``)
+    member.send(`You are muted in **${message.guild.name}** for \`${reason}\``)
     
     
 //WE ARE DONE HERE 

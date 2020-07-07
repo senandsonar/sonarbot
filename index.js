@@ -271,10 +271,15 @@ client.on('message', message => {
         case `ship`:
             client.commands.get('ship').run(client, message, args);
             break
+        case `ytsearch`:
+            client.commands.get('ytsearch').run(client, message, args);
+            break
         default:
             break;
     }
 });
+
+
 
 
 

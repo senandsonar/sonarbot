@@ -28,6 +28,7 @@ module.exports = {
             .setColor(color)
             .setDescription(`**Hello, you have been warned in **${message.guild.name}** for: ${reason || "No Reason!"}**`)
             .setFooter(message.guild.name, message.guild.iconURL())
+            
         target.send(sembed2)
       } catch {
         
