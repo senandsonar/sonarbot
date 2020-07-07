@@ -274,6 +274,12 @@ client.on('message', message => {
         case `ytsearch`:
             client.commands.get('ytsearch').run(client, message, args);
             break
+        case `lock`:
+            client.commands.get('lock').run(client, message, args);
+            break
+        case `pat`:
+            client.commands.get('pat').run(client, message, args);
+            break
         default:
             break;
     }
