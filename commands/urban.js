@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-        name: "define",
+        name: "urban",
         aliases: ["define"],
         category: "fun",
         description: "Give information about urban words!",
@@ -26,7 +26,7 @@ module.exports = {
                     .setAuthor(`Word - ${word}`)
                     .setThumbnail(image)
                     .setDescription(`**Defintion:**\n*${definition || "No definition"}*\n\n**Example:**\n*${example || "No Example"}*`)
-                    .addField('**Rating:**', `**\`Upvotes: ${thumbsUp} | Downvotes: ${thumbsDown}\`**`)
+                    .addField('**Rating:**', `**\`👍 ${thumbsUp} | ${thumbsDown} 👎 \`**`)
                     .addField("**Link**",  `[link to ${word}](${urbanURL})`)
                     .addField("**Author:**", `${author || "unknown"}`)
                     .setTimestamp()
@@ -35,7 +35,7 @@ module.exports = {
             
         } catch (e) {
             console.log(e)
-            return message.channel.send("looks like i've broken! Try again")
+            return message.channel.send("\`I couldn't find that defintion! Try something else!\`")
         }
     }
 

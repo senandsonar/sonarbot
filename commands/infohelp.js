@@ -28,6 +28,8 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Rolememberinfo** - Shows every member who has a certain role.", value: 'Usage: ,rolememberinfo {role name} ', inline: false },
         { name: "**Serverinfo** - Shows info about the server.", value: 'Usage: ,serverinfo ', inline: false },
        // { name: "**av - Shows a user's avatar.**", value: 'Usage: ,av @{member} ', inline: false },
+       { name: "**Urban** - Shows the definition of a word from Urban Dictionary.", value: 'Usage: ,urban {word}', inline: false },
+        { name: "**Wikipedia** - Shows a definition from Wikipedia.", value: 'Usage: ,wikipedia {word}', inline: false },
         { name: "**Ping** - Shows the bot's latency.", value: 'Usage: ,ping ', inline: false },
         { name: "**Help** - Shows the bot's help panel.", value: 'Usage: ,help ', inline: false },
         { name: "**Setup** - Shows the bot's setup panel. (useful)", value: 'Usage: ,setup ', inline: false },

@@ -24,8 +24,8 @@ module.exports={
             { name: `*Patting Noises* `, value: `> **${message.author}** patted **${member}** \n> \n> *patpatpat*` },
            )
            .setImage(`https://i.imgur.com/thghuft.gif`)
-           // .addField(```${user2}```)
-           // .addField(`> Are a **${response}** match!`)
+            // .addField(```${user2}```)
+            // .addField(`> Are a **${response}** match!`)
             //.setDescription(`(args.join('  ')` are a **${response}** match!)
             .setColor(color)
             message.channel.send(Embed)

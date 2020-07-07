@@ -2,7 +2,7 @@ const wiki = require("wikijs").default();
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-        name: "wikisearch",
+        name: "wikipedia",
         aliases: ['wiki'],
         category: "info",
         description: "Shows Results From Wikipedia",

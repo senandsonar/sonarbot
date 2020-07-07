@@ -121,8 +121,8 @@ client.on('message', message => {
         case `report`:
             client.commands.get('report').run(client, message, args);
             break;
-        case `define`:
-            client.commands.get('define').run(client, message, args);
+        case `urban`:
+            client.commands.get('urban').run(client, message, args);
             break;
         case `background`:
             client.commands.get('background').execute(message, args);
@@ -208,8 +208,8 @@ client.on('message', message => {
         case `createmuterole`:
             client.commands.get('createmuterole').run(client, message, args);
             break;
-        case `wikisearch`:
-            client.commands.get('wikisearch').run(client, message, args);
+        case `wikipedia`:
+            client.commands.get('wikipedia').run(client, message, args);
             break;
         case `join`:
             client.commands.get('join').run(client, message, args);
