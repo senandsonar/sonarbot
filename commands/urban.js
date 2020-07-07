@@ -26,9 +26,10 @@ module.exports = {
                     .setAuthor(`Word - ${word}`)
                     .setThumbnail(image)
                     .setDescription(`**Defintion:**\n*${definition || "No definition"}*\n\n**Example:**\n*${example || "No Example"}*`)
-                    .addField('**Rating:**', `**\`👍 ${thumbsUp} | ${thumbsDown} 👎 \`**`)
+                   // .addField('**Rating:**', `**\`👍 ${thumbsUp} | ${thumbsDown} 👎 \`**`)
                     .addField("**Link**",  `[link to ${word}](${urbanURL})`)
                     .addField("**Author:**", `${author || "unknown"}`)
+                    .setFooter(`👍 ${thumbsUp} | ${thumbsDown} 👎`, 'https://i.imgur.com/0FX9RWm.png' )
                     .setTimestamp()
 
                 message.channel.send(embed)
