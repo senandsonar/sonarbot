@@ -35,8 +35,8 @@ module.exports = {
 
         const sembed = new MessageEmbed()
             .setColor(color)
-            .setAuthor(message.guild.name, message.guild.iconURL())
-            .setDescription(`Role has been removed from ${rMember.user.username}`)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`The role \`${role.name}\` has been removed from ${rMember.user.username} ✅ `)
         message.channel.send(sembed);
 
         

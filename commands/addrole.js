@@ -31,8 +31,8 @@ module.exports = {
         if (!rMember.roles.cache.has(role.id)) await rMember.roles.add(role.id);
         var sembed = new MessageEmbed()
             .setColor(color)
-            .setAuthor(message.guild.name, message.guild.iconURL())
-            .setDescription(`Role has been added to ${rMember.user.username}`)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`The role \`${role.name}\` has been added to ${rMember.user.username} ✅ `)
         message.channel.send(sembed)
 
         
