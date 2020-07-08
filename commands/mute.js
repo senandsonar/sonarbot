@@ -7,7 +7,9 @@ module.exports = {
   usage: "mute <@mention> <reason>",
   run: async (client, message, args) => 
   {
-    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
+    let color = message.member.displayHexColor;
+        if (color == '#000000') color = message.member.hoistRole.hexColor;
+    //let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
     if (!message.member.hasPermission("MANAGE_ROLES")) {
       return message.channel.send(
         "Sorry but you do not have permission to mute anyone. You require the permission 'MANAGE_ROLES"
@@ -20,10 +22,16 @@ module.exports = {
 
     //const user = message.mentions.members.first();
     
-    if(!member) {
-      return message.channel.send("Please mention the member to who you want to mute")
-    }
-    
+    if (!args[0]){ 
+        
+      const sembed = new MessageEmbed()
+           .setColor(color)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
+            .setTimestamp()
+          message.channel.send(sembed);
+          }
+          let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
     if(member.id === message.author.id) {
       return message.channel.send("I won't mute you -_-");
     }
@@ -33,8 +41,15 @@ module.exports = {
     
     
     if(!reason) {
-      return message.channel.send("Please Give the reason to mute the member")
-    }
+        
+      const sembed = new MessageEmbed()
+           .setColor(color)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
+            .setTimestamp()
+          return message.channel.send(sembed);
+          }
+    
     
   //TIME TO LET MUTED ROLE
     
@@ -55,7 +70,14 @@ module.exports = {
     
     member.roles.add(muterole)
     
-await message.channel.send(`You muted **${member.displayName}** for \`${reason}\``)
+
+  const sembed = new MessageEmbed()
+    .setColor(color)
+    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+    .setDescription(`You muted **${member}** for \`${reason}\` ✅`)
+    .setFooter(`Message perms have been revoked 🔇`)
+     
+  message.channel.send(sembed)
     
     member.send(`You are muted in **${message.guild.name}** for \`${reason}\``)
     

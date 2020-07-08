@@ -15,7 +15,15 @@ module.exports = {
             if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
             if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
 
-            if (!args[0]) return message.channel.send('**Enter A User To Kick!**')
+            if (!args[0]){
+        
+                const sembed = new MessageEmbed()
+                     .setColor(color)
+                      .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                      .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,kick {member} {reason}\n\nUsage: Kicks a user. \`\`\``)
+                      .setTimestamp()
+                    return message.channel.send(sembed);
+                    }
 
             var kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
             if (!kickMember) return message.channel.send("**User Is Not In The Guild!**");

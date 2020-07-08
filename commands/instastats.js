@@ -15,9 +15,14 @@ module.exports = {
         const name = args.join(" ");
 
         if (!name) {
-            return message.channel.send("**Please Enter A Instagram Username!**")
-                .then(m => m.delete({timeout: 5000}));
-        }
+        
+            const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,instastats {instagram username} {reason}\n\nUsage: Shows info about a specific Instagram account. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+            }
 
         const url = `https://instagram.com/${name}/?__a=1`;
 

@@ -4,8 +4,18 @@ module.exports={
     description: "There is a big chance I insult you!",
     category: "fun",
     run: async(client,message,args)=>{
+        let color = message.member.displayHexColor;
+            if (color == '#000000') color = message.member.hoistRole.hexColor;
         let question = message.content.slice(7)
-        if(!question)return message.channel.send(`You did not specify your question!`)
+        if(!question){
+        
+            const sembed = new MessageEmbed()
+                .setColor(color)
+                .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,8ball {query} {reason}\n\nUsage: Plays 8ball. \`\`\``)
+                .setTimestamp()
+                return message.channel.send(sembed);
+                }
         else{
             let responses=[
                     "It is certain.",
@@ -30,8 +40,7 @@ module.exports={
                     "Very doubtful.",
             ]
             let response = responses[Math.floor(Math.random()*(responses.length)-1)]
-            let color = message.member.displayHexColor;
-            if (color == '#000000') color = message.member.hoistRole.hexColor;
+
             let Embed = new MessageEmbed()
             
             .setTitle(`8Ball!`)

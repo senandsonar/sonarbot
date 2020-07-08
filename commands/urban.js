@@ -12,8 +12,15 @@ module.exports = {
         run: async(bot,message,args)=>{
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-        if(!args[0])
-        return message.channel.send("Please Enter Something To Search");
+        if(!args[0]){
+        
+            const sembed = new MessageEmbed()
+                .setColor(color)
+                .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,urban {query} {reason}\n\nUsage: Searches for a definition from Urban Dictionary. \`\`\``)
+                .setTimestamp()
+                return message.channel.send(sembed);
+                }
 
         let image = "http://cdn.marketplaceimages.windowsphone.com/v8/images/5c942bfe-6c90-45b0-8cd7-1f2129c6e319?imageType=ws_icon_medium";
         try {

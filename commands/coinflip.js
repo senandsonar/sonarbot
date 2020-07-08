@@ -17,7 +17,9 @@ module.exports = {
         else result = 'Tails';
         const embed = new MessageEmbed()
             .setColor(color)
-            .setDescription(`**${message.member.displayName} Flipped ${result}**!`)
+            .setTitle(`Coinflip!`)
+            .addField(`> *${message.member.displayName} Flipped a coin!*\n `, `> *The coin landed on* ***${result}*** 💫`,)
+            .setTimestamp()
         message.channel.send(embed);
     }
 }

@@ -15,7 +15,15 @@ module.exports = {
         run: async (bot, message, args, ops) => {
             let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-            if (!args[0]) return message.channel.send("**Please Enter A Song Name!**")
+            if (!args[0]){
+        
+                const sembed = new MessageEmbed()
+                    .setColor(color)
+                    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                    .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,ytsearch {video name}\n\nUsage: Searches for a video from Youtube. \`\`\``)
+                    .setTimestamp()
+                    return message.channel.send(sembed);
+                    }
             const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
             const searchString = args.slice(1).join(' ');
     
@@ -45,7 +53,7 @@ module.exports = {
                             .setColor(color)
                             .setFooter(message.member.displayName, message.author.avatarURL())
                             .setDescription(`
-                        __**Song selection:**__\n
+                        __**Video selection:**__\n
                         ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
                                         `)
                             .setTimestamp();

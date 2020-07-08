@@ -15,11 +15,27 @@ module.exports = {
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
 
-        if (!args[0]) return message.channel.send("**Please Enter A Role!**")
+        if (!args[0]){
+        
+            const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,rolememberinfo {role name} {reason}\n\nUsage: Shows a list of user's who have a specific role. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+                }
 
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase());
 
-        if (!role) return message.channel.send("**Please Enter A Valid Role!**");
+        if (!role){
+        
+            const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,rolememberinfo {role name} {reason}\n\nUsage: Shows a list of user's who have a specific role. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+                }
 
         let membersWithRole = message.guild.members.cache.filter(member => {
             return member.roles.cache.find(r => r.name === role.name);

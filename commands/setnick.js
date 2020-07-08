@@ -31,8 +31,9 @@ module.exports = {
         member.setNickname(nick)
         const embed = new MessageEmbed()
             .setColor(color)
-            .setDescription(`**Changed Nickname of ${member.displayName} to ${nick}**`)
-            .setAuthor(message.guild.name, message.guild.iconURL())
+            .setDescription(`> **Changed Nickname of \`${member.displayName}\` to \`${nick}\`**`)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setTimestamp()
         message.channel.send(embed)
         } catch {
             return message.channel.send("**Missing Permissions - [CHANGE_NICKNAME]")

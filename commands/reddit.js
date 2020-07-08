@@ -9,8 +9,15 @@ module.exports = {
     let color = message.member.displayHexColor;
     if (color == '#000000') color = message.member.hoistRole.hexColor;
     let Subreddit = message.content.slice(8);
-    if (!Subreddit)
-      return message.channel.send(`You did not specify your subreddit!`);
+    if (!Subreddit){ 
+        
+      const sembed = new MessageEmbed()
+           .setColor(color)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,reddit {subreddit name w/o "r/".} {reason}\n\nUsage: Shows a random image from a subreddit. \`\`\``)
+            .setTimestamp()
+          return message.channel.send(sembed);
+          }
     try {
       let img = await api(Subreddit);
       const Embed = new MessageEmbed()

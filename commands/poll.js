@@ -13,8 +13,16 @@ module.exports = {
         if (!message.member.hasPermission('SEND_MESSAGES')) return message.channel.send("**You Do Not Have Sufficient Permissions! - [SEND_MESSAGES]**");
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-        if (!args[0])
-            return message.channel.send("**Please Enter A Query!**");
+        if (!args[0]){ 
+        
+            const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,poll {query} {reason}\n\nUsage: Starts a poll. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+                }
+            
 
         const embed = new MessageEmbed()
             .setColor(color)

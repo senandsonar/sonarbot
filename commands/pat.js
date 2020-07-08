@@ -5,15 +5,23 @@ module.exports={
     description: "There is a big chance I insult you!",
     category: "fun",
     run: async(client,message,args)=>{
+      let color = message.member.displayHexColor;
+      if (color == '#000000') color = message.member.hoistRole.hexColor;
       
       //  let user2 =  await message.mentions.members.array()[1] || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[1].toLowerCase()) || message.guild.members.cache.find(mp => mp.displayName.toLowerCase() === args[1].toLowerCase());
         //if(!args[0]) return message.channel.send("**Enter Name Of Lover!**")
        // if(!args[1]) return message.channel.send("**Enter Name Of Another Lover!**")
        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase());
-        if (!args[0]) return message.channel.send("**Please Enter A Valid User(s)!**")
+        if (!args[0]){
         
-            let color = message.member.displayHexColor;
-            if (color == '#000000') color = message.member.hoistRole.hexColor;
+          const sembed = new MessageEmbed()
+              .setColor(color)
+              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+              .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,pat {user}\n\nUsage: Pats a user. \`\`\``)
+              .setTimestamp()
+              return message.channel.send(sembed);
+           }
+
             
             let Embed = new MessageEmbed()
             

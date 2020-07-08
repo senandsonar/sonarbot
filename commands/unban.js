@@ -17,7 +17,15 @@ module.exports = {
 
         
 
-        if (!args[0]) return message.channel.send("**Please Enter A Name!**")
+        if (!args[0]){
+        
+            const sembed = new MessageEmbed()
+                .setColor(color)
+                .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unban {member}\n\nUsage: Unbans a user. \`\`\``)
+                .setTimestamp()
+                return message.channel.send(sembed);
+                }
       
         let bannedMemberInfo = await message.guild.fetchBans()
 

@@ -154,9 +154,6 @@ client.on('message', message => {
         case `whois`:
             client.commands.get('whois').run(client, message, args);
             break;
-        case `role`:
-            client.commands.get('role').run(client, message, args);
-            break;
         case `mischelp`:
             client.commands.get('mischelp').execute(message, args);
             break;

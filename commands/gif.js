@@ -14,11 +14,15 @@ module.exports = {
         let emcolor = message.member.displayHexColor;
         if (emcolor == '#000000') color = message.member.hoistRole.hexColor;
         if (!args[0]) {
-            const embed = new MessageEmbed()
-                .setColor(emcolor)
-                .setDescription("**Please Enter A Search Query!**")
-            return message.channel.send(embed)
-        }
+        
+            const sembed = new MessageEmbed()
+                 .setColor(emcolor)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,gif {word} {reason}\n\nUsage: Shows a gif based on a word. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+            }
+
       try {
         giphy.search(args.join(' ')).then(function (res) {
             let id = res.data[0].id;

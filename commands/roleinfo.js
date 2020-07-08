@@ -11,9 +11,25 @@ module.exports={
     run: async (bot, message, args) => {
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-        if (!args[0]) return message.channel.send("**Please Enter A Role!**")
+        if (!args[0]){
+        
+            const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,roleinfo {role name} {reason}\n\nUsage: Shows info of a specific role. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+                }
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase());
-        if (!role) return message.channel.send("**Please Enter A Valid Role!**");
+        if (!role){
+        
+            const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,roleinfo {role name} {reason}\n\nUsage: Shows info of a specific role. \`\`\``)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+                }
 
         const status = {
             false: "No",
