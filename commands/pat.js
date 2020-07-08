@@ -12,7 +12,7 @@ module.exports={
         //if(!args[0]) return message.channel.send("**Enter Name Of Lover!**")
        // if(!args[1]) return message.channel.send("**Enter Name Of Another Lover!**")
        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase());
-        if (!args[0]){
+        if (args.length == 0){
         
           const sembed = new MessageEmbed()
               .setColor(color)

@@ -13,7 +13,7 @@ module.exports = {
         if (!message.member.hasPermission('SEND_MESSAGES')) return message.channel.send("**You Do Not Have Sufficient Permissions! - [SEND_MESSAGES]**");
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-        if (!args[0]){ 
+        if (args.length == 0){ 
         
             const sembed = new MessageEmbed()
                  .setColor(color)

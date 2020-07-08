@@ -18,6 +18,7 @@
     "discord.js-commando": "^0.10.0",
     "dotenv": "^8.2.0",
     "emojiparse.js": "0.0.5",
+    "fs": "0.0.1-security",
     "giphy-api": "^2.0.1",
     "imageapi.js": "^1.0.3",
     "iso-639-1": "^2.1.3",

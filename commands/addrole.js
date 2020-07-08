@@ -14,7 +14,7 @@ module.exports = {
         if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("**You Dont Have The Permissions To Add Roles To Users! - [MANAGE_ROLES]**");
         if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("**I Dont Have The Permissions To Add Roles To Users! - [MANAGE_ROLES]**");
         
-        if (!args[0]){
+        if (args.length == 0){
         
         const sembed = new MessageEmbed()
             .setColor(color)
@@ -30,7 +30,7 @@ module.exports = {
         if (rMember.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Add Role To This User!**')
 
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
-        if (!args[1]){
+        if (args.length == 1){
         
         const sembed = new MessageEmbed()
             .setColor(color)

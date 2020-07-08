@@ -11,7 +11,7 @@ module.exports={
     run: async (bot, message, args) => {
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-        if (!args[0]){
+        if (args.length == 0){
         
             const sembed = new MessageEmbed()
                  .setColor(color)

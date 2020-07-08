@@ -15,7 +15,7 @@ module.exports = {
         try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
             if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
-            if (!args[0]){
+            if (args.length == 0){
         
                 const sembed = new MessageEmbed()
                      .setColor(color)

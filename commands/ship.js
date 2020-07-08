@@ -12,7 +12,7 @@ module.exports={
         //if(!args[0]) return message.channel.send("**Enter Name Of Lover!**")
        // if(!args[1]) return message.channel.send("**Enter Name Of Another Lover!**")
         
-        if (!args[0]){
+        if (args.length == 0){
         
             const sembed = new MessageEmbed()
                  .setColor(color)
@@ -21,7 +21,7 @@ module.exports={
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
-        if (!args[1]){
+        if (args.length == 1){
         
             const sembed = new MessageEmbed()
                  .setColor(color)

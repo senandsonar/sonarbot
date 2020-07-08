@@ -15,7 +15,7 @@ module.exports = {
             if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
             if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
 
-            if (!args[0]){
+            if (args.length == 0){
         
                 const sembed = new MessageEmbed()
                      .setColor(color)

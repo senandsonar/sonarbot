@@ -22,14 +22,14 @@ module.exports = {
 
     //const user = message.mentions.members.first();
     
-    if (!args[0]){ 
+    if (args.length == 0){ 
         
       const sembed = new MessageEmbed()
            .setColor(color)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
             .setTimestamp()
-          message.channel.send(sembed);
+          return message.channel.send(sembed);
           }
           let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
     if(member.id === message.author.id) {

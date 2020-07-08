@@ -14,33 +14,31 @@ module.exports = {
         if (color == '#000000') color = message.member.hoistRole.hexColor;
         if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have Permissions To Change Nickname! - [MANAGE_GUILD]**");
         if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send("**I Dont Have Permissions To Change Nickname! - [CHANGE_NICKNAME]**");
-      
-        if (!args[0]){ 
-        
-            const sembed = new MessageEmbed()
-                 .setColor(color)
-                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,setnick {user} {new nickname}\n\nUsage: Changes a users nickname. \`\`\``)
-                  .setTimestamp()
-                return message.channel.send(sembed);
-                }
+        const sembed = new MessageEmbed()
+        switch (args.length) {
+            case 0:
+                sembed
+                .setColor(color)
+                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                 .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,setnick {user} {new nickname}\n\nUsage: Changes a users nickname. \`\`\``)
+                 .setTimestamp()
+               return message.channel.send(sembed);
+               break;
+            case 1:
+                sembed
+                .setColor(color)
+                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                 .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,setnick {user} {new nickname}\n\nUsage: Changes a users nickname. \`\`\``)
+                 .setTimestamp()
+               return message.channel.send(sembed);
+               break;
+            default:
+                break;
+        }
+       
 
-      
-        
-        
-
-        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Set or Change Nickname Of This User!**')
-
-        if (!args[1]){ 
-        
-            const sembed = new MessageEmbed()
-                 .setColor(color)
-                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,setnick {user} {new nickname}\n\nUsage: Changes a users nickname. \`\`\``)
-                  .setTimestamp()
-                return message.channel.send(sembed);
-                }
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
+        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Set or Change Nickname Of This User!**')
         let nick = args.slice(1).join(' ');
 
         try {
@@ -54,6 +52,7 @@ module.exports = {
         } catch {
             return message.channel.send("**Missing Permissions - [CHANGE_NICKNAME]")
         }
+        
 
         
     }

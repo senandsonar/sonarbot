@@ -16,22 +16,6 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-
-//client.on("ready", () =>{
-  // console.log(`Logged in as ${client.user.tag}!`);
-  // client.user.setPresence({
-  //      status: "online",  //You can show online, idle....
-  //      game: {
-   //         name: "Use !help",  //The message shown
-   //         type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-   //     }
- //   });
- //});
-
- 
-
-
-
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -276,6 +260,9 @@ client.on('message', message => {
             break
         case `pat`:
             client.commands.get('pat').run(client, message, args);
+            break
+        case `commanifesto`:
+            client.commands.get('commanifesto').execute(message, args);
             break
         default:
             break;

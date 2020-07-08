@@ -16,7 +16,7 @@ module.exports = {
 
         if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("**I Dont Have The Permissions To Remove Roles From Users! - [MANAGE_ROLES]**");
         
-        if (!args[0]){
+        if (args.length == 0){
         
         const sembed = new MessageEmbed()
              .setColor(color)
@@ -35,17 +35,17 @@ module.exports = {
                 return message.channel.send(sembed);
                 }
 
-        let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
-        if (!args[1]){
-        
-        const sembed = new MessageEmbed()
-             .setColor(color)
-              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-              .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,removerole {member} {role name}\n\nUsage: removes a role from a user. \`\`\``)
-              .setTimestamp()
-            message.channel.send(sembed);
-            }
+        if (args.length == 1){
+            const sembed = new MessageEmbed()
+            .setColor(color)
+            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+            .setDescription(`**Invalid Operation** :x:  \n \`\`\`Syntax: ,removerole {member} {role name}\n\nUsage: Removes a role from a user.... \`\`\``)
+            .setTimestamp()
+           message.channel.send(sembed);
+         }
 
+        let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
+        
         //if (!role) return message.channel.send("**Couldn't Find That Role**");
 
         if (rMember.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Remove Role From This User! - [Higher Than Me In Role Hierachy]**')
