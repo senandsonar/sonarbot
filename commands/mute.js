@@ -44,7 +44,6 @@ module.exports = {
     {
        id: member.id,
        deny: ['SEND_MESSAGES'],
-       allow: ['CREATE_INVITE'],
     }
 ])
 

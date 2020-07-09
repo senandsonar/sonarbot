@@ -9,7 +9,7 @@ module.exports = {
   run: async (client, message, args) => 
   {
     let color = message.member.displayHexColor;
-    
+    if (color == '#000000') color = message.member.hoistRole.hexColor;
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   

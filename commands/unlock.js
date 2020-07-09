@@ -44,7 +44,7 @@ module.exports = {
   channel.overwritePermissions([
     {
         id: message.guild.id,
-       allow: ['SEND_MESSAGES'],
+       default: ['SEND_MESSAGES'],
     }
 ])
 
