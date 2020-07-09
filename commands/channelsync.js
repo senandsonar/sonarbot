@@ -1,11 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 
-
-
-
 module.exports = {
-  name: "unlock",
+  name: "channelsync",
   description: "Mute anyone who break rules",
   category: "moderation",
   usage: "mute <@mention>",
@@ -21,7 +18,7 @@ module.exports = {
   //const adminRole = message.guild.roles.cache.find(r => r.name === 'Admin');
   if (!message.member.hasPermission("MANAGE_ROLES")) {
     return message.channel.send(
-      "Sorry but you do not have permission to unlock channels. You require the permission 'ADMINISTRATOr"
+      "Sorry but you do not have permission to sync channels. You require the permission 'ADMINISTRATOR'"
     );
   }
 
@@ -29,12 +26,14 @@ module.exports = {
     return message.channel.send("I do not have sufficient permissions.");
   }
 
+
+
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unlock\n\nUsage: Unlocks a channel. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,channelsync\n\nUsage: Syncs a channels perms with the channel category.\nNote: This will reset all specified permissions for the channel. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -43,27 +42,19 @@ module.exports = {
 
     
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
-  if (channel.permissionsFor(channel.guild.roles.everyone).has("SEND_MESSAGES")){
-    const sembed = new MessageEmbed()
-      .setColor(color)
-      .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-      .setDescription(`**Channel is already unlocked** :x: `)
-    //.setFooter(``)
-     
-  return message.channel.send(sembed)
-    }
+  
+
   
 
 
 
-
-  channel.updateOverwrite(channel.guild.roles.everyone, { SEND_MESSAGES: null })
-
+  channel.lockPermissions()
 const sembed = new MessageEmbed()
     .setColor(color)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
-    .addField(`Lockdown Ended ✅`, ` Channel Unlocked. :unlock: `)
+    .addField(`Channel Synced ✅`, `> Permissions now synced with category.`)
+    //.setFooter(``)
     .setTimestamp()
      
   message.channel.send(sembed)

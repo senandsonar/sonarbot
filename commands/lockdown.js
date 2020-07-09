@@ -26,6 +26,8 @@ module.exports = {
     return message.channel.send("I do not have sufficient permissions.");
   }
 
+
+
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
@@ -40,14 +42,20 @@ module.exports = {
 
     
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
- 
-  channel.overwritePermissions([
-    {
-        id: message.guild.id,
-       deny: ['SEND_MESSAGES'],
-    }
-])
+  if (!channel.permissionsFor(channel.guild.roles.everyone).has("SEND_MESSAGES")) {
+  const sembed = new MessageEmbed()
+    .setColor(color)
+    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+  .setDescription(`**Channel is already locked** :x: `)
+  //.setFooter(``)
+   
+return message.channel.send(sembed)
+  }
+  
 
+
+
+channel.updateOverwrite(channel.guild.roles.everyone, { SEND_MESSAGES: false })
 const sembed = new MessageEmbed()
     .setColor(color)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))

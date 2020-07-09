@@ -39,13 +39,19 @@ module.exports = {
 
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
- 
-  channel.overwritePermissions([
-    {
-       id: member.id,
-       deny: ['SEND_MESSAGES'],
+  if (channel.permissionOverwrites.get(member.id)){
+    const sembed = new MessageEmbed()
+      .setColor(color)
+      .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+    .setDescription(`**${member.user.tag} Already Muted** :x: `)
+    //.setFooter(``)
+     
+  return message.channel.send(sembed)
     }
-])
+  
+
+
+  channel.updateOverwrite(member.id, { SEND_MESSAGES: false });
 
 const sembed = new MessageEmbed()
     .setColor(color)

@@ -19,6 +19,8 @@ client.once('ready', () => {
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+
+    //number command below(useless)
     const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
     var randomnumber=Math.floor(Math.random()*101);
@@ -272,6 +274,9 @@ client.on('message', message => {
             break
         case `adminhelp`:
             client.commands.get('adminhelp').execute(message, args);
+            break
+        case `channelsync`:
+            client.commands.get('channelsync').run(client, message, args);
             break
         default:
             break;
