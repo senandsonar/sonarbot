@@ -17,7 +17,8 @@ const exampleEmbed = new Discord.MessageEmbed()
 	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
 	.setDescription('Prefix: ,')
 	.addFields(
-                { name: '**Moderation Commands (,modhelp)**', value: 'All the moderation commands Senbot has to offer.' },
+				{ name: '**Moderation Commands (,modhelp)**', value: 'All the moderation commands Senbot has to offer.' },
+				{ name: '**Admin Commands (,adminhelp)**', value: 'Commands that require high perms to execute.' },
        // { name: '\u200B', value: '\u200B' },
                 { name: '**Info Commands (,infohelp)**', value: 'APIs that Senbot has access to and other informative commands.', inline: false },
        // { name: '\u200B', value: '\u200B' },

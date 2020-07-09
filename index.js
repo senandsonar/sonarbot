@@ -264,6 +264,15 @@ client.on('message', message => {
         case `commanifesto`:
             client.commands.get('commanifesto').execute(message, args);
             break
+        case `lockdown`:
+            client.commands.get('lockdown').run(client, message, args);
+            break
+        case `unlock`:
+            client.commands.get('unlock').run(client, message, args);
+            break
+        case `adminhelp`:
+            client.commands.get('adminhelp').execute(message, args);
+            break
         default:
             break;
     }

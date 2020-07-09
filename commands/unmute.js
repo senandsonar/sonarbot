@@ -45,13 +45,12 @@ module.exports = {
 const sembed = new MessageEmbed()
     .setColor(color)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setDescription(`You unmuted **${member}** ✅`)
-    .setFooter(`Message perms have been granted 🔊`)
+   // .setDescription(`**${member}** Muted ✅`)
+    .addField(`**${member.user.tag}** Unmuted ✅`, `Message perms have been granted :speaker: `)
+   // .setFooter(``)
      
   message.channel.send(sembed)
     
-    member.send(`You have been unmuted in **${message.guild.name}**`)
-      // handle responses / errors
       
     
 }}
