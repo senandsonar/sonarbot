@@ -21,7 +21,7 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Usage: ,slowmode {time in seconds} {reason} ', inline: false },
         { name: "**Lockdown** - Locks a channel.", value: 'Usage: ,lockdown ', inline: false },
 		{ name: "**Unlock** - Unlocks a locked channel.", value: 'Usage: ,unlock ', inline: false },
-		{ name: "**Channelsync** - Syncs and channels permissions with the category.", value: 'Usage: ,channelsync ', inline: false },
+		{ name: "**Channelsync** - Syncs a channels permissions with the category permissions.", value: 'Usage: ,channelsync ', inline: false },
        
         
 		
