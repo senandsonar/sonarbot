@@ -38,11 +38,12 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Userinfo** - Displays info about a user.", value: 'Usage: ,userinfo {member} ', inline: false },
         { name: "**News** - Replies with 3 of the latest world news headlines. ", value: 'Usage: ,news ', inline: false },
         { name: "**YTsearch** - Searches youtube for a video. Shows first 5 results. ", value: 'Usage: ,ytsearch {video name} ', inline: false },
+        { name: "**Rolelist** - Shows a list of all the roles in the server. ", value: 'Usage: ,rolelist ', inline: false },
         
 		
 	)
     
 message.author.send(exampleEmbed)
 if(message.content === ",infohelp"){
-    message.react('✅')
+    message.react('730967576007671929')
     }}}

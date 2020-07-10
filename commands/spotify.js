@@ -15,7 +15,7 @@ module.exports = {
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
         //var msg = null;
         user.presence.activities.forEach((activity) => {
-
+            
         if (activity.type === 'LISTENING' && activity.name === 'Spotify' && activity.assets !== null) {
 
             let trackIMG = `https://i.scdn.co/image/${activity.assets.largeImage.slice(8)}`;

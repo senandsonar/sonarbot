@@ -278,6 +278,9 @@ client.on('message', message => {
         case `channelsync`:
             client.commands.get('channelsync').run(client, message, args);
             break
+        case `rolelist`:
+            client.commands.get('rolelist').run(client, message, args);
+            break
         default:
             break;
     }

@@ -29,5 +29,5 @@ const exampleEmbed = new Discord.MessageEmbed()
     
 message.author.send(exampleEmbed)
 if(message.content === ",adminhelp"){
-    message.react('✅')
+    message.react('730967576007671929')
     }}}

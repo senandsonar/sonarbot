@@ -31,8 +31,8 @@ module.exports = {
         var msg = await message.channel.send(embed);
         message.delete({ timeout: 3000 });
 
-        await msg.react('✅');
-        await msg.react('❌');
+        await msg.react('730967576007671929');
+        await msg.react('730967627916378174');
 
         
     }

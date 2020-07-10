@@ -21,13 +21,15 @@ module.exports = {
     try {
       let img = await api(Subreddit);
       const Embed = new MessageEmbed()
-        .setTitle(`A random image from r/${Subreddit}`)
+        .setTitle(`r/${Subreddit}`)
         .setColor(color)
         .setImage(img)
+        .setTimestamp()
         .setURL(`https://reddit.com/r/${Subreddit}`);
-      message.channel.send(Embed);
-    } catch (err) {
-      message.channel.send(err);
+        var msg = await message.channel.send(Embed);
+      await msg.react('728960552558264327');
+      await msg.react('728960499584204811');
+
     }
-  },
+  finally{}},
 };

@@ -29,8 +29,8 @@ module.exports = {
             .addField(`New Post in  ${message.channel.name} 📰 `,"*> " + (args.join('  ') + "* ")  )
         var msg = await message.channel.send(embed);
         message.delete({ timeout: 3000 });
-    await msg.react('⬆');
-    await msg.react('⬇');
+        await msg.react('728960552558264327');
+        await msg.react('728960499584204811');
   },
 }
 
