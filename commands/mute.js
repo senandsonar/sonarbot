@@ -43,7 +43,7 @@ module.exports = {
     const sembed = new MessageEmbed()
       .setColor(color)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setDescription(`**${member.user.tag} Already Muted** :x: `)
+    .setDescription(`**${member.user.tag} Already muted or is unable to view this channel!** :x: `)
     //.setFooter(``)
      
   return message.channel.send(sembed)

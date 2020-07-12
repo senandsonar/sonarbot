@@ -7,7 +7,7 @@ module.exports={
     run: async(bot,message,args)=>{
         let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;
-        if(!message.member.hasPermission("MANAGE_CHANNELS"))return message.channel.send("You dont have admin!")
+        if(!message.member.hasPermission("ADMINISTRATOR"))return message.channel.send("You dont have the permission - ADMINISTRATOR")
         if(!args[0]){ 
         
             const sembed = new MessageEmbed()

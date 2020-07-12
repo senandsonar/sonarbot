@@ -280,8 +280,12 @@ client.on('message', message => {
             break
         case `rolelist`:
             client.commands.get('rolelist').run(client, message, args);
-            break
-        default:
+            break;
+        case `hidechannel`:
+            client.commands.get('hidechannel').run(client, message, args);
+            break;
+        case `revealchannel`:
+            client.commands.get('revealchannel').run(client, message, args);
             break;
     }
 });

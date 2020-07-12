@@ -7,7 +7,7 @@ module.exports={
         accessableby: "Administrator",
     
         run: async(bot,message,args)=>{
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have sufficient permissions!- [MANAGE_MESSAGES]")
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have sufficient permissions!- [ADMINISTRATOR]")
         if (isNaN(args[0]))
             return message.channel.send('**Please Supply A Valid Amount To Delete Messages!**');
 

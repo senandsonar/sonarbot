@@ -22,6 +22,8 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Lockdown** - Locks a channel.", value: 'Usage: ,lockdown ', inline: false },
 		{ name: "**Unlock** - Unlocks a locked channel.", value: 'Usage: ,unlock ', inline: false },
 		{ name: "**Channelsync** - Syncs a channels permissions with the category permissions.", value: 'Usage: ,channelsync ', inline: false },
+		{ name: "**Hidechannel** - Hides a channel from everyone.", value: 'Usage: ,hidechannel ', inline: false },
+		{ name: "**Revealchannel** - Reveals a channel to everyone.", value: 'Usage: ,revealchannel ', inline: false },
        
         
 		

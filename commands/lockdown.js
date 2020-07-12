@@ -16,7 +16,7 @@ module.exports = {
   
   
   //const adminRole = message.guild.roles.cache.find(r => r.name === 'Admin');
-  if (!message.member.hasPermission("MANAGE_ROLES")) {
+  if (!message.member.hasPermission("ADMINISTRATOR")) {
     return message.channel.send(
       "Sorry but you do not have permission to lockdown channels. You require the permission 'ADMINISTRATOR'"
     );

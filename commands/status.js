@@ -47,9 +47,9 @@ module.exports={
                     .setColor(color)
                     .setThumbnail(image)
                     .addField("**Type**", "Playing")
-                    .addField("**App**", `${name1}`)
+                    .addField("**Application**", `${name1}`)
                     .addField("**Details**", `${details1 || "No Details"}`)
-                    .addField("**Working on**", `${state1 || "No Details"}`)
+                    .addField("**Extras**", `${state1 || "No Details"}`)
                 message.channel.send(sembed);
             }
         })
