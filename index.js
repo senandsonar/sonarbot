@@ -287,7 +287,12 @@ client.on('message', message => {
         case `revealchannel`:
             client.commands.get('revealchannel').run(client, message, args);
             break;
+        case `emote`:
+            client.commands.get('emote').run(client, message, args);
+            break;
     }
+
+
 });
 
 

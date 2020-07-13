@@ -47,11 +47,12 @@ module.exports = {
                     console.log(video)
                 } catch (error) {
                     try {
-                        var videos = await youtube.searchVideos(searchString, 5);
+                        var videos = await youtube.searchVideos(searchString, 3);
                         let index = 0;
                         const sembed = new MessageEmbed()
                             .setColor(color)
-                            .setFooter(message.member.displayName, message.author.avatarURL())
+                            .setAuthor(message.member.displayName, message.author.avatarURL())
+                            .setFooter(`Respond with the number next to the video title.`)
                             .setDescription(`
                         __**Video selection:**__\n
                         ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}

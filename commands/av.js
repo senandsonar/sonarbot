@@ -9,7 +9,8 @@ module.exports = {
 	  accessableby: "everyone",
 
 	run: async (bot, message, args) => { 
-	  
+		let emcolor = message.member.displayHexColor;
+        if (emcolor == '#000000') color = message.member.hoistRole.hexColor;
 	  let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
   
 	  if (args[0]) {
@@ -18,7 +19,7 @@ module.exports = {
   
 			title: `${user.user.username}'s Avatar`,
   
-			color: 0xFFEFD5,
+			color: emcolor,
   
 			image: {
 			  url: `${user.user.displayAvatarURL({dynamic: true})}` + '?size=4096'
@@ -39,7 +40,7 @@ module.exports = {
   
 			title: `${user.user.username}'s Avatar`,
   
-			color: 0xFFEFD5,
+			color: emcolor,
   
 			image: {
 			  url: `${user.user.displayAvatarURL({ dynamic: true })}` + '?size=4096'

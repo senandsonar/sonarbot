@@ -32,6 +32,12 @@ module.exports={
                 }
         
         message.channel.setRateLimitPerUser(args[0],reason)
-        message.channel.send(`Set the slowmode of this channel to **${args[0]}** with the reason: **${reason}**`)
+        //message.channel.send(`Set the slowmode of this channel to **${args[0]}** with the reason: **${reason}**`)
+        const sembed = new MessageEmbed()
+                 .setColor(color)
+                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+                  .addField(`Slowmode Set! ✅`, `> Set the slowmode of this channel to **${args[0]}** for: **${reason}**`)
+                  .setTimestamp()
+                return message.channel.send(sembed);
+                }
     }
-}
