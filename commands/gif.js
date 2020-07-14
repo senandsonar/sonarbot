@@ -18,7 +18,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(emcolor)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,gif {word} {reason}\n\nUsage: Shows a gif based on a word. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,gif {word}\n\nUsage: Shows a gif based on a word. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
             }
