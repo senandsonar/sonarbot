@@ -109,7 +109,7 @@ const exampleEmbed = new Discord.MessageEmbed()
 	)
     
 	
-	if(message.content.includes("admin")){
+	if(message.content.includes("info")){
 		message.react('730967576007671929')
 		return message.author.send(infoEmbed)
 		
