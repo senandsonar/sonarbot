@@ -140,18 +140,6 @@ client.on('message', message => {
         case `whois`:
             client.commands.get('whois').run(client, message, args);
             break;
-        case `mischelp`:
-            client.commands.get('mischelp').execute(message, args);
-            break;
-        case `modhelp`:
-            client.commands.get('modhelp').execute(message, args);
-            break;
-        case `infohelp`:
-            client.commands.get('infohelp').execute(message, args);
-            break;
-        case `funhelp`:
-            client.commands.get('funhelp').execute(message, args);
-            break;
         case `serverlist`:
             client.commands.get('serverlist').run(client, message, args);
             break;
@@ -271,9 +259,6 @@ client.on('message', message => {
             break
         case `unlock`:
             client.commands.get('unlock').run(client, message, args);
-            break
-        case `adminhelp`:
-            client.commands.get('adminhelp').execute(message, args);
             break
         case `channelsync`:
             client.commands.get('channelsync').run(client, message, args);

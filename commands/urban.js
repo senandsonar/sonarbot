@@ -17,7 +17,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                 .setColor(color)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,urban {query} {reason}\n\nUsage: Searches for a definition from Urban Dictionary. \`\`\``)
+                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,urban {query}\n\nUsage: Searches for a definition from Urban Dictionary. \`\`\``)
                 .setTimestamp()
                 return message.channel.send(sembed);
                 }

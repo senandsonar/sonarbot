@@ -29,7 +29,9 @@ const exampleEmbed = new Discord.MessageEmbed()
 		
 	)
     
-message.author.send(exampleEmbed)
-if(message.content === ",adminhelp"){
-    message.react('730967576007671929')
-    }}}
+
+if (args.length == 1){ 
+if(message.content === `admin`, `help`){
+	message.react('730967576007671929')
+	message.author.send(exampleEmbed)
+    }}}}
