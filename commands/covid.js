@@ -18,15 +18,15 @@ module.exports = {
       let corona = await track.all() //it will give global cases
       
       let embed = new discord.MessageEmbed()
-      .setTitle("Global Cases")
+      .setTitle("Global Coronavirus Statistics")
       .setColor("#ff2050")
       .setDescription("The number of cases may differ by a small amount.")
-      .addField("__Total Cases__", corona.cases, true)
-      .addField("__Total Deaths__", corona.deaths, true)
-      .addField("__Total Recovered__", corona.recovered, true)
-      .addField("__Today's Cases__", corona.todayCases, true)
-      .addField("__Today's Deaths__", corona.todayDeaths, true)
-      .addField("__Active Cases__", corona.active, true);
+      .addField("__Total Cases__", corona.cases, false)
+      .addField("__Total Deaths__", corona.deaths, false)
+      .addField("__Total Recovered__", corona.recovered, false)
+      .addField("__Today's Cases__", corona.todayCases, false)
+      .addField("__Today's Deaths__", corona.todayDeaths, false)
+      .addField("__Active Cases__", corona.active, false);
       
       return message.channel.send(embed)
       
@@ -36,15 +36,15 @@ module.exports = {
       let corona = await track.countries(args.join(" ")) //change it to countries
       
       let embed = new discord.MessageEmbed()
-      .setTitle(`${corona.country}`)
+      .setTitle(`Coronavirus Statistics For ${corona.country}`)
       .setColor("#ff2050")
       .setDescription("The number of cases may differ by a small amount.")
-      .addField("__Total Cases__", corona.cases, true)
-      .addField("__Total Deaths__", corona.deaths, true)
-      .addField("__Total Recovered__", corona.recovered, true)
-      .addField("__Today's Cases__", corona.todayCases, true)
-      .addField("__Today's Deaths__", corona.todayDeaths, true)
-      .addField("__Active Cases__", corona.active, true);
+      .addField("__Total Cases__", corona.cases, false)
+      .addField("__Total Deaths__", corona.deaths, false)
+      .addField("__Total Recovered__", corona.recovered, false)
+      .addField("__Today's Cases__", corona.todayCases, false)
+      .addField("__Today's Deaths__", corona.todayDeaths, false)
+      .addField("__Active Cases__", corona.active, false);
       
       return message.channel.send(embed)
       

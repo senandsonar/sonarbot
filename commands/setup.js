@@ -11,7 +11,7 @@ module.exports = {
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor(color)
-	.setTitle('To use Sonar effectively, follow these instructions...')
+	.setTitle('To use Senbot effectively, follow these instructions...')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setDescription('You will need to create a few roles and a channel.')
 	.addFields(
