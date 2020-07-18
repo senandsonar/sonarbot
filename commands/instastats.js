@@ -44,13 +44,13 @@ module.exports = {
             .setURL(`https://instagram.com/${name}`)
             .setThumbnail(account.profile_pic_url_hd)
             .setDescription("**Profile information**")
-            .addField("**Username**", `${account.username}`)
-            .addField("**Full name**", `${account.full_name}`)
-            .addField("**Bio**", `${account.biography.length == 0 ? "none" : account.biography}`)
-            .addField("**Posts**", `${account.edge_owner_to_timeline_media.count}`)
-            .addField("**Followers**", `${account.edge_followed_by.count}`)
-            .addField("**Following**", `${account.edge_follow.count}`)
-            .addField("**Private account**", `${account.is_private ? "Yes 🔐" : "Nope 🔓"}`);
+            .addField("__Username__", `${account.username}`)
+            .addField("__Full name__", `${account.full_name}`)
+            .addField("__Bio__", `${account.biography.length == 0 ? "none" : account.biography}`)
+            .addField("__Posts__", `${account.edge_owner_to_timeline_media.count}`)
+            .addField("__Followers__", `${account.edge_followed_by.count}`)
+            .addField("__Following__", `${account.edge_follow.count}`)
+            .addField("__Private account__", `${account.is_private ? "Yes 🔐" : "Nope 🔓"}`);
 
         message.channel.send(embed);
     }

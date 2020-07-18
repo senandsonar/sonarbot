@@ -275,6 +275,9 @@ client.on('message', message => {
         case `emote`:
             client.commands.get('emote').run(client, message, args);
             break;
+        case `phcomment`:
+            client.commands.get('phcomment').run(client, message, args);
+        break;
     }
 
 
