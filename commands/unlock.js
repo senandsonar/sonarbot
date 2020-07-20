@@ -63,7 +63,7 @@ const sembed = new MessageEmbed()
     .setColor(color)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
-    .addField(`Lockdown Ended ✅`, ` Channel Unlocked. :unlock: `)
+    .addField(`Lockdown Ended ✅`, `> Channel Unlocked. :unlock: `)
     .setTimestamp()
      
   message.channel.send(sembed)

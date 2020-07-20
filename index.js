@@ -278,10 +278,13 @@ client.on('message', message => {
             break;
         case `phcomment`:
             client.commands.get('phcomment').run(client, message, args);
-        break;
-        case `hackban`:
-            client.commands.get('hackban').run(client, message, args);
-        break;
+            break;
+        case `senskin`:
+            client.commands.get('senskin').execute(message, args);
+            break;
+        case `say`:
+            client.commands.get('say').run(client, message, args);
+            break;
     }
 
 

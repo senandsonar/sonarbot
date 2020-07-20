@@ -170,7 +170,8 @@ const exampleEmbed = new MessageEmbed()
         { name: "**Captcha** - Sends a captcha of a user's avatar.", value: 'Usage: ,captcha {user}', inline: false },
         { name: "**Instastats** - Sends statistics of a Instagram account.", value: 'Usage: ,instastats {instagram name}', inline: false },
         { name: "**Ship** - Ships two users.", value: 'Usage: ,ship {user 1} {user 2}', inline: false },
-        { name: "**Fun** - Pats a user.", value: 'Usage: ,pat {user}', inline: false },
+		{ name: "**Fun** - Pats a user.", value: 'Usage: ,pat {user}', inline: false },
+		{ name: "**Say** - Makes the bot say something.", value: 'Usage: ,say {text}', inline: false },
         
 		
         
@@ -201,6 +202,7 @@ const exampleEmbed = new MessageEmbed()
 			{ name: "**Supportserver** - Creates an instant invite for Senbot's support server.", value: 'Usage: ,supportserver ', inline: false },	
 			{ name: "**Invites** - Shows user's who joined through a someones invites.", value: 'Usage: ,invites {user} ', inline: false },
 			{ name: "**Calculate** - Calculates math equations. ", value: 'Usage: ,calculate {equation} ', inline: false },
+			{ name: "**Senskin** - Sends a link to Sen's custom osu skin. ", value: 'Usage: ,senskin ', inline: false },
 		)
 
 		if(message.content.includes("misc")){
