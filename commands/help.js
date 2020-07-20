@@ -1,10 +1,11 @@
 // at the top of your file
-const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js')
+
 
 module.exports = {
 	name: 'help',
 	description: 'help!',
-	execute(message, args) {
+	run: async(bot, message, args) => {
 		
 		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
 		let color = message.member.displayHexColor;
@@ -12,20 +13,20 @@ module.exports = {
 // inside a command, event listener, etc.
 
 if (args.length == 0){ 
-const exampleEmbed = new Discord.MessageEmbed()
+const exampleEmbed = new MessageEmbed()
 	.setColor(color)
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setTitle('**Use ",setup".**')
-	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+	.setThumbnail(bot.user.displayAvatarURL())
 	.setDescription('Prefix: ,')
 	.addFields(
-				{ name: '**Moderation Commands **', value: 'All the moderation commands Senbot has to offer.' },
+				{ name: '**Moderation Commands **', value: `All the moderation commands ${bot.user.username} has to offer.` },
 				{ name: '**Admin Commands **', value: 'Commands that require high perms to execute.' },
        // { name: '\u200B', value: '\u200B' },
-				{ name: '**Info Commands **', value: 'APIs that Senbot has access to and other informative commands.', inline: false },
+				{ name: '**Info Commands **', value: `APIs that ${bot.user.username} has access to and other informative commands.`, inline: false },
 				{ name: '**Image Commands **', value: 'Commands that feature images.'},
        // { name: '\u200B', value: '\u200B' },
-				{ name: '**Fun Commands **', value: 'Some fun commands that Senbot can do.', inline: false },
+				{ name: '**Fun Commands **', value: `Some fun commands that ${bot.user.username} can do.`, inline: false },
 				{ name: '**Miscellaneous Commands **', value: 'Unique miscellaneous commands. ', inline: false },
         
         
@@ -45,12 +46,12 @@ const exampleEmbed = new Discord.MessageEmbed()
 	message.channel.send(exampleEmbed)
 	}
 	if (args.length > 0){
-	const adminEmbed = new Discord.MessageEmbed()
+	const adminEmbed = new MessageEmbed()
 	.setColor(color)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Administrator Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+	.setThumbnail(bot.user.displayAvatarURL())
 	.setDescription('Prefix: ,')
 	.addFields(
         { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Usage: ,purge {number of messages} ', inline: false },
@@ -75,12 +76,12 @@ const exampleEmbed = new Discord.MessageEmbed()
 
 }}
 	if (args.length > 0){
-	const infoEmbed = new Discord.MessageEmbed()
+	const infoEmbed = new MessageEmbed()
 	.setColor(color)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Info Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+	.setThumbnail(bot.user.displayAvatarURL())
 	.setDescription('Prefix: ,')
 	.addFields(
         //	{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
@@ -118,12 +119,12 @@ const exampleEmbed = new Discord.MessageEmbed()
 
 
 		if (args.length > 0){
-			const modEmbed = new Discord.MessageEmbed()
+			const modEmbed = new MessageEmbed()
 			.setColor(color)
 			.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 			.setTitle('**Moderation Commands**')
 			//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-			.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+			.setThumbnail(bot.user.displayAvatarURL())
 			.setDescription('Prefix: ,')
 			.addFields(
 				//{ name: '**Moderation**', value: '`ban`  `unban`  `mute`  `unmute`  `purge`  `jail`  `unjail`  `slowmode`  `dm`'inline: false },
@@ -150,12 +151,12 @@ const exampleEmbed = new Discord.MessageEmbed()
 
 				
 	if (args.length > 0){
-	const funEmbed = new Discord.MessageEmbed()
+	const funEmbed = new MessageEmbed()
 	.setColor(color)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Fun Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+	.setThumbnail(bot.user.displayAvatarURL())
 	.setDescription('Prefix: ,')
 	.addFields(
        
@@ -183,12 +184,12 @@ const exampleEmbed = new Discord.MessageEmbed()
 	
 	
 	if (args.length > 0){
-		const miscEmbed = new Discord.MessageEmbed()
+		const miscEmbed = new MessageEmbed()
 		.setColor(color)
 		.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 		.setTitle('**Miscellaneous Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-		.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+		.setThumbnail(bot.user.displayAvatarURL())
 		.setDescription('Prefix: ,')
 		.addFields(
 			//{ name: '**Miscellaneous**', value: ' `report`  `inviteme` ', inline: true },
@@ -208,12 +209,12 @@ const exampleEmbed = new Discord.MessageEmbed()
 		}
 
 	if (args.length > 0){
-	const imageEmbed = new Discord.MessageEmbed()
+	const imageEmbed = new MessageEmbed()
 	.setColor(color)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Image Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+	.setThumbnail(bot.user.displayAvatarURL())
 	.setDescription('Prefix: ,')
 	.addFields(
         //{ name: '**Miscellaneous**', value: ' `number`  `report`  `poll`  `8ball`  `inviteme`  `define`  `reddit`  `coinflip`  `uptime`', inline: true },
@@ -230,7 +231,6 @@ const exampleEmbed = new Discord.MessageEmbed()
         { name: "**Gif** - Sends a gif based on a word.", value: 'Usage: ,gif {word}', inline: false },
         { name: "**Fire** - Sends a picture of a users pfp being set on fire.", value: 'Usage: ,fire {user}', inline: false },
 		{ name: "**Love** - Sends a picture of a two users in love.", value: 'Usage: ,love {user 1} {user 2}', inline: false },
-		{ name: "**Rip** - Shows a users grave stone.", value: 'Usage: ,rip {user}', inline: false },
 	)
     
 	if(message.content.includes("image")){

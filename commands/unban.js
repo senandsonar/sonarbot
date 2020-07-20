@@ -1,4 +1,7 @@
 const { MessageEmbed } = require("discord.js")
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
 
 
 module.exports = {
@@ -31,18 +34,15 @@ module.exports = {
 
         let bannedMember;
         bannedMember = bannedMemberInfo.find(b => b.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || bannedMemberInfo.get(args[0]) || bannedMemberInfo.find(bm => bm.user.tag.toLowerCase() === args[0].toLocaleLowerCase());
-        if (!bannedMember) return message.channel.send("**Please Provide A Valid Username, Tag Or ID Or The User Is Not Banned!**")
+       // if (!bannedMember) return message.channel.send("**Please Provide A Valid Username, Tag Or ID Or The User Is Not Banned!**")
 
         let reason = args.slice(1).join(" ")
         
 
         if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Don't Have Permissions To Unban Someone! - [BAN_MEMBERS]**")
-        try {
-            bannedMember.send(`**Hello, You Have Been Unbanned From ${message.guild.name} **`).then(() =>
-                message.guild.members.ban(bannedMember, { days: 7, reason: reason })).catch(() => null)
-            } catch {
-                message.guild.members.ban(bannedMember, { days: 7, reason: reason })
-            }
+        
+        
+              
         
         try {
             if (reason) {

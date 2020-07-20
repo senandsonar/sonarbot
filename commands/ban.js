@@ -38,9 +38,9 @@ module.exports = {
                     .setDescription(`**Hello, You Have Been Banned From ${message.guild.name} for: ${reason || "*No Reason.*"}**`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 banMember.send(sembed2).then(() =>
-                    banMember.kick()).catch(() => null)
+                message.guild.members.ban(banMember, { days: 7, reason: reason })).catch(() => null)
             } catch {
-                banMember.kick()
+                message.guild.members.ban(banMember, { days: 7, reason: reason })
             }
             if (reason) {
                 var sembed = new MessageEmbed()

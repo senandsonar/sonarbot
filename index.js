@@ -16,6 +16,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -48,7 +49,7 @@ client.on('message', message => {
             client.commands.get('8ball').run(client, message, args);
             break;
          case `help`:
-            client.commands.get('help').execute(message, args);
+            client.commands.get('help').run(client, message, args);
             break;
          case `changelog`:
             client.commands.get('changelog').execute(message, args);
@@ -111,7 +112,7 @@ client.on('message', message => {
             client.commands.get('urban').run(client, message, args);
             break;
         case `background`:
-            client.commands.get('background').execute(message, args);
+            client.commands.get('background').run(client, message, args);
             break;
         case `commandlist`:
             client.commands.get('commandlist').execute(message, args);
@@ -278,11 +279,23 @@ client.on('message', message => {
         case `phcomment`:
             client.commands.get('phcomment').run(client, message, args);
         break;
+        case `hackban`:
+            client.commands.get('hackban').run(client, message, args);
+        break;
     }
 
 
 });
 
+process.on('shardError', error => {
+    const sembed = new MessageEmbed()
+    .setColor(color)
+    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+    .setDescription(`\n\`\`\`Fatal Error: A websocket connection encountered an error:\n\nThis message is extremely rare. If this persists, contact the bot developer Sen#4444. \`\`\``)
+    .setTimestamp()
+    return message.channel.send(sembed);
+    }
+);
 
 
 
