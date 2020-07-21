@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports={
         name: 'roleinfo',
         category: "info",
+        cooldown: 5,
         aliases: ["rinfo"],
         description: "shows stats of the mentioned role",
         usage: "[role name | role mention | ID]",

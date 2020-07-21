@@ -4,6 +4,7 @@ const { formatDate } = require("../functions.js");
 module.exports = {
         name: "userinfo",
         category: "info",
+        cooldown: 5,
         aliases: ["who", "user", "userinfo"],
         description: "Returns user information",
         usage: "[name | nickname | mention | ID] (optional)",

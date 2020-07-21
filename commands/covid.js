@@ -5,6 +5,7 @@ const track = new NovelCovid();
 module.exports = {
   name: "corona",
   category: "info",
+  cooldown: 5,
   description: "Get the stats of corona",
   usage: "corona all or corona <country>",
   aliases: ["covid", "covid19"],

@@ -6,6 +6,7 @@ module.exports = {
         category: "fun",
         noalias: "No Aliases",
         usage: " ",
+        cooldown: 5,
         description: "Sends an epic meme",
         accessableby: "everyone",
     run: async (bot, message, args) => {

@@ -4,6 +4,7 @@ module.exports = {
   name: "reddit",
   description: "Get a meme from a subreddit of your choice!",
   category: "fun",
+  cooldown: 5,
   usage: "<subreddit>",
   run: async (bot, message, args) => {
     let color = message.member.displayHexColor;

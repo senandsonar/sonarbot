@@ -5,6 +5,7 @@ module.exports = {
         name: "catgirl",
         category: "fun",
         noalias: "No Aliases",
+        cooldown: 5,
         usage: " ",
         description: "Sends an epic meme",
         accessableby: "everyone",

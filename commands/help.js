@@ -164,7 +164,6 @@ const exampleEmbed = new MessageEmbed()
         { name: "**Coinflip** - Flips a coin.", value: 'Usage: ,coinflip ', inline: false },
         { name: "**Poll** - Start's a poll in a channel.", value: 'Usage: ,poll {poll question} ', inline: false },
         { name: "**Post** - Makes a reddit-style post.", value: 'Usage: ,post {post content} ', inline: false },
-        { name: "**Number** - Generates a random number from 1-100.", value: 'Usage: ,number ', inline: false },
         { name: "**8ball** - Plays 8ball.", value: 'Usage: ,8ball {question}', inline: false },
         { name: "**Motivation** - Sends a motivational quote.", value: 'Usage: ,motivation', inline: false },
         { name: "**Captcha** - Sends a captcha of a user's avatar.", value: 'Usage: ,captcha {user}', inline: false },

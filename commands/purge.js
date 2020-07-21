@@ -2,6 +2,7 @@ module.exports={
         name: "purge",
         aliases: ["delete", "clear"],
         category: "moderation",
+        cooldown: 10,
         description: "Deletes messages from a channel",
         usage: "delete [amount of messages]",
         accessableby: "Administrator",

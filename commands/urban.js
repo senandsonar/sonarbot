@@ -6,6 +6,7 @@ module.exports = {
         name: "urban",
         aliases: ["define"],
         category: "fun",
+        cooldown: 5,
         description: "Give information about urban words!",
         usage: "[word]",
         accessableby: "everyone",

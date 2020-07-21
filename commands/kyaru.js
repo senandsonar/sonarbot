@@ -3,6 +3,7 @@ const randomPuppy = require("random-puppy");
 
 module.exports = {
         name: "kyaru",
+        cooldown: 7,
         category: "fun",
         noalias: "No Aliases",
         usage: " ",

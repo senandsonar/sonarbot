@@ -4,10 +4,10 @@ module.exports = {
 	  name: "av",
 	  aliases: ["av"],
 	  category: "image",
+	  cooldown: 3,
 	  description: "Shows Avatar",
 	  usage: "[username | nickname | mention | ID](optional)",
 	  accessableby: "everyone",
-
 	run: async (bot, message, args) => { 
 		let emcolor = message.member.displayHexColor;
         if (emcolor == '#000000') color = message.member.hoistRole.hexColor;

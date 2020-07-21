@@ -6,6 +6,7 @@ module.exports = {
         description: "Shows Uptime of bot",
         aliases: ["up"],
         category: "info",
+        cooldown: 10,
         usage: " ",
         accessableby: "everyone",
 

@@ -4,6 +4,7 @@ module.exports = {
         name: "rolememberinfo",
         aliases: ['rolemembers', 'rmi'],
         category: "info",
+        cooldown: 5,
         description: "Shows List Of Members Having A Role",
         usage: "[role name | role mention | ID]",
         accessableby: "everyone",

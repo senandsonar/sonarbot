@@ -4,6 +4,7 @@ module.exports={
         name: "status",
         category: "fun",
         noalias: [""],
+        cooldown: 5,
         description: "Shows status of users",
         usage: " ",
         accessableby: "everyone",

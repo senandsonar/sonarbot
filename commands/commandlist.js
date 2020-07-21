@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'commandlist',
 	description: 'help!',
-	execute(message, args) {
-		
+	cooldown: 10,
+	run: async (bot, message, args) => {  		
 		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
 		let color = message.member.displayHexColor;
         if (color == '#000000') color = message.member.hoistRole.hexColor;

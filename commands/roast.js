@@ -5,6 +5,7 @@ module.exports = {
         name: "roast",
         category: "fun",
         noalias: [''],
+        cooldown: 5,
         description: "Roasts people",
         usage: "[username | nickname | mention | ID]",
         accesableby: "everyone",

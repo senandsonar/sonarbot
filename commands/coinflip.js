@@ -4,6 +4,7 @@ module.exports = {
         name: "coinflip",
         aliases: ['cf', 'coin', 'flip'],
         category: 'fun',
+        cooldown: 5,
         description: 'flips a coin',
         usage: ' ',
         accessableby: "everyone",

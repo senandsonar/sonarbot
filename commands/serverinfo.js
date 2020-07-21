@@ -6,6 +6,7 @@ module.exports = {
         description: "Pulls the serverinfo of the guild!",
         usage: " ",
         category: "info",
+        cooldown: 5,
         accessableby: "everyone",
         aliases: ["sinfo"],
     

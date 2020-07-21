@@ -6,6 +6,7 @@ module.exports = {
         description: "polling",
         category: "info",
         usage: "[question]",
+        cooldown: 10,
         noalias: "No Aliases",
         accessableby: "Administrator",
     

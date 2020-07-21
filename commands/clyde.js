@@ -5,6 +5,7 @@ module.exports = {
         name: "clyde",
         noalias: [''],
         category: "image",
+        cooldown: 8,
         description: "Shows Embed Send By Clyde Bot",
         usage: "<text>",
         accessableby: "everyone",

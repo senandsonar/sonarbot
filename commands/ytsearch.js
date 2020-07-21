@@ -7,6 +7,7 @@ const ytdl = require('ytdl-core');
 module.exports = {
         name: "ytsearch",
         category: "music",
+        cooldown: 10,
         noalias: [''],
         description: "Searches music from YouTube",
         usage: " ",

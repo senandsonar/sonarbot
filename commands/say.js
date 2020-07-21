@@ -7,6 +7,7 @@ module.exports = {
         noalias: [''],
         description: "Says your input via the bot",
         usage: "[text]",
+        cooldown: 10,
         accessableby: "everyone",
     
     run: async (bot, message, args) => {

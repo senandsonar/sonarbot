@@ -5,6 +5,7 @@ module.exports = {
         name: "tweet",
         noalias: [''],
         category: "image",
+        cooldown: 5,
         description : "Sends A Tweet",
         usage: "[username] <text>",
         accessableby: "everyone",

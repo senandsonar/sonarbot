@@ -5,6 +5,7 @@ module.exports={
         name: "weather",
         noalias: "",
         category: "info",
+        cooldown: 5,
         description: "Shows weather of a city",
         usage: "[city name]",
         accessableby: "everyone",

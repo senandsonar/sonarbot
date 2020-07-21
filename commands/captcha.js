@@ -5,6 +5,7 @@ module.exports = {
         name: "captcha",
         noalias: [''],
         category: "image",
+        cooldown: 10,
         description: "Shows Captcha Image Of An User",
         usage: "[username | nickname | mention | ID](optional)",
         accessableby: "everyone",

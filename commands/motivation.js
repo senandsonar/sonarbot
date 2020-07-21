@@ -3,6 +3,7 @@ const jsonQuotes = require('../motivational.json')
 
 module.exports = {
         name: 'motivation',
+        cooldown: 5,
         aliases: ['motivate', 'motivational'],
         description: 'Get a random motivation quote',
         category: "fun",
