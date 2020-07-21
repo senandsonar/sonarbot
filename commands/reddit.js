@@ -4,7 +4,7 @@ module.exports = {
   name: "reddit",
   description: "Get a meme from a subreddit of your choice!",
   category: "fun",
-  cooldown: 5,
+  cooldown: 10,
   usage: "<subreddit>",
   run: async (bot, message, args) => {
     let color = message.member.displayHexColor;
@@ -15,7 +15,7 @@ module.exports = {
       const sembed = new MessageEmbed()
            .setColor(color)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,reddit {subreddit name w/o "r/".} {reason}\n\nUsage: Shows a random image from a subreddit. \`\`\``)
+            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,reddit {subreddit name w/o "r/".}\n\nUsage: Shows a random image from a subreddit. \`\`\``)
             .setTimestamp()
           return message.channel.send(sembed);
           }
