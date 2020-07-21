@@ -17,7 +17,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,ship {member 1} {member 2}\n\nUsage: Ships 2 users. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,ship {member 1} {member 2}\n> \n> Usage: Ships 2 users. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -26,7 +26,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,ship {member 1} {member 2}\n\nUsage: Ships 2 users. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,ship {member 1} {member 2}\n> \n> Usage: Ships 2 users. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }

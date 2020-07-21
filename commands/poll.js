@@ -6,7 +6,7 @@ module.exports = {
         description: "polling",
         category: "info",
         usage: "[question]",
-        cooldown: 10,
+        cooldown: 8,
         noalias: "No Aliases",
         accessableby: "Administrator",
     
@@ -19,7 +19,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,poll {query} {reason}\n\nUsage: Starts a poll. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,poll {query}\n> \n> Usage: Starts a poll. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }

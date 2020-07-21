@@ -4,7 +4,6 @@ const randomPuppy = require("random-puppy");
 module.exports = {
         name: "arknights",
         category: "fun",
-        noalias: "No Aliases",
         usage: " ",
         cooldown: 5,
         description: "Sends an epic meme",

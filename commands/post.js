@@ -19,7 +19,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,post {post description} {reason}\n\nUsage: Makes a reddit-style post. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,post {post description}\n> \n> Usage: Makes a reddit-style post. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }

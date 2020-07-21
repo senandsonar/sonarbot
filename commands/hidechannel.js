@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "hidechannel",
+  aliases: ['chide'],
   description: "Mute anyone who break rules",
   category: "moderation",
   usage: "mute <@mention>",
@@ -30,7 +31,7 @@ module.exports = {
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,hidechannel\n\nUsage: hides a channel from everyone. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[hidechannel|chide]\n> \n> Usage: hides a channel from everyone.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }

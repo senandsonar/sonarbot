@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	  name: "av",
-	  aliases: ["av"],
+	  name: "avatar",
+	  aliases: ["av", "icon"],
 	  category: "image",
 	  cooldown: 3,
 	  description: "Shows Avatar",

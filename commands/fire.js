@@ -5,7 +5,6 @@ const { AME_API } = require('../config.json')
 
 module.exports = {
         name: "fire",
-        aliases: ['setfire', 'sf'],
         category: 'image',
         description: "Sets User On Fire!",
         usage: "[username | nickname | mention | ID] (optional)",

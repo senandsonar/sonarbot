@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
         name: "setnick",
-        aliases: ["sn"],
+        aliases: ["snick"],
         category: "moderation",
         description: "Sets Or Changes Nickname Of An User",
         usage: "[mention | name | nickname | ID] <nickname>",
@@ -20,7 +20,7 @@ module.exports = {
                 sembed
                 .setColor(color)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                 .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,setnick {user} {new nickname}\n\nUsage: Changes a users nickname. \`\`\``)
+                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
                return message.channel.send(sembed);
                break;
@@ -28,7 +28,7 @@ module.exports = {
                 sembed
                 .setColor(color)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                 .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,setnick {user} {new nickname}\n\nUsage: Changes a users nickname. \`\`\``)
+                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
                return message.channel.send(sembed);
                break;

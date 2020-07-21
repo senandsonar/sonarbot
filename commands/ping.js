@@ -3,6 +3,7 @@ module.exports = {
     name: "ping",
     category: 'info',
     cooldown: 10,
+    aliases: ['latency'],
     description: "Returns latency and API ping",
     timeout: 10000,
 

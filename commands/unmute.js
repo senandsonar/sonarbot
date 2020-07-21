@@ -27,7 +27,7 @@ module.exports = {
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unmute {member}\n\nUsage: Unmutes a user. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }

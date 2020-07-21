@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
         name: "channelinfo",
-        aliases: ['ci', 'channeli', 'cinfo'],
+        aliases: ['cinfo'],
         category: "info",
         cooldown: 5,
         description: "Shows Channel Info",

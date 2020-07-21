@@ -25,7 +25,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                 .setColor(color)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unban {member}\n\nUsage: Unbans a user. \`\`\``)
+                .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unban {member}\n> \n> Usage: Unbans a user. \`\`\``)
                 .setTimestamp()
                 return message.channel.send(sembed);
                 }

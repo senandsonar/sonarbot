@@ -6,7 +6,6 @@ module.exports = {
         description: "Kicks the user",
         accessableby: "Administrator",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
-        aliases: ["k"],
 
     run: async (bot, message, args) => {
         let color = message.member.displayHexColor;
@@ -20,7 +19,7 @@ module.exports = {
                 const sembed = new MessageEmbed()
                      .setColor(color)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                      .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,kick {member} {reason}\n\nUsage: Kicks a user. \`\`\``)
+                      .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,kick {member} {reason}\n> \n> Usage: Kicks a user. \`\`\``)
                       .setTimestamp()
                     return message.channel.send(sembed);
                     }

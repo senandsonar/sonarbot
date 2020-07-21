@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'commandlist',
+	aliases: ['clist'],
 	description: 'help!',
 	cooldown: 10,
 	run: async (bot, message, args) => {  		

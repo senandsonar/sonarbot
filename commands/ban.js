@@ -2,7 +2,6 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
         name: "ban",
-        aliases: ["b", "banish"],
         category: "moderation",
         description: "Bans the user",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
@@ -20,7 +19,7 @@ module.exports = {
                 const sembed = new MessageEmbed()
                      .setColor(color)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                      .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,ban {member} {reason}\n\nUsage: Bans a user. \`\`\``)
+                      .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,ban {member} {reason}\n> \n> Usage: Bans a user. \`\`\``)
                       .setTimestamp()
                     return message.channel.send(sembed);
                     }

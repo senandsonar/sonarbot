@@ -5,9 +5,9 @@ const giphy = require('giphy-api')(giphy_API);
 module.exports = {
         name: 'gif',
         category: 'image',
-        aliases: ['search-gif', 'search-gifs'],
         description: 'Provide a query and I will return a gif!',
         usage: "[query]",
+        aliases: ['gifsearch'],
         accessableby: "everyone",
     
     run: async (bot, message, args) => {
@@ -18,7 +18,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(emcolor)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,gif {word}\n\nUsage: Shows a gif based on a word. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:   \n> \`\`\`Syntax: ,[gif|gifsearch] {word}\n> \n> Usage: Shows a gif based on a word. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
             }

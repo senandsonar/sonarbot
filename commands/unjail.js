@@ -23,7 +23,7 @@ module.exports = {
         const sembed = new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unjail {member}\n\nUsage: Unjails a user. \`\`\``)
+            .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unjail {member}\n> \n> Usage: Unjails a user. \`\`\``)
             .setTimestamp()
             return message.channel.send(sembed);
             }

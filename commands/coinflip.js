@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
         name: "coinflip",
-        aliases: ['cf', 'coin', 'flip'],
+        aliases: ['cf'],
         category: 'fun',
         cooldown: 5,
         description: 'flips a coin',

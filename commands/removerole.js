@@ -21,7 +21,7 @@ module.exports = {
         const sembed = new MessageEmbed()
              .setColor(color)
              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-             .setDescription(`**Invalid Operation** :x:  \n \`\`\`Syntax: ,removerole {member} {role name}\n\nUsage: Removes a role from a user. \`\`\``)
+             .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
              .setTimestamp()
             message.channel.send(sembed);
             }  let rMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
@@ -30,7 +30,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,removerole {member} {role name}\n\nUsage: removes a role from a user. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -39,7 +39,7 @@ module.exports = {
             const sembed = new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** :x:  \n \`\`\`Syntax: ,removerole {member} {role name}\n\nUsage: Removes a role from a user.... \`\`\``)
+            .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
             .setTimestamp()
            message.channel.send(sembed);
          }

@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
         name: "addrole",
-        aliases: ["ar"],
         description: "Adds role to a user",
+        aliases:['ar'],
         category: "moderation",
         usage: "[name | nickname | mention | ID] <role>",
         accessableby: "Administrator",
@@ -19,7 +19,7 @@ module.exports = {
         const sembed = new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,addrole {member} {role name}\n\nUsage: Adds a role to a user. \`\`\``)
+            .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
             .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -32,10 +32,10 @@ module.exports = {
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
         if (args.length == 1){
         
-        const sembed = new MessageEmbed()
+            const sembed = new MessageEmbed()
             .setColor(color)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,addrole {member} {role name}\n\nUsage: Adds a role to a user. \`\`\``)
+            .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
             .setTimestamp()
         return message.channel.send(sembed);
         }

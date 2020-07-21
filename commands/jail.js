@@ -27,7 +27,7 @@ module.exports = {
       const sembed = new MessageEmbed()
           .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,jail {member} {reason}\n\nUsage: Jails a user. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
           .setTimestamp()
           return message.channel.send(sembed);
           }
@@ -42,7 +42,7 @@ module.exports = {
       const sembed = new MessageEmbed()
           .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,jail {member} {reason}\n\nUsage: Jails a user. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
           .setTimestamp()
           return message.channel.send(sembed);
           }

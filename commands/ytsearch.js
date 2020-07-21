@@ -8,7 +8,7 @@ module.exports = {
         name: "ytsearch",
         category: "music",
         cooldown: 10,
-        noalias: [''],
+        aliases: ['yt'],
         description: "Searches music from YouTube",
         usage: " ",
         accessableby: "everyone",
@@ -21,7 +21,7 @@ module.exports = {
                 const sembed = new MessageEmbed()
                     .setColor(color)
                     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                    .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,ytsearch {video name}\n\nUsage: Searches for a video from Youtube. \`\`\``)
+                    .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[ytsearch|yt] {video name}\n> \n> Usage: Searches for a video from Youtube.\`\`\``)
                     .setTimestamp()
                     return message.channel.send(sembed);
                     }

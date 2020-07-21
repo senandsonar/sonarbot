@@ -17,7 +17,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,roleinfo {role name} {reason}\n\nUsage: Shows info of a specific role. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -27,11 +27,10 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,roleinfo {role name} {reason}\n\nUsage: Shows info of a specific role. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
-
         const status = {
             false: "No",
             true: "Yes"

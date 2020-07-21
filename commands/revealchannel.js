@@ -6,6 +6,7 @@ module.exports = {
   name: "revealchannel",
   description: "Mute anyone who break rules",
   category: "moderation",
+  aliases: ['creaveal'],
   usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
@@ -31,7 +32,7 @@ module.exports = {
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,revealchannel\n\nUsage: reveals a channel to everyone. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[revealchannel|creveal]\n> \n> Usage: reveals a channel to everyone.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }

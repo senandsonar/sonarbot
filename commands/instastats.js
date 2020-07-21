@@ -19,7 +19,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,instastats {instagram username} {reason}\n\nUsage: Shows info about a specific Instagram account. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[instastats|searchinsta|sinsta] {instagram username}\n> \n> Usage: Shows info about a specific Instagram account. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
             }

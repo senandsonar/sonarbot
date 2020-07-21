@@ -34,7 +34,7 @@ module.exports = {
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unlock\n\nUsage: Unlocks a channel. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unlock\n> \n> Usage: Unlocks a channel. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }

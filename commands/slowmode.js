@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports={
     name: "slowmode",
     category:"utility",
+    aliases: ['sm', 'smode'],
     description:"Set the slowmode for the channel!",
     run: async(bot,message,args)=>{
         let color = message.member.displayHexColor;
@@ -13,7 +14,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,slowmode {slowmode interval(seconds)} {reason}\n\nUsage: Sets a channels slowmode. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -23,13 +24,13 @@ module.exports={
      if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("I dont have permission.")
         if(!reason){ 
         
-            const sembed = new MessageEmbed()
-                 .setColor(color)
-                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,slowmode {slowmode interval(seconds)} {reason}\n\nUsage: Sets a channels slowmode. \`\`\``)
-                  .setTimestamp()
-                return message.channel.send(sembed);
-                }
+          const sembed = new MessageEmbed()
+          .setColor(color)
+           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
+           .setTimestamp()
+         return message.channel.send(sembed);
+         }
         
         message.channel.setRateLimitPerUser(args[0],reason)
         //message.channel.send(`Set the slowmode of this channel to **${args[0]}** with the reason: **${reason}**`)

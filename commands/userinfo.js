@@ -5,7 +5,7 @@ module.exports = {
         name: "userinfo",
         category: "info",
         cooldown: 5,
-        aliases: ["who", "user", "userinfo"],
+        aliases: ["uinfo"],
         description: "Returns user information",
         usage: "[name | nickname | mention | ID] (optional)",
         accessableby: "everyone",

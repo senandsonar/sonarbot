@@ -4,6 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "lockdown",
   description: "Mute anyone who break rules",
+  aliases: ['lock'],
   category: "moderation",
   usage: "mute <@mention>",
   run: async (client, message, args) => 
@@ -33,7 +34,7 @@ module.exports = {
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,lockdown\n\nUsage: Locks a channel. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[lockdown|lock]\n> \n>  Usage: Locks a channel.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }

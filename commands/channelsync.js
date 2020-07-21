@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "channelsync",
+  aliases: ['csync'],
   description: "Mute anyone who break rules",
   category: "moderation",
   usage: "mute <@mention>",
@@ -33,7 +34,7 @@ module.exports = {
     const sembed = new MessageEmbed()
          .setColor(color)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,channelsync\n\nUsage: Syncs a channels perms with the channel category.\nNote: This will reset all specified permissions for the channel. \`\`\``)
+          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[channelsync|csync]\n> \n> Usage: Syncs a channels perms with the channel category.\n> \n> Note: This will reset all specified permissions for the channel.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }

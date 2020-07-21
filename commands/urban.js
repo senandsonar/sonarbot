@@ -4,7 +4,6 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
         name: "urban",
-        aliases: ["define"],
         category: "fun",
         cooldown: 5,
         description: "Give information about urban words!",
@@ -18,7 +17,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                 .setColor(color)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,urban {query}\n\nUsage: Searches for a definition from Urban Dictionary. \`\`\``)
+                .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,urban {query}\n> \n> Usage: Searches for a definition from Urban Dictionary. \`\`\``)
                 .setTimestamp()
                 return message.channel.send(sembed);
                 }

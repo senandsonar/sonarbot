@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
         name: "rolememberinfo",
-        aliases: ['rolemembers', 'rmi'],
+        aliases: ['rminfo'],
         category: "info",
         cooldown: 5,
         description: "Shows List Of Members Having A Role",
@@ -21,7 +21,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,rolememberinfo {role name} {reason}\n\nUsage: Shows a list of user's who have a specific role. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[rolememberinfo|rminfo] {role name}\n> \n> Usage: Shows a list of user's who have a specific role.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -33,7 +33,7 @@ module.exports = {
             const sembed = new MessageEmbed()
                  .setColor(color)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,rolememberinfo {role name} {reason}\n\nUsage: Shows a list of user's who have a specific role. \`\`\``)
+                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[rolememberinfo|rminfo] {role name}\n> \n> Usage: Shows a list of user's who have a specific role.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
