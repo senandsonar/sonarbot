@@ -71,9 +71,12 @@ client.on("message", async (message) => {
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
         message.react('730967627916378174');
-        return message.reply(
-          `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
-        );
+        const wembed = new MessageEmbed()
+        .setColor("RED")
+        .setTitle(`Command On Cooldown!`)
+        .setDescription(`> Please wait **${timeLeft.toFixed(1)} more second(s)** before \n> reusing the \`${command.name}\` command.`)
+        .setTimestamp()
+        return message.channel.send(wembed)
       }
     }
 
@@ -107,6 +110,10 @@ client.on("message", async (message) => {
     .setColor("RED")
     .setDescription(`\n\`\`\`Fatal Error: There was a error when executing this command:\n\nThis message is extremely rare. If this persists, contact the bot developer Sen#4444. \`\`\``)
     .setTimestamp()
+
+
+    
+
     
 
 
