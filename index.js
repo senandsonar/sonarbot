@@ -74,7 +74,7 @@ client.on("message", async (message) => {
         const wembed = new MessageEmbed()
         .setColor("RED")
         .setTitle(`Command On Cooldown!`)
-        .setDescription(`> Please wait **${timeLeft.toFixed(1)} more second(s)** before \n> reusing the \`${command.name}\` command.`)
+        .setDescription(`> Please wait **${timeLeft.toFixed(1)} more second(s)** before \n> wreusing the \`${command.name}\` command.`)
         .setTimestamp()
         return message.channel.send(wembed)
       }

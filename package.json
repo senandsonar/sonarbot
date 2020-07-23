@@ -9,6 +9,7 @@
   "author": "luke",
   "license": "ISC",
   "dependencies": {
+    "aki-api": "^5.1.0",
     "amethyste-api": "^1.1.4",
     "bindings": "^1.5.0",
     "chai": "^4.2.0",
@@ -37,10 +38,14 @@
     "prebuild-install": "^5.3.5",
     "random-puppy": "^1.1.0",
     "relevant-urban": "^2.0.0",
+    "sequelize": "^6.3.3",
     "simple-youtube-api": "^5.2.1",
+    "soundcloud-downloader": "^0.1.2",
+    "sqlite3": "^5.0.0",
     "weather-js": "^2.0.0",
     "wikijs": "^6.0.1",
     "youtube-search": "^1.1.4",
-    "ytdl-core": "^2.1.7"
+    "ytdl-core": "^2.1.7",
+    "ytdl-core-discord": "^1.2.1"
   }
 }

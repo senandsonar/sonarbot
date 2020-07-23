@@ -1,5 +1,6 @@
 // at the top of your file
 const { MessageEmbed } = require('discord.js')
+const { PREFIX } = require("../config.json");
 
 
 module.exports = {
@@ -18,7 +19,7 @@ const exampleEmbed = new MessageEmbed()
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setTitle('**Use ",setup".**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription('Prefix: ,')
+	.setDescription(`Prefix: ${PREFIX}`)
 	.addFields(
 				{ name: '**Moderation Commands **', value: `All the moderation commands ${bot.user.username} has to offer.` },
 				{ name: '**Admin Commands **', value: 'Commands that require high perms to execute.' },
@@ -52,7 +53,7 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Administrator Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription('Prefix: ,')
+	.setDescription(`Prefix: ${PREFIX}`)
 	.addFields(
         { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Aliases: delete, clear ', inline: false },
         { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Aliases: sm, smode ', inline: false },
@@ -82,7 +83,7 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Info Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription('Prefix: ,')
+	.setDescription(`Prefix: ${PREFIX}`)
 	.addFields(
         //	{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
         { name: "**Status** - Show's a user's status.", value: 'Aliases: No Aliases ', inline: false },
@@ -125,7 +126,7 @@ const exampleEmbed = new MessageEmbed()
 			.setTitle('**Moderation Commands**')
 			//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 			.setThumbnail(bot.user.displayAvatarURL())
-			.setDescription('Prefix: ,')
+			.setDescription(`Prefix: ${PREFIX}`)
 			.addFields(
 				//{ name: '**Moderation**', value: '`ban`  `unban`  `mute`  `unmute`  `purge`  `jail`  `unjail`  `slowmode`  `dm`'inline: false },
 				{ name: "**Ban** - Ban's and user from the server.", value: 'Aliases: No Aliases', inline: false },
@@ -157,7 +158,7 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Fun Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription('Prefix: ,')
+	.setDescription(`Prefix: ${PREFIX}`)
 	.addFields(
        
         { name: "**Emoji** - Shows the server's emoji's.", value: 'Aliases: No Aliases', inline: false },
@@ -169,7 +170,7 @@ const exampleEmbed = new MessageEmbed()
         { name: "**Captcha** - Sends a captcha of a user's avatar.", value: 'Aliases: No Aliases', inline: false },
         { name: "**Instastats** - Sends statistics of a Instagram account.", value: 'Aliases: searchinsta, sinsta', inline: false },
         { name: "**Ship** - Ships two users.", value: 'Aliases: No Aliases', inline: false },
-		{ name: "**Fun** - Pats a user.", value: 'Aliases: No Aliases', inline: false },
+		{ name: "**Pat** - Pats a user.", value: 'Aliases: No Aliases', inline: false },
 		{ name: "**Say** - Makes the bot say something.", value: 'Aliases: No Aliases', inline: false },
         
 		
@@ -190,7 +191,7 @@ const exampleEmbed = new MessageEmbed()
 		.setTitle('**Miscellaneous Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 		.setThumbnail(bot.user.displayAvatarURL())
-		.setDescription('Prefix: ,')
+		.setDescription(`Prefix: ${PREFIX}`)
 		.addFields(
 			//{ name: '**Miscellaneous**', value: ' `report`  `inviteme` ', inline: true },
 			//	{ name: '**Info**', value: '`background` `changelog`  `supportserver`', inline: true },
@@ -216,7 +217,7 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Image Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription('Prefix: ,')
+	.setDescription(`Prefix: ${PREFIX}`)
 	.addFields(
         //{ name: '**Miscellaneous**', value: ' `number`  `report`  `poll`  `8ball`  `inviteme`  `define`  `reddit`  `coinflip`  `uptime`', inline: true },
     	//{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
