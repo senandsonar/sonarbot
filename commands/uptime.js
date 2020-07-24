@@ -7,7 +7,6 @@ module.exports = {
         aliases: ["up"],
         category: "info",
         cooldown: 10,
-        usage: " ",
         accessableby: "everyone",
 
         
@@ -18,14 +17,13 @@ module.exports = {
         let minutes = Math.floor(bot.uptime / 60000) % 60;
         let seconds = Math.floor(bot.uptime / 1000) % 60;
 
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
     
 
 
         const embed = new MessageEmbed()
             .setTitle("Uptime")
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setDescription(`${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`)
             .setFooter(message.guild.name, message.guild.iconURL())
             .setAuthor(bot.user.username, bot.user.displayAvatarURL())  

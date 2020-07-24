@@ -1,16 +1,16 @@
 const {MessageEmbed} = require('discord.js')
 module.exports={
     name: "8ball",
-    description: "There is a big chance I insult you!",
+    description: "Plays the 8ball game.",
+    cooldown: 5,
     category: "fun",
     run: async(client,message,args)=>{
-        let color = message.member.displayHexColor;
-            if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         let question = message.content.slice(7)
         if(!question){
         
             const sembed = new MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,8ball {query}\n> \n> Usage: Plays 8ball. \`\`\``)
                 .setTimestamp()
@@ -45,7 +45,7 @@ module.exports={
             
             .setTitle(`8Ball!`)
             .setDescription(`Question: ${question}\nMy response: ${response}`)
-            .setColor(color)
+            .setColor(`#faf6f6`)
             message.channel.send(Embed)
         }
     }

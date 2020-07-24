@@ -1,21 +1,27 @@
 const Discord = require('discord.js');
+const { PREFIX } = require('../config.json');
 
 module.exports = {
 	name: 'commandlist',
 	aliases: ['clist'],
-	description: 'help!',
+	description: `Sends a DM of every command Senbot has. **Note:** Using ${PREFIX}help shows the commands more in-depth. `,
 	cooldown: 10,
 	run: async (bot, message, args) => {  		
-		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
-		let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
-// inside a command, event listener, etc.
-const exampleEmbed = new Discord.MessageEmbed()
-	.setColor(color)
-	.setTitle('**Here is a list of the commands and what they do and how to use them.**')
-    .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-    .setURL('https://docs.google.com/document/d/1pphwd2FcdDeyrwsYI0xzMF85tey23E0iSdOBOUezf2w/edit')
-	.setTimestamp()
+		
 
-	message.channel.send(exampleEmbed)
-}}
+				const data = [];
+				const { commands } = message.client;
+		
+				if (!args.length) {
+					data.push('Here\'s a list of all my commands:');
+					data.push(commands.map(command => command.name).join(" | "));
+		
+					return message.author.send(data, { split: true })
+						.then(() => {
+							if (message.channel.type === 'dm') return;
+							message.react('730967576007671929')
+						})
+						.catch(error => {
+							console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
+							message.reply('it seems like I can\'t DM you!');
+						});}}}

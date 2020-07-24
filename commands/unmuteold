@@ -4,8 +4,7 @@ module.exports = {
     name: "unmuteold",
     category: "moderation",
     run: async (client, message, args) => {
-      let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+      
       
       if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send(
@@ -22,7 +21,7 @@ module.exports = {
       if (args.length == 0){ 
         
         const sembed = new MessageEmbed()
-             .setColor(color)
+             .setColor(`#faf6f6`)
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
               .setDescription(`**Invalid Operation** :x:  \n\`\`\`Syntax: ,unmute {member}\n\nUsage: Unmutes a user. \`\`\``)
               .setTimestamp()
@@ -40,7 +39,7 @@ module.exports = {
       member.roles.remove(muterole)
       
     const sembed = new MessageEmbed()
-      .setColor(color)
+      .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
       .setDescription(`You unmuted **${member}** ✅`)
       .setFooter(`Message perms have been returned. 🔊 `)

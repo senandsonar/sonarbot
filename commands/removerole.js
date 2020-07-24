@@ -4,13 +4,11 @@ module.exports = {
         name: "removerole",
         category: "moderation",
         aliases: ["rr"],
-        description: "Removes role from the user",
+        description: "Removes a role from a user",
         accessableby: "Administrator",
-        usage: "[name | nickname | mention | ID] <role>",
 
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
 
         if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("**Your Dont Have The Permissions To Remove Role From Users! - [MANAGE_ROLES]**");
 
@@ -19,7 +17,7 @@ module.exports = {
         if (args.length == 0){
         
         const sembed = new MessageEmbed()
-             .setColor(color)
+             .setColor(`#faf6f6`)
              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
              .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
              .setTimestamp()
@@ -28,7 +26,7 @@ module.exports = {
         if (!rMember){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
                   .setTimestamp()
@@ -37,7 +35,7 @@ module.exports = {
 
         if (args.length == 1){
             const sembed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
             .setTimestamp()
@@ -56,7 +54,7 @@ module.exports = {
         if (rMember.roles.cache.has(role.id)) await (rMember.roles.remove(role.id));
 
         const sembed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`> The role \`${role.name}\` has been removed from ${rMember.user.username} ✅ `)
             .setTimestamp()

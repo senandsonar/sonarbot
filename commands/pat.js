@@ -5,9 +5,8 @@ module.exports={
     description: "There is a big chance I insult you!",
     category: "fun",
     run: async(client,message,args)=>{
-      let color = message.member.displayHexColor;
-      if (color == '#000000') color = message.member.hoistRole.hexColor;
-      
+      let color = message.member.display;
+            
       //  let user2 =  await message.mentions.members.array()[1] || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[1].toLowerCase()) || message.guild.members.cache.find(mp => mp.displayName.toLowerCase() === args[1].toLowerCase());
         //if(!args[0]) return message.channel.send("**Enter Name Of Lover!**")
        // if(!args[1]) return message.channel.send("**Enter Name Of Another Lover!**")
@@ -15,7 +14,7 @@ module.exports={
         if (args.length == 0){
         
           const sembed = new MessageEmbed()
-              .setColor(color)
+              .setColor(`#faf6f6`)
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
               .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,pat {user}\n> \n> Usage: Pats a user. \`\`\``)
               .setTimestamp()
@@ -35,7 +34,7 @@ module.exports={
             // .addField(```${user2}```)
             // .addField(`> Are a **${response}** match!`)
             //.setDescription(`(args.join('  ')` are a **${response}** match!)
-            .setColor(color)
+            .setColor(`#faf6f6`)
             message.channel.send(Embed)
         }
     }

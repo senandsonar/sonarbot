@@ -10,12 +10,11 @@ module.exports={
         accessableby: 'everyone',
     
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
@@ -25,7 +24,7 @@ module.exports={
         if (!role){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
@@ -37,7 +36,7 @@ module.exports={
         }
 
         let roleembed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor("Role Info")
             .setThumbnail(message.guild.iconURL())
             .addField("**Role ID**", `\`${role.id}\``, true)

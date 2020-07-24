@@ -2,18 +2,16 @@ const { MessageEmbed } = require("discord.js");
 const api = require("imageapi.js");
 module.exports = {
   name: "reddit",
-  description: "Get a meme from a subreddit of your choice!",
+  description: "Get a random image from a subreddit.",
   category: "fun",
   cooldown: 10,
-  usage: "<subreddit>",
   run: async (bot, message, args) => {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
     let Subreddit = message.content.slice(8);
     if (!Subreddit){ 
         
       const sembed = new MessageEmbed()
-           .setColor(color)
+           .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,reddit {subreddit name w/o "r/".}\n> \n> Usage: Shows a random image from a subreddit. \`\`\``)
             .setTimestamp()
@@ -23,7 +21,7 @@ module.exports = {
       let img = await api(Subreddit);
       const Embed = new MessageEmbed()
         .setTitle(`r/${Subreddit}`)
-        .setColor(color)
+        .setColor(`#faf6f6`)
         .setImage(img)
         .setTimestamp()
         .setURL(`https://reddit.com/r/${Subreddit}`);

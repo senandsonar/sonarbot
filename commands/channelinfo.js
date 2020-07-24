@@ -11,8 +11,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let channel = message.mentions.channels.first() || bot.guilds.cache.get(message.guild.id).channels.cache.get(args[0]) || message.guild.channels.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.channel;
         if (!channel) return message.channel.send("**Channel Not Found!**");
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
 
         let channelembed = new MessageEmbed()
             .setTitle(`Channel Information for ${channel.name}`)
@@ -22,7 +21,7 @@ module.exports = {
             .addField("**Channel Type**", channel.type)
             .addField("**Channel Description**", `${channel.topic || "No Description"}`)
             .addField("**Channel Created At**", channel.createdAt)
-            .setColor(color)
+            .setColor(`#faf6f6`)
         message.channel.send(channelembed);
     }
 }

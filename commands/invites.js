@@ -10,8 +10,7 @@ module.exports = {
         accessableby: "everyone",
     
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         try {
             let member = await message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
 
@@ -28,7 +27,7 @@ module.exports = {
             memberInvites.forEach(invite => index += invite.uses);
 
             let embed = new Discord.MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setFooter(message.guild.name, message.guild.iconURL())
                 .setAuthor(`Invite Tracker for ${message.guild.name}`)
                 .setDescription(`Information on Invites of ${member.displayName}`)

@@ -9,17 +9,15 @@ module.exports = {
         category: "music",
         cooldown: 10,
         aliases: ['yt'],
-        description: "Searches music from YouTube",
-        usage: " ",
+        description: "Searches for videos from youtube.",
         accessableby: "everyone",
     
         run: async (bot, message, args, ops) => {
-            let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+            
             if (args.length == 0){
         
                 const sembed = new MessageEmbed()
-                    .setColor(color)
+                    .setColor(`#faf6f6`)
                     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[ytsearch|yt] {video name}\n> \n> Usage: Searches for a video from Youtube.\`\`\``)
                     .setTimestamp()
@@ -51,7 +49,7 @@ module.exports = {
                         var videos = await youtube.searchVideos(searchString, 3);
                         let index = 0;
                         const sembed = new MessageEmbed()
-                            .setColor(color)
+                            .setColor(`#faf6f6`)
                             .setAuthor(message.member.displayName, message.author.avatarURL())
                             .setFooter(`Respond with the number next to the video title.`)
                             .setDescription(`

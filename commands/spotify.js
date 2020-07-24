@@ -5,10 +5,10 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     
     name: "spotify",
-    description: "polling",
+    description: "Shows the info a song someone is listening to on Spotify.",
     category: "info",
     usage: "[question]",
-    noalias: "No Aliases",
+    noalias: "None",
     accessableby: "Administrator",
 
     run: async (bot, message, args) => {

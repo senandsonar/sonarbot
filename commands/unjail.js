@@ -3,8 +3,7 @@ module.exports = {
     name: "unjail",
     category: "moderation",
     run: async (client, message, args) => {
-      let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+      
       
       if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send(
@@ -21,7 +20,7 @@ module.exports = {
       if (!args[0]) {
         
         const sembed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unjail {member}\n> \n> Usage: Unjails a user. \`\`\``)
             .setTimestamp()
@@ -38,9 +37,9 @@ module.exports = {
       
       member.roles.remove(muterole)
       
-      await message.channel.send(`**${member.displayName}** is unjailed.`)
+      await message.channel.send(`Done.`)
       
-      member.send(`You are now unjailed from **${message.guild.name}**`)
+      
   
     }
   };

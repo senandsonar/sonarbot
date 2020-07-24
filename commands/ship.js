@@ -2,11 +2,10 @@ const {MessageEmbed} = require('discord.js')
 const fetch = require("node-fetch");
 module.exports={
     name: "ship",
-    description: "There is a big chance I insult you!",
+    description: "Ships two users.",
     category: "fun",
     run: async(client,message,args)=>{
-        let color = message.member.displayHexColor;
-            if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
             
         
         //if(!args[0]) return message.channel.send("**Enter Name Of Lover!**")
@@ -15,7 +14,7 @@ module.exports={
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,ship {member 1} {member 2}\n> \n> Usage: Ships 2 users. \`\`\``)
                   .setTimestamp()
@@ -24,7 +23,7 @@ module.exports={
         if (args.length == 1){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,ship {member 1} {member 2}\n> \n> Usage: Ships 2 users. \`\`\``)
                   .setTimestamp()
@@ -68,7 +67,7 @@ module.exports={
            // .addField(```${user2}```)
            // .addField(`> Are a **${response}** match!`)
             //.setDescription(`(args.join('  ')` are a **${response}** match!)
-            .setColor(color)
+            .setColor(`#faf6f6`)
             message.channel.send(Embed)
         }
     }

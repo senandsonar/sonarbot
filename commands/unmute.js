@@ -2,13 +2,11 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "unmute",
-  description: "Unmute anyone",
+  description: "Unmute a member.",
   category: "moderation",
-  usage: "unmute {user}.",
   run: async (client, message, args) => 
   {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   //const adminRole = message.guild.roles.cache.find(r => r.name === 'Admin');
@@ -25,7 +23,7 @@ module.exports = {
   if (args.length == 0){ 
         
     const sembed = new MessageEmbed()
-         .setColor(color)
+         .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
           .setTimestamp()
@@ -36,7 +34,7 @@ module.exports = {
 
   if (!channel.permissionOverwrites.get(member.id)){
     const sembed = new MessageEmbed()
-      .setColor(color)
+      .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already Unmuted** :x: `)
     //.setFooter(``)
@@ -50,7 +48,7 @@ module.exports = {
 channel.permissionOverwrites.get(member.id).delete()
 
 const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`**${member.user.tag}** Unmuted ✅`, `Message perms have been granted :speaker: `)

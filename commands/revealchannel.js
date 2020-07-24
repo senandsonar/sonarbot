@@ -4,14 +4,12 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "revealchannel",
-  description: "Mute anyone who break rules",
+  description: "Reveals a hidden channel.",
   category: "moderation",
   aliases: ['creaveal'],
-  usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   
@@ -30,7 +28,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(color)
+         .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[revealchannel|creveal]\n> \n> Usage: reveals a channel to everyone.\`\`\``)
           .setTimestamp()
@@ -50,7 +48,7 @@ module.exports = {
 channel.updateOverwrite(channel.guild.roles.everyone, { VIEW_CHANNEL: null });
 
 const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`**Channel Revealed To Everyone!** ✅`, `> View perms have been given ✅`)

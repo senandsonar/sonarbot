@@ -13,13 +13,12 @@ module.exports = {
         
         if (args.includes("@here")) return;
 
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
 
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[rolememberinfo|rminfo] {role name}\n> \n> Usage: Shows a list of user's who have a specific role.\`\`\``)
                   .setTimestamp()
@@ -31,7 +30,7 @@ module.exports = {
         if (!role){
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[rolememberinfo|rminfo] {role name}\n> \n> Usage: Shows a list of user's who have a specific role.\`\`\``)
                   .setTimestamp()
@@ -46,7 +45,7 @@ module.exports = {
         if (membersWithRole > 2048) return message.channel.send('**List Is Too Long!**')
 
         let roleEmbed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setThumbnail(message.guild.iconURL())
             .setTitle(`Users With The ${role.name} Role!`)
             .setDescription(membersWithRole.join("\n"));

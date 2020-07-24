@@ -8,8 +8,7 @@ module.exports = {
         accessableby: "Administrator",
 
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
 
         try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
@@ -17,7 +16,7 @@ module.exports = {
             if (args.length == 0){
         
                 const sembed = new MessageEmbed()
-                     .setColor(color)
+                     .setColor(`#faf6f6`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                       .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,ban {member} {reason}\n> \n> Usage: Bans a user. \`\`\``)
                       .setTimestamp()
@@ -33,8 +32,12 @@ module.exports = {
 
             try {
                 const sembed2 = new MessageEmbed()
-                    .setColor(color)
-                    .setDescription(`**Hello, You Have Been Banned From ${message.guild.name} for: ${reason || "*No Reason.*"}**`)
+                    .setColor(`RED`)
+                    .setTitle('You have been banned from a server!')
+                    .setThumbnail(bot.user.displayAvatarURL())
+                    .addField(`**You Have Been Banned From:**`, `> ${message.guild.name}`)
+                    .addField(`**Moderator:**`, `> ${message.author.tag}`)
+                    .addField(`**Reason:**`, `> Reason: ${reason || "None"}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 banMember.send(sembed2).then(() =>
                 message.guild.members.ban(banMember, { days: 7, reason: reason })).catch(() => null)
@@ -43,7 +46,7 @@ module.exports = {
             }
             if (reason) {
                 var sembed = new MessageEmbed()
-                    .setColor(color)
+                    .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .addFields(
                         { name: `**${banMember.user.tag} has been banned for ${reason}**`, value: '> Successfully sent ban message. ✅' },
@@ -51,7 +54,7 @@ module.exports = {
                 message.channel.send(sembed)
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 //.setDescription(`**${banMember.user.username}** has been banned, cya never punk. ✅ `)
                 .addFields(

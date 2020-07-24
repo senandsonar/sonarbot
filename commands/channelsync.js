@@ -4,13 +4,12 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "channelsync",
   aliases: ['csync'],
-  description: "Mute anyone who break rules",
+  description: "Syncs a channel's permissions with the catgeory it is in. ",
   category: "moderation",
-  usage: "mute <@mention>",
+  
   run: async (client, message, args) => 
   {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   
@@ -32,7 +31,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(color)
+         .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[channelsync|csync]\n> \n> Usage: Syncs a channels perms with the channel category.\n> \n> Note: This will reset all specified permissions for the channel.\`\`\``)
           .setTimestamp()
@@ -51,7 +50,7 @@ module.exports = {
 
   channel.lockPermissions()
 const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`Channel Synced ✅`, `> Permissions now synced with category.`)

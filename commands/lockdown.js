@@ -3,14 +3,13 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "lockdown",
-  description: "Mute anyone who break rules",
+  description: "Locks a channel.",
   aliases: ['lock'],
   category: "moderation",
   usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   
@@ -32,7 +31,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(color)
+         .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[lockdown|lock]\n> \n>  Usage: Locks a channel.\`\`\``)
           .setTimestamp()
@@ -45,7 +44,7 @@ module.exports = {
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
   if (!channel.permissionsFor(channel.guild.roles.everyone).has("SEND_MESSAGES")) {
   const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
   .setDescription(`**Channel is already locked** :x: `)
   //.setFooter(``)
@@ -58,7 +57,7 @@ return message.channel.send(sembed)
 
 channel.updateOverwrite(channel.guild.roles.everyone, { SEND_MESSAGES: false })
 const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`Lockdown Initiated ✅`, `> Channel Locked. 🔒`)

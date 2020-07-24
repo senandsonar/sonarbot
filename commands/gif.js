@@ -5,18 +5,15 @@ const giphy = require('giphy-api')(giphy_API);
 module.exports = {
         name: 'gif',
         category: 'image',
-        description: 'Provide a query and I will return a gif!',
-        usage: "[query]",
-        aliases: ['gifsearch'],
+        description: 'Generates a gif based on a word.',
         accessableby: "everyone",
     
     run: async (bot, message, args) => {
-        let emcolor = message.member.displayHexColor;
-        if (emcolor == '#000000') color = message.member.hoistRole.hexColor;
+        
         if (!args[0]) {
         
             const sembed = new MessageEmbed()
-                 .setColor(emcolor)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:   \n> \`\`\`Syntax: ,[gif|gifsearch] {word}\n> \n> Usage: Shows a gif based on a word. \`\`\``)
                   .setTimestamp()

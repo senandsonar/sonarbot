@@ -3,13 +3,12 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
         name: "kick",
         category: "moderation",
-        description: "Kicks the user",
+        description: "Kicks a user from the server.",
         accessableby: "Administrator",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
 
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         try {
             if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
             if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
@@ -17,7 +16,7 @@ module.exports = {
             if (args.length == 0){
         
                 const sembed = new MessageEmbed()
-                     .setColor(color)
+                     .setColor(`#faf6f6`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                       .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,kick {member} {reason}\n> \n> Usage: Kicks a user. \`\`\``)
                       .setTimestamp()
@@ -35,8 +34,12 @@ module.exports = {
             var reason = args.slice(1).join(" ");
             try {
                 const sembed2 = new MessageEmbed()
-                    .setColor(color)
-                    .setDescription(`**Hello, You Have Been Kicked From ${message.guild.name} for: ${reason || "No Reason!"}**`)
+                    .setColor(`RED`)
+                    .setTitle('You have been kicked from a server!')
+                    .setThumbnail(bot.user.displayAvatarURL())
+                    .addField(`**You Have Been Kicked From:**`, `> ${message.guild.name}`)
+                    .addField(`**Moderator:**`, `> ${message.author.tag}`)
+                    .addField(`**Reason:**`, `> Reason: ${reason || "None"}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 kickMember.send(sembed2).then(() =>
                     kickMember.kick()).catch(() => null)
@@ -45,7 +48,7 @@ module.exports = {
             }
             if (reason) {
             var sembed = new MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
                .addFields(
@@ -54,7 +57,7 @@ module.exports = {
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .addFields(
                     { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },

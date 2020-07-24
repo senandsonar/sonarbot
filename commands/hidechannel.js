@@ -4,13 +4,11 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "hidechannel",
   aliases: ['chide'],
-  description: "Mute anyone who break rules",
+  description: "Hides a channel from every member without Admin.",
   category: "moderation",
-  usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   
@@ -29,7 +27,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(color)
+         .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[hidechannel|chide]\n> \n> Usage: hides a channel from everyone.\`\`\``)
           .setTimestamp()
@@ -47,7 +45,7 @@ module.exports = {
 channel.updateOverwrite(channel.guild.roles.everyone, { VIEW_CHANNEL: false });
 
 const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`**Channel Hidden From Everyone!** ✅`, `> View perms have been revoked :x:`)

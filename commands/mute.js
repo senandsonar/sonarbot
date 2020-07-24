@@ -5,11 +5,9 @@ module.exports = {
   name: "mute",
   description: "Mute anyone who break rules",
   category: "moderation",
-  usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
-    let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
+    
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   
@@ -28,7 +26,7 @@ module.exports = {
   if (args.length == 0){ 
         
     const sembed = new MessageEmbed()
-         .setColor(color)
+         .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,mute {member}\n> \n> Usage: mutes a user. \`\`\``)
           .setTimestamp()
@@ -41,7 +39,7 @@ module.exports = {
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
   if (channel.permissionOverwrites.get(member.id)){
     const sembed = new MessageEmbed()
-      .setColor(color)
+      .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already muted or is unable to view this channel!** :x: `)
     //.setFooter(``)
@@ -54,7 +52,7 @@ module.exports = {
   channel.updateOverwrite(member.id, { SEND_MESSAGES: false });
 
 const sembed = new MessageEmbed()
-    .setColor(color)
+    .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`**${member.user.tag}** Muted ✅`, `Message perms have been revoked 🔇`)

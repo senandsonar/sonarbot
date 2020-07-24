@@ -3,17 +3,15 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
         name: "warn",
-        aliases: ['report'],
         category: "moderation",
-        description: "reports a user of the guild",
+        description: "Warns a user in the guild.",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
         accessableby: "Administrator",
     
     run: async (bot, message, args) => {
         if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have The Permissions To Report Someone! - [MANAGE_GUILD]**");
         if (!args[0]) return message.channel.send("**Please Enter A User!**")
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
 
         let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
         if (!target) return message.channel.send("**Please Enter A User!**")
@@ -25,7 +23,7 @@ module.exports = {
         if (target.hasPermission("MANAGE_GUILD") || target.user.bot) return message.channel.send("**Cannot Warn This User!**")
       try {
         const sembed2 = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setDescription(`**Hello, you have been warned in **${message.guild.name}** for: ${reason || "No Reason!"}**`)
             .setFooter(message.guild.name, message.guild.iconURL())
             
@@ -35,13 +33,13 @@ module.exports = {
       }
         if (reason) {
         const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor(`${message.guild.name}`, message.guild.iconURL())
             .setDescription(`**${target.displayName} Has Been Warned for ${reason}!**`)
         message.channel.send(embed)
         } else {
             const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor(`${message.guild.name}`, message.guild.iconURL())
             .setDescription(`**${target.displayName} Has Been Warned!**`)
         message.channel.send(embed)

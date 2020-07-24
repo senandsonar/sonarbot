@@ -5,19 +5,17 @@ module.exports = {
         aliases: ['cf'],
         category: 'fun',
         cooldown: 5,
-        description: 'flips a coin',
-        usage: ' ',
+        description: 'Flips a coin',
         accessableby: "everyone",
     
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         const n = Math.floor(Math.random() * 2);
         let result;
         if (n === 1) result = 'Heads';
         else result = 'Tails';
         const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setTitle(`Coinflip!`)
             .addField(`> *${message.member.displayName} Flipped a coin!*\n `, `> *The coin landed on* ***${result}*** 💫`,)
             .setTimestamp()

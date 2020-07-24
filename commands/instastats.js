@@ -6,18 +6,16 @@ module.exports = {
         aliases: ["searchinsta", "sinsta"],
         category: "info",
         description: "Find out some nice instagram statistics",
-        usage: "[instagram username]",
         accessableby: "everyone",
     
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         const name = args.join(" ");
 
         if (!name) {
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[instastats|searchinsta|sinsta] {instagram username}\n> \n> Usage: Shows info about a specific Instagram account. \`\`\``)
                   .setTimestamp()
@@ -39,7 +37,7 @@ module.exports = {
         const account = res.graphql.user;
 
         const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setTitle(account.full_name)
             .setURL(`https://instagram.com/${name}`)
             .setThumbnail(account.profile_pic_url_hd)

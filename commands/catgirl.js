@@ -4,22 +4,21 @@ const randomPuppy = require("random-puppy");
 module.exports = {
         name: "catgirl",
         category: "fun",
-        noalias: "No Aliases",
+        noalias: "None",
         cooldown: 5,
         usage: " ",
-        description: "Sends an epic meme",
+        description: "Sends an image of a catgirl!",
         accessableby: "everyone",
     run: async (bot, message, args) => {
 
         const subReddits = ["kemonomimi"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         
 
         const img = await randomPuppy(random);
         const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setImage(img)
             .setTitle("Catgirl!")
             .setURL(`https://reddit.com/r/${random}`);

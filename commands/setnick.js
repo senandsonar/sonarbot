@@ -10,15 +10,14 @@ module.exports = {
 
     run: async (bot, message, args) => {
 
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have Permissions To Change Nickname! - [MANAGE_GUILD]**");
         if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send("**I Dont Have Permissions To Change Nickname! - [CHANGE_NICKNAME]**");
         const sembed = new MessageEmbed()
         switch (args.length) {
             case 0:
                 sembed
-                .setColor(color)
+                .setColor(`#faf6f6`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
@@ -26,7 +25,7 @@ module.exports = {
                break;
             case 1:
                 sembed
-                .setColor(color)
+                .setColor(`#faf6f6`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
@@ -44,7 +43,7 @@ module.exports = {
         try {
         member.setNickname(nick)
         const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setDescription(`> **Changed Nickname of \`${member.displayName}\` to \`${nick}\`**`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setTimestamp()

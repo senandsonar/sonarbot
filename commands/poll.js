@@ -5,19 +5,17 @@ module.exports = {
         name: "poll",
         description: "polling",
         category: "info",
-        usage: "[question]",
         cooldown: 8,
-        noalias: "No Aliases",
+        noalias: "None",
         accessableby: "Administrator",
     
     run: async (bot, message, args) => {
         if (!message.member.hasPermission('SEND_MESSAGES')) return message.channel.send("**You Do Not Have Sufficient Permissions! - [SEND_MESSAGES]**");
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         if (args.length == 0){ 
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,poll {query}\n> \n> Usage: Starts a poll. \`\`\``)
                   .setTimestamp()
@@ -26,7 +24,7 @@ module.exports = {
             
 
         const embed = new MessageEmbed()
-            .setColor(color)
+            .setColor(`#faf6f6`)
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
             .addField(`Poll started in  ${message.channel.name} 📊 `,"*> " + (args.join('  ') + "* ")  )
         var msg = await message.channel.send(embed);

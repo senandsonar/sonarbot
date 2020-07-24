@@ -6,13 +6,12 @@ module.exports={
     aliases: ['sm', 'smode'],
     description:"Set the slowmode for the channel!",
     run: async(bot,message,args)=>{
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         if(!message.member.hasPermission("ADMINISTRATOR"))return message.channel.send("You dont have the permission - ADMINISTRATOR")
         if(!args[0]){ 
         
             const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
                   .setTimestamp()
@@ -25,7 +24,7 @@ module.exports={
         if(!reason){ 
         
           const sembed = new MessageEmbed()
-          .setColor(color)
+          .setColor(`#faf6f6`)
            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
            .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
            .setTimestamp()
@@ -35,7 +34,7 @@ module.exports={
         message.channel.setRateLimitPerUser(args[0],reason)
         //message.channel.send(`Set the slowmode of this channel to **${args[0]}** with the reason: **${reason}**`)
         const sembed = new MessageEmbed()
-                 .setColor(color)
+                 .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .addField(`Slowmode Set! ✅`, `> Set the slowmode of this channel to **${args[0]}** for: **${reason}**`)
                   .setTimestamp()

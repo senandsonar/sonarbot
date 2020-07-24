@@ -6,16 +6,14 @@ module.exports = {
         name: "urban",
         category: "fun",
         cooldown: 5,
-        description: "Give information about urban words!",
-        usage: "[word]",
+        description: "Get a definition of a word from Urban Dictioanry.",
         accessableby: "everyone",
         run: async(bot,message,args)=>{
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         if(!args[0]){
         
             const sembed = new MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,urban {query}\n> \n> Usage: Searches for a definition from Urban Dictionary. \`\`\``)
                 .setTimestamp()
@@ -29,7 +27,7 @@ module.exports = {
                 let { word, urbanURL, definition, example, thumbsUp, thumbsDown, author } = res;
 
                 let embed = new MessageEmbed()
-                    .setColor(color)
+                    .setColor(`#faf6f6`)
                     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     .setURL(`${urbanURL}`)
                     .setTitle(`${word}`)

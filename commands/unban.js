@@ -15,15 +15,14 @@ module.exports = {
 
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Unban Someone! - [BAN_MEMBERS]**")
 
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
 
         
 
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                .setColor(color)
+                .setColor(`#faf6f6`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ,unban {member}\n> \n> Usage: Unbans a user. \`\`\``)
                 .setTimestamp()
@@ -48,14 +47,14 @@ module.exports = {
             if (reason) {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed = new MessageEmbed()
-                    .setColor(color)
+                    .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
                 message.channel.send(sembed)
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed2 = new MessageEmbed()
-                    .setColor(color)
+                    .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. ✅ **`)
                 message.channel.send(sembed2)

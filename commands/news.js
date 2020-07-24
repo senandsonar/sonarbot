@@ -11,8 +11,7 @@ module.exports = {
         accessableby: "everyone",
     
     run: async (bot, message, args) => {
-        let color = message.member.displayHexColor;
-        if (color == '#000000') color = message.member.hoistRole.hexColor;
+        
         try {
             const response = await fetch(
                 `https://newsapi.org/v2/top-headlines?sources=reuters&pageSize=3&apiKey=${news_API}`
@@ -21,7 +20,7 @@ module.exports = {
             const articleArr = json.articles;
             let processArticle = article => {
                 const embed = new MessageEmbed()
-                    .setColor(color)
+                    .setColor(`#faf6f6`)
                     .setTitle(article.title)
                     .setURL(article.url)
                     .setAuthor(article.author)

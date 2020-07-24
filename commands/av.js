@@ -2,15 +2,14 @@ const Discord = require('discord.js');
 
 module.exports = {
 	  name: "avatar",
-	  aliases: ["av", "icon"],
+	  aliases: ["av"],
 	  category: "image",
 	  cooldown: 3,
 	  description: "Shows Avatar",
 	  usage: "[username | nickname | mention | ID](optional)",
 	  accessableby: "everyone",
 	run: async (bot, message, args) => { 
-		let emcolor = message.member.displayHexColor;
-        if (emcolor == '#000000') color = message.member.hoistRole.hexColor;
+		
 	  let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
   
 	  if (args[0]) {
