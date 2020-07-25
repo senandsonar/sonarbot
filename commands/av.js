@@ -18,7 +18,7 @@ module.exports = {
   
 			title: `${user.user.username}'s Avatar`,
   
-			color: emcolor,
+			color: `#faf6f6`,
   
 			image: {
 			  url: `${user.user.displayAvatarURL({dynamic: true})}` + '?size=4096'
@@ -39,7 +39,7 @@ module.exports = {
   
 			title: `${user.user.username}'s Avatar`,
   
-			color: emcolor,
+			color: `#faf6f6`,
   
 			image: {
 			  url: `${user.user.displayAvatarURL({ dynamic: true })}` + '?size=4096'
