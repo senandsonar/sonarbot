@@ -37,7 +37,7 @@ module.exports = {
                     .setThumbnail(bot.user.displayAvatarURL())
                     .addField(`**You Have Been Banned From:**`, `> ${message.guild.name}`)
                     .addField(`**Moderator:**`, `> ${message.author.tag}`)
-                    .addField(`**Reason:**`, `> Reason: ${reason || "None"}`)
+                    .addField(`**Reason:**`, `> ${reason || "None"}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 banMember.send(sembed2).then(() =>
                 message.guild.members.ban(banMember, { days: 7, reason: reason })).catch(() => null)

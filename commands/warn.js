@@ -23,9 +23,12 @@ module.exports = {
         if (target.hasPermission("MANAGE_GUILD") || target.user.bot) return message.channel.send("**Cannot Warn This User!**")
       try {
         const sembed2 = new MessageEmbed()
-            .setColor(`#faf6f6`)
-            .setDescription(`**Hello, you have been warned in **${message.guild.name}** for: ${reason || "No Reason!"}**`)
-            .setFooter(message.guild.name, message.guild.iconURL())
+        .setColor(`RED`)
+        .setTitle('You have been warned in a server!')
+        .setThumbnail(bot.user.displayAvatarURL())
+        .addField(`**You Have Been Warned In:**`, `> ${message.guild.name}`)
+        .addField(`**Moderator:**`, `> ${message.author.tag}`)
+        .addField(`**Reason:**`, `> ${reason || "None"}`)
             
         target.send(sembed2)
       } catch {
@@ -35,13 +38,14 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor(`#faf6f6`)
             .setAuthor(`${message.guild.name}`, message.guild.iconURL())
-            .setDescription(`**${target.displayName} Has Been Warned for ${reason}!**`)
+            .addField(`**${target.user.tag} Has Been Warned**`, `> Succesfully sent warn message. ✅`)
+            .addField(`Reason:`, `> ${reason}`)
         message.channel.send(embed)
         } else {
             const embed = new MessageEmbed()
             .setColor(`#faf6f6`)
             .setAuthor(`${message.guild.name}`, message.guild.iconURL())
-            .setDescription(`**${target.displayName} Has Been Warned!**`)
+            .addField(`**${target.user.tag} Has Been Warned**`, `> Succesfully sent warn message. ✅`)
         message.channel.send(embed)
         }
     }

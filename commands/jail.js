@@ -74,7 +74,7 @@ module.exports = {
     .setThumbnail(bot.user.displayAvatarURL())
     .addField(`**You Have Been Jailed In:**`, `> ${message.guild.name}`)
     .addField(`**Moderator:**`, `> ${message.author.tag}`)
-    .addField(`**Reason:**`, `> Reason: ${reason || "None"}`)
+    .addField(`**Reason:**`, `> ${reason || "None"}`)
     .setFooter(`If you wish to dispute this, go to the jail channel you have been placed in.`)
     
     
