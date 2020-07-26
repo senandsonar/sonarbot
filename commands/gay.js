@@ -18,34 +18,13 @@ module.exports={
                 return message.channel.send(sembed);
                 }
         else{
-            let responses=[
-                "5%",
-                "10%",
-                "15%",
-                "20%",
-                "25%",
-                "30%",
-                "35%",
-                "40%",
-                "45%",
-                "50%",
-                "55%",
-                "60%",
-                "65%",
-                "70%",
-                "75%",
-                "80%",
-                "85%",
-                "90%",
-                "95%",
-                "100%",
-        ]
-            let response = responses[Math.floor(Math.random()*(responses.length)-1)]
+            
+            var randomnumber=Math.floor(Math.random()*101);
 
             let Embed = new MessageEmbed()
             
             .setAuthor(`Gay Measurement`, user.user.displayAvatarURL({ dynamic: true }))
-            .setDescription(`${user.user.username} is ${response} gay. :rainbow_flag: `)
+            .setDescription(`${user.user.username} is ${randomnumber}\% gay. :rainbow_flag: `)
             .setColor(`#faf6f6`)
             message.channel.send(Embed)
         }

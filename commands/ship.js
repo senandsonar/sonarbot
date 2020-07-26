@@ -30,31 +30,11 @@ module.exports={
                 return message.channel.send(sembed);
                 }
         
-            let responses=[
-                    "5%",
-                    "10%",
-                    "15%",
-                    "20%",
-                    "25%",
-                    "30%",
-                    "35%",
-                    "40%",
-                    "45%",
-                    "50%",
-                    "55%",
-                    "60%",
-                    "65%",
-                    "70%",
-                    "75%",
-                    "80%",
-                    "85%",
-                    "90%",
-                    "95%",
-                    "100%",
-            ]
+            
             let user =  await message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[0].toLowerCase()) || message.guild.members.cache.find(mp => mp.displayName.toLowerCase() === args[0].toLowerCase());
             let user2 =  await message.mentions.members.array()[1] || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[1].toLowerCase()) || message.guild.members.cache.find(mp => mp.displayName.toLowerCase() === args[1].toLowerCase());
-            let response = responses[Math.floor(Math.random()*(responses.length)-1)]
+            
+            var randomnumber=Math.floor(Math.random()*101);
             
             let Embed = new MessageEmbed()
             
@@ -62,7 +42,7 @@ module.exports={
            //.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
            .addFields(
-            { name: `Matching Users :sparkling_heart: `, value: `> **${user}**  \n> **${user2}** \n> \n> Users are a **${response}** match!` },
+            { name: `Matching Users :sparkling_heart: `, value: `> **${user}**  \n> **${user2}** \n> \n> Users are a **${randomnumber}\%** match!` },
            )
            // .addField(```${user2}```)
            // .addField(`> Are a **${response}** match!`)
