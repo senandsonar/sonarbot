@@ -58,7 +58,7 @@ const exampleEmbed = new MessageEmbed()
         { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Aliases: delete, clear ', inline: false },
         { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Aliases: sm, smode ', inline: false },
         { name: "**Lockdown** - Locks a channel.", value: 'Aliases: lock ', inline: false },
-		{ name: "**Unlock** - Unlocks a locked channel.", value: 'Aliases: None ', inline: false },
+		{ name: "**Unlockdown** - Unlocks a locked channel.", value: 'Aliases: unlock ', inline: false },
 		{ name: "**Channelsync** - Syncs a channels permissions with the category permissions.", value: 'Aliases: csync ', inline: false },
 		{ name: "**Hidechannel** - Hides a channel from everyone.", value: 'Aliases: chide ', inline: false },
 		{ name: "**Revealchannel** - Reveals a channel to everyone.", value: 'Aliases: creveal ', inline: false },
@@ -179,6 +179,7 @@ const exampleEmbed = new MessageEmbed()
         { name: "**Ship** - Ships two users.", value: 'Aliases: None', inline: false },
 		{ name: "**Pat** - Pats a user.", value: 'Aliases: None', inline: false },
 		{ name: "**Say** - Makes the bot say something.", value: 'Aliases: None', inline: false },
+		{ name: "**Gay** - Measures how gay you are.", value: 'Aliases: None', inline: false },
         
 		
         

@@ -5,8 +5,9 @@ const { MessageEmbed } = require("discord.js");
 
 
 module.exports = {
-  name: "unlock",
+  name: "unlockdown",
   description: "Unlocks a locked channel.",
+  aliases: ['unlock'],
   category: "moderation",
   usage: "mute <@mention>",
   run: async (client, message, args) => 
