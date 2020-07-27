@@ -4,6 +4,7 @@ module.exports={
     name: "ship",
     description: "Ships two users.",
     category: "fun",
+    cooldown: 5,
     run: async(client,message,args)=>{
         let reason1 = args.splice(1).join(" ")
         let reason2 = args.join(" ")
