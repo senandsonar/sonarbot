@@ -75,7 +75,7 @@ client.on("message", async (message) => {
         .setTitle(`Command On Cooldown!`)
         .setDescription(`> Please wait **${timeLeft.toFixed(1)} more second(s)** before \n> reusing the \`${command.name}\` command.`)
         .setTimestamp()
-        return message.author.send(wembed)
+        return message.channel.send(wembed)
       }
     }
 
