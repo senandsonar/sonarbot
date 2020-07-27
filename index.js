@@ -74,9 +74,8 @@ client.on("message", async (message) => {
         .setColor("RED")
         .setTitle(`Command On Cooldown!`)
         .setDescription(`> Please wait **${timeLeft.toFixed(1)} more second(s)** before \n> reusing the \`${command.name}\` command.`)
-        .setFooter(`This message and the X reacted message will be deleted shortly.`)
-        message.channel.send(wembed)
-        await message.delete({ timeout: 10000 });
+        .setTimestamp()
+        return message.author.send(wembed)
       }
     }
 
