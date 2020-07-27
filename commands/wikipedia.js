@@ -16,7 +16,7 @@ module.exports = {
         if (!args[0]) return message.channel.send("**Enter A Query!**")
         let m = await message.channel.send({
             embed: {
-                color: emcolor,
+                color: `#faf6f6`,
                 title: `Searching Wikipedia just for you ⌛`,
                 description: `Please stand by...`,
             },
@@ -26,7 +26,7 @@ module.exports = {
         if (!search.results.length) {
             return m.edit({
                 embed: {
-                    color: emcolor,
+                    color: `#faf6f6`,
                     title: "What was that again? 📚🤓",
                     description: "Even Wikipedia doesn't seem to know what you're talking about.",
                     footer: {
