@@ -41,7 +41,7 @@ module.exports={
                 .addField('**Humidity**', "> " + `${current.humidity}%`, true)
                 .addField('**Date**', "> " + `${current.date}`, true)
                 .addField('**Observation Time**', "> " + `${current.observationtime}`, true)
-                .addField('**Weather Warning**', "> " + `${location.alert || "No Current Alerts"}`, true)
+                .addField('**Weather Warning**', "> " + `${location.alert || "No Current Alerts or Warnings"}`, true)
                 
                 .setFooter(message.member.displayName, message.author.displayAvatarURL())
                 .setTimestamp()
