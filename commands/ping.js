@@ -14,7 +14,7 @@ module.exports = {
          message.channel.send(`🏓 Pinging....`).then(msg=>{
         const _ = new Discord.MessageEmbed()
         .setTitle('Pong!')
-        .setDescription(`🏓 Pong!\nLatency is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms\nAPI Latency is ${Math.round(bot.ws.ping)}ms`)
+        .setDescription(`🏓 Pong!\n> Latency is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms\n> \n> API Latency is ${Math.round(bot.ws.ping)}ms`)
         .setColor(`#faf6f6`)
         .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
         msg.edit(_);
