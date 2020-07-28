@@ -25,7 +25,7 @@ module.exports = {
             let id = res.data[0].id;
             let url = `https://media.giphy.com/media/${id}/giphy.gif`;
             const embed = {
-                color: emcolor,
+                color: `#faf6f6`,
                 timestamp: new Date(),
                 footer: {
                     text: message.guild.name,
