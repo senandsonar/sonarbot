@@ -54,6 +54,8 @@ module.exports = {
                .addFields(
                 { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Successfully sent kick message. ✅' },
             )
+                .addField(`Ban Assigned By:`, `> ${message.author}`)
+                .addField(`Time Ban Was Assigned:`, `> ${message.createdAt}`)
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
@@ -62,6 +64,8 @@ module.exports = {
                 .addFields(
                     { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },
                 )
+                .addField(`Kick Assigned By:`, `> ${message.author}`)
+                .addField(`Time Kick Was Assigned:`, `> ${message.createdAt}`)
             message.channel.send(sembed2);
             }
            

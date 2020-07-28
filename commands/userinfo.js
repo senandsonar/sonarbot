@@ -32,7 +32,7 @@ module.exports = {
             .addField("**Name**", `${member.user.tag}`, )
             .addField("**Account Created**", `${created}`)
             .addField("**Joined On**", `${joined}`)
-            .addField("**Role List**", `${roles}`, true)
+            .addField("**Role List**", `${roles}`, false)
             .setTimestamp()
 
        

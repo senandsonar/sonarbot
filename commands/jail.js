@@ -67,6 +67,8 @@ module.exports = {
     .addFields(
         { name: `**${member.displayName} has been jailed.**`, value: '> Successfully sent Jail message. ✅' },
     )
+    .addField(`Jail Assigned By:`, `> ${message.author}`)
+    .addField(`Time Jail Was Assigned:`, `> ${message.createdAt}`)
     
     const sembed2 = new MessageEmbed()
     .setColor(`RED`)

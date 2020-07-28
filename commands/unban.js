@@ -50,6 +50,8 @@ module.exports = {
                     .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
+                    .addField(`Ban Removed By:`, `> ${message.author}`)
+                    .addField(`Time Ban Was Removed:`, `> ${message.createdAt}`)
                 message.channel.send(sembed)
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
@@ -57,6 +59,8 @@ module.exports = {
                     .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. ✅ **`)
+                    .addField(`Ban Removed By:`, `> ${message.author}`)
+                    .addField(`Time Ban Was Removed:`, `> ${message.createdAt}`)
                 message.channel.send(sembed2)
             }
             

@@ -60,6 +60,8 @@ module.exports = {
                 .addFields(
                     { name: `**${banMember.user.tag} has been banned.**`, value: '> Successfully sent ban message. ✅' },
                 )
+                .addField(`Ban Assigned By:`, `${message.author}`)
+                .addField(`Time Ban Was Assigned:`, `${message.createdAt}`)
                 message.channel.send(sembed2)
             }
         } catch (e) {

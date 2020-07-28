@@ -6,28 +6,33 @@ module.exports = {
         description: "Pulls the serverinfo of the guild!",
         usage: " ",
         category: "info",
-        cooldown: 5,
+        cooldown: 15,
         accessableby: "everyone",
         aliases: ["sinfo"],
     
     run: async (bot, message, args) => {
         let owner = [];
         
-        await bot.users.fetch(message.guild.ownerID).then(o => owner.push(o.tag))
+        var onlineCount = message.guild.members.cache.filter(m => m.presence.status === 'online').size
+        var offlineCount = message.guild.members.cache.filter(m => m.presence.status === 'offline').size
+
+        
+        await bot.users.fetch(message.guild.ownerID).then(o => owner.push(o))
         try {
             let embed = new MessageEmbed()
                 .setColor(`#faf6f6`)
                 .setTitle("Server Info")
                 .setThumbnail(message.guild.iconURL())
                 .setAuthor(`${message.guild.name} Info`, message.guild.iconURL())
-                .addField("**Guild Name**", `${message.guild.name}`, true)
-                .addField("**Guild Owner**", `${owner}`, true)
-                .addField("**ID**", `${message.guild.id}`)
-                .addField("**Created At**", `${message.guild.createdAt}`)
-                .addField("**Text Channels**", `${message.guild.channels.cache.filter(r => r.type === "text").size}`)
-                .addField("**Voice Channels**", `${message.guild.channels.cache.filter(c => c.type === "voice").size}`)
-                .addField("**Members**", `${message.guild.memberCount}`, true)
-                .addField("**Roles**", `${message.guild.roles.cache.size}`, true)
+                .addField("**Server ID**", `> \`${message.guild.id}\``)
+                .addField("**Guild Owner**", `> ${owner}`, false)
+                .addField("**Members**", `> \`${message.guild.memberCount}\` Total | \`${onlineCount}\` Online | \`${offlineCount}\` Offline `, false)
+                .addField("**Created At**", `> ${message.guild.createdAt}`)
+                .addField("**Channels**", `> ${message.guild.channels.cache.filter(r => r.type === "text").size} Text Channels | ${message.guild.channels.cache.filter(c => c.type === "voice").size} Voice Channels`)
+                .addField("**Region**", `> **${message.guild.region}** `)
+                .addField("**Verification Level**", `> **${message.guild.verificationLevel}** `)
+                .addField("**Emojis**", `> \`${message.guild.emojis.cache.size}\``, false)
+                .addField("**Roles**", `> ${message.guild.roles.cache.size}`, false)
             message.channel.send(embed);
         }
         catch {

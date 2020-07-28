@@ -31,6 +31,9 @@ module.exports={
                 .setThumbnail(current.imageUrl)
                 .setColor(`#faf6f6`)
                 .addField('**Timezone**', "> " + `UTC ${location.timezone}`, true)
+                .addField('**Location Latitude**', "> " + `UTC ${location.lat}`, true)
+                .addField('**Location Longitude**', "> " + `UTC ${location.long}`, true)
+                .addField('**Day**', "> " + `${current.day}`, true)
                 .addField('**Degree Type**', "> " + `${location.degreetype}`, true)
                 .addField('**Temperature**', "> " + `${current.temperature} Degrees`, true)
                 .addField('**Feels Like**', "> " + `${current.feelslike} Degrees`, true)
@@ -38,7 +41,8 @@ module.exports={
                 .addField('**Humidity**', "> " + `${current.humidity}%`, true)
                 .addField('**Date**', "> " + `${current.date}`, true)
                 .addField('**Observation Time**', "> " + `${current.observationtime}`, true)
-                .addField('**Day**', "> " + `${current.day}`, true)
+                .addField('**Weather Warning**', "> " + `${location.alert || "No Current Alerts"}`, true)
+                
                 .setFooter(message.member.displayName, message.author.displayAvatarURL())
                 .setTimestamp()
 
