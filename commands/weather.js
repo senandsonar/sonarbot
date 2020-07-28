@@ -37,6 +37,7 @@ module.exports={
                 .addField('**Winds**', "> " + `${current.winddisplay}`, true)
                 .addField('**Humidity**', "> " + `${current.humidity}%`, true)
                 .addField('**Date**', "> " + `${current.date}`, true)
+                .addField('**Observation Time**', "> " + `${current.observationtime}`, true)
                 .addField('**Day**', "> " + `${current.day}`, true)
                 .setFooter(message.member.displayName, message.author.displayAvatarURL())
                 .setTimestamp()

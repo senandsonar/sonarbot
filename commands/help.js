@@ -111,6 +111,7 @@ const exampleEmbed = new MessageEmbed()
         { name: "**YTsearch** - Searches youtube for a video. Shows first 5 results. ", value: 'Aliases: yt ', inline: false },
 		{ name: "**Rolelist** - Shows a list of all the roles in the server. ", value: 'Aliases: rlist ', inline: false },
 		{ name: "**Commandinfo** - Gives info about a specific command. ", value: 'Aliases: cmdinfo ', inline: false },
+		{ name: "**Time** - Displays the current date and time. ", value: 'Aliases: date ', inline: false },
 	
         
 		
