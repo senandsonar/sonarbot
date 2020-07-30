@@ -12,12 +12,12 @@ module.exports = {
   //const adminRole = message.guild.roles.cache.find(r => r.name === 'Admin');
   if (!message.member.hasPermission("MANAGE_ROLES")) {
     return message.channel.send(
-      "Sorry but you do not have permission to unmute anyone. You require the permission 'MANAGE_ROLES"
+      "\`\`\`Sorry but you do not have permission to unmute anyone. You require the permission 'MANAGE_ROLES'\`\`\`"
     );
   }
 
   if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-    return message.channel.send("I do not have permission to manage roles.");
+    return message.channel.send("\`\`\`I do not have permission to unmute members. I require the permission 'MANAGE_ROLES'\`\`\`");
   }
 
   if (args.length == 0){ 
@@ -53,7 +53,6 @@ const sembed = new MessageEmbed()
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`**${member.user.tag}** Unmuted In \`#${channel.name}\` ✅`, `> Message perms have been granted :speaker: `)
     .addField(`Message Perms Given By:`, `> ${message.author}`)
-    .addField(`Time Message Perms Were Given:`, `> ${message.createdAt}`)
    // .setFooter(``)
      
   message.channel.send(sembed)

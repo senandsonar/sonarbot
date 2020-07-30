@@ -13,12 +13,12 @@ module.exports = {
     
     if (!message.member.hasPermission("MANAGE_ROLES")) {
       return message.channel.send(
-        "Sorry but you do not have permission to jail anyone. You require the permission 'MANAGE_ROLES'"
+        "\`\`\`Sorry but you do not have permission to jail anyone. You require the permission 'MANAGE_ROLES'\`\`\`"
       );
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("I do not have permission to manage roles.");
+      return message.channel.send("\`\`\`I do not have permission to jail anyone. I require the permission 'MANAGE-ROLES'\`\`\`");
     }
    
     //const member = message.mentions.members.first();
@@ -65,10 +65,9 @@ module.exports = {
     .setColor(`#faf6f6`)
     .setAuthor(message.guild.name, message.guild.iconURL())
     .addFields(
-        { name: `**${member.displayName} has been jailed.**`, value: '> Successfully sent Jail message. ✅' },
+        { name: `**${member.user.tag} has been jailed.**`, value: '> Successfully sent Jail message. ✅' },
     )
     .addField(`Jail Assigned By:`, `> ${message.author}`)
-    .addField(`Time Jail Was Assigned:`, `> ${message.createdAt}`)
     
     const sembed2 = new MessageEmbed()
     .setColor(`RED`)

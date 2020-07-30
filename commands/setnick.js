@@ -11,8 +11,8 @@ module.exports = {
     run: async (bot, message, args) => {
 
         
-        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have Permissions To Change Nickname! - [MANAGE_GUILD]**");
-        if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send("**I Dont Have Permissions To Change Nickname! - [CHANGE_NICKNAME]**");
+        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("\`\`\`You Dont Have Permissions To Change Nicknames! - [MANAGE_GUILD]\`\`\`");
+        if (!message.guild.me.hasPermission("CHANGE_NICKNAME")) return message.channel.send("\`\`\`I Dont Have Permissions To Change Nicknames! - [CHANGE_NICKNAME]\`\`\`");
         const sembed = new MessageEmbed()
         switch (args.length) {
             case 0:
@@ -37,7 +37,7 @@ module.exports = {
        
 
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
-        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Set or Change Nickname Of This User!**')
+        if (member.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('\`\`\`Cannot Set or Change Nickname Of This User!\`\`\`')
         let nick = args.slice(1).join(' ');
 
         try {
@@ -49,7 +49,7 @@ module.exports = {
             .setTimestamp()
         message.channel.send(embed)
         } catch {
-            return message.channel.send("**Missing Permissions - [CHANGE_NICKNAME]")
+            return message.channel.send("\`\`\`Missing Permissions - [CHANGE_NICKNAME]\`\`\`")
         }
         
 

@@ -10,9 +10,9 @@ module.exports = {
     run: async (bot, message, args) => {
         
 
-        if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("**Your Dont Have The Permissions To Remove Role From Users! - [MANAGE_ROLES]**");
+        if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("\`\`\`Your Dont Have The Permissions To Remove Role From Users! - [MANAGE_ROLES]\`\`\`");
 
-        if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("**I Dont Have The Permissions To Remove Roles From Users! - [MANAGE_ROLES]**");
+        if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("\`\`\`I Dont Have The Permissions To Remove Roles From Users! - [MANAGE_ROLES]\`\`\`");
         
         if (args.length == 0){
         
@@ -46,11 +46,11 @@ module.exports = {
         
         //if (!role) return message.channel.send("**Couldn't Find That Role**");
 
-        if (rMember.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('**Cannot Remove Role From This User! - [Higher Than Me In Role Hierachy]**')
-        if (message.guild.me.roles.highest.comparePositionTo(role) < 0) return message.channel.send('**Role Is Currently Higher Than Me Therefore Cannot Remove It From The User!**')
-        if (role.managed) return message.channel.send("**Cannot Remove That Role From This User!**")
+        if (rMember.roles.highest.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('\`\`\`Cannot add role to this user. Their role may be above mine in this guilds role hierarchy!\`\`\`')
+        if (message.guild.me.roles.highest.comparePositionTo(role) < 0) return message.channel.send('\`\`\`Cannot add role to this user. Their role may be above mine in this guilds role hierarchy!\`\`\`')
+        if (role.managed) return message.channel.send("\`\`\`Cannot add role to this user. Their role may be above mine in this guilds role hierarchy!\`\`\`")
 
-        if (!rMember.roles.cache.has(role.id)) return message.channel.send("**User Doesnt Have That Role!**")
+        if (!rMember.roles.cache.has(role.id)) return message.channel.send("\`\`\`User Doesnt Have That Role!\`\`\`")
         if (rMember.roles.cache.has(role.id)) await (rMember.roles.remove(role.id));
 
         const sembed = new MessageEmbed()

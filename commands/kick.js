@@ -10,8 +10,8 @@ module.exports = {
     run: async (bot, message, args) => {
         
         try {
-            if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
-            if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
+            if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("\`\`\`You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]\`\`\`");
+            if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("\`\`\`I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]\`\`\`");
 
             if (args.length == 0){
         
@@ -24,12 +24,12 @@ module.exports = {
                     }
 
             var kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
-            if (!kickMember) return message.channel.send("**User Is Not In The Guild!**");
+            if (!kickMember) return message.channel.send("\`\`\`User Is Not In The Guild!\`\`\`");
 
-            if (kickMember.id === message.member.id) return message.channel.send("**You Cannot Kick Yourself!**")
+            if (kickMember.id === message.member.id) return message.channel.send("\`\`\`You Cannot Kick Yourself!\`\`\`")
 
-            if (!kickMember.kickable) return message.channel.send("**Cannot Kick This User!**")
-            if (kickMember.user.bot) return message.channel.send("**Cannot Kick A Bot!**")
+            if (!kickMember.kickable) return message.channel.send("\`\`\`Cannot Kick This User!\`\`\`")
+            if (kickMember.user.bot) return message.channel.send("\`\`\`Cannot Kick A Bot!\`\`\`")
 
             var reason = args.slice(1).join(" ");
             try {
@@ -55,7 +55,6 @@ module.exports = {
                 { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Successfully sent kick message. ✅' },
             )
                 .addField(`Ban Assigned By:`, `> ${message.author}`)
-                .addField(`Time Ban Was Assigned:`, `> ${message.createdAt}`)
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
@@ -65,7 +64,6 @@ module.exports = {
                     { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },
                 )
                 .addField(`Kick Assigned By:`, `> ${message.author}`)
-                .addField(`Time Kick Was Assigned:`, `> ${message.createdAt}`)
             message.channel.send(sembed2);
             }
            

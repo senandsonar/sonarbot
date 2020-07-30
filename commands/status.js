@@ -31,7 +31,7 @@ module.exports={
                 const embed = new MessageEmbed()
                     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
                     .setColor(`#faf6f6`)
-                    .addField("**Custon Status:**", `\n> ${activity.emoji || "> No Emoji"} | ${activity.state}`)
+                    .addField("**Custom Status:**", `\n> ${activity.emoji || "> No Emoji"} | ${activity.state}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                     .setTimestamp()
                 message.channel.send(embed)

@@ -18,12 +18,12 @@ module.exports = {
   //const adminRole = message.guild.roles.cache.find(r => r.name === 'Admin');
   if (!message.member.hasPermission("ADMINISTRATOR")) {
     return message.channel.send(
-      "Sorry but you do not have permission to lockdown channels. You require the permission 'ADMINISTRATOR'"
+      "\`\`\`Sorry but you do not have permission to lockdown channels. You require the permission 'ADMINISTRATOR'\`\`\`"
     );
   }
 
   if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-    return message.channel.send("I do not have sufficient permissions.");
+    return message.channel.send("\`\`\`I do not have sufficient permissions.\`\`\`");
   }
 
 

@@ -15,12 +15,12 @@ module.exports = {
   //const adminRole = message.guild.roles.cache.find(r => r.name === 'Admin');
   if (!message.member.hasPermission("MANAGE_ROLES")) {
     return message.channel.send(
-      "Sorry but you do not have permission to mute anyone. You require the permission 'MANAGE_ROLES"
+      "\`\`\`Sorry but you do not have permission to mute anyone. You require the permission 'MANAGE_ROLES'\`\`\`"
     );
   }
 
   if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-    return message.channel.send("I do not have permission to manage roles.");
+    return message.channel.send("\`\`\`I do not have permission to mute anyone. I require the permission 'MANAGE_ROLES'\`\`\`");
   }
 
   if (args.length == 0){ 
@@ -56,8 +56,7 @@ const sembed = new MessageEmbed()
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted ✅`)
     .addField(`**${member.user.tag}** Muted In \`#${channel.name}\`✅`, `> Message perms have been revoked 🔇`)
-    .addField(` Message Perms Removed By:`, `> ${message.author}`)
-    .addField(` Time Message Perms Were Removed:`, `> ${message.createdAt}`)
+    .addField(`Message Perms Removed By:`, `> ${message.author}`)
    // .setFooter(``)
      
   message.channel.send(sembed)
