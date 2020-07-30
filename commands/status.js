@@ -31,7 +31,7 @@ module.exports={
                 const embed = new MessageEmbed()
                     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
                     .setColor(`#faf6f6`)
-                    .addField("**Status**", `**Custom status** -\n> ${activity.emoji || "> No Emoji"} | ${activity.state}`)
+                    .addField("**Custon Status:**", `\n> ${activity.emoji || "> No Emoji"} | ${activity.state}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                     .setTimestamp()
                 message.channel.send(embed)
@@ -50,7 +50,7 @@ module.exports={
                     .addField("**Application**", `> ${name1}`)
                     .addField("**Details**", `> ${details1 || "> No Details"}`)
                     .addField("**Extras**", `> ${state1 || "> No Details"}`)
-                message.channel.send(sembed);
+                return message.channel.send(sembed);
             }
         })
     }
