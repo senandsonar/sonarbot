@@ -1,23 +1,22 @@
-const Discord = require('discord.js')
-module.exports = {
-    name: "ping",
-    category: 'info',
-    cooldown: 10,
-    aliases: ['latency'],
-    description: "Returns latency and API ping",
-    timeout: 10000,
+  
+const { MessageEmbed } = require('discord.js');
 
-    
+module.exports = {
+        name: "ping",
+        description: "Displays User And Bot Latency",
+        usage: " ",
+        aliases: ['latency'],
+        category: "info",
+        accessableby: "everyone",
     run: async (bot, message, args) => {
-        
-        let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
-         message.channel.send(`🏓 Pinging....`).then(msg=>{
-        const _ = new Discord.MessageEmbed()
-        .setDescription(`🏓 **Pong!**\n> Latency is \`${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms\`\n> \n> API Latency is \`${Math.round(bot.ws.ping)}ms\``)
-        .setColor(`#faf6f6`)
-        .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-        msg.edit(_);
-        msg.edit("\u200B")
-    })
+
+        message.channel.send("**Pinging...**").then(m => {
+            let ping = m.createdTimestamp - message.createdTimestamp
+            const embed = new MessageEmbed()
+                .setColor("#faf6f6")
+                .setDescription(`<:hourglass_flowing_sand:699128011743690794> ${message.author.tag}'s Latency: \`${ping}\`\n\n💓 Bot Latency: \`${Math.round(bot.ws.ping)}\``)
+            message.channel.send(embed)
+            m.delete()
+        })
     }
-}
+};
