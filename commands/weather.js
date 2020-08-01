@@ -1,4 +1,5 @@
 const weather = require('weather-js');
+const { PREFIX } = require("../config.json");
 const { MessageEmbed } = require('discord.js');
 
 module.exports={
@@ -37,7 +38,7 @@ module.exports={
                 .addField('**Humidity**', "> " + `${current.humidity}%`, true)
                 .addField('**Date**', "> " + `${current.date}`, true)
                 
-                .setFooter(message.member.displayName, message.author.displayAvatarURL())
+                .setFooter(`Use ${PREFIX}aweather for more advanced weather statistics.`)
                 .setTimestamp()
 
             message.channel.send({embed})
