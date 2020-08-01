@@ -102,7 +102,7 @@ const exampleEmbed = new MessageEmbed()
        // { name: "**av - Shows a user's avatar.**", value: 'Aliases: ,av @{member} ', inline: false },
        	{ name: "**Urban** - Shows the definition of a word from Urban Dictionary.", value: 'Aliases: None', inline: false },
         { name: "**Wikipedia** - Shows a definition from Wikipedia.", value: 'Aliases: wiki', inline: false },
-        { name: "**Ping** - Shows the bot's latency.", value: 'Aliases: latency ', inline: false },
+        { name: "**Ping** - Shows the bot and user latency.", value: 'Aliases: latency ', inline: false },
         { name: "**Help** - Shows the bot's help panel.", value: 'Aliases: None ', inline: false },
         { name: "**Setup** - Shows the bot's setup panel. (useful)", value: 'Aliases: None', inline: false },
         { name: "**Commandlist** - DM's a list of every command Senbot has.", value: 'Aliases: clist ', inline: false },
