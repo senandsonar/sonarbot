@@ -7,7 +7,7 @@ module.exports={
     description:"Set the slowmode for the channel!",
     run: async(bot,message,args)=>{
         
-        if(!message.member.hasPermission("ADMINISTRATOR"))return message.channel.send("You dont have the permission - ADMINISTRATOR")
+        if(!message.member.hasPermission("ADMINISTRATOR"))return message.channel.send("\`\`\`You dont have the permission - ADMINISTRATOR\`\`\`")
         if(!args[0]){ 
         
             const sembed = new MessageEmbed()
@@ -20,7 +20,7 @@ module.exports={
         
         if(isNaN(args[0]))return message.channel.send(`That is not a number!`)
         let reason = message.content.slice(12)
-     if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("I dont have permission.")
+     if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("\`\`\`I dont have permission to set a channels slowmode. I require the permissions MANAGE_CHANNELS.\`\`\`")
         if(!reason){ 
         
           const sembed = new MessageEmbed()

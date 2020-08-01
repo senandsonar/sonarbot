@@ -7,12 +7,12 @@ module.exports = {
       
       if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send(
-          "Sorry but you do not have permission to unjail anyone. You require the permission 'MANAGE_ROLES"
+          "\`\`\`Sorry but you do not have permission to unjail anyone. You require the permission 'MANAGE_ROLES'\`\`\`"
         );
       }
   
       if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-        return message.channel.send("I do not have permission to manage roles.");
+        return message.channel.send("\`\`\`I do not have permission to unjail members. I require the permissions 'MANAGE_ROLES'\`\`\`");
       }
   
       //const user = message.mentions.members.first();

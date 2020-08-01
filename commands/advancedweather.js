@@ -2,8 +2,8 @@ const weather = require('weather-js');
 const { MessageEmbed } = require('discord.js');
 
 module.exports={
-        name: "weather",
-        noalias: "",
+        name: "advancedweather",
+        aliases: ['aweather'],
         category: "info",
         cooldown: 5,
         description: "Shows weather of a city",
@@ -27,15 +27,21 @@ module.exports={
 
             const embed = new MessageEmbed()
                 .setDescription(`**${current.skytext}**`)
-                .setAuthor(`Weather for ${current.observationpoint}`)
+                .setAuthor(`Weather for ${current.observationpoint} (Advanced)`)
                 .setThumbnail(current.imageUrl)
                 .setColor(`#faf6f6`)
+                .addField('**Timezone**', "> " + `UTC ${location.timezone}`, true)
+                .addField('**Location Latitude**', "> " + `UTC ${location.lat}`, true)
+                .addField('**Location Longitude**', "> " + `UTC ${location.long}`, true)
+                .addField('**Day**', "> " + `${current.day}`, true)
                 .addField('**Degree Type**', "> " + `${location.degreetype}`, true)
                 .addField('**Temperature**', "> " + `${current.temperature} Degrees`, true)
                 .addField('**Feels Like**', "> " + `${current.feelslike} Degrees`, true)
                 .addField('**Winds**', "> " + `${current.winddisplay}`, true)
                 .addField('**Humidity**', "> " + `${current.humidity}%`, true)
                 .addField('**Date**', "> " + `${current.date}`, true)
+                .addField('**Observation Time**', "> " + `${current.observationtime}`, true)
+                .addField('**Weather Alerts**', "> " + `${location.alert || "No Current Alerts"}`, true)
                 
                 .setFooter(message.member.displayName, message.author.displayAvatarURL())
                 .setTimestamp()

@@ -13,7 +13,7 @@ module.exports = {
         aliases: ["ub", "unbanish"],
     run: async (bot, message, args) => {
 
-        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Unban Someone! - [BAN_MEMBERS]**")
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("\`\`\`You Dont Have The Permissions To Unban Someone! - [BAN_MEMBERS]\`\`\`")
 
         
 
@@ -38,7 +38,7 @@ module.exports = {
         let reason = args.slice(1).join(" ")
         
 
-        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Don't Have Permissions To Unban Someone! - [BAN_MEMBERS]**")
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("\`\`\`I Don't Have Permissions To Unban Someone! - [BAN_MEMBERS]\`\`\`")
         
         
               
@@ -51,7 +51,6 @@ module.exports = {
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
                     .addField(`Ban Removed By:`, `> ${message.author}`)
-                    .addField(`Time Ban Was Removed:`, `> ${message.createdAt}`)
                 message.channel.send(sembed)
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
@@ -60,7 +59,6 @@ module.exports = {
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. ✅ **`)
                     .addField(`Ban Removed By:`, `> ${message.author}`)
-                    .addField(`Time Ban Was Removed:`, `> ${message.createdAt}`)
                 message.channel.send(sembed2)
             }
             

@@ -9,7 +9,7 @@ module.exports = {
         accessableby: "Administrator",
     
     run: async (bot, message, args) => {
-        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have The Permissions To Report Someone! - [MANAGE_GUILD]**");
+        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("\`\`\`You Dont Have The Permissions To Report Someone! - [MANAGE_GUILD]\`\`\`");
         if (!args[0]) return message.channel.send("**Please Enter A User!**")
         
 
