@@ -64,6 +64,7 @@ const exampleEmbed = new MessageEmbed()
 		{ name: "**Revealchannel** - Reveals a channel to everyone.", value: 'Aliases: creveal ', inline: false },
 		{ name: "**Role (Multifunctional Command)** - Can create a role or delete a role.", value: 'Aliases: None  ', inline: false },
 		{ name: "**Giveaway** - Starts a giveaway.", value: 'Aliases: None  ', inline: false },
+		{ name: "**Announce** - Makes an announcement in a channel.", value: 'Aliases: None  ', inline: false },
        
         
 		
