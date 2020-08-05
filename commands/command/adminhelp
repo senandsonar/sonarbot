@@ -1,0 +1,38 @@
+const Discord = require('discord.js');
+
+const mongoose = require('mongoose');
+const Guild = require('../../models/guild');
+module.exports={
+	name: 'adminhelp',
+	description: 'help!',
+	execute (message, args) {
+		
+		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
+		
+// inside a command, event listener, etc.
+const exampleEmbed = new Discord.MessageEmbed()
+	.setColor(`#faf6f6`)
+    .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
+    .setTitle('**Administrator Commands**')
+	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
+	.setThumbnail (`https://i.imgur.com/kdCSckc.png`)
+	.setDescription('Prefix: ,')
+	.addFields(
+        { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Usage: ,purge {number of messages} ', inline: false },
+        { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Usage: ,slowmode {time in seconds} {reason} ', inline: false },
+        { name: "**Lockdown** - Locks a channel.", value: 'Usage: ,lockdown ', inline: false },
+		{ name: "**Unlock** - Unlocks a locked channel.", value: 'Usage: ,unlock ', inline: false },
+		{ name: "**Channelsync** - Syncs a channels permissions with the category permissions.", value: 'Usage: ,channelsync ', inline: false },
+		{ name: "**Hidechannel** - Hides a channel from everyone.", value: 'Usage: ,hidechannel ', inline: false },
+		{ name: "**Revealchannel** - Reveals a channel to everyone.", value: 'Usage: ,revealchannel ', inline: false },
+       
+        
+		
+	)
+    
+
+if (args.length == 1){ 
+if(message.content === `admin`, `help`){
+	message.react('730967576007671929')
+	message.author.send(exampleEmbed)
+    }}}}

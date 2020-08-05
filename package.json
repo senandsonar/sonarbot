@@ -11,6 +11,7 @@
   "dependencies": {
     "aki-api": "^5.1.0",
     "amethyste-api": "^1.1.4",
+    "ascii-table": "0.0.9",
     "bindings": "^1.5.0",
     "chai": "^4.2.0",
     "clock": "^1.0.2",
@@ -21,6 +22,7 @@
     "discord.js-commando": "^0.10.0",
     "dotenv": "^8.2.0",
     "emojiparse.js": "0.0.5",
+    "evt": "^1.8.3",
     "fs": "0.0.1-security",
     "giphy-api": "^2.0.1",
     "google": "^2.1.0",
@@ -30,6 +32,7 @@
     "mathjs": "^7.0.1",
     "mocha": "^8.0.1",
     "moment": "^2.26.0",
+    "mongoose": "^5.9.27",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
     "node-gyp": "^7.0.0",

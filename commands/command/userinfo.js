@@ -1,0 +1,49 @@
+const { MessageEmbed } = require("discord.js");
+const { formatDate } = require("../../functions.js");
+
+const mongoose = require('mongoose');
+const Guild = require('../../models/guild');
+module.exports={
+        name: "userinfo",
+        category: "info",
+        cooldown: 5,
+        aliases: ["uinfo"],
+        description: "Returns user information",
+        usage: "[name | nickname | mention | ID] (optional)",
+        accessableby: "everyone",
+    
+    run: async (bot, message, args) => {
+        const settings = await Guild.findOne({
+          guildID: message.guild.id
+        }, (err, guild) => {
+          if (err) console.error(err)
+        })
+        let member = await message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
+        
+        if(!member)
+        return message.channel.send("**Enter A Valid User!**");
+      
+        const joined = formatDate(member.joinedAt);
+        const roles = member.roles.cache
+            .filter(r => r.id !== message.guild.id)
+            .map(r => r.name).join(", ") || 'None';
+        const created = formatDate(member.user.createdAt);
+
+        const embed = new MessageEmbed()
+            .setTitle("User Info")
+            .setFooter(message.guild.name, message.guild.iconURL())
+            .setThumbnail(member.user.displayAvatarURL({ dynamic: true}))
+            .setColor(`#faf6f6`)
+            .addField("ID ","`" + ` ${member.user.id} `+"`")
+            //.addField("**ID**", `${member.user.id}`)
+            .addField("**Name**", `${member.user.tag}`, )
+            .addField("**Account Created**", `${created}`)
+            .addField("**Joined On**", `${joined}`)
+            .addField("**Role List**", `${roles}`, false)
+            .setTimestamp()
+
+       
+
+        message.channel.send(embed);
+    }
+}
