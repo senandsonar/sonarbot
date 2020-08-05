@@ -17,8 +17,7 @@ module.exports={
 				}, (err, guild) => {
 					if (err) console.error(err)
 				})
-        if (!message.member.permissions.has("ADMINISTRATOR"))
-        return message.channel.send(`You do not have administrator! @${message.author.username}`)
+       
 		const data = [];
 		const { commands } = message.client;
 
@@ -31,7 +30,7 @@ module.exports={
             if (args.length == 0){
         
                 const sembed = new MessageEmbed()
-                     .setColor(`RED`)
+                     .setColor(`#faf6f6`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                       .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[commandinfo|cmdinfo] {command name}\n> \n> Usage: Shows info about a command. \`\`\``)
                       .setTimestamp()

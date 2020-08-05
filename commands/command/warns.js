@@ -13,7 +13,7 @@ module.exports = {
       }, (err, guild) => {
         if (err) console.error(err)
       })
-    let user = message.mentions.members.first();
+      let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
     if (!user) return message.channel.send(`No user specified!`);
     warns.find(
       { Guild: message.guild.id, User: user.id },
@@ -25,6 +25,7 @@ module.exports = {
           );
         let Embed = new MessageEmbed()
           .setTitle(`${user.user.tag}'s warns in ${message.guild.name}: `)
+          .setColor(`#faf6f6`)
           .setDescription(
             data.map((d) => {
               return d.Warns.map(

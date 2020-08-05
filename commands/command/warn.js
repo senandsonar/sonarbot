@@ -18,7 +18,7 @@ module.exports={
         }, (err, guild) => {
           if (err) console.error(err)
         })
-        let user = message.mentions.users.first();
+        let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
     if (!user) return message.channel.send(`You did not mention a user!`);
     if (!args.slice(1).join(" "))
       return message.channel.send(`You did not specify a reason!`);
@@ -39,7 +39,7 @@ module.exports={
           });
           newWarns.save();
           message.channel.send(
-            `\`${user.tag}\` has been warned with the reason of \`${args
+            `\`${user.user.tag}\` has been warned with the reason of \`${args
               .slice(1)
               .join(" ")}\`. They now have 1 warn.`
           );

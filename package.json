@@ -18,6 +18,7 @@
     "common-tags": "^1.8.0",
     "date-and-time": "^0.13.1",
     "discord-giveaways": "^4.1.8",
+    "discord-xp": "^1.0.6",
     "discord.js": "^12.2.0",
     "discord.js-commando": "^0.10.0",
     "dotenv": "^8.2.0",

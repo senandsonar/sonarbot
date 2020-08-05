@@ -3,6 +3,8 @@ const { config } = require('dotenv');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const client = new Client();
+const Levels = require("discord-xp");
+Levels.setURL("mongodb+srv://admin:7Lp12345@cluster0.dslqq.mongodb.net/SenbotDiscordJS?retryWrites=true&w=majority"); // You only need to do this ONCE per process.
 
 client.commands = new Collection();
 client.aliases = new Collection();
@@ -28,6 +30,7 @@ fs.readdir('./events/', (err, files) => {
         client.on(evtName, evt.bind(null, client));
     });
 });
+
 
 client.mongoose.init();
 client.login(process.env.TOKEN);

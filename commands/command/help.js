@@ -67,7 +67,7 @@ const exampleEmbed = new MessageEmbed()
 	.setDescription(`Prefix: ${settings.prefix}`)
 	.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
 	.addFields(
-		{ name: "**Prefix** - Changes the server prefix for the bot.", value: 'Aliases: None ', inline: false },
+		{ name: "**Setprefix** - Changes the server prefix for the bot.", value: 'Aliases: None ', inline: false },
         { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Aliases: delete, clear ', inline: false },
         { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Aliases: sm, smode ', inline: false },
         { name: "**Lockdown** - Locks a channel.", value: 'Aliases: lock ', inline: false },
