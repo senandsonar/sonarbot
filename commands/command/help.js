@@ -256,7 +256,6 @@ const exampleEmbed = new MessageEmbed()
         { name: "**Arknights** - Sends a random image from the arknights subreddit!", value: 'Aliases: None', inline: false },
         { name: "**Roast** - Roasts a user.", value: 'Aliases: None', inline: false },
         { name: "**Gif** - Sends a gif based on a word.", value: 'Aliases: None', inline: false },
-        { name: "**Fire** - Sends a picture of a users pfp being set on fire.", value: 'Aliases: None', inline: false },
 		{ name: "**Love** - Sends a picture of a two users in love.", value: 'Aliases: None', inline: false },
 		{ name: "**Honkai** - Sends a random image from a Honkai Impact subreddit.", value: 'Aliases: None', inline: false },
 

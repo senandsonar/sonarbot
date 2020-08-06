@@ -42,7 +42,7 @@ module.exports={
            //.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
            .addFields(
-            { name: `Matching Users :sparkling_heart: `, value: `> **${reason1},**  \n> **${reason2}** \n> \n> Users are a **${randomnumber}\%** match!` },
+            { name: `Matching Users :sparkling_heart: `, value: `> **${reason2},**  \n> **${reason1}** \n> \n> Users are a **${randomnumber}\%** match!` },
            )
            // .addField(```${user2}```)
            // .addField(`> Are a **${response}** match!`)
