@@ -15,6 +15,10 @@ module.exports={
         }, (err, guild) => {
           if (err) console.error(err)
         })
+        let invite = await message.channel.createInvite({
+            maxAge: 86400,
+            maxUses: 1
+          })
         
         try {
             if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("\`\`\`You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]\`\`\`");
@@ -47,6 +51,7 @@ module.exports={
                     .addField(`**You Have Been Kicked From:**`, `> ${message.guild.name}`)
                     .addField(`**Moderator:**`, `> ${message.author.tag}`)
                     .addField(`**Reason:**`, `> ${reason || "None"}`)
+                    .addField(`**Invite Link:**`, `> ${invite}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 kickMember.send(sembed2).then(() =>
                     kickMember.kick()).catch(() => null)
@@ -59,7 +64,7 @@ module.exports={
                 .setAuthor(message.guild.name, message.guild.iconURL())
                // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
                .addFields(
-                { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Successfully sent kick message. ✅' },
+                { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Successfully sent kick message. <:senbotcheck:730967576007671929>' },
             )
                 .addField(`Ban Assigned By:`, `> ${message.author}`)
             message.channel.send(sembed);
@@ -68,7 +73,7 @@ module.exports={
                 .setColor(`#faf6f6`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .addFields(
-                    { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. ✅' },
+                    { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. <:senbotcheck:730967576007671929>' },
                 )
                 .addField(`Kick Assigned By:`, `> ${message.author}`)
             message.channel.send(sembed2);

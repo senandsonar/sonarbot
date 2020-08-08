@@ -68,7 +68,7 @@ module.exports={
                             });
                         } catch (err) {
                             console.log(err);
-                            return message.channel.send('❌ **Timeout!**')
+                            return message.channel.send('<:senbotcross:730967627916378174> **Timeout!**')
                         }
                         const videoIndex = parseInt(response.first().content);
                         var video = await youtube.getVideoByID(videos[videoIndex - 1].id);

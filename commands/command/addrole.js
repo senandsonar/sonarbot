@@ -63,7 +63,7 @@ module.exports={
         var sembed = new MessageEmbed()
             .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`> The role \`${role.name}\` has been added to ${rMember.user.username} ✅ `)
+            .setDescription(`> The role \`${role.name}\` has been added to ${rMember.user.username} <:senbotcheck:730967576007671929> `)
             .setTimestamp()
         message.channel.send(sembed)
     } catch (e) {

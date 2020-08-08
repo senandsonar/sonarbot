@@ -49,8 +49,8 @@ channel.updateOverwrite(channel.guild.roles.everyone, { VIEW_CHANNEL: false });
 const sembed = new MessageEmbed()
     .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-   // .setDescription(`**${member}** Muted ✅`)
-    .addField(`**Channel Hidden From Everyone!** ✅`, `> View perms have been revoked :x:`)
+   // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
+    .addField(`**Channel Hidden From Everyone!** <:senbotcheck:730967576007671929>`, `> View perms have been revoked :x:`)
     .setFooter(`Users with Admin will be able to see the channel.`)
     .setTimestamp()
      

@@ -56,8 +56,8 @@ module.exports={
 const sembed = new MessageEmbed()
     .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-   // .setDescription(`**${member}** Muted ✅`)
-    .addField(`**${member.user.tag}** Muted In \`#${channel.name}\`✅`, `> Message perms have been revoked 🔇`)
+   // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
+    .addField(`**${member.user.tag}** Muted In \`#${channel.name}\`<:senbotcheck:730967576007671929>`, `> Message perms have been revoked 🔇`)
     .addField(`Message Perms Removed By:`, `> ${message.author}`)
    // .setFooter(``)
      

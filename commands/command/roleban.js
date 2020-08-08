@@ -19,8 +19,8 @@ module.exports={
             maxAge: 86400,
             maxUses: 50
           })
-          const role = message.mentions.roles.first()
-         
+        
+
         try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
             if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
@@ -34,12 +34,13 @@ module.exports={
                     return message.channel.send(sembed);
                     }
 
-            let banMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
+           // let banMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
             if (!banMember) return message.channel.send("**User Is Not In The Guild**");
             if (banMember === message.member) return message.channel.send("**You Cannot Ban Yourself**")
             var reason = args.slice(1).join(" ");
 
             if (!banMember.bannable) return message.channel.send("**Cant Kick That User**")
+            const role = message.mentions.roles.first()
 
             try {
                 const sembed2 = new MessageEmbed()
@@ -74,7 +75,6 @@ module.exports={
                 )
                 message.channel.send(sembed2)
             }
-            
         } catch (e) {
             return message.channel.send(`**${e.message}**`)
         }

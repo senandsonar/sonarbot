@@ -43,15 +43,16 @@ module.exports={
         }
 
         let roleembed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`${role.hexColor}`)
             .setAuthor("Role Info")
             .setThumbnail(message.guild.iconURL())
-            .addField("**Role ID**", `\`${role.id}\``, true)
-            .addField("**Name**", role.name, true)
+            .addField("**Role ID**", `\`${role.id}\``, false)
+            .addField("**Name**", role.name, false)
             .addField("**Hex**", role.hexColor)
             .addField("**Members**", role.members.size)
             .addField("**Position**", role.position)
             .addField("**Mentionable**", status[role.mentionable])
+            .addField(`**Users with role**`, `\`${role.members.size}\``)
             .setFooter(message.member.displayName, message.author.displayAvatarURL())
             .setTimestamp()
 

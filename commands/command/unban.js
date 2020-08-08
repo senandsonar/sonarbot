@@ -64,7 +64,7 @@ module.exports={
                 var sembed2 = new MessageEmbed()
                     .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
-                    .setDescription(`**${bannedMember.user.tag} has been unbanned. ✅ **`)
+                    .setDescription(`**${bannedMember.user.tag} has been unbanned. <:senbotcheck:730967576007671929> **`)
                     .addField(`Ban Removed By:`, `> ${message.author}`)
                 message.channel.send(sembed2)
             }

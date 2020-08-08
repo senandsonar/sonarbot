@@ -43,7 +43,7 @@ module.exports={
         const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .addField(`Slowmode Set! ✅`, `> Set the slowmode of this channel to **${args[0]}** for: **${reason}**`)
+                  .addField(`Slowmode Set! <:senbotcheck:730967576007671929>`, `> Set the slowmode of this channel to **${args[0]}** for: **${reason}**`)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }

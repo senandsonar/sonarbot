@@ -64,8 +64,8 @@ module.exports={
 const sembed = new MessageEmbed()
     .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-   // .setDescription(`**${member}** Muted ✅`)
-    .addField(`Lockdown Ended ✅`, `> Channel Unlocked. :unlock: `)
+   // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
+    .addField(`Lockdown Ended <:senbotcheck:730967576007671929>`, `> Channel Unlocked. :unlock: `)
     .setTimestamp()
      
   message.channel.send(sembed)

@@ -57,14 +57,13 @@ module.exports={
         .setColor(`#faf6f6`)
         .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
         //.setTitle('**Do ",setup" to use Sonar to her max potential!**')
-        .setTimestamp()
-        .addFields(
-            { name: "**Server Prefix Changed! ✅ **", value: `Your server prefix has been updated to \`${args[0]}\``, inline: false },
+        .setDescription(`> **Prefix Changed to '\`${args[0]}\`' <:senbotcheck:730967576007671929>**`)
+            
             
            
             
             
-        )
+        
         return message.channel.send(adminEmbed2)
     }
 }

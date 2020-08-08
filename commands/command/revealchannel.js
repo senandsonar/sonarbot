@@ -52,8 +52,8 @@ channel.updateOverwrite(channel.guild.roles.everyone, { VIEW_CHANNEL: null });
 const sembed = new MessageEmbed()
     .setColor(`#faf6f6`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-   // .setDescription(`**${member}** Muted ✅`)
-    .addField(`**Channel Revealed To Everyone!** ✅`, `> View perms have been given ✅`)
+   // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
+    .addField(`**Channel Revealed To Everyone!** <:senbotcheck:730967576007671929>`, `> View perms have been given <:senbotcheck:730967576007671929>`)
     .setTimestamp()
      
   message.channel.send(sembed)

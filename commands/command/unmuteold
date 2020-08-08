@@ -43,7 +43,7 @@ module.exports={
     const sembed = new MessageEmbed()
       .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-      .setDescription(`You unmuted **${member}** ✅`)
+      .setDescription(`You unmuted **${member}** <:senbotcheck:730967576007671929>`)
       .setFooter(`Message perms have been returned. 🔊 `)
      
   message.channel.send(sembed)

@@ -72,7 +72,15 @@ module.exports={
     .setColor(`#faf6f6`)
     .setAuthor(message.guild.name, message.guild.iconURL())
     .addFields(
-        { name: `**${member.user.tag} has been jailed.**`, value: '> Successfully sent Jail message. ✅' },
+        { name: `**${member.user.tag} has been jailed.**`, value: '> Successfully sent Jail message. <:senbotcheck:730967576007671929>' },
+    )
+    .addField(`Jail Assigned By:`, `> ${message.author}`)
+
+    const sembed4 = new MessageEmbed()
+    .setColor(`#faf6f6`)
+    .setAuthor(message.guild.name, message.guild.iconURL())
+    .addFields(
+        { name: `**${member.user.tag} has been jailed.**`, value: '> Failed to send Jail message. <:senbotcross:730967627916378174>' },
     )
     .addField(`Jail Assigned By:`, `> ${message.author}`)
     
@@ -90,6 +98,8 @@ module.exports={
     
     
     await message.channel.send(sembed3)
+    
+  
     
     member.send(sembed2)
     const jailChannel = message.guild.channels.cache.find(channel => channel.name === 'jail')
