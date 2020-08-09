@@ -8,6 +8,12 @@ module.exports={
   category: "moderation",
   run: async (client, message, args) => 
   {
+    const settings = await Guild.findOne({
+      guildID: message.guild.id
+    }, (err, guild) => {
+      if (err) console.error(err)
+    })
+  {
     
   let channel = message.channel;
   let roles = message.guild.roles; // collection
@@ -27,7 +33,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -38,7 +44,7 @@ module.exports={
     const sembed = new MessageEmbed()
       .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setDescription(`**${member.user.tag} Already Unmuted** :x: `)
+    .setDescription(`**${member.user.tag} Already Unmuted** <:senbotcross:730967627916378174> `)
     //.setFooter(``)
      
   return message.channel.send(sembed)
@@ -61,4 +67,4 @@ const sembed = new MessageEmbed()
     
       
     
-}}
+}}}

@@ -11,7 +11,13 @@ module.exports={
   description: "Get the stats of corona",
   usage: "covid global or corona <country>",
   aliases: ["corona", "covid19"],
-  run: async (client, message, args) => {
+  run: async (client, message, args) => 
+  {
+    const settings = await Guild.findOne({
+      guildID: message.guild.id
+    }, (err, guild) => {
+      if (err) console.error(err)
+    })
     
     if(!args.length) {
       return message.channel.send("Please give the name of a country")

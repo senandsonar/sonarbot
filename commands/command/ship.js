@@ -23,7 +23,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}ship {word 1} {word 2}\n> \n> Usage: Ships 2 users. \`\`\``)
+                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}ship {word 1} {word 2}\n> \n> Usage: Ships 2 users. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }

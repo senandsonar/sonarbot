@@ -23,7 +23,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
+                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -33,7 +33,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
+                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }

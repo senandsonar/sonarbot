@@ -26,7 +26,7 @@ module.exports={
                 sembed
                 .setColor(`#faf6f6`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
+                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
                return message.channel.send(sembed);
                break;
@@ -34,7 +34,7 @@ module.exports={
                 sembed
                 .setColor(`#faf6f6`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                 .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
+                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
                return message.channel.send(sembed);
                break;

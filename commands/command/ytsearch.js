@@ -21,7 +21,7 @@ module.exports={
                 const sembed = new MessageEmbed()
                     .setColor(`#faf6f6`)
                     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                    .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[ytsearch|yt] {video name}\n> \n> Usage: Searches for a video from Youtube.\`\`\``)
+                    .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[ytsearch|yt] {video name}\n> \n> Usage: Searches for a video from Youtube.\`\`\``)
                     .setTimestamp()
                     return message.channel.send(sembed);
                     }

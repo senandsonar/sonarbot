@@ -20,7 +20,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
+                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
@@ -33,7 +33,7 @@ module.exports={
           const sembed = new MessageEmbed()
           .setColor(`#faf6f6`)
            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-           .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
+           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
            .setTimestamp()
          return message.channel.send(sembed);
          }

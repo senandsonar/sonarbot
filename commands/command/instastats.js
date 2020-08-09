@@ -24,7 +24,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[instastats|searchinsta|sinsta] {instagram username}\n> \n> Usage: Shows info about a specific Instagram account. \`\`\``)
+                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[instastats|searchinsta|sinsta] {instagram username}\n> \n> Usage: Shows info about a specific Instagram account. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
             }

@@ -32,7 +32,7 @@ module.exports={
                 const sembed = new MessageEmbed()
                      .setColor(`#faf6f6`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                      .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[commandinfo|cmdinfo] {command name}\n> \n> Usage: Shows info about a command. \`\`\``)
+                      .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[commandinfo|cmdinfo] {command name}\n> \n> Usage: Shows info about a command. \`\`\``)
                       .setTimestamp()
                     return message.channel.send(sembed);
                     }

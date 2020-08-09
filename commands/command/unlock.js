@@ -14,6 +14,12 @@ module.exports={
   usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
+    const settings = await Guild.findOne({
+      guildID: message.guild.id
+    }, (err, guild) => {
+      if (err) console.error(err)
+    })
+  {
     
   let channel = message.channel;
   let roles = message.guild.roles; // collection
@@ -36,7 +42,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}unlock\n> \n> Usage: Unlocks a channel. \`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}unlock\n> \n> Usage: Unlocks a channel. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -49,7 +55,7 @@ module.exports={
     const sembed = new MessageEmbed()
       .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-      .setDescription(`**Channel is already unlocked** :x: `)
+      .setDescription(`**Channel is already unlocked** <:senbotcross:730967627916378174> `)
     //.setFooter(``)
      
   return message.channel.send(sembed)
@@ -74,4 +80,4 @@ const sembed = new MessageEmbed()
    
       
     
-}}
+}}}

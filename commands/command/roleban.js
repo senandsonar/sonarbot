@@ -29,7 +29,7 @@ module.exports={
                 const sembed = new MessageEmbed()
                      .setColor(`#faf6f6`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                      .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}ban {member} {reason}\n> \n> Usage: Bans a user. \`\`\``)
+                      .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}ban {member} {reason}\n> \n> Usage: Bans a user. \`\`\``)
                       .setTimestamp()
                     return message.channel.send(sembed);
                     }

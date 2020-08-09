@@ -25,7 +25,7 @@ module.exports={
     const sembed = new MessageEmbed()
         .setColor(`#faf6f6`)
        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-       .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}giveaway {#channel} {time} {prize}\n> \n> Usage: Starts a giveaway.\n> \n> Note: The format for time is m(Minutes), h(Hours), d(days).\n> \n> Example: ,giveaway #general 5m nitro.\`\`\``)
+       .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}giveaway {#channel} {time} {prize}\n> \n> Usage: Starts a giveaway.\n> \n> Note: The format for time is m(Minutes), h(Hours), d(days).\n> \n> Example: ,giveaway #general 5m nitro.\`\`\``)
        .setTimestamp()
     
     if (!args[0]) return message.channel.send(sembed);

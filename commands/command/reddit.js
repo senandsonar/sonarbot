@@ -20,7 +20,7 @@ module.exports={
       const sembed = new MessageEmbed()
            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}reddit {subreddit name w/o "r/".}\n> \n> Usage: Shows a random image from a subreddit. \`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}reddit {subreddit name w/o "r/".}\n> \n> Usage: Shows a random image from a subreddit. \`\`\``)
             .setTimestamp()
           return message.channel.send(sembed);
           }

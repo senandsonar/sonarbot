@@ -11,6 +11,12 @@ module.exports={
   aliases: ['creaveal'],
   run: async (client, message, args) => 
   {
+    const settings = await Guild.findOne({
+      guildID: message.guild.id
+    }, (err, guild) => {
+      if (err) console.error(err)
+    })
+  {
     
   let channel = message.channel;
   let roles = message.guild.roles; // collection
@@ -32,7 +38,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}[revealchannel|creveal]\n> \n> Usage: reveals a channel to everyone.\`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[revealchannel|creveal]\n> \n> Usage: reveals a channel to everyone.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -57,4 +63,4 @@ const sembed = new MessageEmbed()
     .setTimestamp()
      
   message.channel.send(sembed)
-}}
+}}}

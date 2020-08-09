@@ -35,7 +35,7 @@ module.exports={
       const sembed = new MessageEmbed()
           .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
           .setTimestamp()
           return message.channel.send(sembed);
           }
@@ -52,7 +52,7 @@ module.exports={
       const sembed = new MessageEmbed()
           .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
           .setTimestamp()
           return message.channel.send(sembed);
           }

@@ -24,7 +24,7 @@ module.exports={
             const sembed = new MessageEmbed()
                  .setColor(`#faf6f6`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                  .setDescription(`**Invalid Operation** :x:  \n> \`\`\`Syntax: ${settings.prefix}poll {query}\n> \n> Usage: Starts a poll. \`\`\``)
+                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}poll {query}\n> \n> Usage: Starts a poll. \`\`\``)
                   .setTimestamp()
                 return message.channel.send(sembed);
                 }
