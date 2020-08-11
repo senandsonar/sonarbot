@@ -5,7 +5,7 @@ const Guild = require('../../models/guild');
 module.exports={
         name: "status",
         category: "fun",
-        noalias: [""],
+        aliases: ["np", "nowplaying"],
         cooldown: 5,
         description: "Shows the status of a user.",
         usage: " ",

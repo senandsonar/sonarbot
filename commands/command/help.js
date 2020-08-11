@@ -103,7 +103,7 @@ const exampleEmbed = new MessageEmbed()
 	.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
 	.addFields(
         //	{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
-        { name: "**Status** - Show's a user's status.", value: 'Aliases: None ', inline: false },
+        { name: "**Status** - Show's a user's status.", value: 'Aliases: nowplaying, np ', inline: false },
 		{ name: "**Weather** - Shows the weather for a city.", value: 'Aliases: None ', inline: false },
 		{ name: "**Advanced Weather** - Shows the weather for a city.", value: 'Aliases: aweather ', inline: false },
         { name: "**Spotify** - Show's what song a user is listening to on Spotify.", value: 'Aliases: None ', inline: false },
