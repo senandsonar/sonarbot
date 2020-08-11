@@ -10,8 +10,7 @@ module.exports={
     description: "Shows the info a song someone is listening to on Spotify.",
     category: "info",
     usage: "[question]",
-    noalias: "None",
-    accessableby: "Administrator",
+    aliases: ["nps", "nowplayingspotify"],
 
     run: async (bot, message, args) => {
         const settings = await Guild.findOne({
@@ -38,10 +37,10 @@ module.exports={
                 .setAuthor('Spotify Track Info', 'https://cdn.discordapp.com/emojis/408668371039682560.png')
                 .setColor("GREEN")
                 .setThumbnail(trackIMG)
-                .addField('Song Name', trackName, true)
-                .addField('Album', trackAlbum, true)
-                .addField('Author', trackAuthor, false)
-                .addField('Listen to Track', `${trackURL}`, false)
+                .addField('Song Name', `> ${trackName}`, true)
+                .addField('Album', `> ${trackAlbum}`, true)
+                .addField('Author', `> ${trackAuthor}`, false)
+                .addField('Track URL', `> ${trackURL}`, false)
                 .setFooter(user.displayName, user.user.displayAvatarURL({ dynamic: true }))
                 
             message.channel.send(embed);
