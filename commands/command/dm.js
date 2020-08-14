@@ -1,15 +1,21 @@
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
     name: "dm",
     description: "DM a user in the guild",
     category: "fun",
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
       if (!message.member.permissions.has("ADMINISTRATOR"))
         return message.channel.send("You do not have enough permissions!");
       let user =

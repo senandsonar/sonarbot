@@ -3,22 +3,28 @@ const weather = require('weather-js')
 
 const { MessageEmbed } = require('discord.js');
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-        name: "weather",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+            name: "weather",
         noalias: "",
         category: "info",
         cooldown: 5,
         description: "Shows weather of a city",
         accessableby: "everyone",
     
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-            guildID: message.guild.id
-          }, (err, guild) => {
-            if (err) console.error(err)
-          })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+       
         if(!args[0]) return message.channel.send('**Please Enter A City Name!**')
         
       
@@ -46,7 +52,7 @@ module.exports={
                 .addField('**Humidity**', "> " + `${current.humidity}%`, true)
                 .addField('**Date**', "> " + `${current.date}`, true)
                 
-                .setFooter(`Use ${settings.prefix}aweather for more advanced weather statistics.`)
+                .setFooter(`Use ${prefix}aweather for more advanced weather statistics.`)
                 .setTimestamp()
 
             message.channel.send({embed})

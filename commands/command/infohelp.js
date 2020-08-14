@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
 	name: 'infohelp',
 	description: 'help!',
     execute (message, args) {

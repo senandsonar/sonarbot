@@ -1,22 +1,19 @@
 const { MessageEmbed } = require("discord.js");
 
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-  name: "channelsync",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+      name: "channelsync",
   aliases: ['csync'],
   description: "Syncs a channel's permissions with the catgeory it is in. ",
   category: "moderation",
   
   run: async (client, message, args) => 
   {
-    const settings = await Guild.findOne({
-      guildID: message.guild.id
-    }, (err, guild) => {
-      if (err) console.error(err)
-    })
-  {
+    
     
   let channel = message.channel;
   let roles = message.guild.roles; // collection
@@ -41,7 +38,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[channelsync|csync]\n> \n> Usage: Syncs a channels perms with the channel category.\n> \n> Note: This will reset all specified permissions for the channel.\`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[channelsync|csync]\n> \n> Usage: Syncs a channels perms with the channel category.\n> \n> Note: This will reset all specified permissions for the channel.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -71,4 +68,4 @@ const sembed = new MessageEmbed()
    
       
     
-}}}
+}}

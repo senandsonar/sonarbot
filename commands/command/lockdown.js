@@ -1,22 +1,19 @@
 const { MessageEmbed } = require("discord.js");
 
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-  name: "lockdown",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+      name: "lockdown",
   description: "Locks a channel.",
   aliases: ['lock'],
   category: "moderation",
   usage: "mute <@mention>",
   run: async (client, message, args) => 
   {
-    const settings = await Guild.findOne({
-      guildID: message.guild.id
-    }, (err, guild) => {
-      if (err) console.error(err)
-    })
-  {
+    
     
   let channel = message.channel;
   let roles = message.guild.roles; // collection
@@ -41,7 +38,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[lockdown|lock]\n> \n>  Usage: Locks a channel.\`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[lockdown|lock]\n> \n>  Usage: Locks a channel.\`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -78,4 +75,4 @@ const sembed = new MessageEmbed()
    
       
     
-}}}
+}}

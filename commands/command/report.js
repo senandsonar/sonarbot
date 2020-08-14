@@ -2,17 +2,23 @@ const { MessageEmbed } = require("discord.js");
 const ms = require ('ms')
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
   name: "report",
   category: "moderation",
   description: "Report a user of your choice!",
   usage: "<User mention>",
-  run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+  run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
     if (!message.member.permissions.has("SEND_MESSAGES"))
       return message.channel.send(`No.`);
     let User = message.mentions.users.first() || null;

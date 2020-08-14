@@ -3,7 +3,9 @@ const { MessageEmbed } = require("discord.js")
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "serverinfo",
         description: "Pulls the serverinfo of the guild!",
         usage: " ",
@@ -12,12 +14,16 @@ module.exports={
         accessableby: "everyone",
         aliases: ["sinfo"],
     
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
         let owner = [];
         
         var onlineCount = message.guild.members.cache.filter(m => m.presence.status === 'online').size

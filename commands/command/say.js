@@ -3,7 +3,9 @@ const { MessageEmbed } = require("discord.js");
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "say",
         category: "fun",
         noalias: [''],
@@ -12,12 +14,16 @@ module.exports={
         cooldown: 10,
         accessableby: "everyone",
     
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
         
       try {
         if (args.length === 0)

@@ -3,7 +3,9 @@ const { MessageEmbed } = require('discord.js')
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "uptime",
         description: "Shows Uptime of bot",
         aliases: ["up"],
@@ -14,6 +16,14 @@ module.exports={
         
     
     run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
         let days = Math.floor(bot.uptime / 86400000);
         let hours = Math.floor(bot.uptime / 3600000) % 24;
         let minutes = Math.floor(bot.uptime / 60000) % 60;

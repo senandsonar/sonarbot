@@ -1,12 +1,22 @@
 const warns = require("../../models/warns");
 const { MessageEmbed } = require("discord.js");
 const Guild = require('../../models/guild');
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
 module.exports = {
   name: "warns",
   description: "Get a user's warns in the guild!",
   category: "moderation",
   usage: "<User mention>",
-  run: async (bot, message, args) => {
+  run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions View Warns! - [BAN_MEMBERS]**");
     const settings = await Guild.findOne({
         guildID: message.guild.id

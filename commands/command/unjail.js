@@ -1,16 +1,13 @@
 const { MessageEmbed } = require("discord.js");
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-    name: "unjail",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+        name: "unjail",
     category: "moderation",
     run: async (client, message, args) => 
   {
-    const settings = await Guild.findOne({
-      guildID: message.guild.id
-    }, (err, guild) => {
-      if (err) console.error(err)
-    })
       
       
       if (!message.member.hasPermission("MANAGE_ROLES")) {
@@ -30,7 +27,7 @@ module.exports={
         const sembed = new MessageEmbed()
             .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}unjail {member}\n> \n> Usage: Unjails a user. \`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}unjail {member}\n> \n> Usage: Unjails a user. \`\`\``)
             .setTimestamp()
             return message.channel.send(sembed);
             }

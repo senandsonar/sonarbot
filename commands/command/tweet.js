@@ -3,7 +3,9 @@ const fetch = require("node-fetch");
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "tweet",
         noalias: [''],
         category: "image",
@@ -12,6 +14,14 @@ module.exports={
         usage: "[username] <text>",
         accessableby: "everyone",
     run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
 
         let user = args[0];
         let text = args.slice(1).join(" ");

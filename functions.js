@@ -49,6 +49,10 @@ module.exports = {
       return `${arr.slice(0, -1).join(', ')}${len > 1 ? `${len > 2 ? ',' : ''} ${conj} ` : ''}${arr.slice(-1)}`;
     },
 
+    randomRange(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+
 
 
 

@@ -4,21 +4,27 @@ const client = new Discord.Client();
 
 
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-        name: "unban",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+            name: "unban",
         description: "Unban a user from the guild!",
         usage: "[name | tag | mention | ID] <reason> (optional)",
         category: "moderation",
         accessableby: "Administrator",
         aliases: ["ub", "unbanish"],
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
 
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("\`\`\`You Dont Have The Permissions To Unban Someone! - [BAN_MEMBERS]\`\`\`")
 
@@ -31,11 +37,11 @@ module.exports={
             const sembed = new MessageEmbed()
                 .setColor(`#faf6f6`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}unban {member}\n> \n> Usage: Unbans a user. \`\`\``)
+                .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}unban {member}\n> \n> Usage: Unbans a user. \`\`\``)
                 .setTimestamp()
                 return message.channel.send(sembed);
                 }
-      
+      PREFIX
         let bannedMemberInfo = await message.guild.fetchBans()
 
         let bannedMember;
@@ -69,6 +75,25 @@ module.exports={
                 message.channel.send(sembed2)
             }
             
+            let channel = db.fetch(`modlog_${message.guild.id}`)
+        if (!channel) return;
+
+        let embed = new MessageEmbed()
+            .setColor("#ff0000")
+            .setThumbnail(bannedMember.user.displayAvatarURL({ dynamic: true }))
+            .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+            .addField("**Moderation**", "unban")
+            .addField("**Unbanned**", `${bannedMember.user.username}`)
+            .addField("**ID**", `${bannedMember.user.id}`)
+            .addField("**Moderator**", message.author.username)
+            .addField("**Reason**", `${reason}` || "**No Reason**")
+            .addField("**Date**", message.createdAt.toLocaleString())
+            .setFooter(message.guild.name, message.guild.iconURL())
+            .setTimestamp();
+
+        var sChannel = message.guild.channels.cache.get(channel)
+        if (!sChannel) return;
+        sChannel.send(embed)
         } catch {
             
         }

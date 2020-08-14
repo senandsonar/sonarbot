@@ -1,18 +1,24 @@
 const {MessageEmbed} = require('discord.js')
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
+const { PREFIX } = require('../../configg');
 
-module.exports={
+
+const db = require('quick.db');
+module.exports = {
     name: "8ball",
     description: "Plays the 8ball game.",
     cooldown: 5,
     category: "fun",
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
         
         let question = message.content.slice(7)
         if(!question){
@@ -20,7 +26,7 @@ module.exports={
             const sembed = new MessageEmbed()
                 .setColor(`#faf6f6`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}8ball {query}\n> \n> Usage: Plays 8ball. \`\`\``)
+                .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}8ball {query}\n> \n> Usage: Plays 8ball. \`\`\``)
                 .setTimestamp()
                 return message.channel.send(sembed);
                 }

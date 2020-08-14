@@ -1,19 +1,16 @@
 const { MessageEmbed } = require("discord.js");
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-  name: "unmute",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+      name: "unmute",
   description: "Unmute a member.",
   category: "moderation",
   run: async (client, message, args) => 
   {
-    const settings = await Guild.findOne({
-      guildID: message.guild.id
-    }, (err, guild) => {
-      if (err) console.error(err)
-    })
-  {
+    
     
   let channel = message.channel;
   let roles = message.guild.roles; // collection
@@ -33,7 +30,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -64,7 +61,25 @@ const sembed = new MessageEmbed()
    // .setFooter(``)
      
   message.channel.send(sembed)
+
+  let channell = db.fetch(`modlog_${message.guild.id}`)
+        if (!channell) return;
+
+        let embed = new MessageEmbed()
+            .setColor('RED')
+            .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+            .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+            .addField("**Moderation**", "unmute")
+            .addField("**Unmuted**", member.user.username)
+            .addField("**Moderator**", message.author.username)
+            .addField("**Date**", message.createdAt.toLocaleString())
+            .setFooter(message.member.displayName, message.author.displayAvatarURL())
+            .setTimestamp();
+
+        var sChannel = message.guild.channels.cache.get(channell)
+        if (!sChannel) return;
+        sChannel.send(embed)
     
       
     
-}}}
+}}

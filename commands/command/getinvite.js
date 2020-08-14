@@ -2,7 +2,9 @@ const ownerid = "538884711834058753";
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "getinvite",
         category: "owner",
         description: "Generates an invitation to the server in question.",
@@ -10,6 +12,14 @@ module.exports={
         accessableby: "Owner",
     
     run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
         if (message.author.id === ownerid) {
         let guild = null;
 

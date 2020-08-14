@@ -1,27 +1,34 @@
 const { MessageEmbed } = require('discord.js');
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+    
         name: "ban",
+        aliases: ["b", "banish"],
         category: "moderation",
         description: "Bans the user",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
         accessableby: "Administrator",
+    
 
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+        
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
         let invite = await message.channel.createInvite({
             maxAge: 86400,
             maxUses: 50
           })
           const role = message.mentions.roles.first()
-         
-        try {
+          try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
             if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
             if (args.length == 0){
@@ -74,9 +81,29 @@ module.exports={
                 )
                 message.channel.send(sembed2)
             }
+            let channel = db.fetch(`modlog_${message.guild.id}`)
+            if (channel == null) return;
+
+            if (!channel) return;
+
+            const embed = new MessageEmbed()
+                .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+                .setColor("#ff0000")
+                .setThumbnail(banMember.user.displayAvatarURL({ dynamic: true }))
+                .setFooter(message.guild.name, message.guild.iconURL())
+                .addField("**Moderation**", "ban")
+                .addField("**Banned**", banMember.user.username)
+                .addField("**ID**", `${banMember.id}`)
+                .addField("**Banned By**", message.author.username)
+                .addField("**Reason**", `${reason || "**No Reason**"}`)
+                .addField("**Date**", message.createdAt.toLocaleString())
+                .setTimestamp();
+
+            var sChannel = message.guild.channels.cache.get(channel)
+            if (!sChannel) return;
+            sChannel.send(embed)
+        } catch {
             
-        } catch (e) {
-            return message.channel.send(`**${e.message}**`)
         }
     }
-};
+}

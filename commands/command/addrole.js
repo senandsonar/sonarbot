@@ -2,19 +2,25 @@ const { MessageEmbed } = require("discord.js");
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "addrole",
         description: "Adds role to a user",
         aliases:['ar'],
         category: "moderation",
         usage: "[name | nickname | mention | ID] <role>",
         accessableby: "Administrator",
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
         
 
         if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("\`\`\`You Dont Have The Permissions To Add Roles To Users! - [MANAGE_ROLES]\`\`\`");
@@ -25,7 +31,7 @@ module.exports={
         const sembed = new MessageEmbed()
             .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
             .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -48,7 +54,7 @@ module.exports={
             const sembed = new MessageEmbed()
             .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
             .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -70,6 +76,25 @@ module.exports={
         console.log(e);
         m.edit("Error, Try Again! The role you tried to add may not exist!");
     }
+
+    let channel = db.fetch(`modlog_${message.guild.id}`)
+        if (!channel) return;
+
+        const embed = new MessageEmbed()
+            .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+            .setColor("#ff0000")
+            .setThumbnail(rMember.user.displayAvatarURL({ dynamic: true }))
+            .setFooter(message.guild.name, message.guild.iconURL())
+            .addField("**Moderation**", "addrole")
+            .addField("**Added Role to**", rMember.user.username)
+            .addField("**Role Added**", role.name)
+            .addField("**Added By**", message.author.username)
+            .addField("**Date**", message.createdAt.toLocaleString())
+            .setTimestamp();
+
+        let sChannel = message.guild.channels.cache.get(channel)
+        if (!sChannel) return;
+        sChannel.send(embed)
 
         
     }

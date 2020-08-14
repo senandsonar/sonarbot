@@ -2,20 +2,22 @@ const Discord = require('discord.js');
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
 	name: 'setup',
 	description: 'help!',
 	cooldown: 10,
-	run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })  		
-		let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
-		
-// inside a command, event listener, etc.
-const exampleEmbed = new Discord.MessageEmbed()
+	run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+       	pleEmbed = new Discord.MessageEmbed()
 	.setColor(`#faf6f6`)
 	.setTitle(`To use ${bot.user.username} effectively, follow these instructions...`)
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))

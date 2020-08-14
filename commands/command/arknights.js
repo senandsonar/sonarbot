@@ -3,18 +3,24 @@ const randomPuppy = require("random-puppy");
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "arknights",
         category: "fun",
         cooldown: 5,
         description: "Sends a random image from the artnights subreddit!",
         accessableby: "everyone",
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
 
         const subReddits = ["artknights"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];

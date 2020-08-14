@@ -3,19 +3,25 @@ const { MessageEmbed } = require('discord.js')
 
 
 
-
-
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+
+
+module.exports = {
 	name: 'help',
 	description: 'help!',
 	run: async(bot, message, args) => {
-		const settings = await Guild.findOne({
-			guildID: message.guild.id
-		}, (err, guild) => {
-			if (err) console.error(err)
-		})
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+		
 				
 				
 		
@@ -28,14 +34,15 @@ if (args.length == 0){
 const exampleEmbed = new MessageEmbed()
 	.setColor(`#faf6f6`)
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-	.setTitle(`**Use "${settings.prefix}setup".**`)
+	.setTitle(`**Use "${prefix}setup".**`)
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription(`Prefix: ${settings.prefix}`)
+	.setDescription(`Prefix: ${prefix}`)
 	.addFields(
 				{ name: '**Moderation Commands **', value: `All the moderation commands ${bot.user.username} has to offer.` },
 				{ name: '**Admin Commands **', value: 'Commands that require high perms to execute.' },
        // { name: '\u200B', value: '\u200B' },
 				{ name: '**Info Commands **', value: `APIs that ${bot.user.username} has access to and other informative commands.`, inline: false },
+				{ name: '**Economy Commands **', value: `Commands that are used in this server's economy system.`, inline: false },
 				{ name: '**Image Commands **', value: 'Commands that feature images.'},
        // { name: '\u200B', value: '\u200B' },
 				{ name: '**Fun Commands **', value: `Some fun commands that ${bot.user.username} can do.`, inline: false },
@@ -48,7 +55,7 @@ const exampleEmbed = new MessageEmbed()
 		//{ name: '**Extras**', value: '***Sonar was made by Sen#4444. Additional commands will be added to this bot over time and the help command will be updated to include anything new.***'},
 	)
     .setTimestamp()
-    .setFooter(`Run ${settings.prefix}help <category> | Run ${settings.prefix}commandinfo for info on a specific command. | Invite me: ${settings.prefix}inviteme  `);
+    .setFooter(`Run ${prefix}help <category> | Run ${prefix}commandinfo for info on a specific command. | Invite me: ${prefix}inviteme  `);
 
 
 
@@ -64,10 +71,10 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Administrator Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription(`Prefix: ${settings.prefix}`)
-	.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
+	.setDescription(`prefix: ${prefix}`)
+	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
-		{ name: "**Setprefix** - Changes the server prefix for the bot.", value: 'Aliases: None ', inline: false },
+		{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel, Prefix. Use ${prefix}config in a server for more info. `, inline: false },
         { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Aliases: delete, clear ', inline: false },
         { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Aliases: sm, smode ', inline: false },
         { name: "**Lockdown** - Locks a channel.", value: 'Aliases: lock ', inline: false },
@@ -88,19 +95,94 @@ const exampleEmbed = new MessageEmbed()
 	if(message.content.includes("admin")){
 	message.react('730967576007671929')
 	return message.author.send(adminEmbed)
+	}}
+
+	if (args.length > 0){
+		const configEmbed = new MessageEmbed()
+		.setColor(`#faf6f6`)
+		.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
+		.setTitle('**Configuration Commands**')
+		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
+		.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
+		.addFields(
+			//{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel, Prefix. Use ${prefix}config for more info. `, inline: false },
+			{ name: "**setprefix** - Sets the server prefix.", value: 'Aliases: sp, prefix ', inline: false },
+			{ name: "**enablexp** - Enables message XP system in the server.", value: 'Aliases: No Aliases ', inline: false },
+			{ name: "**disablexp** - Disables message XP system in the server.", value: 'Aliases: dxp ', inline: false },
+			{ name: "**setmodlog** - Sets the channel for server modslogs.", value: 'Aliases: setm, smc ', inline: false },
+			{ name: "**disablemodlogs** - Disables the server modlog channel.", value: 'Aliases: dmc, disablem ', inline: false },
+			{ name: "**setwelcome** - Sets the channnel for welcome messages.", value: 'Aliases: swc, sw ', inline: false },
+			{ name: "**disablewelcome** - Disables the channel for wlecome messages.", value: 'Aliases: dwc, disablewc ', inline: false },
+			
+			
+			
+			
+		)
+		
+	
+	
+		if(message.content.includes("config")){
+		message.react('730967576007671929')
+		return message.channel.send(configEmbed)
+	
 	
 	
 
 }}
-	if (args.length > 0){
+if (args.length > 0){
+	const ecoEmbed = new MessageEmbed()
+	.setColor(`#faf6f6`)
+	.setThumbnail(bot.user.displayAvatarURL())
+	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
+	.setTitle('**Economy Commands**')
+	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
+	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
+	.addFields(
+		//{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel, Prefix. Use ${prefix}config for more info. `, inline: false },
+		{ name: "**addmoney (admin)** - Adds money to a user.", value: 'Aliases: am ', inline: false },
+		{ name: "**removemoney (admin)** - Removes money from a user.", value: 'Aliases: rm ', inline: false },
+		{ name: "**daily** - Get a set amount of money once each day.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**weekly** - Get a set amount of money once each week.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**balance** - Shows your current balance.", value: 'Aliases: bal ', inline: false },
+		{ name: "**leaderboard** - Shows the economic leaderboard.", value: 'Aliases: lb ', inline: false },
+		{ name: "**store** - Shows the store items.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**buy** - Buys an item from the store.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**sell** - Sells an item you bought from the store.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**deposit** - Deposits money you have in your pocket.", value: 'Aliases: dep ', inline: false },
+		{ name: "**withdraw** - Withdraws money you ahve in your bank.", value: 'Aliases: wd ', inline: false },
+		{ name: "**pay** - Give someone in the server some money.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**work** - Work to make money.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**beg** - Beg for money.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**fish** - Go fishing.", value: 'Aliases: catchfish ', inline: false },
+		{ name: "**rob** - Rob someone in the server.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "*roulette** - Bet money and play roulette.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**slots** - Bet money and use a slot machine.", value: 'Aliases: No Aliases ', inline: false },
+		
+		
+		
+		
+	)
+	
+
+
+	if(message.content.includes("eco")){
+	message.react('730967576007671929')
+	return message.author.send(ecoEmbed)
+
+
+
+
+}}	
+
+if (args.length > 0){
 	const infoEmbed = new MessageEmbed()
 	.setColor(`#faf6f6`)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Info Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription(`Prefix: ${settings.prefix}`)
-	.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
+	.setDescription(`prefix: ${prefix}`)
+	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
         //	{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
         { name: "**Status** - Show's a user's status.", value: 'Aliases: nowplaying, np ', inline: false },
@@ -146,13 +228,13 @@ const exampleEmbed = new MessageEmbed()
 			.setTitle('**Moderation Commands**')
 			//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 			.setThumbnail(bot.user.displayAvatarURL())
-			.setDescription(`Prefix: ${settings.prefix}`)
-			.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
+			.setDescription(`prefix: ${prefix}`)
+			.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 			.addFields(
 				//{ name: '**Moderation**', value: '`ban`  `unban`  `mute`  `unmute`  `purge`  `jail`  `unjail`  `slowmode`  `dm`'inline: false },
 				{ name: "**Ban** - Ban's and user from the server.", value: 'Aliases: None', inline: false },
 				{ name: "**Unban** - Unban's a previous server member.", value: 'Aliases: None', inline: false },
-				{ name: "**Warn (Multifunctional Command)** - (Warn) - Warns a user. (Warns) - Views a users warns. (Resetwarns) - Resets a users warns.", value: 'Aliases: None', inline: false },
+				//{ name: "**Warn (Multifunctional Command)** - (Warn) - Warns a user. (Warns) - Views a users warns. (Resetwarns) - Resets a users warns.", value: 'Aliases: None', inline: false },
 				{ name: "**Kick** - Kick's a user from the server.", value: 'Aliases: None ', inline: false },
 				{ name: "**Mute** - Disables a users perms to message in a channel.", value: 'Aliases: None', inline: false },
 				{ name: "**Reactionmute** - Disables a users perms to react in a channel.", value: 'Aliases: rmute', inline: false },
@@ -180,8 +262,8 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Fun Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription(`Prefix: ${settings.prefix}`)
-	.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
+	.setDescription(`prefix: ${prefix}`)
+	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
        
         { name: "**Emoji** - Shows the server's emoji's.", value: 'Aliases: None', inline: false },
@@ -215,8 +297,8 @@ const exampleEmbed = new MessageEmbed()
 		.setTitle('**Miscellaneous Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 		.setThumbnail(bot.user.displayAvatarURL())
-		.setDescription(`Prefix: ${settings.prefix}`)
-		.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
+		.setDescription(`prefix: ${prefix}`)
+		.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 		.addFields(
 			//{ name: '**Miscellaneous**', value: ' `report`  `inviteme` ', inline: true },
 			//	{ name: '**Info**', value: '`background` `changelog`  `supportserver`', inline: true },
@@ -242,8 +324,8 @@ const exampleEmbed = new MessageEmbed()
     .setTitle('**Image Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription(`Prefix: ${settings.prefix}`)
-	.setFooter(`Run ${settings.prefix}commandinfo for info on a specific command.`)
+	.setDescription(`prefix: ${prefix}`)
+	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
         //{ name: '**Miscellaneous**', value: ' `number`  `report`  `poll`  `8ball`  `inviteme`  `define`  `reddit`  `coinflip`  `uptime`', inline: true },
     	//{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },

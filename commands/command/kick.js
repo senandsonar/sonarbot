@@ -1,20 +1,25 @@
 const { MessageEmbed } = require("discord.js");
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-        name: "kick",
+const { PREFIX } = require('../../configg');
+
+const db = require('quick.db');
+module.exports = {
+   
+            name: "kick",
         category: "moderation",
         description: "Kicks a user from the server.",
         accessableby: "Administrator",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
 
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
         let invite = await message.channel.createInvite({
             maxAge: 86400,
             maxUses: 1
@@ -29,12 +34,12 @@ module.exports={
                 const sembed = new MessageEmbed()
                      .setColor(`#faf6f6`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                      .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}kick {member} {reason}\n> \n> Usage: Kicks a user. \`\`\``)
+                      .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}kick {member} {reason}\n> \n> Usage: Kicks a user. \`\`\``)
                       .setTimestamp()
                     return message.channel.send(sembed);
                     }
 
-            var kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
+                    var kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
             if (!kickMember) return message.channel.send("\`\`\`User Is Not In The Guild!\`\`\`");
 
             if (kickMember.id === message.member.id) return message.channel.send("\`\`\`You Cannot Kick Yourself!\`\`\`")
@@ -78,9 +83,28 @@ module.exports={
                 .addField(`Kick Assigned By:`, `> ${message.author}`)
             message.channel.send(sembed2);
             }
-           
+            let channel = db.fetch(`modlog_${message.guild.id}`)
+            if (!channel) return;
+
+            const embed = new MessageEmbed()
+                .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+                .setColor("#ff0000")
+                .setThumbnail(kickMember.user.displayAvatarURL({ dynamic: true }))
+                .setFooter(message.guild.name, message.guild.iconURL())
+                .addField("**Moderation**", "kick")
+                .addField("**User Kicked**", kickMember.user.username)
+                .addField("**Kicked By**", message.author.username)
+                .addField("**Reason**", `${reason || "**No Reason**"}`)
+                .addField("**Date**", message.createdAt.toLocaleString())
+                .setTimestamp();
+
+            var sChannel = message.guild.channels.cache.get(channel)
+            if (!sChannel) return;
+            sChannel.send(embed)
         } catch (e) {
             return message.channel.send(`**${e.message}**`)
+
+        
         }
     }
 }

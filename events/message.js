@@ -1,44 +1,38 @@
-const mongoose = require('mongoose');
-const Guild = require('../models/guild');
+const db = require('quick.db');
+const { PREFIX } = require('../configg');
+const queue2 = new Map();
+const queue3 = new Map();
+const queue = new Map();
+const games = new Map()
 
-module.exports = async (client, message) => {
-    if (message.author.bot) return;
+module.exports = async (bot, message) => {
+    try {
+        if (message.author.bot || message.channel.type === "dm") return;
 
-    const settings = await Guild.findOne({
-        guildID: message.guild.id
-    }, (err, guild) => {
-        if (err) console.error(err)
-        if (!guild) {
-            const newGuild = new Guild({
-                _id: mongoose.Types.ObjectId(),
-                guildID: message.guild.id,
-                guildName: message.guild.name,
-                prefix: process.env.PREFIX
-            })
+        let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
 
-            newGuild.save()
-            .then(result => console.log(result))
-            .catch(err => console.error(err));
-
-            return message.channel.send('This server was not in our database! We have now added and you should be able to use bot commands.').then(m => m.delete({timeout: 10000}));
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
         }
-    });
 
-    const prefix = settings.prefix;
+        let args = message.content.slice(prefix.length).trim().split(/ +/g);
+        let cmd = args.shift().toLowerCase();
 
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return;
-    
-    if (!message.member) message.member = await message.guild.fetchMember (message);
+        if (!message.content.startsWith(prefix)) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    
-    if (cmd.length === 0) return;
-    
-    let command = client.commands.get(cmd);
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    
-    if (command)
-        command.run(client, message, args);
+        let ops = {
+            queue2: queue2,
+            queue: queue,
+            queue3: queue3,
+            games: games
+        }
+
+        var commandfile = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd))
+        if (commandfile) commandfile.run(bot, message, args, ops)
+    } catch (e) {
+        console.log(e);
+    }
 }

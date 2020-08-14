@@ -2,7 +2,9 @@ const { MessageEmbed } = require("discord.js");
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
   name: "muteold",
   description: "Mute anyone who break rules",
   category: "moderation",
@@ -28,7 +30,7 @@ module.exports={
       const sembed = new MessageEmbed()
            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n\`\`\`Syntax: ${settings.prefix}mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n\`\`\`Syntax: ${prefix}mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
             .setTimestamp()
           return message.channel.send(sembed);
           }
@@ -46,7 +48,7 @@ module.exports={
       const sembed = new MessageEmbed()
            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n\`\`\`Syntax: ${settings.prefix}mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n\`\`\`Syntax: ${prefix}mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
             .setTimestamp()
           return message.channel.send(sembed);
           }

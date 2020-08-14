@@ -4,7 +4,9 @@ const track = new NovelCovid();
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
   name: "covid",
   category: "info",
   cooldown: 5,
@@ -13,11 +15,6 @@ module.exports={
   aliases: ["corona", "covid19"],
   run: async (client, message, args) => 
   {
-    const settings = await Guild.findOne({
-      guildID: message.guild.id
-    }, (err, guild) => {
-      if (err) console.error(err)
-    })
     
     if(!args.length) {
       return message.channel.send("Please give the name of a country")

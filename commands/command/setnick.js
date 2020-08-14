@@ -1,21 +1,28 @@
 const { MessageEmbed } = require('discord.js');
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-        name: "setnick",
+
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+            name: "setnick",
         aliases: ["snick"],
         category: "moderation",
         description: "Sets Or Changes Nickname Of An User",
         usage: "[mention | name | nickname | ID] <nickname>",
         accessableby: "everyone",
 
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
 
         
         if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("\`\`\`You Dont Have Permissions To Change Nicknames! - [MANAGE_GUILD]\`\`\`");
@@ -26,19 +33,19 @@ module.exports={
                 sembed
                 .setColor(`#faf6f6`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
+                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
                return message.channel.send(sembed);
                break;
-            case 1:
+            case 1:PREFIX
                 sembed
                 .setColor(`#faf6f6`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
+                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
                return message.channel.send(sembed);
                break;
-            default:
+            default:PREFIX
                 break;
         }
        
@@ -58,6 +65,25 @@ module.exports={
         } catch {
             return message.channel.send("\`\`\`Missing Permissions - [CHANGE_NICKNAME]\`\`\`")
         }
+
+        let channel = db.fetch(`modlog_${message.guild.id}`)
+        if (!channel) return;
+
+        const ssembed = new MessageEmbed()
+            .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+            .setColor("#ff0000")
+            .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+            .setFooter(message.guild.name, message.guild.iconURL())
+            .addField("**Moderation**", "setnick")
+            .addField("**User's Previous Nick**", member.user.username)
+            .addField("**Nick Changed By**", message.author.username)
+            .addField("**Nick Changed To**", args[1])
+            .addField("**Date**", message.createdAt.toLocaleString())
+            .setTimestamp();
+
+            var sChannel = message.guild.channels.cache.get(channel)
+            sChannel.send(ssembed)
+            if (!sChannel) return;
         
 
         

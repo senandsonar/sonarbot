@@ -1,17 +1,23 @@
 const {MessageEmbed} = require('discord.js')
 const fetch = require("node-fetch");
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-    name: "pat",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+        name: "pat",
     description: "There is a big chance I insult you!",
     category: "fun",
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
       let color = message.member.display;
             
       //  let user2 =  await message.mentions.members.array()[1] || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(m => m.user.username.toLowerCase() === args[1].toLowerCase()) || message.guild.members.cache.find(mp => mp.displayName.toLowerCase() === args[1].toLowerCase());
@@ -23,11 +29,11 @@ module.exports={
           const sembed = new MessageEmbed()
               .setColor(`#faf6f6`)
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-              .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}pat {user}\n> \n> Usage: Pats a user. \`\`\``)
+              .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}pat {user}\n> \n> Usage: Pats a user. \`\`\``)
               .setTimestamp()
               return message.channel.send(sembed);
            }
-
+PREFIX
             
             let Embed = new MessageEmbed()
             

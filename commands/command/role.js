@@ -1,17 +1,22 @@
 const { MessageEmbed } = require("discord.js");
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-  name: "role",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+      name: "role",
   description: "A role utility command",
   category: "utility",
-  run: async (bot, message, args) => {
-    const settings = await Guild.findOne({
-      guildID: message.guild.id
-    }, (err, guild) => {
-      if (err) console.error(err)
-    })
+  run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
     
     if (!message.member.permissions.has("ADMINISTRATOR"))
     return message.channel.send(
@@ -23,12 +28,12 @@ module.exports={
         const sembed = new MessageEmbed()
              .setColor(`#faf6f6`)
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-              .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}role create {color in hex} {name}\n> \n> Syntax 2: ,role delete {name|id}\n> \n> Usage: Creates or deletes a role. \`\`\``)
+              .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}role create {color in hex} {name}\n> \n> Syntax 2: ,role delete {name|id}\n> \n> Usage: Creates or deletes a role. \`\`\``)
               .setTimestamp()
             return message.channel.send(sembed);
             }
       if(message.content.includes("create")){
-      let rName = message.content.split(`${settings.prefix}role create `).join("");
+      let rName = message.content.split(`${prefix}role create `).join("");
       let rColor;
       args.forEach((arg) => {
         if (arg.startsWith("#")) {
@@ -40,7 +45,7 @@ module.exports={
             const sembed = new MessageEmbed()
             .setColor(`#faf6f6`)
              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}role create {color in hex} {name}\n> \n> Syntax 2: ,role delete {name|id}\n> \n> Usage: Creates or deletes a role. \`\`\``)
+             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}role create {color in hex} {name}\n> \n> Syntax 2: ,role delete {name|id}\n> \n> Usage: Creates or deletes a role. \`\`\``)
              .setTimestamp()
            return message.channel.send(sembed);
            }

@@ -1,10 +1,12 @@
 const { MessageEmbed } = require("discord.js");
 
 
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-  name: "reactionmute",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+      name: "reactionmute",
   aliases: ['rmute'],
   description: "Mute anyone who break rules",
   category: "moderation",
@@ -36,7 +38,7 @@ module.exports={
     const sembed = new MessageEmbed()
          .setColor(`#faf6f6`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}mute {member}\n> \n> Usage: Disables a users reaction perms.\n> \n> Note: If a user is already reaction muted (reaction perms) this command will not work.\n> \n> Note 2: Use ${settings.prefix}unmute to return both reaction and message perms. \`\`\``)
+          .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}mute {member}\n> \n> Usage: Disables a users reaction perms.\n> \n> Note: If a user is already reaction muted (reaction perms) this command will not work.\n> \n> Note 2: Use ${prefix}unmute to return both reaction and message perms. \`\`\``)
           .setTimestamp()
         return message.channel.send(sembed);
         }
@@ -50,7 +52,7 @@ module.exports={
       .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already reaction muted or is unable to view this channel!** <:senbotcross:730967627916378174> `)
-    .setFooter(`If a user is already muted (message perms) this command will not work. Use ${settings.prefix}unmute to return message/reaction perms.`)
+    .setFooter(`If a user is already muted (message perms) this command will not work. Use ${prefix}unmute to return message/reaction perms.`)
     //.setFooter(``)
      
   return message.channel.send(sembed)

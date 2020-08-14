@@ -1,18 +1,24 @@
 const { MessageEmbed } = require("discord.js");
 const api = require("imageapi.js");
-const mongoose = require('mongoose');
-const Guild = require('../../models/guild');
-module.exports={
-  name: "reddit",
+
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
+   
+      name: "reddit",
   description: "Get a random image from a subreddit.",
   category: "fun",
   cooldown: 10,
-  run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+  run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
     
     let Subreddit = message.content.slice(8);
     if (!Subreddit){ 
@@ -20,11 +26,11 @@ module.exports={
       const sembed = new MessageEmbed()
            .setColor(`#faf6f6`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}reddit {subreddit name w/o "r/".}\n> \n> Usage: Shows a random image from a subreddit. \`\`\``)
+            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}reddit {subreddit name w/o "r/".}\n> \n> Usage: Shows a random image from a subreddit. \`\`\``)
             .setTimestamp()
           return message.channel.send(sembed);
           }
-    try {
+    try {PREFIX
       let img = await api(Subreddit);
       const Embed = new MessageEmbed()
         .setTitle(`r/${Subreddit}`)

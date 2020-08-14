@@ -2,7 +2,9 @@ const { MessageEmbed } = require('discord.js');
 
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
-module.exports={
+const { PREFIX } = require('../../configg');
+const db = require('quick.db');
+module.exports = {
         name: "channelinfo",
         aliases: ['cinfo'],
         category: "info",
@@ -10,12 +12,16 @@ module.exports={
         description: "Shows Channel Info",
         usage: "[ channel mention | channel name | ID] (optional)",
         accessableby: "everyone",
-    run: async (bot, message, args) => {
-        const settings = await Guild.findOne({
-          guildID: message.guild.id
-        }, (err, guild) => {
-          if (err) console.error(err)
-        })
+    run: async(bot, message, args) => {
+		let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+        
         let channel = message.mentions.channels.first() || bot.guilds.cache.get(message.guild.id).channels.cache.get(args[0]) || message.guild.channels.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.channel;
         if (!channel) return message.channel.send("**Channel Not Found!**");
         
