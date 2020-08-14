@@ -131,8 +131,8 @@ fs.readdir('./events/', (err, files) => {
             db.add(`level_${message.guild.id}_${message.author.id}`, 1)
             let levelfetch = db.fetch(`level_${message.guild.id}_${message.author.id}`)
     
-            let levelembed = new MessageEmbed()
-                .setColor('GREEN')
+            const levelembed = new MessageEmbed()
+                .setColor('#faf6f6')
                 .setDescription(`**${message.author}, You Have Leveled Up To Level ${levelfetch}**`)
                 .setFooter(`${prefix}disablexp To Disable Level Up Messages`)
             message.channel.send(levelembed);

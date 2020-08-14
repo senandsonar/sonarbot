@@ -38,7 +38,7 @@ module.exports={
 
             const embed = new MessageEmbed()
                 .setTitle(`**${user.displayName}'s Level Information**`)
-                .setColor("GREEN")
+                .setColor("#faf6f6")
                 .setDescription(`**Current Level - \`${curlvl}\` | Total XP - \`${curxp - 1}\`
                     Needed XP To Reach Next Level - \`${difference2 + 1}\`**
                     `)
