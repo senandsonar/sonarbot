@@ -155,7 +155,7 @@ if (args.length > 0){
 		{ name: "**beg** - Beg for money.", value: 'Aliases: No Aliases ', inline: false },
 		{ name: "**fish** - Go fishing.", value: 'Aliases: catchfish ', inline: false },
 		{ name: "**rob** - Rob someone in the server.", value: 'Aliases: No Aliases ', inline: false },
-		{ name: "*roulette** - Bet money and play roulette.", value: 'Aliases: No Aliases ', inline: false },
+		{ name: "**roulette** - Bet money and play roulette.", value: 'Aliases: No Aliases ', inline: false },
 		{ name: "**slots** - Bet money and use a slot machine.", value: 'Aliases: No Aliases ', inline: false },
 		
 		
