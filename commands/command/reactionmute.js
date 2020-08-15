@@ -12,12 +12,15 @@ module.exports = {
   category: "moderation",
   run: async (client, message, args) => 
   {
-    const settings = await Guild.findOne({
-        guildID: message.guild.id
-      }, (err, guild) => {
-        if (err) console.error(err)
-      })
-    
+    let prefix;
+        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+
+        if (fetched === null) {
+            prefix = PREFIX
+        } else {
+            prefix = fetched
+        }
+   
   let channel = message.channel;
   let roles = message.guild.roles; // collection
   
@@ -52,7 +55,7 @@ module.exports = {
       .setColor(`#faf6f6`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already reaction muted or is unable to view this channel!** <:senbotcross:730967627916378174> `)
-    .setFooter(`If a user is already muted (message perms) this command will not work. Use ${prefix}unmute to return message/reaction perms.`)
+    
     //.setFooter(``)
      
   return message.channel.send(sembed)

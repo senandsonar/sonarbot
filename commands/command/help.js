@@ -113,6 +113,8 @@ const exampleEmbed = new MessageEmbed()
 			{ name: "**disablemodlogs** - Disables the server modlog channel.", value: 'Aliases: dmc, disablem ', inline: false },
 			{ name: "**setwelcome** - Sets the channnel for welcome messages.", value: 'Aliases: swc, sw ', inline: false },
 			{ name: "**disablewelcome** - Disables the channel for wlecome messages.", value: 'Aliases: dwc, disablewc ', inline: false },
+			{ name: "**setverification** - Sets the server's verification channel.\n*(Additional configuration by an admin may be required.)*", value: 'Aliases: sv, setv, setverify ', inline: false },
+			{ name: "**disableverification** - Disables the server's verification channel.\n*(Additional configuration by an admin may be required.)*", value: 'Aliases: dv, disableverify ', inline: false },
 			
 			
 			
@@ -265,7 +267,9 @@ if (args.length > 0){
 	.setDescription(`prefix: ${prefix}`)
 	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
-       
+		
+		{ name: "**Tictactoe** - Starts a game of TicTacToe against another member.", value: 'Aliases: ttt', inline: false },
+		{ name: "**Russianroulette** - Starts a game of russianroulette against another member.", value: 'Aliases: rroul', inline: false },
         { name: "**Emoji** - Shows the server's emoji's.", value: 'Aliases: None', inline: false },
         { name: "**Coinflip** - Flips a coin.", value: 'Aliases: cf ', inline: false },
         { name: "**Poll** - Start's a poll in a channel.", value: 'Aliases: None ', inline: false },

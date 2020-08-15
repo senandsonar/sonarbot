@@ -128,7 +128,7 @@ fs.readdir('./events/', (err, files) => {
         else if (messagefetch == 5000) messages = 5000; // level 50
     
         if (!isNaN(messages)) {
-            db.add(`level_${message.guild.id}_${message.author.id}`, 1)
+            db.add(`level_${message.guild.id}_${message.author.id}`, 1)                    
             let levelfetch = db.fetch(`level_${message.guild.id}_${message.author.id}`)
     
             const levelembed = new MessageEmbed()
