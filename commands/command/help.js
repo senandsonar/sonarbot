@@ -269,7 +269,7 @@ if (args.length > 0){
 	.addFields(
 		
 		{ name: "**Tictactoe** - Starts a game of TicTacToe against another member.", value: 'Aliases: ttt', inline: false },
-		{ name: "**Russianroulette** - Starts a game of russianroulette against another member.", value: 'Aliases: rroul', inline: false },
+		{ name: "**Russianroulette** - Starts a game of russian roulette against another member.", value: 'Aliases: rroul', inline: false },
         { name: "**Emoji** - Shows the server's emoji's.", value: 'Aliases: None', inline: false },
         { name: "**Coinflip** - Flips a coin.", value: 'Aliases: cf ', inline: false },
         { name: "**Poll** - Start's a poll in a channel.", value: 'Aliases: None ', inline: false },
