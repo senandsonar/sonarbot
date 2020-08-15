@@ -16,10 +16,12 @@ module.exports = {
         } else {
             prefix = fetched
         }
+        let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
        	exampleEmbed = new Discord.MessageEmbed()
-	.setColor(`#faf6f6`)
-    .setTitle('Click this link to invite me to your server!')
-    .setURL('https://discord.com/api/oauth2/authorize?client_id=713353758913986562&permissions=2144857335&scope=bot')
+    .setColor(`#faf6f6`)
+    .setAuthor(user.user.tag, user.user.displayAvatarURL({ dynamic: true }))
+    .setDescription('[Click here](https://discordapp.com/oauth2/authorize?client_id=439778986050977792&scope=bot&permissions=8) to invite me to your server!')
+    
 	
 	
 
