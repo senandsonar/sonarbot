@@ -23,7 +23,7 @@ module.exports={
             if (user.user.bot) return message.channel.send(`**Bot's Dont Have XP Level!**`);
 
             let guildMessages = db.fetch(`guildMessages_${message.guild.id}`)
-            if (guildMessages === null) return message.channel.send(`**Level Up Messages Are Currently Disabled!\n\`${prefix}setxp\` To Enable**`);
+            if (guildMessages === null) return message.channel.send(`**Level Up Messages Are Currently Disabled!\n\`${prefix}enablexp\` To Enable**`);
 
             let xp = db.fetch(`messages_${message.guild.id}_${user.id}`)
             let lvl = db.fetch(`level_${message.guild.id}_${user.id}`)

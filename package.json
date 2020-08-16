@@ -9,6 +9,7 @@
   "author": "luke",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
     "aki-api": "^5.1.0",
     "amethyste-api": "^1.1.4",
     "ascii-table": "0.0.9",
@@ -26,6 +27,7 @@
     "dotenv": "^8.2.0",
     "emojiparse.js": "0.0.5",
     "evt": "^1.8.3",
+    "ffmpeg": "0.0.4",
     "fs": "0.0.1-security",
     "giphy-api": "^2.0.1",
     "google": "^2.1.0",

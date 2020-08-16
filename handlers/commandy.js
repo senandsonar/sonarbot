@@ -9,5 +9,5 @@ module.exports = (bot) => {
             if (pull.aliases) pull.aliases.forEach(a => bot.aliases.set(a, pull.name));
           };
         };
-        ["Command", "XP", "economy", "Games"].forEach(x => load(x));
+        ["Command", "XP", "economy", "Games", "Music"].forEach(x => load(x));
 }; 

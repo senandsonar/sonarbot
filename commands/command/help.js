@@ -38,12 +38,14 @@ const exampleEmbed = new MessageEmbed()
 	.setThumbnail(bot.user.displayAvatarURL())
 	.setDescription(`Prefix: ${prefix}`)
 	.addFields(
-				{ name: '**Moderation Commands **', value: `All the moderation commands ${bot.user.username} has to offer.` },
-				{ name: '**Admin Commands **', value: 'Commands that require high perms to execute.' },
+				{ name: '**Moderation Commands **', value: `All the moderation commands ${bot.user.username} has to offer.`, inline: false },
+				{ name: '**Admin Commands **', value: 'Commands that require high perms to execute.', inline: false },
        // { name: '\u200B', value: '\u200B' },
 				{ name: '**Info Commands **', value: `APIs that ${bot.user.username} has access to and other informative commands.`, inline: false },
 				{ name: '**Economy Commands **', value: `Commands that are used in this server's economy system.`, inline: false },
-				{ name: '**Image Commands **', value: 'Commands that feature images.'},
+				{ name: '**Music Commands **', value: `Commands to control the bot's music capabilities.`, inline: false },
+				
+				{ name: '**Image Commands **', value: 'Commands that feature images.', inline: false},
        // { name: '\u200B', value: '\u200B' },
 				{ name: '**Fun Commands **', value: `Some fun commands that ${bot.user.username} can do.`, inline: false },
 				{ name: '**Miscellaneous Commands **', value: 'Unique miscellaneous commands. ', inline: false },
@@ -120,12 +122,39 @@ const exampleEmbed = new MessageEmbed()
 			
 			
 		)
+
+		if (args.length > 0){
+			const musicEmbed = new MessageEmbed()
+			.setColor(`#faf6f6`)
+			.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
+			.setTitle('**Music Commands**')
+			.setThumbnail(bot.user.displayAvatarURL())
+			//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
+			.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
+			.addFields(
+				//{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel, Prefix. Use ${prefix}config for more info. `, inline: false },
+				{ name: "**Play** - Play's a song of your choice.", value: 'Aliases: p ', inline: false },
+				{ name: "**Stop** - Stops the music and leaves the channel.", value: 'Aliases: No Aliases', inline: false },
+				{ name: "**Queue** - Shows the music queue.", value: 'Aliases: q ', inline: false },
+				{ name: "**Skip** - Skips the current song.", value: 'Aliases: s ', inline: false },
+				{ name: "**Skipto** - Skips to a specific song in the queue.", value: 'Aliases: No Aliases ', inline: false },
+				{ name: "**Skipall** - Skips all songs in the queue.", value: 'Aliases: No Aliases ', inline: false },
+				{ name: "**Loop** - Loops a song or all songs in queue.", value: 'Aliases: Repeat ', inline: false },
+				{ name: "**Remove** - Removes a song from the queue.", value: 'Aliases: rs ', inline: false },
+				{ name: "**Shuffle** - Shuffles the song queue.", value: 'Aliases: No Aliases ', inline: false },
+				{ name: "**Nowplaying** - Shows the current song.", value: 'Aliases: np ', inline: false },
+				{ name: "**Volume** - Change the song volume.", value: 'Aliases: vol ', inline: false },
+				
+				
+				
+				
+			)
 		
 	
 	
-		if(message.content.includes("config")){
+		if(message.content.includes("mus")){
 		message.react('730967576007671929')
-		return message.channel.send(configEmbed)
+		return message.author.send(musicEmbed)
 	
 	
 	
@@ -187,7 +216,7 @@ if (args.length > 0){
 	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
         //	{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
-        { name: "**Status** - Show's a user's status.", value: 'Aliases: nowplaying, np ', inline: false },
+        { name: "**Status** - Show's a user's status.", value: 'Aliases: No Aliases', inline: false },
 		{ name: "**Weather** - Shows the weather for a city.", value: 'Aliases: None ', inline: false },
 		{ name: "**Advanced Weather** - Shows the weather for a city.", value: 'Aliases: aweather ', inline: false },
         { name: "**Spotify** - Show's what song a user is listening to on Spotify.", value: 'Aliases: nps, nowplayingspotify ', inline: false },
@@ -354,4 +383,4 @@ if (args.length > 0){
 	}
     }}}
 }}}
-}
+}}
