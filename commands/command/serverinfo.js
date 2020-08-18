@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 
-
+const { formatDate } = require("../../functions.js");
 const mongoose = require('mongoose');
 const Guild = require('../../models/guild');
 const { PREFIX } = require('../../configg');
@@ -28,7 +28,18 @@ module.exports = {
         
         var onlineCount = message.guild.members.cache.filter(m => m.presence.status === 'online').size
         var offlineCount = message.guild.members.cache.filter(m => m.presence.status === 'offline').size
-
+        const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        var d = new Date();
+       
+        const today = Date.now()
+       
+        
+        const created = formatDate(message.guild.createdAt)
+        const createdd = message.guild.createdAt
+        
+       
+        const diffDays = Math.round(Math.abs((today - createdd) / oneDay));
+        
         
         await bot.users.fetch(message.guild.ownerID).then(o => owner.push(o))
         try {
@@ -40,7 +51,7 @@ module.exports = {
                 .addField("**Server ID**", `> \`${message.guild.id}\``)
                 .addField("**Guild Owner**", `> ${owner}`, false)
                 .addField("**Members**", `> \`${message.guild.memberCount}\` Total | \`${onlineCount}\` Online | \`${offlineCount}\` Offline `, false)
-                .addField("**Created At**", `> ${message.guild.createdAt}`)
+                .addField("**Created At**", `> ${created} **(${diffDays} days ago)**`)
                 .addField("**Channels**", `> ${message.guild.channels.cache.filter(r => r.type === "text").size} Text Channels | ${message.guild.channels.cache.filter(c => c.type === "voice").size} Voice Channels`)
                 .addField("**Region**", `> **${message.guild.region}** `)
                 .addField("**Verification Level**", `> **${message.guild.verificationLevel}** `)

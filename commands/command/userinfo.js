@@ -29,11 +29,25 @@ module.exports = {
         if(!member)
         return message.channel.send("**Enter A Valid User!**");
       
-        const joined = formatDate(member.joinedAt);
+
+
+const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+var d = new Date();
+const joined = member.joinedAt
+const today = Date.now()
+const created = member.user.createdAt
+const createdd = formatDate(member.user.createdAt)
+const joinedd = formatDate(member.joinedAt)
+
+
+console.log(d.toLocaleDateString());
+const diffDays = Math.round(Math.abs((today - created) / oneDay));
+const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
+        
         const roles = member.roles.cache
             .filter(r => r.id !== message.guild.id)
             .map(r => r.name).join(", ") || 'None';
-        const created = formatDate(member.user.createdAt);
+        
 
         const embed = new MessageEmbed()
             .setTitle("User Info")
@@ -43,8 +57,8 @@ module.exports = {
             .addField("ID ","`" + ` ${member.user.id} `+"`")
             //.addField("**ID**", `${member.user.id}`)
             .addField("**Name**", `${member.user.tag}`, )
-            .addField("**Account Created**", `${created}`)
-            .addField("**Joined On**", `${joined}`)
+            .addField("**Account Created**", `${createdd} **(${diffDays} days ago)**`)
+            .addField("**Joined On**", `${joinedd} **(${diffDayss} days ago)**`)
             .addField("**Role List**", `${roles}`, false)
             .setTimestamp()
 
