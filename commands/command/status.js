@@ -7,7 +7,6 @@ const db = require('quick.db');
 module.exports = {
         name: "status",
         category: "fun",
-        aliases: ["np", "nowplaying"],
         cooldown: 5,
         description: "Shows the status of a user.",
         usage: " ",

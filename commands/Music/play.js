@@ -127,7 +127,7 @@ module.exports = {
                     .setTitle('Now Playing\n')
                     .setThumbnail(song.thumbnail)
                     .setTimestamp()
-                    .setDescription(`🎵 Now playing:\n **${song.title}** 🎵\n\n Song Length: **${np}**`)
+                    .setDescription(` Playing:\n **${song.title}** \n\n Song Length: **${np}**`)
                     .setFooter(message.member.displayName, message.author.displayAvatarURL());
                 queue.textChannel.send(embed);
             };

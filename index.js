@@ -61,8 +61,21 @@ fs.readdir('./events/', (err, files) => {
        
       client.on('ready', () => console.log(`Logged in as ${client.user.tag}.`));
       const Discord = require("discord.js");
+      
       //client.on('message', (message) => antiSpam.message(message));
       client.on('message', async message => {
+        let prefix;
+        if (message.author.bot || message.channel.type === "dm") return;
+            try {
+                let fetched = await db.fetch(`prefix_${message.guild.id}`);
+                if (fetched == null) {
+                    prefix = PREFIX
+                } else {
+                    prefix = fetched
+                }
+            } catch (e) {
+                console.log(e)
+        };
         
             
         if (message.author.bot) return;
@@ -189,7 +202,7 @@ fs.readdir('./events/', (err, files) => {
         let font64 = await jimp.loadFont(jimp.FONT_SANS_64_WHITE)
         let bfont64 = await jimp.loadFont(jimp.FONT_SANS_64_BLACK)
         let mask = await jimp.read('https://i.imgur.com/552kzaW.png')
-        let welcome = await jimp.read('https://t.wallpaperweb.org/wallpaper/nature/1920x1080/greenroad1920x1080wallpaper3774.jpg')
+        let welcome = await jimp.read('https://i.imgur.com/21CCFds.png')
     
         jimp.read(member.user.displayAvatarURL({ format: 'png' })).then(avatar => {
             avatar.resize(200, 200)
@@ -197,9 +210,9 @@ fs.readdir('./events/', (err, files) => {
             avatar.mask(mask)
             welcome.resize(1000, 300)
     
-            welcome.print(font64, 265, 55, `Welcome ${member.user.username}`)
+            welcome.print(bfont64, 265, 55, `Welcome ${member.user.username}`)
             welcome.print(bfont64, 265, 125, `To ${member.guild.name}`)
-            welcome.print(font64, 265, 195, `There are now ${member.guild.memberCount} users`)
+            welcome.print(bfont64, 265, 195, `There are now ${member.guild.memberCount} users`)
             welcome.composite(avatar, 40, 55).write('Welcome2.png')
             try {
                 member.guild.channels.cache.get(wChan).send(``, { files: ["Welcome2.png"] })
@@ -219,4 +232,4 @@ client.login(TOKEN);
 
     
 
-      
+

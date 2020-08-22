@@ -111,7 +111,7 @@ const exampleEmbed = new MessageEmbed()
 			{ name: "**setprefix** - Sets the server prefix.", value: 'Aliases: sp, prefix ', inline: false },
 			{ name: "**enablexp** - Enables message XP system in the server.", value: 'Aliases: No Aliases ', inline: false },
 			{ name: "**disablexp** - Disables message XP system in the server.", value: 'Aliases: dxp ', inline: false },
-			{ name: "**setmodlog** - Sets the channel for server modslogs.", value: 'Aliases: setm, smc ', inline: false },
+			{ name: "**setmodlog** - Sets the channel for server modlogs.", value: 'Aliases: setm, smc ', inline: false },
 			{ name: "**disablemodlogs** - Disables the server modlog channel.", value: 'Aliases: dmc, disablem ', inline: false },
 			{ name: "**setwelcome** - Sets the channnel for welcome messages.", value: 'Aliases: swc, sw ', inline: false },
 			{ name: "**disablewelcome** - Disables the channel for wlecome messages.", value: 'Aliases: dwc, disablewc ', inline: false },
@@ -122,6 +122,10 @@ const exampleEmbed = new MessageEmbed()
 			
 			
 		)
+		if(message.content.includes("con")){
+			message.react('730967576007671929')
+			return message.channel.send(configEmbed)
+			}}
 
 		if (args.length > 0){
 			const musicEmbed = new MessageEmbed()
@@ -383,4 +387,4 @@ if (args.length > 0){
 	}
     }}}
 }}}
-}}
+}

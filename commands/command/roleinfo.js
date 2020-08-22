@@ -1,8 +1,9 @@
 const { MessageEmbed } = require("discord.js");
 
-
+const { formatDate } = require("../../functions.js");
 const { PREFIX } = require('../../configg');
 const db = require('quick.db');
+
 module.exports = {
    
             name: 'roleinfo',
@@ -46,7 +47,17 @@ module.exports = {
             false: "No",
             true: "Yes"
         }
-
+        const today = Date.now()
+       
+        const createdd = formatDate(role.createdAt)
+        const created = role.createdAt
+       
+        
+        const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        var d = new Date(); 
+       
+        const diffDays = Math.round(Math.abs((today - created) / oneDay));
+       
         let roleembed = new MessageEmbed()
             .setColor(`${role.hexColor}`)
             .setAuthor("Role Info")
@@ -55,9 +66,9 @@ module.exports = {
             .addField("**Name**", role.name, false)
             .addField("**Hex**", role.hexColor)
             .addField("**Members**", role.members.size)
-            .addField("**Position**", role.position)
             .addField("**Mentionable**", status[role.mentionable])
             .addField(`**Users with role**`, `\`${role.members.size}\``)
+            .addField(`**Role Created At**`, `${createdd} **(${diffDays} days ago)**`)
             .setFooter(message.member.displayName, message.author.displayAvatarURL())
             .setTimestamp()
 
