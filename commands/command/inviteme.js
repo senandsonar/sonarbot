@@ -20,7 +20,7 @@ module.exports = {
        	exampleEmbed = new Discord.MessageEmbed()
     .setColor(`#faf6f6`)
     .setAuthor(user.user.tag, user.user.displayAvatarURL({ dynamic: true }))
-    .setDescription('[Click here](https://discordapp.com/oauth2/authorize?client_id=439778986050977792&scope=bot&permissions=8) to invite me to your server!')
+    .setDescription('[Click here](https://discord.com/api/oauth2/authorize?client_id=713353758913986562&permissions=8&scope=bot) to invite me to your server!')
     
 	
 	

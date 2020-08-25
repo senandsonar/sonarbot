@@ -1,5 +1,5 @@
 const db = require('quick.db');
-
+const { PREFIX } = require('../../configg');
 
 module.exports = {
     
@@ -14,11 +14,14 @@ module.exports = {
 		let prefix;
         let fetched = await db.fetch(`prefix_${message.guild.id}`);
 
-        if (fetched === null) {
-            prefix = PREFIX
-        } else {
-            prefix = fetched
-        }
+        
+                if (fetched == null) {
+                    prefix = PREFIX
+                } else {
+                    prefix = fetched
+                }
+         
+        
         if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("**You Do Not Have Sufficient Permissions! - [ADMINISTRATOR]**")
 
         if (!args[0]) {
