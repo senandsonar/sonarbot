@@ -191,40 +191,52 @@ fs.readdir('./events/', (err, files) => {
         };
     });
     
-    client.on('guildMemberAdd', async member => {
+    client.on('guildMemberAdd', async(member, message, bot, args) => {
     
         let wChan = db.fetch(`welcome_${member.guild.id}`)
     
         if (wChan == null) return;
     
         if (!wChan) return;
-    
-        let font64 = await jimp.loadFont(jimp.FONT_SANS_64_WHITE)
-        let bfont64 = await jimp.loadFont(jimp.FONT_SANS_64_BLACK)
-        let mask = await jimp.read('https://i.imgur.com/552kzaW.png')
-        let welcome = await jimp.read('https://i.imgur.com/21CCFds.png')
-    
-        jimp.read(member.user.displayAvatarURL({ format: 'png' })).then(avatar => {
-            avatar.resize(200, 200)
-            mask.resize(200, 200)
-            avatar.mask(mask)
-            welcome.resize(1000, 300)
-    
-            welcome.print(bfont64, 265, 55, `Welcome ${member.user.username}`)
-            welcome.print(bfont64, 265, 125, `To ${member.guild.name}`)
-            welcome.print(bfont64, 265, 195, `There are now ${member.guild.memberCount} users`)
-            welcome.composite(avatar, 40, 55).write('Welcome2.png')
+const { formatDate } = require("./functions.js");
+const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+var d = new Date();
+const joined = member.joinedAt
+const today = Date.now()
+const created = member.user.createdAt
+const createdd = formatDate(member.user.createdAt)
+const joinedd = formatDate(member.joinedAt)
+
+
+
+const diffDays = Math.round(Math.abs((today - created) / oneDay));
+const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
+        
+        
+
+        const embed = new MessageEmbed()
+            .setTitle("New Member!")
+            .setThumbnail(member.user.displayAvatarURL({ dynamic: true}))
+            .setColor(`RANDOM`)
+            .addField("**Name**", `${member.user.tag}`, )
+            .addField("ID ","`" + ` ${member.user.id} `+"`")
+            //.addField("**ID**", `${member.user.id}`)
+            .addField("**Account Created**", `${createdd} **(${diffDays} days ago)**`)
+            .setTimestamp()
+
+       
+
             try {
-                member.guild.channels.cache.get(wChan).send(``, { files: ["Welcome2.png"] })
+                member.guild.channels.cache.get(wChan).send(embed)
             } catch (e) {
-              
-            }
-        })
+    
+
+        
             var r = member.guild.roles.cache.find(r => r.name === 'Community');
             if (!r) return;
             member.roles.add(r)
     
-    });
+    }})
 client.login(TOKEN);
 
 
