@@ -30,7 +30,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle(`Economic Leaderboard`)
             .setColor("#faf6f6")
-            .setDescription(`\`css\n${finalLb}\n\``)
+            .setDescription(`\`\`\`css\n${finalLb}\n\`\`\``)
             .setFooter(bot.user.tag, bot.user.displayAvatarURL())
             .setTimestamp()
         message.channel.send(embed);
