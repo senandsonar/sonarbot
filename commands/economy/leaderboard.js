@@ -24,13 +24,13 @@ module.exports = {
         var finalLb = "";
         for (var i in money) {
             if (money[i].data === null) money[i].data = 0
-            finalLb += `**${money.indexOf(money[i]) + 1}. ${bot.users.cache.get(money[i].ID.split('_')[1]) ? bot.users.cache.get(money[i].ID.split('_')[1]).tag : "Unknown User#0000"}** - ${money[i].data} :dollar:\n`;
+            finalLb += `${money.indexOf(money[i]) + 1}. ${bot.users.cache.get(money[i].ID.split('_')[1]) ? bot.users.cache.get(money[i].ID.split('_')[1]).tag : "Unknown User#0000"} - ${money[i].data}\n\n`;
         };
 
         const embed = new MessageEmbed()
             .setTitle(`Economic Leaderboard`)
             .setColor("#faf6f6")
-            .setDescription(finalLb)
+            .setDescription(`\`css\n${finalLb}\n\``)
             .setFooter(bot.user.tag, bot.user.displayAvatarURL())
             .setTimestamp()
         message.channel.send(embed);

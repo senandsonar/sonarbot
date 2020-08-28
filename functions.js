@@ -72,6 +72,11 @@ module.exports = {
       if (no.includes(choice) || extraNo.includes(choice)) return false;
       return false;
     },
+    
+    delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+  
 
     shuffle: function (array) {
       const arr = array.slice(0);

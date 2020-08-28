@@ -237,6 +237,30 @@ const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
             member.roles.add(r)
     
     }})
+    client.on("messageDelete", async message => {
+        
+    //let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
+    let channel = db.fetch(`modlog_${message.guild.id}`)
+            if (channel == null) return;
+            let channelll = message.channel;
+            if (!channel) return;
+
+            const embed = new MessageEmbed()
+                .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
+                .setColor("#ff0000")
+                .setFooter(message.guild.name, message.guild.iconURL())
+                .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+                .setDescription("**A message was deleted!**")
+                .addField(`Channel`, `#${channelll.name}`)
+                .addField("**Message Author**", message.author.tag)
+                .addField("**Message Content**", message.content)
+                
+                .setTimestamp();
+
+            var sChannel = message.guild.channels.cache.get(channel)
+            if (!sChannel) return;
+            sChannel.send(embed)
+    })
 client.login(TOKEN);
 
 

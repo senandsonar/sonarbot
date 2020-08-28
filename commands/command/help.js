@@ -106,22 +106,8 @@ const exampleEmbed = new MessageEmbed()
 		.setTitle('**Configuration Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 		.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
-		.addFields(
-			//{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel, Prefix. Use ${prefix}config for more info. `, inline: false },
-			{ name: "**setprefix** - Sets the server prefix.", value: 'Aliases: sp, prefix ', inline: false },
-			{ name: "**enablexp** - Enables message XP system in the server.", value: 'Aliases: No Aliases ', inline: false },
-			{ name: "**disablexp** - Disables message XP system in the server.", value: 'Aliases: dxp ', inline: false },
-			{ name: "**setmodlog** - Sets the channel for server modlogs.", value: 'Aliases: setm, smc ', inline: false },
-			{ name: "**disablemodlogs** - Disables the server modlog channel.", value: 'Aliases: dmc, disablem ', inline: false },
-			{ name: "**setwelcome** - Sets the channnel for welcome messages.", value: 'Aliases: swc, sw ', inline: false },
-			{ name: "**disablewelcome** - Disables the channel for wlecome messages.", value: 'Aliases: dwc, disablewc ', inline: false },
-			{ name: "**setverification** - Sets the server's verification channel.\n*(Additional configuration by an admin may be required.)*", value: 'Aliases: sv, setv, setverify ', inline: false },
-			{ name: "**disableverification** - Disables the server's verification channel.\n*(Additional configuration by an admin may be required.)*", value: 'Aliases: dv, disableverify ', inline: false },
-			
-			
-			
-			
-		)
+		.setDescription(`\`\`\`test\nsetprefix - Sets the server prefix. \nAliases: sp, prefix\n\nenablexp - Enables message XP system in the server. \nAliases: No Aliases\n\ndisablexp - Disables message XP system in the server.\nAliases: dxp\n\nsetmodlog - Sets the channel for server modlogs.\nAliases: setm, smc\n\nsetwelcome - Sets the channnel for welcome messages.\nAliases: swc, sw\n\ndisablewelcome - Disables the channel for wlecome messages.\n\nsetverification - Sets the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: sv, setv, setverify\n\ndisableverification - Disables the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: dv, disableverify\`\`\``)
+		
 		if(message.content.includes("con")){
 			message.react('730967576007671929')
 			return message.channel.send(configEmbed)
@@ -303,6 +289,7 @@ if (args.length > 0){
 		
 		{ name: "**Tictactoe** - Starts a game of TicTacToe against another member.", value: 'Aliases: ttt', inline: false },
 		{ name: "**Russianroulette** - Starts a game of russian roulette against another member.", value: 'Aliases: rroul', inline: false },
+		{ name: "**Memory** - Starts a game that tests your memory.", value: 'Aliases: No Aliases', inline: false },
         { name: "**Emoji** - Shows the server's emoji's.", value: 'Aliases: None', inline: false },
         { name: "**Coinflip** - Flips a coin.", value: 'Aliases: cf ', inline: false },
         { name: "**Poll** - Start's a poll in a channel.", value: 'Aliases: None ', inline: false },
@@ -376,7 +363,6 @@ if (args.length > 0){
         { name: "**Arknights** - Sends a random image from the arknights subreddit!", value: 'Aliases: None', inline: false },
         { name: "**Roast** - Roasts a user.", value: 'Aliases: None', inline: false },
         { name: "**Gif** - Sends a gif based on a word.", value: 'Aliases: None', inline: false },
-		{ name: "**Love** - Sends a picture of a two users in love.", value: 'Aliases: None', inline: false },
 		{ name: "**Honkai** - Sends a random image from a Honkai Impact subreddit.", value: 'Aliases: None', inline: false },
 
 	)

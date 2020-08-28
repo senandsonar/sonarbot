@@ -21,7 +21,7 @@ module.exports = {
       let channelName = message.guild.channels.cache.get(b);
       if (message.guild.channels.cache.has(b)) {
         return message.channel.send(
-          `**Welcome Channel Set In This Server Is \`${channelName.name}\` Channel!**`
+          `**Welcome Channel Set In This Server Is \`${channelName.name}\`!**`
         );
       } else return message.channel.send("**Please Enter Channel Name or ID To Set!**");
     }
