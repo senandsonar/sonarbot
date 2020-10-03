@@ -50,7 +50,7 @@ module.exports = {
                 .setAuthor(`${message.guild.name} Info`, message.guild.iconURL())
                 .addField("**Server ID**", `> \`${message.guild.id}\``)
                 .addField("**Guild Owner**", `> ${owner}`, false)
-                .addField("**Members**", `> \`${message.guild.memberCount}\` Total | \`${onlineCount}\` Online | \`${offlineCount}\` Offline `, false)
+                .addField("**Members**", `> \`${message.guild.memberCount}\` Total | \`${offlineCount}\` Online`)
                 .addField("**Created At**", `> ${created} **(${diffDays} days ago)**`)
                 .addField("**Channels**", `> ${message.guild.channels.cache.filter(r => r.type === "text").size} Text Channels | ${message.guild.channels.cache.filter(c => c.type === "voice").size} Voice Channels`)
                 .addField("**Region**", `> **${message.guild.region}** `)

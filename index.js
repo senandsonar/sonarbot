@@ -229,6 +229,8 @@ const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
             try {
                 member.guild.channels.cache.get(wChan).send(embed)
             } catch (e) {
+
+    
     
 
         
@@ -236,6 +238,8 @@ const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
             if (!r) return;
             member.roles.add(r)
     
+
+            
     }})
     client.on("messageDelete", async message => {
         

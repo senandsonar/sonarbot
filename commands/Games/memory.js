@@ -37,7 +37,7 @@ module.exports = {
                 time: 30000
             });
             ops.games.delete(message.channel.id);
-            if (!messages.size) return message.channel.send(`**Time Uup! It Was ${memorizeDisplay}!**`);
+            if (!messages.size) return message.channel.send(`**Times Up! It Was ${memorizeDisplay}!**`);
             const answer = messages.first().content.toLowerCase();
             if (answer !== memorizeType) return message.channel.send(`**You Typed It Wrong, It Was ${memorizeDisplay}!**`);
             return message.channel.send('**You Won!**');

@@ -8,6 +8,8 @@ module.exports = {
 	name: 'senskin',
 	description: 'Creates an instant invite',
 	run: async(bot, message, args) => {
+        let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
+  
 		let prefix;
         let fetched = await db.fetch(`prefix_${message.guild.id}`);
 
@@ -16,7 +18,7 @@ module.exports = {
         } else {
             prefix = fetched
         }
-       	pleEmbed = new Discord.MessageEmbed()
+       	exampleEmbed = new Discord.MessageEmbed()
 	.setColor(`#faf6f6`)
     .setTitle(`Sen's Osu Skin`)
     .setURL('https://wi.to/9f1a1d27042e1d13')

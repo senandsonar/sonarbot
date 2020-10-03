@@ -6,7 +6,7 @@ const db = require('quick.db');
 module.exports = {
     
         name: "ban",
-        aliases: ["b", "banish"],
+        aliases: ["banish"],
         category: "moderation",
         description: "Bans the user",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
@@ -27,7 +27,7 @@ module.exports = {
             maxAge: 86400,
             maxUses: 50
           })
-          const role = message.mentions.roles.first()
+          
           try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
             if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");

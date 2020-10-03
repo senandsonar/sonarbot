@@ -33,10 +33,8 @@ module.exports = {
 if (args.length == 0){ 
 const exampleEmbed = new MessageEmbed()
 	.setColor(`#faf6f6`)
-	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-	.setTitle(`**Use "${prefix}setup".**`)
 	.setThumbnail(bot.user.displayAvatarURL())
-	.setDescription(`Prefix: ${prefix}`)
+	.setTitle(`Bot Help Categories`)
 	.addFields(
 				{ name: '**Moderation Commands **', value: `All the moderation commands ${bot.user.username} has to offer.`, inline: false },
 				{ name: '**Admin Commands **', value: 'Commands that require high perms to execute.', inline: false },
@@ -57,7 +55,7 @@ const exampleEmbed = new MessageEmbed()
 		//{ name: '**Extras**', value: '***Sonar was made by Sen#4444. Additional commands will be added to this bot over time and the help command will be updated to include anything new.***'},
 	)
     .setTimestamp()
-    .setFooter(`Run ${prefix}help <category> | Run ${prefix}commandinfo for info on a specific command. | Invite me: ${prefix}inviteme  `);
+    .setFooter(`Run ${prefix}help <category> | Use ${prefix}setprefix to view or change the bot prefix| Run ${prefix}commandinfo for info on a specific command. | Invite me: ${prefix}inviteme  `);
 
 
 
@@ -76,7 +74,8 @@ const exampleEmbed = new MessageEmbed()
 	.setDescription(`prefix: ${prefix}`)
 	.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
 	.addFields(
-		{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel, Prefix. Use ${prefix}config in a server for more info. `, inline: false },
+		{ name: "**Setprefix** - Changes the server prefix.", value: 'Aliases: prefix ', inline: false },
+		{ name: "**Configuration (Useful)** - Commands to configure the server.", value: `Commands: XP System, Modlogs, Welcome Channel. Use ${prefix}config in a server for more info. `, inline: false },
         { name: "**Purge** - Deletes previous messages in a mass amount.", value: 'Aliases: delete, clear ', inline: false },
         { name: "**Slowmode** - Sets the slowmode for a channel.", value: 'Aliases: sm, smode ', inline: false },
         { name: "**Lockdown** - Locks a channel.", value: 'Aliases: lock ', inline: false },
@@ -106,7 +105,7 @@ const exampleEmbed = new MessageEmbed()
 		.setTitle('**Configuration Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 		.setFooter(`Run ${prefix}commandinfo for info on a specific command.`)
-		.setDescription(`\`\`\`test\nsetprefix - Sets the server prefix. \nAliases: sp, prefix\n\nenablexp - Enables message XP system in the server. \nAliases: No Aliases\n\ndisablexp - Disables message XP system in the server.\nAliases: dxp\n\nsetmodlog - Sets the channel for server modlogs.\nAliases: setm, smc\n\nsetwelcome - Sets the channnel for welcome messages.\nAliases: swc, sw\n\ndisablewelcome - Disables the channel for wlecome messages.\n\nsetverification - Sets the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: sv, setv, setverify\n\ndisableverification - Disables the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: dv, disableverify\`\`\``)
+		.setDescription(`\`\`\`\nsetprefix - Sets the server prefix. \nAliases: sp, prefix\n\nenablexp - Enables message XP system in the server. \nAliases: No Aliases\n\ndisablexp - Disables message XP system in the server.\nAliases: dxp\n\nsetmodlog - Sets the channel for server modlogs.\nAliases: setm, smc\n\nsetwelcome - Sets the channnel for welcome messages.\nAliases: swc, sw\n\ndisablewelcome - Disables the channel for wlecome messages.\n\nsetverification - Sets the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: sv, setv, setverify\n\ndisableverification - Disables the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: dv, disableverify\`\`\``)
 		
 		if(message.content.includes("con")){
 			message.react('730967576007671929')
@@ -259,6 +258,7 @@ if (args.length > 0){
 				{ name: "**Kick** - Kick's a user from the server.", value: 'Aliases: None ', inline: false },
 				{ name: "**Mute** - Disables a users perms to message in a channel.", value: 'Aliases: None', inline: false },
 				{ name: "**Reactionmute** - Disables a users perms to react in a channel.", value: 'Aliases: rmute', inline: false },
+				{ name: "**Imagemute** - Disables a users perms to send images in a channel.", value: 'Aliases: imute', inline: false },
 				{ name: "**Unmute** - Unmutes a muted user. (Can be reaction muted or message muted)", value: 'Aliases: None ', inline: false },
 				{ name: "**Jail** - Jails a user.", value: 'Aliases: None ', inline: false },
 				{ name: "**Unjail** - Unjails a jailed user.", value: 'Aliases: None ', inline: false },
@@ -329,7 +329,6 @@ if (args.length > 0){
 			{ name: "**Report** - Sends a report of a user into a reports channel.", value: 'Aliases: None ', inline: false },
 			{ name: "**Inviteme** - Creates an instant invite for the bot.", value: 'Aliases: None ', inline: false },
 			{ name: "**Background** - Shows the story behind Senbot.", value: 'Aliases: bg ', inline: false },
-			{ name: "**Changelog** - Shows the bot's changelog.", value: 'Aliases: changes, cl ', inline: false },
 			{ name: "**Supportserver** - Creates an instant invite for Senbot's support server.", value: 'Aliases: None ', inline: false },	
 			{ name: "**Invites** - Shows user's who joined through a someones invites.", value: 'Aliases: invs ', inline: false },
 			{ name: "**Calculate** - Calculates math equations. ", value: 'Aliases: calc, calculator ', inline: false },
@@ -354,7 +353,7 @@ if (args.length > 0){
         //{ name: '**Miscellaneous**', value: ' `number`  `report`  `poll`  `8ball`  `inviteme`  `define`  `reddit`  `coinflip`  `uptime`', inline: true },
     	//{ name: '**Info**', value: '`status`  `weather`  `spotify`   `corona/covid`  `roleinfo`   `av`  `ping`  `help`  `setup`  `emoji`  `background`  `commandlist`  `changelog`  `supportserver`', inline: true },
         { name: "**Reddit** - Shows a random image from a subreddit.", value: 'Aliases: None ', inline: false },
-        { name: "**avatar** - Shows a user's avatar.", value: 'Aliases: av, icon ', inline: false },
+        { name: "**Avatar** - Shows a user's avatar.", value: 'Aliases: av, icon ', inline: false },
         { name: "**Tweet** - Creates your own mock twitter post.", value: 'Aliases: None', inline: false },
         { name: "**Clyde** - Discord's Clyde bot says whatever you want.", value: 'Aliases: None', inline: false },
         { name: "**Meme** - Sends a random meme from a random subreddit.", value: 'Aliases: None', inline: false },
