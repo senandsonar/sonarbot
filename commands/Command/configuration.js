@@ -59,7 +59,7 @@ module.exports = {
         }
     }
 
-    if(message.content.includes(`enablexp`) || (message.content.includes("exp"))){
+    if(message.content.includes(`enablexp`)){
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! - [ADMINISTRATOR]**")
 
         try {
