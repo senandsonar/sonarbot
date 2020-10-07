@@ -28,7 +28,7 @@ module.exports = {
 		.setTitle('**Configuration Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
 		.setFooter(`Run ${prefix}config <command> <input>`)
-		.setDescription(`\`\`\`\nenablexp - Enables message XP system in the server. \nAliases: exp\n\ndisablexp - Disables message XP system in the server.\nAliases: dxp\n\nsetmodlogs - Sets the channel for server modlogs.\nAliases: smc\n\nsetwelcome - Sets the channnel for welcome messages.\nAliases: swc\n\ndisablewelcome - Disables the channel for welcome messages.\nAliases: dwc\n\nsetverification - Sets the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: svc\n\ndisableverification - Disables the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: dvc\`\`\``)
+		.setDescription(`\`\`\`\nenablexp - Enables message XP system in the server. \nAliases: exp\n\ndisablexp - Disables message XP system in the server.\nAliases: dxp\n\nsetmodlogs - Sets the channel for server modlogs.\nAliases: smc\n\ndisablemodlogs - Disables the server modlog channel.\nAlises: dmc\n\nsetwelcome - Sets the channnel for welcome messages.\nAliases: swc\n\ndisablewelcome - Disables the channel for welcome messages.\nAliases: dwc\n\nsetverification - Sets the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: svc\n\ndisableverification - Disables the server's verification channel.\n(Additional configuration by an admin may be required.)\nAliases: dvc\`\`\``)
 		
 		
 			return message.channel.send(configEmbed)
