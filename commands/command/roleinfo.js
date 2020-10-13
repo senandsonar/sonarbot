@@ -65,7 +65,6 @@ module.exports = {
             .addField("**Role ID**", `\`${role.id}\``, false)
             .addField("**Name**", role.name, false)
             .addField("**Hex**", role.hexColor)
-            .addField("**Members**", role.members.size)
             .addField("**Mentionable**", status[role.mentionable])
             .addField(`**Users with role**`, `\`${role.members.size}\``)
             .addField(`**Role Created At**`, `${createdd} **(${diffDays} days ago)**`)

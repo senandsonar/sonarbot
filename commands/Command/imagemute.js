@@ -63,7 +63,7 @@ module.exports = {
   
 
 
-  channel.updateOverwrite(member.id, { ATTACH_FILES: false });
+  channel.updateOverwrite(member.id, { ATTACH_FILES: false, EMBED_LINKS: false });
 
 const sembed = new MessageEmbed()
     .setColor(`#faf6f6`)
