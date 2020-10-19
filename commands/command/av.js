@@ -34,7 +34,7 @@ module.exports = {
 			color: `#faf6f6`,
   
 			image: {
-			  url: `${user.user.displayAvatarURL({dynamic: true})}` + '?size=4096'
+			  url: `${user.user.displayAvatarURL({dynamic: true})}` + '?size=4096' 
 			},
   
 			timestamp: new Date(),
@@ -55,7 +55,7 @@ module.exports = {
 			color: `#faf6f6`,
   
 			image: {
-			  url: `${user.user.displayAvatarURL({ dynamic: true })}` + '?size=4096'
+			  url: `${user.user.displayAvatarURL({ dynamic: true })}` + '?size=4096' 
 			},
   
 			timestamp: new Date(),

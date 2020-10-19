@@ -68,7 +68,7 @@ module.exports = {
                     .setColor(`#faf6f6`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .addFields(
-                        { name: `**${banMember.user.tag} has been banned for ${reason}**`, value: '> Successfully sent ban message. <:senbotcheck:730967576007671929>' },
+                        { name: `**${banMember.user.tag} has been banned for ${reason}**`, value: '> Attempted to send ban message. <:senbotcheck:730967576007671929>' },
                     )
                 message.channel.send(sembed)
             } else {
@@ -77,7 +77,7 @@ module.exports = {
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 //.setDescription(`**${banMember.user.username}** has been banned, cya never punk. <:senbotcheck:730967576007671929> `)
                 .addFields(
-                    { name: `**${banMember.user.tag} has been banned.**`, value: '> Successfully sent ban message. <:senbotcheck:730967576007671929>' },
+                    { name: `**${banMember.user.tag} has been banned.**`, value: '> Attempted to send ban message. <:senbotcheck:730967576007671929>' },
                 )
                 message.channel.send(sembed2)
             }

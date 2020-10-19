@@ -60,8 +60,8 @@ module.exports = {
                     .setThumbnail(image)
                     .addField("**Type**", "> Playing")
                     .addField("**Application**", `> ${name1}`)
-                    .addField("**Details**", `> ${details1 || "> No Details"}`)
-                    .addField("**Extras**", `> ${state1 || "> No Details"}`)
+                    .addField("**Details**", `> ${details1 || " No Details"}`)
+                    .addField("**Extras**", `> ${state1 || " No Details"}`)
                 return message.channel.send(sembed);
             }
         })

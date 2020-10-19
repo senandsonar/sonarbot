@@ -73,7 +73,9 @@ module.exports = {
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. <:senbotcheck:730967576007671929> **`)
                     .addField(`Ban Removed By:`, `> ${message.author}`)
                 message.channel.send(sembed2)
+                
             }
+            
             
             let channel = db.fetch(`modlog_${message.guild.id}`)
         if (!channel) return;

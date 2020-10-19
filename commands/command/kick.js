@@ -69,7 +69,7 @@ module.exports = {
                 .setAuthor(message.guild.name, message.guild.iconURL())
                // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
                .addFields(
-                { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Successfully sent kick message. <:senbotcheck:730967576007671929>' },
+                { name: `**${kickMember.user.tag} has been kicked for ${reason}**`, value: '> Attempted to send kick message. <:senbotcheck:730967576007671929>' },
             )
                 .addField(`Ban Assigned By:`, `> ${message.author}`)
             message.channel.send(sembed);
@@ -78,7 +78,7 @@ module.exports = {
                 .setColor(`#faf6f6`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .addFields(
-                    { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Successfully sent kick message. <:senbotcheck:730967576007671929>' },
+                    { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Attempted to send kick message. <:senbotcheck:730967576007671929>' },
                 )
                 .addField(`Kick Assigned By:`, `> ${message.author}`)
             message.channel.send(sembed2);
