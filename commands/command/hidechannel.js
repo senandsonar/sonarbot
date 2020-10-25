@@ -32,7 +32,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[hidechannel|chide]\n> \n> Usage: hides a channel from everyone.\`\`\``)
           .setTimestamp()
@@ -50,7 +50,7 @@ module.exports = {
 channel.updateOverwrite(channel.guild.roles.everyone, { VIEW_CHANNEL: false });
 
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`**Channel Hidden From Everyone!** <:senbotcheck:730967576007671929>`, `> View perms have been revoked <:senbotcross:730967627916378174>`)

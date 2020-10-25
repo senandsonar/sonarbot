@@ -32,7 +32,7 @@ module.exports = {
       return message.channel.send(`\`\`\`You did not specify the channel ID!\`\`\``);
     const _ = new MessageEmbed()
       .setDescription(`${MSG}`)
-      .setColor('#faf6f6');
+      .setColor('BLACK');
     rChannel.send(_);
     message.react('730967576007671929');
   },

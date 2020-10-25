@@ -18,7 +18,7 @@ module.exports = {
         }
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member;
        	exampleEmbed = new Discord.MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(user.user.tag, user.user.displayAvatarURL({ dynamic: true }))
     .setDescription('[Click here](https://discord.com/api/oauth2/authorize?client_id=713353758913986562&permissions=8&scope=bot) to invite me to your server!')
     

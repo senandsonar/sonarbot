@@ -53,7 +53,7 @@ const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
             .setTitle("User Info")
             .setFooter(message.guild.name, message.guild.iconURL())
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true}))
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .addField("ID ","`" + ` ${member.user.id} `+"`")
             //.addField("**ID**", `${member.user.id}`)
             .addField("**Name**", `${member.user.tag}`, )

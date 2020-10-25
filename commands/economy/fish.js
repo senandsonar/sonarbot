@@ -42,13 +42,13 @@ module.exports = {
                 let time = ms(timeout - (Date.now() - fishtime));
 
                 let timeEmbed = new MessageEmbed()
-                    .setColor("#faf6f6")
+                    .setColor("BLACK")
                     .setDescription(`<:senbotcross:730967627916378174> You've Recently Went Fishing\n\nFish Again in ${time.minutes}m ${time.seconds}s `);
                 return message.channel.send(timeEmbed)
             }
 
             let embed = new MessageEmbed()
-                .setColor('#faf6f6')
+                .setColor('BLACK')
                 .setDescription(`**🎣 You Cast Out Your Line And Caught A ${fishh.symbol}, I Bet It'd Sell For Around ${worth}**!`)
             message.channel.send(embed);
 
@@ -59,7 +59,7 @@ module.exports = {
         if (args[0] === 'list' || args[0] === 'rewards') {
 
             let lEmbed = new MessageEmbed()
-                .setColor('#faf6f6')
+                .setColor('BLACK')
                 .setTitle(`List Of Fish Names And Rewards You Can Get`)
                 .setDescription(`
 \`\`\`🔧Junk      :: Max Reward: 5, Min Reward: 1

@@ -19,8 +19,8 @@ module.exports = {
         }
 		//let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase()) || message.member;
 	let exampleEmbed = new Discord.MessageEmbed()
-	.setColor(`#faf6f6`)
-	.setTitle(`To use Senbot effectively, follow these instructions...`)
+	.setColor(`BLACK`)
+	.setTitle(`To use ${bot.user.username} effectively, follow these instructions...`)
 	.setDescription('You will need to create a few roles and a channel.')
 	.addFields(
 		{ name: '**Jailed Role and Jail Channel.**', value: 'Create a role called "Jailed" and a text channel called "Jail". Remove all the permissions from the Jailed role and then only allow members with the Jailed role to send messages in Jail.', inline: true },

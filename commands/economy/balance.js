@@ -33,7 +33,7 @@ module.exports = {
 
     if (user) {
       let moneyEmbed = new MessageEmbed()
-        .setColor("#faf6f6")
+        .setColor("BLACK")
         .setDescription(
           `**${user.user.username}'s Balance**\n\nPockets: \`${bal}\`\nBank: \`${bank}\``
         );

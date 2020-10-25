@@ -28,7 +28,7 @@ module.exports = {
 
         const img = await randomPuppy(random);
         const embed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setImage(img)
             .setTitle("Arknights!")
             .setURL(`https://reddit.com/r/${random}`);

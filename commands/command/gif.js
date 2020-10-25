@@ -24,7 +24,7 @@ module.exports = {
         if (!args[0]) {
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>   \n> \`\`\`Syntax: ${prefix}[gif|gifsearch] {word}\n> \n> Usage: Shows a gif based on a word. \`\`\``)
                   .setTimestamp()
@@ -36,7 +36,7 @@ module.exports = {
             let id = res.data[0].id;
             let url = `https://media.giphy.com/media/${id}/giphy.gif`;
             const embed = {
-                color: `#faf6f6`,
+                color: `BLACK`,
                 timestamp: new Date(),
                 footer: {
                     text: message.guild.name,

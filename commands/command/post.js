@@ -27,7 +27,7 @@ module.exports = {
         if (args.length == 0){ 
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}post {post description}\n> \n> Usage: Makes a reddit-style post. \`\`\``)
                   .setTimestamp()
@@ -35,7 +35,7 @@ module.exports = {
                 }
 
         const embed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
             .addField(`New Post in  ${message.channel.name} 📰 `,"*> " + (args.join('  ') + "* ")  )
         var msg = await message.channel.send(embed);

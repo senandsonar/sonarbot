@@ -29,7 +29,7 @@ module.exports = {
       titleArray.push(obj.title);
     });
     var queueEmbed = new MessageEmbed()
-      .setColor('#faf6f6')
+      .setColor('BLACK')
       .setTitle('New Music Queue');
     for (let i = 0; i < titleArray.length; i++) {
       queueEmbed.addField(`${i + 1}:`, `${titleArray[i]}`);

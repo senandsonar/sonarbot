@@ -31,12 +31,13 @@ module.exports = {
           try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
             if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
+            
             if (args.length == 0){
         
                 const sembed = new MessageEmbed()
-                     .setColor(`#faf6f6`)
+                     .setColor(`BLACK`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-                      .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${settings.prefix}ban {member} {reason}\n> \n> Usage: Bans a user. \`\`\``)
+                      .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}ban {member} {reason}\n> \n> Usage: Bans a user. \`\`\``)
                       .setTimestamp()
                     return message.channel.send(sembed);
                     }
@@ -65,7 +66,7 @@ module.exports = {
             }
             if (reason) {
                 var sembed = new MessageEmbed()
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .addFields(
                         { name: `**${banMember.user.tag} has been banned for ${reason}**`, value: '> Attempted to send ban message. <:senbotcheck:730967576007671929>' },
@@ -73,7 +74,7 @@ module.exports = {
                 message.channel.send(sembed)
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 //.setDescription(`**${banMember.user.username}** has been banned, cya never punk. <:senbotcheck:730967576007671929> `)
                 .addFields(

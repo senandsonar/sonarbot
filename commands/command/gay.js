@@ -24,7 +24,7 @@ module.exports = {
         
         
             const sembed = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}gay\n> \n> Usage: Shows how gay you are. \`\`\``)
                 .setTimestamp()
@@ -38,7 +38,7 @@ module.exports = {
             
             .setAuthor(`Gay Measurement`, user.user.displayAvatarURL({ dynamic: true }))
             .setDescription(`${user.user.username} is ${randomnumber}\% gay. :rainbow_flag: `)
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             message.channel.send(Embed)
         }
     }

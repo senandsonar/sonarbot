@@ -31,7 +31,7 @@ module.exports = {
 
         const img = await randomPuppy(random);
         const embed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setImage(img)
             .setTitle("Image from a Honkai Impact Subreddit!")
             .setURL(`https://reddit.com/r/${random}`);

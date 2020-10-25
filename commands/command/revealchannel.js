@@ -33,7 +33,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[revealchannel|creveal]\n> \n> Usage: reveals a channel to everyone.\`\`\``)
           .setTimestamp()
@@ -53,7 +53,7 @@ module.exports = {
 channel.updateOverwrite(channel.guild.roles.everyone, { VIEW_CHANNEL: null });
 
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`**Channel Revealed To Everyone!** <:senbotcheck:730967576007671929>`, `> View perms have been given <:senbotcheck:730967576007671929>`)

@@ -32,7 +32,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setDescription(args.join(" "))
-            .setColor(`#faf6f6`);
+            .setColor(`BLACK`);
 
         message.channel.send(embed)
       } catch (e) {

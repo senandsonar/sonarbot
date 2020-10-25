@@ -1,3 +1,3 @@
-exports.TOKEN ='NzEzMzUzNzU4OTEzOTg2NTYy.Xse4dQ.mO4Y8P4WjcVI8NBwzhgXUZ7Vwg8';
+exports.TOKEN ='NzY5MzM3MDA5NzQ3Mzk0NTgw.X5Ni7A.wA9VPbcBkE0GvPoDIYoGiXgbPbA';
 
 exports.PREFIX = ','

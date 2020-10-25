@@ -32,7 +32,7 @@ module.exports = {
             let memberInvites = invites.filter(i => i.inviter && i.inviter.id === member.user.id);
 
             if (memberInvites.size <= 0) {
-                return message.channel.send(`**${member.displayName} didn't invite anyone to the server!**`, (member === message.member ? null : member));
+                return message.channel.send(`**${member.displayName} has no current invites!**`, (member === message.member ? null : member));
   {}          }
 
             let content = memberInvites.map(i => i.code).join("\n");
@@ -40,7 +40,7 @@ module.exports = {
             memberInvites.forEach(invite => index += invite.uses);
 
             let embed = new Discord.MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setFooter(message.guild.name, message.guild.iconURL())
                 .setAuthor(`Invite Tracker for ${message.guild.name}`)
                 .setDescription(`Information on Invites of ${member.displayName}`)

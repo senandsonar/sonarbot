@@ -24,7 +24,7 @@ module.exports = {
 
         if (args.join(' ').toLocaleLowerCase() == 'nikes') {
             let embed1 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You don't have Nikes to sell`);
 
             let nikees = await db.fetch(`nikes_${user.id}`)
@@ -35,14 +35,14 @@ module.exports = {
             db.subtract(`nikes_${user.id}`, 1)
 
             let embed2 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> Sold Fresh Nikes For 600 Coins`);
 
             db.add(`money_${user.id}`, 600)
             message.channel.send(embed2)
         } else if (args.join(' ').toLocaleLowerCase() == 'car') {
             let embed3 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You don't have a Car to sell`);
 
             let cars = await db.fetch(`car_${user.id}`)
@@ -53,14 +53,14 @@ module.exports = {
             db.subtract(`car_${user.id}`, 1)
 
             let embed4= new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> Sold a Car For 800 Coins`);
 
             db.add(`money_${user.id}`, 800)
             message.channel.send(embed4)
         } else if (args.join(' ').toLocaleLowerCase() == 'mansion') {
             let sembed2 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You don't have a Mansion to sell`);
 
             let houses = await db.fetch(`house_${user.id}`)
@@ -71,7 +71,7 @@ module.exports = {
             db.subtract(`house_${user.id}`, 1)
 
             let sembed3 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> Sold a Mansion For 1200 Coins`);
 
             db.add(`money_${user.id}`, 1200)
@@ -79,7 +79,7 @@ module.exports = {
         } else {
             if (message.content.toLowerCase() === `${prefix}sell`) {
                 let embed9 = new MessageEmbed()
-                    .setColor("#faf6f6")
+                    .setColor("BLACK")
                     .setDescription(`<:senbotcross:730967627916378174> Enter an item to sell. Type ${prefix}store to see list of items`)
                 return message.channel.send(embed9)
             } else {

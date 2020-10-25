@@ -26,7 +26,7 @@ module.exports = {
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}ship {word 1} {word 2}\n> \n> Usage: Ships 2 users. \`\`\``)
                   .setTimestamp()
@@ -52,7 +52,7 @@ module.exports = {
            // .addField(```${user2}```)
            // .addField(`> Are a **${response}** match!`)
             //.setDescription(`(args.join('  ')` are a **${response}** match!)
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             message.channel.send(Embed)
         }
     }

@@ -27,7 +27,7 @@ module.exports = {
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()
@@ -37,7 +37,7 @@ module.exports = {
         if (!role){PREFIX
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[roleinfo|rrinfo] {role name}\n> \n> Usage: Shows info of a specific role.\`\`\``)
                   .setTimestamp()

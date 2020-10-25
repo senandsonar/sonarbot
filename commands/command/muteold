@@ -28,7 +28,7 @@ module.exports = {
     if (args.length == 0){ 
         
       const sembed = new MessageEmbed()
-           .setColor(`#faf6f6`)
+           .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n\`\`\`Syntax: ${prefix}mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
             .setTimestamp()
@@ -46,7 +46,7 @@ module.exports = {
     if(!reason) {
         
       const sembed = new MessageEmbed()
-           .setColor(`#faf6f6`)
+           .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n\`\`\`Syntax: ${prefix}mute {member} {reason}\n\nUsage: mutes a user. \`\`\``)
             .setTimestamp()
@@ -75,7 +75,7 @@ module.exports = {
     
 
   const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`You muted **${member}** for \`${reason}\` <:senbotcheck:730967576007671929>`)
     .setFooter(`Message perms have been revoked 🔇`)

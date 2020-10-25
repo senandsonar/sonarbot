@@ -33,7 +33,7 @@ module.exports = {
         }
 
         let embed = new Discord.MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setAuthor(`${bot.user.username} Calculator`, message.author.displayAvatarURL({ dynamic: true }))
             .addField("**Operation**", `\`\`\`Js\n${args.join("").replace(/[x]/gi, "*").replace(/[,]/g, ".").replace(/[÷]/gi, "/")}\`\`\``)
             .addField("**Result**", `\`\`\`Js\n${result}\`\`\``)

@@ -24,13 +24,13 @@ module.exports = {
             let time = ms(timeout - (Date.now() - author));
 
             let timeEmbed = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
             message.channel.send(timeEmbed)
         } else {
             let amount = Math.floor(Math.random() * 80) + 1;
             let embed1 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> **${JworkR} $${amount}**`)
             message.channel.send(embed1)
 

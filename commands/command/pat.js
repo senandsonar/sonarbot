@@ -27,7 +27,7 @@ module.exports = {
         if (args.length == 0){
         
           const sembed = new MessageEmbed()
-              .setColor(`#faf6f6`)
+              .setColor(`BLACK`)
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
               .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}pat {user}\n> \n> Usage: Pats a user. \`\`\``)
               .setTimestamp()
@@ -47,7 +47,7 @@ PREFIX
             // .addField(```${user2}```)
             // .addField(`> Are a **${response}** match!`)
             //.setDescription(`(args.join('  ')` are a **${response}** match!)
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             message.channel.send(Embed)
         }
     }

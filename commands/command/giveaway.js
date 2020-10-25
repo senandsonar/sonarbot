@@ -29,7 +29,7 @@ module.exports = {
 
     
     const sembed = new MessageEmbed()
-        .setColor(`#faf6f6`)
+        .setColor(`BLACK`)
        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
        .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}giveaway {#channel} {time} {prize}\n> \n> Usage: Starts a giveaway.\n> \n> Note: The format for time is m(Minutes), h(Hours), d(days).\n> \n> Example: ,giveaway #general 5m nitro.\`\`\``)
        .setTimestamp()
@@ -56,7 +56,7 @@ module.exports = {
         `The user ${message.author} is hosting a giveaway for: **${prize}**`
       )
       .setTimestamp(Date.now() + ms(args[0]))
-      .setColor(`#faf6f6`);
+      .setColor(`BLACK`);
     let m = await channel.send(Embed);
     m.react("🎉");
     setTimeout(() => {
@@ -72,7 +72,7 @@ module.exports = {
         .users.cache.filter((u) => !u.bot)
         .random();
         const endembed = new MessageEmbed()
-        .setColor(`#faf6f6`)
+        .setColor(`BLACK`)
         .setTitle(`Giveaway Ended!`)
        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
        .setDescription(`The winner of the giveaway for **${prize}** is: ${winner}`)

@@ -17,41 +17,41 @@ module.exports = {
         if (args.join(' ').toLocaleLowerCase() == 'all') {
             let money = await db.fetch(`bank_${user.id}`)
             let embed = new MessageEmbed()
-              .setColor("#faf6f6")
+              .setColor("BLACK")
               .setDescription(`<:senbotcross:730967627916378174>**You Do Not Have Any Money To Withdraw!**`)
             if (!money) return message.channel.send(embed)
             db.subtract(`bank_${user.id}`, money)
             db.add(`money_${user.id}`, money)
             let embed5 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> You have withdrawn all your coins from your bank`); 
             message.channel.send(embed5)
 
         } else {
 
             let embed2 = new MessageEmbed() 
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> Specify an amount to withdraw!`);
 
             if (!args[0]) {
                 return message.channel.send(embed2)
             }
             let embed6 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> Your Amount Is Not A Number!`)
 
             if(isNaN(args[0])) {
                 return message.channel.send(embed6)
             }
             let embed3 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You can't withdraw negative money!`);
 
             if (message.content.includes('-')) {
                 return message.channel.send(embed3)
             }
             let embed4 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You don't have that much money in the bank!`);
 
             if (member2 < args[0]) {
@@ -59,7 +59,7 @@ module.exports = {
             }
 
             let embed5 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> You have withdrawn ${args[0]} coins from your bank!`);
 
             message.channel.send(embed5)

@@ -35,7 +35,7 @@ module.exports = {
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}unban {member}\n> \n> Usage: Unbans a user. \`\`\``)
                 .setTimestamp()
@@ -60,7 +60,7 @@ module.exports = {
             if (reason) {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed = new MessageEmbed()
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
                     .addField(`Ban Removed By:`, `> ${message.author}`)
@@ -68,14 +68,12 @@ module.exports = {
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed2 = new MessageEmbed()
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${bannedMember.user.tag} has been unbanned. <:senbotcheck:730967576007671929> **`)
                     .addField(`Ban Removed By:`, `> ${message.author}`)
                 message.channel.send(sembed2)
-                
             }
-            
             
             let channel = db.fetch(`modlog_${message.guild.id}`)
         if (!channel) return;

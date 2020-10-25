@@ -42,7 +42,7 @@ module.exports = {
                 .setDescription(`**${current.skytext}**`)
                 .setAuthor(`Weather for ${current.observationpoint} (Advanced)`)
                 .setThumbnail(current.imageUrl)
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .addField('**Timezone**', "> " + `UTC ${location.timezone}`, true)
                 .addField('**Location Latitude**', "> " + `UTC ${location.lat}`, true)
                 .addField('**Location Longitude**', "> " + `UTC ${location.long}`, true)

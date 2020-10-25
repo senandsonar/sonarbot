@@ -23,7 +23,7 @@ module.exports = {
         if(!args[0]){ 
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
                   .setTimestamp()
@@ -36,7 +36,7 @@ module.exports = {
         if(!reason){ 
         
           const sembed = new MessageEmbed()
-          .setColor(`#faf6f6`)
+          .setColor(`BLACK`)
            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
            .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[slowmode|sm|smode] {slowmode interval(seconds)} {reason}\n> \n> Usage: Sets a channels slowmode.\`\`\``)
            .setTimestamp()
@@ -46,7 +46,7 @@ module.exports = {
         message.channel.setRateLimitPerUser(args[0],reason)
         //message.channel.send(`Set the slowmode of this channel to **${args[0]}** with the reason: **${reason}**`)
         const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .addField(`Slowmode Set! <:senbotcheck:730967576007671929>`, `> Set the slowmode of this channel to **${args[0]}** for: **${reason}**`)
                   .setTimestamp()

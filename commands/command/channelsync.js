@@ -36,7 +36,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[channelsync|csync]\n> \n> Usage: Syncs a channels perms with the channel category.\n> \n> Note: This will reset all specified permissions for the channel.\`\`\``)
           .setTimestamp()
@@ -55,7 +55,7 @@ module.exports = {
 
   channel.lockPermissions()
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`Channel Synced <:senbotcheck:730967576007671929>`, `> Permissions now synced with category.`)

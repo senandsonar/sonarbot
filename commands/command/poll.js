@@ -27,7 +27,7 @@ module.exports = {
         if (args.length == 0){ 
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}poll {query}\n> \n> Usage: Starts a poll. \`\`\``)
                   .setTimestamp()
@@ -36,7 +36,7 @@ module.exports = {
             
 PREFIX
         const embed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
             .addField(`Poll started in  ${message.channel.name} 📊 `,"*> " + (args.join('  ') + "* ")  )
         var msg = await message.channel.send(embed);

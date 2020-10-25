@@ -30,7 +30,7 @@ module.exports = {
         if (args.length == 0){
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[rolememberinfo|rminfo] {role name}\n> \n> Usage: Shows a list of user's who have a specific role.\`\`\``)
                   .setTimestamp()
@@ -42,7 +42,7 @@ module.exports = {
         if (!role){
         
             const sembed = new MessageEmbed()
-                 .setColor(`#faf6f6`)
+                 .setColor(`BLACK`)
                   .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                   .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[rolememberinfo|rminfo] {role name}\n> \n> Usage: Shows a list of user's who have a specific role.\`\`\``)
                   .setTimestamp()
@@ -57,7 +57,7 @@ module.exports = {
         if (membersWithRole > 2048) return message.channel.send('**List Is Too Long!**')
 
         let roleEmbed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setThumbnail(message.guild.iconURL())
             .setTitle(`Users With The ${role.name} Role!`)
             .setDescription(membersWithRole.join("\n"));

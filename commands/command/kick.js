@@ -32,7 +32,7 @@ module.exports = {
             if (args.length == 0){
         
                 const sembed = new MessageEmbed()
-                     .setColor(`#faf6f6`)
+                     .setColor(`BLACK`)
                       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                       .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}kick {member} {reason}\n> \n> Usage: Kicks a user. \`\`\``)
                       .setTimestamp()
@@ -65,7 +65,7 @@ module.exports = {
             }
             if (reason) {
             var sembed = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                // .setDescription(`**${kickMember.user.tag}** has been kicked for ${reason}`)
                .addFields(
@@ -75,7 +75,7 @@ module.exports = {
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .addFields(
                     { name: `**${kickMember.user.tag} has been kicked.**`, value: '> Attempted to send kick message. <:senbotcheck:730967576007671929>' },

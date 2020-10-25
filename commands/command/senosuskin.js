@@ -19,7 +19,7 @@ module.exports = {
             prefix = fetched
         }
        	exampleEmbed = new Discord.MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setTitle(`Sen's Osu Skin`)
     .setURL('https://wi.to/9f1a1d27042e1d13')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))

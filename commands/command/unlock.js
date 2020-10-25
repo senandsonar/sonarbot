@@ -37,7 +37,7 @@ module.exports = {
   if (args.length == 1){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}unlock\n> \n> Usage: Unlocks a channel. \`\`\``)
           .setTimestamp()
@@ -50,7 +50,7 @@ module.exports = {
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
   if (channel.permissionsFor(channel.guild.roles.everyone).has("SEND_MESSAGES")){
     const sembed = new MessageEmbed()
-      .setColor(`#faf6f6`)
+      .setColor(`BLACK`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
       .setDescription(`**Channel is already unlocked** <:senbotcross:730967627916378174> `)
     //.setFooter(``)
@@ -65,7 +65,7 @@ module.exports = {
   channel.updateOverwrite(channel.guild.roles.everyone, { SEND_MESSAGES: null })
 
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`Lockdown Ended <:senbotcheck:730967576007671929>`, `> Channel Unlocked. :unlock: `)

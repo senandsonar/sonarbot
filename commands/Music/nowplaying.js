@@ -27,7 +27,7 @@ module.exports = {
             }
             const videoEmbed = new MessageEmbed()
                 .setThumbnail(video.thumbnail)
-                .setColor('#faf6f6')
+                .setColor('BLACK')
                 .setTitle(video.title)
                 .setDescription(description)
                 .setFooter(message.member.displayName, message.author.displayAvatarURL())

@@ -24,7 +24,7 @@ module.exports = {
     if (!Subreddit){ 
         
       const sembed = new MessageEmbed()
-           .setColor(`#faf6f6`)
+           .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}reddit {subreddit name w/o "r/".}\n> \n> Usage: Shows a random image from a subreddit. \`\`\``)
             .setTimestamp()
@@ -34,7 +34,7 @@ module.exports = {
       let img = await api(Subreddit);
       const Embed = new MessageEmbed()
         .setTitle(`r/${Subreddit}`)
-        .setColor(`#faf6f6`)
+        .setColor(`BLACK`)
         .setImage(img)
         .setTimestamp()
         .setURL(`https://reddit.com/r/${Subreddit}`);

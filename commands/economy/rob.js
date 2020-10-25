@@ -19,7 +19,7 @@ module.exports = {
     if (!user) return message.channel.send("**Enter A Valid User!**")
 
     let embed2 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcross:730967627916378174> You cannot rob yourself`)
 
     if (user.user.id === message.author.id) {
@@ -36,13 +36,13 @@ module.exports = {
       let time = ms(timeout - (Date.now() - author));
 
       let timeEmbed = new MessageEmbed()
-        .setColor("#faf6f6")
+        .setColor("BLACK")
         .setDescription(`<:senbotcross:730967627916378174> You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
       message.channel.send(timeEmbed)
     } else {
 
       let moneyEmbed = new MessageEmbed()
-        .setColor("#faf6f6")
+        .setColor("BLACK")
         .setDescription(`<:senbotcross:730967627916378174> You need atleast 100 coins in your wallet to rob someone`);
 
       if (author2 < 100) {
@@ -50,7 +50,7 @@ module.exports = {
 
       }
       let moneyEmbed2 = new MessageEmbed()
-        .setColor("#faf6f6")
+        .setColor("BLACK")
         .setDescription(`<:senbotcross:730967627916378174> ${user.user.username} does not have anything you can rob`);
 
       let random = Math.floor((Math.random() * 100)) + 1;
@@ -61,7 +61,7 @@ module.exports = {
 
         let embed = new MessageEmbed()
           .setDescription(`<:senbotcheck:730967576007671929> You robbed ${user.user.username} and got away with ${random} coins`)
-          .setColor("#faf6f6")
+          .setColor("BLACK")
         message.channel.send(embed)
 
         db.subtract(`money_${user.id}`, random)

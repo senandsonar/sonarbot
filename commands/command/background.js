@@ -23,7 +23,7 @@ module.exports = {
 		
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
 	.setTitle('***Here is some of the background behind Senbot and the creation of this bot...***')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.addFields(

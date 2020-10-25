@@ -23,7 +23,7 @@ module.exports = {
         let bal = db.fetch(`money_${user.id}`)
 
         let moneyEmbed = new MessageEmbed()
-            .setColor("#faf6f6")
+            .setColor("BLACK")
             .setDescription(`<:senbotcheck:730967576007671929> Added ${args[1]} coins\n\nNew Balance: ${bal}`);
         message.channel.send(moneyEmbed)
 

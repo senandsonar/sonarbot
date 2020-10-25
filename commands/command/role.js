@@ -26,7 +26,7 @@ module.exports = {
       if (args.length == 0){
         
         const sembed = new MessageEmbed()
-             .setColor(`#faf6f6`)
+             .setColor(`BLACK`)
               .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
               .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}role create {color in hex} {name}\n> \n> Syntax 2: ,role delete {name|id}\n> \n> Usage: Creates or deletes a role. \`\`\``)
               .setTimestamp()
@@ -43,7 +43,7 @@ module.exports = {
       if (!rName) {
       if (!rColor) {
             const sembed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
              .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
              .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}role create {color in hex} {name}\n> \n> Syntax 2: ,role delete {name|id}\n> \n> Usage: Creates or deletes a role. \`\`\``)
              .setTimestamp()

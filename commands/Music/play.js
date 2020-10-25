@@ -66,7 +66,7 @@ module.exports = {
                     if (playlist) return undefined;
                     else {
                         const sembed = new MessageEmbed()
-                            .setColor("#faf6f6")
+                            .setColor("BLACK")
                             .setTitle("Added To Queue")
                             .setThumbnail(song.thumbnail)
                             .setTimestamp()
@@ -123,7 +123,7 @@ module.exports = {
                     .on('error', error => console.error(error));
                 dispatcher.setVolumeLogarithmic(queue.volume / 5);
                 const embed = new MessageEmbed()
-                    .setColor("#faf6f6")
+                    .setColor("BLACK")
                     .setTitle('Now Playing\n')
                     .setThumbnail(song.thumbnail)
                     .setTimestamp()

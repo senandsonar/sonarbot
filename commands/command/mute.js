@@ -30,7 +30,7 @@ module.exports = {
   if (args.length == 0){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}mute {member}\n> \n> Usage: mutes a user.\n> \n> Note: If a user is already reaction muted (reaction perms) this command will not work.\n> \n> Note 2: Use ${prefix}unmute to return both reaction and message perms.\`\`\``)
           .setTimestamp()
@@ -43,7 +43,7 @@ module.exports = {
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
   if (channel.permissionOverwrites.get(member.id)){
     const sembed = new MessageEmbed()
-      .setColor(`#faf6f6`)
+      .setColor(`BLACK`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already muted or is unable to view this channel!** <:senbotcross:730967627916378174> `)
     .setFooter(`If a user is already muted (message perms) this command will not work.`)
@@ -57,7 +57,7 @@ module.exports = {
   channel.updateOverwrite(member.id, { SEND_MESSAGES: false });
 
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`**${member.user.tag}** Muted In \`#${channel.name}\`<:senbotcheck:730967576007671929>`, `> Message perms have been revoked 🔇`)

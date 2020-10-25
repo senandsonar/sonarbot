@@ -32,7 +32,7 @@ module.exports = {
                 .setAuthor(message.guild.name, message.guild.iconURL())
                 .setTitle(randomQuote.author)
                 .setDescription(randomQuote.text)
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setFooter(member.displayName, member.user.displayAvatarURL())
                 .setTimestamp()
             return message.channel.send(quoteEmbed);
@@ -40,7 +40,7 @@ module.exports = {
          else if (args[0]) {
             const embed = new MessageEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL())
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setTitle(`${randomQuote.author} -`)
                 .setDescription(`**${randomQuote.text}** \n\nBy ${message.member.displayName} to ${member.displayName}`)
                 .setFooter(member.displayName, member.user.displayAvatarURL())

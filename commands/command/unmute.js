@@ -28,7 +28,7 @@ module.exports = {
   if (args.length == 0){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}unmute {member}\n> \n> Usage: Unmutes a user. \`\`\``)
           .setTimestamp()
@@ -39,7 +39,7 @@ module.exports = {
 
   if (!channel.permissionOverwrites.get(member.id)){
     const sembed = new MessageEmbed()
-      .setColor(`#faf6f6`)
+      .setColor(`BLACK`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already Unmuted** <:senbotcross:730967627916378174> `)
     //.setFooter(``)
@@ -53,7 +53,7 @@ module.exports = {
 channel.permissionOverwrites.get(member.id).delete()
 
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`**${member.user.tag}** Unmuted In \`#${channel.name}\` <:senbotcheck:730967576007671929>`, `> Message perms have been granted :speaker: `)

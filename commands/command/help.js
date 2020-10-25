@@ -32,7 +32,7 @@ module.exports = {
 
 if (args.length == 0){ 
 const exampleEmbed = new MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
 	.setThumbnail(bot.user.displayAvatarURL())
 	.setTitle(`Bot Help Categories`)
 	.addFields(
@@ -66,7 +66,7 @@ const exampleEmbed = new MessageEmbed()
 	}
 	if (args.length > 0){
 	const adminEmbed = new MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Administrator Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -100,7 +100,7 @@ const exampleEmbed = new MessageEmbed()
 
 	if (args.length > 0){
 		const configEmbed = new MessageEmbed()
-		.setColor(`#faf6f6`)
+		.setColor(`BLACK`)
 		.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 		.setTitle('**Configuration Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -114,7 +114,7 @@ const exampleEmbed = new MessageEmbed()
 
 		if (args.length > 0){
 			const musicEmbed = new MessageEmbed()
-			.setColor(`#faf6f6`)
+			.setColor(`BLACK`)
 			.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 			.setTitle('**Music Commands**')
 			.setThumbnail(bot.user.displayAvatarURL())
@@ -151,7 +151,7 @@ const exampleEmbed = new MessageEmbed()
 }}
 if (args.length > 0){
 	const ecoEmbed = new MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
 	.setThumbnail(bot.user.displayAvatarURL())
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 	.setTitle('**Economy Commands**')
@@ -196,7 +196,7 @@ if (args.length > 0){
 
 if (args.length > 0){
 	const infoEmbed = new MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Info Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -243,7 +243,7 @@ if (args.length > 0){
 
 		if (args.length > 0){
 			const modEmbed = new MessageEmbed()
-			.setColor(`#faf6f6`)
+			.setColor(`BLACK`)
 			.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 			.setTitle('**Moderation Commands**')
 			//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -278,7 +278,7 @@ if (args.length > 0){
 				
 	if (args.length > 0){
 	const funEmbed = new MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Fun Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -316,7 +316,7 @@ if (args.length > 0){
 	
 	if (args.length > 0){
 		const miscEmbed = new MessageEmbed()
-		.setColor(`#faf6f6`)
+		.setColor(`BLACK`)
 		.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
 		.setTitle('**Miscellaneous Commands**')
 		//.setTitle('**Do ",setup" to use Sonar to her max potential!**')
@@ -342,7 +342,7 @@ if (args.length > 0){
 
 	if (args.length > 0){
 	const imageEmbed = new MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Image Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')

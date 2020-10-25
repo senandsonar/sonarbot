@@ -28,7 +28,7 @@ module.exports = {
         if (!user.presence.activities.length) {
             const sembed = new MessageEmbed()
                 .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setThumbnail(user.user.displayAvatarURL())
                 .addField("**No Status**", 'This user does not have any custom status!')
                 .setFooter(message.guild.name, message.guild.iconURL())
@@ -42,7 +42,7 @@ module.exports = {
             if (activity.type === 'CUSTOM_STATUS') {
                 const embed = new MessageEmbed()
                     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .addField("**Custom Status:**", `\n> ${activity.emoji || " No Emoji"} | ${activity.state}`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                     .setTimestamp()
@@ -56,7 +56,7 @@ module.exports = {
 
                 const sembed = new MessageEmbed()
                     .setAuthor(`${user.user.username}'s Activity`)
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .setThumbnail(image)
                     .addField("**Type**", "> Playing")
                     .addField("**Application**", `> ${name1}`)

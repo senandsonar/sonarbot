@@ -39,7 +39,7 @@ module.exports = {
   if (args.length == 0){ 
         
     const sembed = new MessageEmbed()
-         .setColor(`#faf6f6`)
+         .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}imagemute/imute {member}\n> \n> Usage: Disables a users image perms.\n> \n> Note: If a user is already image muted (file perms) this command will not work.\n> \n> Note 2: Use ${prefix}unmute to return both image and message perms. \`\`\``)
           .setTimestamp()
@@ -52,7 +52,7 @@ module.exports = {
   // overwrites 'SEND_MESSAGES' role, only on this specific channel
   if (channel.permissionOverwrites.get(member.id, { ATTACH_FILES: false })){
     const sembed = new MessageEmbed()
-      .setColor(`#faf6f6`)
+      .setColor(`BLACK`)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**${member.user.tag} Already image muted or is unable to view this channel!** <:senbotcross:730967627916378174> `)
     
@@ -66,7 +66,7 @@ module.exports = {
   channel.updateOverwrite(member.id, { ATTACH_FILES: false, EMBED_LINKS: false });
 
 const sembed = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
    // .setDescription(`**${member}** Muted <:senbotcheck:730967576007671929>`)
     .addField(`**${member.user.tag}** Image Muted In \`#${channel.name}\`<:senbotcheck:730967576007671929>`, `> Image perms have been revoked.`)

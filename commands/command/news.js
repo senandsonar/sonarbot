@@ -31,7 +31,7 @@ module.exports = {
             const articleArr = json.articles;
             let processArticle = article => {
                 const embed = new MessageEmbed()
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .setTitle(article.title)
                     .setURL(article.url)
                     .setAuthor(article.author)

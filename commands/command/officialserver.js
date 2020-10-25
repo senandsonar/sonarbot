@@ -17,7 +17,7 @@ module.exports = {
             prefix = fetched
         }
        	pleEmbed = new Discord.MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setTitle('Click this link to join the official Sonar server!')
     .setURL('https://discord.gg/VbDchG')
 	.setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))

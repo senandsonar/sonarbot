@@ -28,7 +28,7 @@ module.exports = {
         if (n === 1) result = 'Heads';
         else result = 'Tails';
         const embed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setTitle(`Coinflip!`)
             .addField(`> *${message.member.displayName} Flipped a coin!*\n `, `> *The coin landed on* ***${result}*** 💫`,)
             .setTimestamp()

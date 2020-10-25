@@ -34,7 +34,7 @@ module.exports = {
             .addField("**Channel Type**", channel.type)
             .addField("**Channel Description**", `${channel.topic || "No Description"}`)
             .addField("**Channel Created At**", channel.createdAt)
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
         message.channel.send(channelembed);
     }
 }

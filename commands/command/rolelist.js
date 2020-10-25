@@ -36,7 +36,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle("Server Role List")
             .setFooter(message.guild.name, message.guild.iconURL())
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setDescription(`${roles}`)
             .setTimestamp()
 

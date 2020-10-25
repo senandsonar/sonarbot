@@ -25,7 +25,7 @@ module.exports = {
         if(!args[0]){
         
             const sembed = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}urban {query}\n> \n> Usage: Searches for a definition from Urban Dictionary. \`\`\``)
                 .setTimestamp()
@@ -39,7 +39,7 @@ module.exports = {
                 let { word, urbanURL, definition, example, thumbsUp, thumbsDown, author } = res;
 
                 let embed = new MessageEmbed()
-                    .setColor(`#faf6f6`)
+                    .setColor(`BLACK`)
                     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                     .setURL(`${urbanURL}`)
                     .setTitle(`${word}`)

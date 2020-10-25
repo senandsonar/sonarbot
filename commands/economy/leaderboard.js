@@ -15,7 +15,7 @@ module.exports = {
         if (!money.length) {
             let noEmbed = new MessageEmbed()
                 .setAuthor(message.member.displayName, message.author.displayAvatarURL())
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setFooter("Nothing To See Here Yet!")
             return message.channel.send(noEmbed)
         };
@@ -29,7 +29,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle(`Economic Leaderboard`)
-            .setColor("#faf6f6")
+            .setColor("BLACK")
             .setDescription(`\`\`\`css\n${finalLb}\n\`\`\``)
             .setFooter(bot.user.tag, bot.user.displayAvatarURL())
             .setTimestamp()

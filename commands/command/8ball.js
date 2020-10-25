@@ -24,7 +24,7 @@ module.exports = {
         if(!question){
         
             const sembed = new MessageEmbed()
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                 .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}8ball {query}\n> \n> Usage: Plays 8ball. \`\`\``)
                 .setTimestamp()
@@ -59,7 +59,7 @@ module.exports = {
             
             .setTitle(`8Ball!`)
             .setDescription(`Question: ${question}\nMy response: ${response}`)
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             message.channel.send(Embed)
         }
     }

@@ -13,7 +13,7 @@ module.exports = {
 		
 // inside a command, event listener, etc.
 const exampleEmbed = new Discord.MessageEmbed()
-	.setColor(`#faf6f6`)
+	.setColor(`BLACK`)
     .setAuthor(user.user.username, user.user.displayAvatarURL({ dynamic: true }))
     .setTitle('**Info Commands**')
 	//.setTitle('**Do ",setup" to use Sonar to her max potential!**')

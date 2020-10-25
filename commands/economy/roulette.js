@@ -35,15 +35,15 @@ module.exports = {
         let random = Math.floor((Math.random() * 10));
 
         let moneyhelp = new MessageEmbed()
-            .setColor("#faf6f6")
+            .setColor("BLACK")
             .setDescription(`<:senbotcross:730967627916378174> Specify an amount to gamble | ${prefix}roulette <color> <amount>`);
 
         let moneymore = new MessageEmbed()
-            .setColor("#faf6f6")
+            .setColor("BLACK")
             .setDescription(`<:senbotcross:730967627916378174> You are betting more than you have`);
 
         let colorbad = new MessageEmbed()
-            .setColor("#faf6f6")
+            .setColor("BLACK")
             .setDescription(`<:senbotcross:730967627916378174> Specify a color | Red [1.5x] (normal) Black [2x] (hard) Green [15x](rare)`);
 
         if (!colour) return message.channel.send(colorbad);
@@ -56,31 +56,31 @@ module.exports = {
         else if (colour == "g" || colour.includes("green")) colour = 2;
         else return message.channel.send(colorbad);
 
-        if (random == 1 && colour == 2) { // #faf6f6
+        if (random == 1 && colour == 2) { // BLACK
             money *= 15
             db.add(`money_${user.id}`, money)
             let moneyEmbed1 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> You won ${money} coins\n\nMultiplier: 15x`);
             message.channel.send(moneyEmbed1)
         } else if (isOdd(random) && colour == 1) { // Red
             money = parseInt(money * 1.5)
             db.add(`money_${user.id}`, money)
             let moneyEmbed2 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`🔴 You won ${money} coins\n\nMultiplier: 1.5x`);
             message.channel.send(moneyEmbed2)
         } else if (!isOdd(random) && colour == 0) { // Black
             money = parseInt(money * 2)
             db.add(`money_${user.id}`, money)
             let moneyEmbed3 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`⬛ You won ${money} coins\n\nMultiplier: 2x`);
             message.channel.send(moneyEmbed3)
         } else { // Wrong
             db.subtract(`money_${user.id}`, money)
             let moneyEmbed4 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You lost ${money} coins\n\nMultiplier: 0x`);
             message.channel.send(moneyEmbed4)
         }

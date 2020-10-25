@@ -29,7 +29,7 @@ module.exports = {
         if (args.length == 0){
         
         const sembed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
             .setTimestamp()
@@ -52,7 +52,7 @@ module.exports = {
         if (args.length == 1){
         
             const sembed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[addrole|ar] {member} {role name}\n> \n> Usage: Adds a role to a user.\`\`\``)
             .setTimestamp()
@@ -67,7 +67,7 @@ module.exports = {
         if (!rMember.roles.cache.has(role.id)) await rMember.roles.add(role.id);
         try{
         var sembed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`> The role \`${role.name}\` has been added to ${rMember.user.username} <:senbotcheck:730967576007671929> `)
             .setTimestamp()

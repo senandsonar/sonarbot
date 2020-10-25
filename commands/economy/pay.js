@@ -28,14 +28,14 @@ try {
     let member = db.fetch(`money_${user2.id}`);
 
     let embed1 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcross:730967627916378174> Mention someone to pay`);
 
     if (!args[0]) {
       return message.channel.send(embed1);
     }
     let embed2 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcross:730967627916378174> You cannot pay yourself`);
 
     if (user.user.id === message.author.id) {
@@ -43,21 +43,21 @@ try {
     }
 
     let embed3 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcross:730967627916378174> Specify an amount to pay`);
 
     if (!args[1]) {
       return message.channel.send(embed3);
     }
     let embed4 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcross:730967627916378174> Enter A Valid Amount!`);
 
     if (isNaN(args[1])) {
       return message.channel.send(embed4);
     }
     let embed5 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcross:730967627916378174> You don't have that much money`);
 
     if (member < args[1]) {
@@ -65,7 +65,7 @@ try {
     }
 
     let embed6 = new MessageEmbed()
-      .setColor("#faf6f6")
+      .setColor("BLACK")
       .setDescription(`<:senbotcheck:730967576007671929> You have payed ${user.displayName} ${args[1]} coins`);
 
     message.channel.send(embed6);

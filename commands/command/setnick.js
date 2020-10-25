@@ -31,7 +31,7 @@ module.exports = {
         switch (args.length) {
             case 0:
                 sembed
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
@@ -39,7 +39,7 @@ module.exports = {
                break;
             case 1:PREFIX
                 sembed
-                .setColor(`#faf6f6`)
+                .setColor(`BLACK`)
                  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
                  .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[setnick|snick] {user} {new nickname}\n> \n> Usage: Changes a users nickname. \`\`\``)
                  .setTimestamp()
@@ -57,7 +57,7 @@ module.exports = {
         try {
         member.setNickname(nick)
         const embed = new MessageEmbed()
-            .setColor(`#faf6f6`)
+            .setColor(`BLACK`)
             .setDescription(`> **Changed Nickname of \`${member.displayName}\` to \`${nick}\`**`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setTimestamp()

@@ -39,7 +39,7 @@ module.exports = {
     if(!args[1]){
         
       const sembed = new MessageEmbed()
-          .setColor(`#faf6f6`)
+          .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
           .setTimestamp()
@@ -56,7 +56,7 @@ module.exports = {
     if(!reason) {
         
       const sembed = new MessageEmbed()
-          .setColor(`#faf6f6`)
+          .setColor(`BLACK`)
           .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
           .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}jail {member} {reason}\n> \n> Usage: Jails a user. \`\`\``)
           .setTimestamp()
@@ -75,7 +75,7 @@ module.exports = {
     
     
     const sembed3 = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.guild.name, message.guild.iconURL())
     .addFields(
         { name: `**${member.user.tag} has been jailed.**`, value: '> Successfully sent Jail message. <:senbotcheck:730967576007671929>' },
@@ -83,7 +83,7 @@ module.exports = {
     .addField(`Jail Assigned By:`, `> ${message.author}`)
 
     const sembed4 = new MessageEmbed()
-    .setColor(`#faf6f6`)
+    .setColor(`BLACK`)
     .setAuthor(message.guild.name, message.guild.iconURL())
     .addFields(
         { name: `**${member.user.tag} has been jailed.**`, value: '> Failed to send Jail message. <:senbotcross:730967627916378174>' },

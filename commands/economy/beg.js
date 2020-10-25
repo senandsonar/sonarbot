@@ -23,12 +23,12 @@ module.exports = {
             let time = ms(timeout - (Date.now() - beg));
 
             let timeEmbed = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You've already begged recently\n\nBeg again in ${time.minutes}m ${time.seconds}s `);
             message.channel.send(timeEmbed)
         } else {
             let moneyEmbed = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> You've begged and received ${amount} coins`);
             message.channel.send(moneyEmbed)
             db.add(`money_${user.id}`, amount)

@@ -23,7 +23,7 @@ module.exports={
             if (user.user.bot) return message.channel.send(`**Bot's Dont Have XP Level!**`);
 
             let guildMessages = db.fetch(`guildMessages_${message.guild.id}`)
-            if (guildMessages === null) return message.channel.send(`**Level Up Messages Are Currently Disabled!\n\`${prefix}enablexp\` To Enable**`);
+            if (guildMessages === null) return message.channel.send(`**Level Up Messages Are Currently Disabled!\nUse \`${prefix}config enablexp/exp\` To Enable**`);
 
             let xp = db.fetch(`messages_${message.guild.id}_${user.id}`)
             let lvl = db.fetch(`level_${message.guild.id}_${user.id}`)
@@ -38,7 +38,7 @@ module.exports={
 
             const embed = new MessageEmbed()
                 .setTitle(`**${user.displayName}'s Level Information**`)
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`**Current Level - \`${curlvl}\` | Total XP - \`${curxp - 1}\`
                     Needed XP To Reach Next Level - \`${difference2 + 1}\`**
                     `)

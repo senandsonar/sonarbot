@@ -20,7 +20,7 @@ module.exports = {
             let money = await db.fetch(`money_${user.id}`)
 
             let embedbank = new MessageEmbed()
-                .setColor('#faf6f6')
+                .setColor('BLACK')
                 .setDescription("<:senbotcross:730967627916378174> You don't have any money to deposit")
 
             if (!money) return message.channel.send(embedbank)
@@ -28,14 +28,14 @@ module.exports = {
             db.subtract(`money_${user.id}`, money)
             db.add(`bank_${user.id}`, money)
             let sembed = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> You have deposited all your coins into your bank`);
             message.channel.send(sembed)
 
         } else {
 
             let embed2 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> Specify an amount to deposit`);
 
             if (!args[0]) {
@@ -43,7 +43,7 @@ module.exports = {
                     .catch(err => message.channel.send(err.message))
             }
             let embed6 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> Your Amount Is Not A Number!`)
 
             if(isNaN(args[0])) {
@@ -51,14 +51,14 @@ module.exports = {
             
             }
             let embed3 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You can't deposit negative money`);
 
             if (message.content.includes('-')) {
                 return message.channel.send(embed3)
             }
             let embed4 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcross:730967627916378174> You don't have that much money`);
 
             if (member < args[0]) {
@@ -66,7 +66,7 @@ module.exports = {
             }
 
             let embed5 = new MessageEmbed()
-                .setColor("#faf6f6")
+                .setColor("BLACK")
                 .setDescription(`<:senbotcheck:730967576007671929> You have deposited ${args[0]} coins into your bank`);
 
             message.channel.send(embed5)

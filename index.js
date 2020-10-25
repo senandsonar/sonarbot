@@ -172,44 +172,10 @@ fs.readdir('./events/', (err, files) => {
             return;
         };
     });
-    client.on('messageReactionAdd', (reaction, user, message) => {
-        const eggsa = client.emojis.find(emoji => emoji.name === '12smile');
-        if (reaction.emoji.name === 'eggsa') {
-            const msg = reaction.message;
-            const guild = msg.guild;
-            const guildMembers = guild.members;
-            const guildMember = guildMembers.get(user.id);
-            const message = reaction.message;
-            const kanal = reaction.message.guild.channels.find('name', 'sitater');
-            const blembed = new Discord.RichEmbed()
-                .setDescription(message.content)
-                .setTimestamp()
-                .setFooter(message.author.username, reaction.message.author.avatarURL);
-    
-            if (message.attachments.size !== 0) {
-                embed.setImage(message.attachments.first().url);
-            }
-    
-            kanal.send(blembed);
-        }
-    });
-    client.on('message', async message => {
+   
   
-        try {
-            const hasText = Boolean(message.content);
-            const hasImage = message.attachments.size !== 0;
-            const hasEmbed = message.embeds.length !== 0;
-            if (message.author.bot || (!hasText && !hasImage && !hasEmbed)) return;
-            const origin = bot.phone.find(call => call.origin.id === message.channel.id);
-            const recipient = bot.phone.find(call => call.recipient.id === message.channel.id);
-            if (!origin && !recipient) return;
-            const call = origin || recipient;
-            if (!call.active) return;
-            await call.send(origin ? call.recipient : call.origin, message, hasText, hasImage, hasEmbed);
-        } catch {
-            return;
-        };
-    });
+        
+    
     
     client.on('guildMemberAdd', async(member, message, bot, args) => {
     
