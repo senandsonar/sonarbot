@@ -33,7 +33,8 @@ module.exports = {
              .setDescription(`**Invalid Operation** <:senbotcross:730967627916378174>  \n> \`\`\`Syntax: ${prefix}[removerole|rr] {member} {role name}\n> \n> Usage: Removes a role from a user. \`\`\``)
              .setTimestamp()
             message.channel.send(sembed);
-            }  let rMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
+            }
+              let rMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
         if (!rMember){
         
             const sembed = new MessageEmbed()
@@ -52,11 +53,7 @@ module.exports = {
             .setTimestamp()
            message.channel.send(sembed);
          
-try{
-     } catch (e) {
-          return message.channel.send(`**hi**`)
-      }
-    }
+
         let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(rp => rp.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
         
         //if (!role) return message.channel.send("**Couldn't Find That Role**");
@@ -68,12 +65,12 @@ try{
         if (!rMember.roles.cache.has(role.id)) return message.channel.send("\`\`\`User Doesnt Have That Role!\`\`\`")
         if (rMember.roles.cache.has(role.id)) await (rMember.roles.remove(role.id));
 
-        const sembed = new MessageEmbed()
+        const sembed2 = new MessageEmbed()
             .setColor(`BLACK`)
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(`> The role \`${role.name}\` has been removed from ${rMember.user.username} <:senbotcheck:730967576007671929> `)
             .setTimestamp()
-        message.channel.send(sembed);
+        message.channel.send(sembed2);
 
         let channel = db.fetch(`modlog_${message.guild.id}`)
         if (!channel) return;
@@ -96,4 +93,4 @@ try{
 
         
     }
-}
+}}

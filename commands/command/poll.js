@@ -34,17 +34,20 @@ module.exports = {
                 return message.channel.send(sembed);
                 }
             
-PREFIX
-        const embed = new MessageEmbed()
+
+
+
+
+        const embd = new MessageEmbed()
             .setColor(`BLACK`)
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
             .addField(`Poll started in  ${message.channel.name} 📊 `,"*> " + (args.join('  ') + "* ")  )
-        var msg = await message.channel.send(embed);
+            .addField(`Yes: 1`)
+            .addField(`No: 1`)
         message.delete({ timeout: 3000 });
 
-        await msg.react('730967576007671929');
-        await msg.react('730967627916378174');
+        message.channel.send(embd).then(embdReact => {
+            embdReact.react('730967576007671929');
+            embdReact.react('730967627916378174');
 
-        
-    }
-}
+        })}}

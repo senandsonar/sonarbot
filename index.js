@@ -25,6 +25,29 @@ config({
     path: `${__dirname}/.env`
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ['command'].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
@@ -251,6 +274,11 @@ const diffDayss = Math.round(Math.abs((today - joined) / oneDay));
             if (!sChannel) return;
             sChannel.send(embed)
     })
+
+
+    
+
+	
 client.login(TOKEN);
 
 

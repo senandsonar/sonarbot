@@ -8,7 +8,8 @@ const db = require('quick.db');
 module.exports = {
     name: "8ball",
     description: "Plays the 8ball game.",
-    cooldown: 5,
+
+        
     category: "fun",
     run: async(bot, message, args) => {
 		let prefix;

@@ -9,7 +9,7 @@ module.exports = {
         name: "advancedweather",
         aliases: ['aweather'],
         category: "info",
-        cooldown: 5,
+            
         description: "Shows weather of a city",
         accessableby: "everyone",
     
